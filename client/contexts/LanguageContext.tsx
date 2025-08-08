@@ -18,14 +18,15 @@ const translations = {
     'nav.locations': 'Locations',
     
     // Homepage
-    'hero.tagline': 'Burgers. But flatter.',
-    'hero.subtitle': 'Flat Burger keeps it real. No fuss, no fake stuff. Just premium beef pressed flat and cooked right.',
+    'hero.tagline': 'Burger. But flatter.',
+    'hero.taglineSecond': 'Made in Belgrade streets.',
+    'hero.subtitle': 'Nothing fake. Just fire in a bun.',
     'hero.cta': 'TASTE THE FIRE',
     'hero.scrollDown': 'Scroll',
     
     // About Us
-    'about.title': 'FLAT BURGER STORY',
-    'about.description': 'Started in Belgrade with one mission: perfect the flat burger. We press each patty thin, sear it hot, and stack it high. Every Flat Burger is made fresh with quality ingredients. Simple concept, serious flavor.',
+    'about.title': 'MADE IN BELGRADE',
+    'about.description': 'Made in Belgrade. Built for the street. We smash, we stack, we flatten — and we keep it real. No fluff, no boring combos — just pure fire in a bun. Raw energy, maximum taste.',
     
     // Menu
     'menu.title': 'THE LINEUP',
@@ -69,8 +70,9 @@ const translations = {
     'nav.locations': 'Lokacije',
     
     // Homepage
-    'hero.tagline': 'Burgeri. Ali ravni.',
-    'hero.subtitle': 'Flat Burger drži se realnosti. Bez foliranja, bez lažnih sastojaka. Samo kvalitetna govedina spljoštena i pečena kako treba.',
+    'hero.tagline': 'Burger. Ali ravni.',
+    'hero.taglineSecond': 'Pravljeno na beogradskim ulicama.',
+    'hero.subtitle': 'Bez blajve. Samo vatra u lepinj.',
     'hero.cta': 'OKUSI VATRU',
     'hero.scrollDown': 'Skroluj',
     
