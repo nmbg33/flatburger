@@ -33,22 +33,18 @@ const translations = {
     'menu.addOns': 'LEVEL UP',
     
     // Burgers
-    'burger.classic.name': 'THE CLASSIC',
+    'burger.classic.name': 'Classic',
     'burger.classic.description': 'Smashed beef, aged cheddar, house pickles, Flat sauce that slaps',
-    'burger.fancy.name': 'FANCY ONE',
+    'burger.fancy.name': 'Fancy',
     'burger.fancy.description': 'Double smash, truffle mayo, fresh arugula — bougie but worth it',
-    'burger.pyro.name': 'PYRO',
+    'burger.pyro.name': 'Pyro',
     'burger.pyro.description': 'Spicy AF — beef, jalapenos, chipotle that will make you sweat',
-    'burger.baconJam.name': 'BACON JAM',
+    'burger.baconJam.name': 'Bacon Jam',
     'burger.baconJam.description': 'Crispy bacon, sweet onion jam, melted cheddar — pure vibes',
-    'burger.alabama.name': 'ALABAMA CRISPY',
-    'burger.alabama.description': 'Fried chicken, fresh slaw, white BBQ sauce — Southern heat',
-    'burger.chickenFlat.name': 'CHICKEN FLAT',
-    'burger.chickenFlat.description': 'Grilled chicken, crisp lettuce, tomato, our signature flat kick',
     
     // Add-ons
-    'addon.sweetPotato': 'Sweet Potato Fries',
-    'addon.fries': 'Classic Fries',
+    'addon.batat': 'Batat',
+    'addon.pomfrit': 'Pomfrit',
     'addon.onionRings': 'Onion Rings',
     
     // Locations
@@ -88,22 +84,18 @@ const translations = {
     'menu.addOns': 'POJAČAJ',
     
     // Burgers
-    'burger.classic.name': 'KLASIK',
+    'burger.classic.name': 'Classic',
     'burger.classic.description': 'Splaškana govedina, stari čedar, domaće kiselice, Flat sos koji ubija',
-    'burger.fancy.name': 'FENSI',
+    'burger.fancy.name': 'Fancy',
     'burger.fancy.description': 'Dupli splask, tartufo majonez, sveža rukola — skupo al vredi',
-    'burger.pyro.name': 'PIRO',
+    'burger.pyro.name': 'Pyro',
     'burger.pyro.description': 'Ljuto ko đavo — govedina, halapeño, čipotle koji će te znojiti',
-    'burger.baconJam.name': 'SLANINA DŽEM',
+    'burger.baconJam.name': 'Bacon Jam',
     'burger.baconJam.description': 'Hrskava slanina, slatki džem od luka, topljeni čedar — čist užitak',
-    'burger.alabama.name': 'ALABAMA HRSKAVA',
-    'burger.alabama.description': 'Pohovana piletina, sveži kupus, beli BBQ sos — južnjačka vatra',
-    'burger.chickenFlat.name': 'PILETINA FLAT',
-    'burger.chickenFlat.description': 'Piletina sa roštilja, hrskava salata, paradajz, naš flat kick',
     
     // Add-ons
-    'addon.sweetPotato': 'Batat Pomfrit',
-    'addon.fries': 'Pomfrit',
+    'addon.batat': 'Batat',
+    'addon.pomfrit': 'Pomfrit',
     'addon.onionRings': 'Kolutići Luka',
     
     // Locations
