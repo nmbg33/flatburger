@@ -19,13 +19,13 @@ const translations = {
     
     // Homepage
     'hero.tagline': 'Burgers. But flatter.',
-    'hero.subtitle': 'Zero BS. Pure heat between bread.',
+    'hero.subtitle': 'Flat Burger keeps it real. No fuss, no fake stuff. Just premium beef pressed flat and cooked right.',
     'hero.cta': 'TASTE THE FIRE',
     'hero.scrollDown': 'Scroll',
     
     // About Us
-    'about.title': 'MADE IN BELGRADE',
-    'about.description': 'Born in Belgrade. Built for the streets. We smash, we stack, we flatten — then we serve it up hot. No pretenders, no weak sauce. Just real heat that hits different. Street smart. Flavor forward.',
+    'about.title': 'FLAT BURGER STORY',
+    'about.description': 'Started in Belgrade with one mission: perfect the flat burger. We press each patty thin, sear it hot, and stack it high. Every Flat Burger is made fresh with quality ingredients. Simple concept, serious flavor.',
     
     // Menu
     'menu.title': 'THE LINEUP',
@@ -70,13 +70,13 @@ const translations = {
     
     // Homepage
     'hero.tagline': 'Burgeri. Ali ravni.',
-    'hero.subtitle': 'Nula foliranja. Čista vatra u lepinj.',
+    'hero.subtitle': 'Flat Burger drži se realnosti. Bez foliranja, bez lažnih sastojaka. Samo kvalitetna govedina spljoštena i pečena kako treba.',
     'hero.cta': 'OKUSI VATRU',
     'hero.scrollDown': 'Skroluj',
     
     // About Us
-    'about.title': 'PRAVLJENO U BEOGRADU',
-    'about.description': 'Pravljeno u Beogradu. Napravljeno za ulicu. Mi meljemo, mi slagamo, mi spljoštujemo — i držimo se realnosti. Bez glume, bez dosadnih kombinacija — samo čista vatra u lepinj. Sirova energija, maksimalan ukus.',
+    'about.title': 'FLAT BURGER PRIČA',
+    'about.description': 'Pokrenuli smo u Beogradu sa jednim ciljem: usavršiti ravni burger. Svaku plješcu pritiskamo tanko, pečemo vruće i slagamo visoko. Svaki Flat Burger je svež napravljen od kvalitetnih sastojaka. Jednostavan koncept, ozbiljan ukus.',
     
     // Menu
     'menu.title': 'POSTAVA',
@@ -89,7 +89,7 @@ const translations = {
     'burger.fancy.name': 'Fancy',
     'burger.fancy.description': 'Duplo meso, tartufo majonez, sveža rukola — skupo ali vredi',
     'burger.pyro.name': 'Pyro',
-    'burger.pyro.description': 'Ljuto do bola — govedina, halapeño, čipotle koji će te znojiti',
+    'burger.pyro.description': 'Ljuto do bola ��� govedina, halapeño, čipotle koji će te znojiti',
     'burger.baconJam.name': 'Bacon Jam',
     'burger.baconJam.description': 'Hrskava slanina, slatki džem od luka, topljeni čedar — čist užitak',
     

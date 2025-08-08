@@ -41,16 +41,16 @@ export const UpdatedNavigation: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <FlatBurgerIcon 
-              size={isScrolled ? 'sm' : 'md'} 
-              className="transition-all duration-300" 
+            <FlatBurgerIcon
+              size={isScrolled ? 'sm' : 'md'}
+              className="transition-all duration-300 w-8 h-8 sm:w-10 sm:h-10"
             />
             <div className={`transition-all duration-300 ${
               isScrolled ? 'scale-90' : 'scale-100'
             }`}>
-              <FlatBurgerWordmark 
-                width={isScrolled ? 100 : 120} 
-                className="hidden sm:block" 
+              <FlatBurgerWordmark
+                width={isScrolled ? 80 : 100}
+                className="hidden sm:block"
               />
             </div>
           </Link>
