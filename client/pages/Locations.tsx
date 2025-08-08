@@ -25,47 +25,55 @@ export const Locations: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-flat-cream pt-24 pb-12">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-flat-cream pt-24 pb-12 relative overflow-hidden">
+      {/* Background Moving Text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="text-[15vw] font-black text-flat-blue/5 whitespace-nowrap animate-slide-right">
+          LOCATIONS LOCATIONS LOCATIONS
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-flat-blue mb-4 tracking-wider uppercase">
+        <div className="text-center mb-16">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-flat-blue mb-4 leading-tight">
             {t('locations.title')}
           </h1>
         </div>
 
         {/* Locations Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {locations.map((location) => (
-            <div 
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {locations.map((location, index) => (
+            <div
               key={location.id}
-              className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 animate-scroll-reveal"
+              style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Location Name */}
-              <h3 className="text-2xl font-black text-flat-blue mb-4 tracking-wider uppercase">
+              <h3 className="text-4xl font-black text-flat-blue mb-6 tracking-tight">
                 {t(location.nameKey)}
               </h3>
 
               {/* Address */}
-              <div className="flex items-center mb-3 text-flat-dark">
-                <MapPin size={20} className="mr-3 text-flat-blue" />
-                <span>{location.address}</span>
+              <div className="flex items-center mb-4 text-flat-dark text-lg">
+                <MapPin size={24} className="mr-4 text-flat-blue" />
+                <span className="font-medium">{location.address}</span>
               </div>
 
               {/* Hours */}
-              <div className="flex items-center mb-3 text-flat-dark">
-                <Clock size={20} className="mr-3 text-flat-blue" />
-                <span>{location.hours}</span>
+              <div className="flex items-center mb-4 text-flat-dark text-lg">
+                <Clock size={24} className="mr-4 text-flat-blue" />
+                <span className="font-medium">{location.hours}</span>
               </div>
 
               {/* Phone */}
-              <div className="flex items-center mb-6 text-flat-dark">
-                <Phone size={20} className="mr-3 text-flat-blue" />
-                <span>{location.phone}</span>
+              <div className="flex items-center mb-8 text-flat-dark text-lg">
+                <Phone size={24} className="mr-4 text-flat-blue" />
+                <span className="font-medium">{location.phone}</span>
               </div>
 
               {/* Order Button */}
-              <button className="w-full bg-flat-blue text-flat-cream py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-colors duration-300">
+              <button className="w-full bg-flat-blue text-flat-cream py-4 rounded-full text-xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105">
                 {t('locations.orderNow')}
               </button>
             </div>
@@ -73,12 +81,12 @@ export const Locations: React.FC = () => {
         </div>
 
         {/* Map Placeholder */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-            <div className="text-center text-gray-500">
-              <MapPin size={48} className="mx-auto mb-4" />
-              <p className="text-lg font-semibold">Interactive Map Coming Soon</p>
-              <p className="text-sm">Google Maps integration will be added here</p>
+        <div className="mt-20 max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-flat-blue/20 to-flat-blue/10 rounded-3xl h-96 flex items-center justify-center border-4 border-dashed border-flat-blue/30">
+            <div className="text-center text-flat-blue">
+              <MapPin size={64} className="mx-auto mb-6" />
+              <p className="text-2xl font-black mb-2">Interactive Map Coming Soon</p>
+              <p className="text-lg font-medium">Google Maps integration will be added here</p>
             </div>
           </div>
         </div>
