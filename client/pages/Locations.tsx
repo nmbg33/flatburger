@@ -6,18 +6,10 @@ const locations = [
   {
     id: 'dorcol',
     nameKey: 'locations.dorcol',
-    address: 'Dobračina 4, Beograd',
+    address: 'Dobračina 4, Belgrade',
     hours: '10:00 - 23:00',
     phone: '+381 11 123 4567',
     coords: { lat: 44.8176, lng: 20.4633 }
-  },
-  {
-    id: 'vracar',
-    nameKey: 'locations.vracar', 
-    address: 'Njegoševa 10, Beograd',
-    hours: '10:00 - 23:00',
-    phone: '+381 11 765 4321',
-    coords: { lat: 44.8092, lng: 20.4726 }
   }
 ];
 
@@ -40,8 +32,8 @@ export const Locations: React.FC = () => {
           </h1>
         </div>
 
-        {/* Locations Grid */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        {/* Location */}
+        <div className="max-w-2xl mx-auto">
           {locations.map((location, index) => (
             <div
               key={location.id}
