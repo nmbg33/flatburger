@@ -13,26 +13,11 @@ export const PrettyPattyStyleHero: React.FC = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-flat-cream">
-      {/* Pretty Patty-style animated background text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        {/* Multiple layers of scrolling text like Pretty Patty */}
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <div className="text-[25vw] font-black text-flat-blue/5 whitespace-nowrap animate-scroll-right-slow">
-            FLAT BURGER FLAT BURGER FLAT BURGER FLAT BURGER
-          </div>
-        </div>
-        
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center transform translate-y-24">
-          <div className="text-[20vw] font-black text-flat-blue/3 whitespace-nowrap animate-scroll-left-slow">
-            BELGRADE BELGRADE BELGRADE BELGRADE
-          </div>
-        </div>
-        
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center transform -translate-y-24">
-          <div className="text-[15vw] font-black text-flat-blue/2 whitespace-nowrap animate-scroll-right-fast">
-            FIRE FIRE FIRE FIRE FIRE FIRE FIRE
-          </div>
-        </div>
+      {/* Clean background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-blue animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-flat-blue animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/6 w-16 h-16 rounded-full bg-flat-blue animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Content overlay */}
@@ -80,12 +65,6 @@ export const PrettyPattyStyleHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Pretty Patty-style sticker */}
-      <div className="absolute top-8 right-8 md:top-12 md:right-12 z-20">
-        <div className="bg-flat-blue text-flat-cream px-4 py-2 rounded-full transform rotate-12 shadow-lg">
-          <span className="text-sm font-black tracking-wider uppercase">STREET</span>
-        </div>
-      </div>
 
       {/* Scroll indicator like Pretty Patty */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
