@@ -1,14 +1,14 @@
 import React from 'react';
-import { HeroSection } from '../components/HeroSection';
-import { AboutSection } from '../components/AboutSection';
-import { MenuSection } from '../components/MenuSection';
+import { PrettyPattyHero } from '../components/PrettyPattyHero';
+import { PrettyPattyAbout } from '../components/PrettyPattyAbout';
+import { PrettyPattyMenu } from '../components/PrettyPattyMenu';
 
 export default function Index() {
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <MenuSection />
+      <PrettyPattyHero />
+      <PrettyPattyAbout />
+      <PrettyPattyMenu />
     </>
   );
 }
