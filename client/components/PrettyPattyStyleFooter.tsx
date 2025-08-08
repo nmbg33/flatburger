@@ -13,18 +13,10 @@ export const PrettyPattyStyleFooter: React.FC = () => {
 
   return (
     <footer className="bg-flat-dark text-flat-cream py-20 relative overflow-hidden">
-      {/* Pretty Patty-style animated background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-          <div className="text-[18vw] font-black text-flat-cream/5 whitespace-nowrap animate-scroll-right-slow">
-            FLAT BURGER FLAT BURGER
-          </div>
-        </div>
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center transform translate-y-12">
-          <div className="text-[12vw] font-black text-flat-cream/3 whitespace-nowrap animate-scroll-left-slow">
-            BELGRADE STREET FOOD
-          </div>
-        </div>
+      {/* Clean background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-cream animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-flat-cream animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -101,18 +93,6 @@ export const PrettyPattyStyleFooter: React.FC = () => {
         </div>
       </div>
 
-      {/* Pretty Patty-style corner stickers */}
-      <div className="absolute top-8 left-8 z-20">
-        <div className="bg-flat-blue text-flat-cream px-3 py-2 rounded-full transform -rotate-12 shadow-lg">
-          <span className="text-xs font-black tracking-wider uppercase">STREET</span>
-        </div>
-      </div>
-      
-      <div className="absolute top-8 right-8 z-20">
-        <div className="bg-flat-cream text-flat-blue px-3 py-2 rounded-full transform rotate-12 shadow-lg">
-          <span className="text-xs font-black tracking-wider uppercase">BELGRADE</span>
-        </div>
-      </div>
     </footer>
   );
 };
