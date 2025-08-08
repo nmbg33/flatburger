@@ -43,8 +43,8 @@ const translations = {
     'burger.baconJam.description': 'Crispy bacon, sweet onion jam, melted cheddar — pure vibes',
     
     // Add-ons
-    'addon.batat': 'Batat',
     'addon.pomfrit': 'Pomfrit',
+    'addon.batat': 'Batat',
     'addon.onionRings': 'Onion Rings',
     
     // Locations
@@ -94,8 +94,8 @@ const translations = {
     'burger.baconJam.description': 'Hrskava slanina, slatki džem od luka, topljeni čedar — čist užitak',
     
     // Add-ons
-    'addon.batat': 'Batat',
     'addon.pomfrit': 'Pomfrit',
+    'addon.batat': 'Batat',
     'addon.onionRings': 'Kolutići Luka',
     
     // Locations
