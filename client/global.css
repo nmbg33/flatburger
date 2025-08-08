@@ -9,7 +9,7 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    --background: 0 0% 100%;
+    --background: 45 29% 97%; /* Flat Burger cream background */
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -18,8 +18,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 228 91% 52%; /* Flat Burger royal blue */
+    --primary-foreground: 45 29% 97%; /* Cream text on blue */
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
