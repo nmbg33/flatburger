@@ -75,28 +75,28 @@ const translations = {
     'hero.scrollDown': 'Skroluj',
     
     // About Us
-    'about.title': 'ROĐENI U BEOGRADU',
-    'about.description': 'Mi spljoštimo, mi slagečimo, mi držimo pravo. Nema blajve, nema dosadnih kombinacija — samo čista vatra u lepinj. Rođeni u Beogradu, pravljeni za ulice. Sirova energija, nula sranja.',
+    'about.title': 'PRAVLJENO U BEOGRADU',
+    'about.description': 'Pravljeno u Beogradu. Napravljeno za ulicu. Mi meljemo, mi slagamo, mi spljoštujemo — i držimo se realnosti. Bez glume, bez dosadnih kombinacija — samo čista vatra u lepinj. Sirova energija, maksimalan ukus.',
     
     // Menu
-    'menu.title': 'VATRA',
-    'menu.subtitle': 'Svaki udara drugačije',
-    'menu.addOns': 'PRILOZI KOJI UDARAJU',
+    'menu.title': 'POSTAVA',
+    'menu.subtitle': 'Svaki pogađa drugačije',
+    'menu.addOns': 'DODACI',
     
     // Burgers
     'burger.classic.name': 'Classic',
-    'burger.classic.description': 'Splaškana govedina, stari čedar, domaće kiselice, Flat sos koji ubija',
+    'burger.classic.description': 'Spljoštena govedina, odležali čedar, domaće kiselice, Flat sos koji rešava',
     'burger.fancy.name': 'Fancy',
-    'burger.fancy.description': 'Dupli splask, tartufo majonez, sveža rukola — skupo al vredi',
+    'burger.fancy.description': 'Duplo meso, tartufo majonez, sveža rukola — skupo ali vredi',
     'burger.pyro.name': 'Pyro',
-    'burger.pyro.description': 'Ljuto ko đavo — govedina, halapeño, čipotle koji će te znojiti',
+    'burger.pyro.description': 'Ljuto do bola — govedina, halapeño, čipotle koji će te znojiti',
     'burger.baconJam.name': 'Bacon Jam',
     'burger.baconJam.description': 'Hrskava slanina, slatki džem od luka, topljeni čedar — čist užitak',
     
     // Add-ons
     'addon.pomfrit': 'Pomfrit',
     'addon.batat': 'Batat',
-    'addon.onionRings': 'Kolutići Luka',
+    'addon.onionRings': 'Kolutići luka',
     
     // Locations
     'locations.title': 'DOĐI KOD NAS',
