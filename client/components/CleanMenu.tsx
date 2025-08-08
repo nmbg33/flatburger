@@ -145,8 +145,8 @@ export const CleanMenu: React.FC = () => {
           
           <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
             {[
-              { key: 'addon.sweetPotato', price: 390 },
-              { key: 'addon.fries', price: 290 },
+              { key: 'addon.batat', price: 390 },
+              { key: 'addon.pomfrit', price: 290 },
               { key: 'addon.onionRings', price: 350 }
             ].map((addon, index) => (
               <div 
