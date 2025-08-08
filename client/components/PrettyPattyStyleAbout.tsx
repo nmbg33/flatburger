@@ -29,11 +29,10 @@ export const PrettyPattyStyleAbout: React.FC = () => {
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center py-20 px-4 bg-flat-blue relative overflow-hidden"
     >
-      {/* Pretty Patty-style background text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-[20vw] font-black text-flat-cream/5 whitespace-nowrap animate-scroll-right-slow">
-          BELGRADE BELGRADE BELGRADE
-        </div>
+      {/* Clean background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-1/4 right-1/6 w-40 h-40 border-4 border-flat-cream rounded-full"></div>
+        <div className="absolute bottom-1/3 left-1/6 w-24 h-24 border-4 border-flat-cream rounded-full"></div>
       </div>
 
       {/* Content */}
@@ -74,12 +73,6 @@ export const PrettyPattyStyleAbout: React.FC = () => {
         </div>
       </div>
 
-      {/* Pretty Patty-style sticker */}
-      <div className="absolute bottom-12 right-8 md:bottom-16 md:right-12 z-20">
-        <div className="bg-flat-cream text-flat-blue px-4 py-2 rounded-full transform rotate-6 shadow-lg">
-          <span className="text-sm font-black tracking-wider uppercase">REAL</span>
-        </div>
-      </div>
     </section>
   );
 };
