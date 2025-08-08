@@ -2,82 +2,110 @@ import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { MapPin, Clock, Phone } from 'lucide-react';
 
-const locations = [
-  {
-    id: 'dorcol',
-    nameKey: 'locations.dorcol',
-    address: 'Dobračina 4, Belgrade',
-    hours: '10:00 - 23:00',
-    phone: '+381 11 123 4567',
-    coords: { lat: 44.8176, lng: 20.4633 }
-  }
-];
-
 export const Locations: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-flat-cream pt-24 pb-12 relative">
-      {/* Clean background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-blue animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-flat-blue animate-pulse" style={{animationDelay: '1s'}}></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <div className="min-h-screen bg-flat-cream pt-24 pb-12">
+      <div className="container mx-auto px-4">
         {/* Title */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight">
             {t('locations.title')}
           </h1>
+          <p className="text-xl md:text-2xl text-flat-dark/70 font-medium">
+            Made in Belgrade. Built for the street.
+          </p>
         </div>
 
-        {/* Location */}
-        <div className="max-w-2xl mx-auto">
-          {locations.map((location, index) => (
-            <div
-              key={location.id}
-              className="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
-            >
-              {/* Location Name */}
-              <h3 className="text-4xl font-black text-flat-blue mb-6 tracking-tight">
-                {t(location.nameKey)}
-              </h3>
+        {/* Location Card */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500">
+            {/* Location Name */}
+            <h3 className="text-4xl font-black text-flat-blue mb-8 tracking-tight text-center">
+              Flat Burger Dorćol
+            </h3>
 
-              {/* Address */}
-              <div className="flex items-center mb-4 text-flat-dark text-lg">
-                <MapPin size={24} className="mr-4 text-flat-blue" />
-                <span className="font-medium">{location.address}</span>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Location Details */}
+              <div className="space-y-6">
+                {/* Address */}
+                <div className="flex items-start space-x-4">
+                  <MapPin size={24} className="text-flat-blue mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-flat-dark mb-1">Address</h4>
+                    <p className="text-flat-dark/80 text-lg">
+                      Dobračina 4<br />
+                      Belgrade, Serbia
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hours */}
+                <div className="flex items-start space-x-4">
+                  <Clock size={24} className="text-flat-blue mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-flat-dark mb-1">Working Hours</h4>
+                    <p className="text-flat-dark/80">
+                      Monday - Sunday<br />
+                      10:00 - 23:00
+                    </p>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="flex items-start space-x-4">
+                  <Phone size={24} className="text-flat-blue mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-flat-dark mb-1">Phone</h4>
+                    <p className="text-flat-dark/80">
+                      <a href="tel:+38111234567" className="hover:text-flat-blue transition-colors">
+                        +381 11 123 4567
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Order Button */}
+                <div className="pt-4">
+                  <button className="w-full bg-flat-blue text-flat-cream py-4 rounded-full text-xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    {t('locations.orderNow')}
+                  </button>
+                </div>
               </div>
 
-              {/* Hours */}
-              <div className="flex items-center mb-4 text-flat-dark text-lg">
-                <Clock size={24} className="mr-4 text-flat-blue" />
-                <span className="font-medium">{location.hours}</span>
+              {/* Map Section */}
+              <div className="bg-gray-100 rounded-2xl h-80 flex items-center justify-center">
+                <div className="text-center text-flat-blue">
+                  <MapPin size={48} className="mx-auto mb-4" />
+                  <p className="text-lg font-bold mb-2">Interactive Map</p>
+                  <p className="text-sm text-flat-dark/70 mb-4">
+                    Click to open in Google Maps
+                  </p>
+                  <a 
+                    href="https://maps.google.com/?q=Dobračina 4, Belgrade, Serbia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-flat-blue text-flat-cream px-6 py-3 rounded-full font-bold text-sm uppercase hover:bg-flat-dark transition-colors duration-300"
+                  >
+                    Open Map
+                  </a>
+                </div>
               </div>
-
-              {/* Phone */}
-              <div className="flex items-center mb-8 text-flat-dark text-lg">
-                <Phone size={24} className="mr-4 text-flat-blue" />
-                <span className="font-medium">{location.phone}</span>
-              </div>
-
-              {/* Order Button */}
-              <button className="w-full bg-flat-blue text-flat-cream py-4 rounded-full text-xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105">
-                {t('locations.orderNow')}
-              </button>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Map Placeholder */}
-        <div className="mt-20 max-w-6xl mx-auto">
-          <div className="bg-gradient-to-br from-flat-blue/20 to-flat-blue/10 rounded-3xl h-96 flex items-center justify-center border-4 border-dashed border-flat-blue/30">
-            <div className="text-center text-flat-blue">
-              <MapPin size={64} className="mx-auto mb-6" />
-              <p className="text-2xl font-black mb-2">Interactive Map Coming Soon</p>
-              <p className="text-lg font-medium">Google Maps integration will be added here</p>
-            </div>
+        {/* Additional Info */}
+        <div className="text-center mt-12 max-w-2xl mx-auto">
+          <div className="bg-flat-blue text-flat-cream p-8 rounded-3xl">
+            <h3 className="text-2xl font-black mb-4 tracking-tight">
+              Visit Us Today
+            </h3>
+            <p className="text-flat-cream/90 text-lg">
+              Experience authentic Belgrade street food culture. 
+              Fresh burgers made daily with local ingredients and street attitude.
+            </p>
           </div>
         </div>
       </div>
