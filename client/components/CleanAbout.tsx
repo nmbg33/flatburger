@@ -36,6 +36,13 @@ export const CleanAbout: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-flat-cream rounded-full"></div>
       </div>
 
+      {/* Floating Sticker */}
+      <div className="absolute bottom-12 left-8 md:bottom-16 md:left-12 z-20">
+        <div className="bg-flat-cream text-flat-blue px-3 py-2 rounded-full transform -rotate-6 shadow-lg animate-gentle-float">
+          <span className="text-xs font-black tracking-wider uppercase">STREET</span>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto text-center relative z-10">
         {/* Title */}
         <div className={`transition-all duration-1000 ease-out ${
