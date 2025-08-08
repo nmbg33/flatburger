@@ -26,11 +26,11 @@ export const UrbanStickerWall: React.FC = () => {
   // Urban sticker elements
   const urbanStickers = [
     { text: 'FRESH', size: 'text-2xl', rotation: '-rotate-12', delay: '0ms' },
-    { text: 'FLAT', size: 'text-3xl', rotation: 'rotate-6', delay: '200ms' },
-    { text: 'FIRE', size: 'text-xl', rotation: '-rotate-3', delay: '400ms' },
-    { text: 'URBAN', size: 'text-2xl', rotation: 'rotate-12', delay: '600ms' },
-    { text: 'STYLE', size: 'text-xl', rotation: '-rotate-6', delay: '800ms' },
-    { text: 'STREET', size: 'text-2xl', rotation: 'rotate-3', delay: '1000ms' },
+    { text: 'HEAT', size: 'text-3xl', rotation: 'rotate-6', delay: '200ms' },
+    { text: 'REAL', size: 'text-xl', rotation: '-rotate-3', delay: '400ms' },
+    { text: 'VIBES', size: 'text-2xl', rotation: 'rotate-12', delay: '600ms' },
+    { text: 'BOLD', size: 'text-xl', rotation: '-rotate-6', delay: '800ms' },
+    { text: 'FLAT', size: 'text-2xl', rotation: 'rotate-3', delay: '1000ms' },
   ];
 
   return (
