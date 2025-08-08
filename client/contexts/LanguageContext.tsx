@@ -25,7 +25,7 @@ const translations = {
     
     // About Us
     'about.title': 'MADE IN BELGRADE',
-    'about.description': 'Made in Belgrade. Built for the street. We smash, we stack, we flatten — and we keep it real. No fluff, no boring combos — just pure fire in a bun. Raw energy, maximum taste.',
+    'about.description': 'Born in Belgrade. Built for the streets. We smash, we stack, we flatten — then we serve it up hot. No pretenders, no weak sauce. Just real heat that hits different. Street smart. Flavor forward.',
     
     // Menu
     'menu.title': 'THE LINEUP',

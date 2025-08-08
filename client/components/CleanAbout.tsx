@@ -29,15 +29,22 @@ export const CleanAbout: React.FC = () => {
       data-section="about"
       className="min-h-screen flex items-center justify-center py-20 px-4 bg-flat-blue relative"
     >
-      {/* Clean background elements */}
+      {/* Urban background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 right-1/6 w-40 h-40 border-4 border-flat-cream rounded-full"></div>
         <div className="absolute bottom-1/3 left-1/6 w-24 h-24 border-4 border-flat-cream rounded-full"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-flat-cream rounded-full"></div>
 
-        {/* Clean urban icon */}
+        {/* Urban corner accents */}
+        <div className="absolute top-8 left-8 w-12 h-px bg-flat-cream/30"></div>
+        <div className="absolute top-8 left-8 w-px h-12 bg-flat-cream/30"></div>
+
+        <div className="absolute bottom-8 right-8 w-8 h-px bg-flat-cream/20"></div>
+        <div className="absolute bottom-8 right-8 w-px h-8 bg-flat-cream/20"></div>
+
+        {/* Street star */}
         <div className="absolute top-1/6 left-1/4 text-flat-cream/15 animate-street-float">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" />
           </svg>
         </div>
