@@ -55,15 +55,18 @@ export const BouncingStickerHero: React.FC = () => {
           </div>
         </div>
 
-        {/* Clean tagline */}
+        {/* Main tagline */}
         <div className={`transform transition-all duration-1500 ease-out delay-300 ${
           isLoaded
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-8'
         }`}>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-flat-blue mb-6 leading-tight tracking-tight" style={{fontFamily: 'Bricolage Grotesque', color: '#1C33C3'}}>
-            Burger. But flatter.
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-flat-blue mb-2 leading-tight tracking-tight" style={{fontFamily: 'Bricolage Grotesque', color: '#1C33C3'}}>
+            {t('hero.tagline')}
           </h1>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-flat-blue mb-8 leading-tight tracking-tight" style={{fontFamily: 'Bricolage Grotesque', color: '#1C33C3'}}>
+            {t('hero.taglineSecond')}
+          </h2>
         </div>
 
         {/* Subtitle */}
