@@ -22,21 +22,21 @@ const burgers: BurgerItem[] = [
     nameKey: 'burger.fancy.name',
     descriptionKey: 'burger.fancy.description',
     price: 1290,
-    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fce01505dad774723bc59d2fd7fda30dd?format=webp&width=800'
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fde74de31ded14bb590a0a078486b1215?format=webp&width=800'
   },
   {
     id: 'pyro',
     nameKey: 'burger.pyro.name',
     descriptionKey: 'burger.pyro.description',
     price: 990,
-    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fb19f4fd205004c67865b303c041fcde0?format=webp&width=800'
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fdb1d07e06fb5426fa4c5c4363c486fec?format=webp&width=800'
   },
   {
     id: 'baconJam',
     nameKey: 'burger.baconJam.name',
     descriptionKey: 'burger.baconJam.description',
     price: 1190,
-    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F3e6a635cde5a45ababaa81e256bee4a1?format=webp&width=800'
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F993fe5cf66464562887c82cf5def9f35?format=webp&width=800'
   }
 ];
 
