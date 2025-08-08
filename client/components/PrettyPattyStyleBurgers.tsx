@@ -10,32 +10,31 @@ interface BurgerItem {
 }
 
 const burgers: BurgerItem[] = [
-  { 
-    id: 'classic', 
-    nameKey: 'burger.classic.name', 
-    descriptionKey: 'burger.classic.description', 
+  {
+    id: 'classic',
+    nameKey: 'burger.classic.name',
+    descriptionKey: 'burger.classic.description',
     price: 890,
-    // Using one of the new burger photos provided
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Ffc64a20eae404dba92ec338c7723dce9?format=webp&width=800'
   },
-  { 
-    id: 'fancy', 
-    nameKey: 'burger.fancy.name', 
-    descriptionKey: 'burger.fancy.description', 
+  {
+    id: 'fancy',
+    nameKey: 'burger.fancy.name',
+    descriptionKey: 'burger.fancy.description',
     price: 1290,
-    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fb19f4fd205004c67865b303c041fcde0?format=webp&width=800'
-  },
-  { 
-    id: 'pyro', 
-    nameKey: 'burger.pyro.name', 
-    descriptionKey: 'burger.pyro.description', 
-    price: 990,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fce01505dad774723bc59d2fd7fda30dd?format=webp&width=800'
   },
-  { 
-    id: 'baconJam', 
-    nameKey: 'burger.baconJam.name', 
-    descriptionKey: 'burger.baconJam.description', 
+  {
+    id: 'pyro',
+    nameKey: 'burger.pyro.name',
+    descriptionKey: 'burger.pyro.description',
+    price: 990,
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fb19f4fd205004c67865b303c041fcde0?format=webp&width=800'
+  },
+  {
+    id: 'baconJam',
+    nameKey: 'burger.baconJam.name',
+    descriptionKey: 'burger.baconJam.description',
     price: 1190,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F3e6a635cde5a45ababaa81e256bee4a1?format=webp&width=800'
   }
@@ -67,12 +66,6 @@ export const PrettyPattyStyleBurgers: React.FC = () => {
 
   return (
     <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
-      {/* Pretty Patty-style background text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-[15vw] font-black text-flat-blue/3 whitespace-nowrap animate-scroll-left-slow">
-          BURGERS BURGERS BURGERS BURGERS
-        </div>
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Title with Pretty Patty-style animation */}
@@ -175,12 +168,6 @@ export const PrettyPattyStyleBurgers: React.FC = () => {
         </div>
       </div>
 
-      {/* Pretty Patty-style decorative sticker */}
-      <div className="absolute bottom-12 left-8 md:bottom-16 md:left-12 z-20">
-        <div className="bg-flat-cream text-flat-blue px-4 py-2 rounded-full transform -rotate-12 shadow-lg border-2 border-flat-blue">
-          <span className="text-sm font-black tracking-wider uppercase">FIRE!</span>
-        </div>
-      </div>
     </section>
   );
 };
