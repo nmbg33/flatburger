@@ -25,18 +25,17 @@ export const Locations: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-flat-cream pt-24 pb-12 relative overflow-hidden">
-      {/* Background Moving Text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-[15vw] font-black text-flat-blue/5 whitespace-nowrap animate-slide-right">
-          LOCATIONS LOCATIONS LOCATIONS
-        </div>
+    <div className="min-h-screen bg-flat-cream pt-24 pb-12 relative">
+      {/* Clean background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-blue animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-flat-blue animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
         <div className="text-center mb-16">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-flat-blue mb-4 leading-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight">
             {t('locations.title')}
           </h1>
         </div>
@@ -46,8 +45,7 @@ export const Locations: React.FC = () => {
           {locations.map((location, index) => (
             <div
               key={location.id}
-              className="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 animate-scroll-reveal"
-              style={{ animationDelay: `${index * 200}ms` }}
+              className="bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
             >
               {/* Location Name */}
               <h3 className="text-4xl font-black text-flat-blue mb-6 tracking-tight">
