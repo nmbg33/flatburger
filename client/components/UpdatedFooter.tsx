@@ -13,10 +13,13 @@ export const UpdatedFooter: React.FC = () => {
 
   return (
     <footer className="bg-flat-blue text-flat-beige py-20 relative overflow-hidden">
-      {/* Clean background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-beige animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-flat-beige animate-pulse" style={{animationDelay: '1s'}}></div>
+      {/* Large FLAT BURGER background text */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Ff81ef62140324a2a9578686b9deb5d88?format=webp&width=800"
+          alt="Flat Burger Background"
+          className="w-full h-auto max-w-4xl object-contain"
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
