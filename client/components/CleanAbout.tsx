@@ -27,19 +27,34 @@ export const CleanAbout: React.FC = () => {
     <section 
       ref={sectionRef}
       data-section="about"
-      className="min-h-screen flex items-center justify-center py-20 px-4 bg-flat-blue relative"
+      className="min-h-screen flex items-center justify-center py-20 px-4 bg-flat-blue relative grunge-overlay"
     >
-      {/* Clean geometric background elements */}
+      {/* Urban background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 right-1/6 w-40 h-40 border-4 border-flat-cream rounded-full"></div>
         <div className="absolute bottom-1/3 left-1/6 w-24 h-24 border-4 border-flat-cream rounded-full"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-flat-cream rounded-full"></div>
+
+        {/* Urban street elements */}
+        <div className="absolute top-1/6 left-1/4 text-flat-cream/20 animate-street-float">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" />
+          </svg>
+        </div>
+
+        <div className="absolute bottom-1/5 right-1/3 w-8 h-12 sauce-drip opacity-20 animate-street-float" style={{animationDelay: '2s'}}></div>
       </div>
 
-      {/* Floating Sticker */}
+      {/* Urban Floating Stickers */}
       <div className="absolute bottom-12 left-8 md:bottom-16 md:left-12 z-20">
-        <div className="bg-flat-cream text-flat-blue px-3 py-2 rounded-full transform -rotate-6 shadow-lg animate-gentle-float">
+        <div className="bg-flat-cream text-flat-blue px-3 py-2 rounded-full transform -rotate-6 shadow-lg animate-gentle-float urban-sticker">
           <span className="text-xs font-black tracking-wider uppercase">RAW</span>
+        </div>
+      </div>
+
+      <div className="absolute top-20 right-8 md:top-24 md:right-12 z-20">
+        <div className="bg-flat-cream text-flat-blue px-4 py-2 rounded-lg transform rotate-12 shadow-lg animate-street-float urban-sticker" style={{animationDelay: '1s'}}>
+          <span className="text-xs font-black tracking-wider uppercase">STREET</span>
         </div>
       </div>
 
@@ -50,7 +65,7 @@ export const CleanAbout: React.FC = () => {
             ? 'opacity-100 transform translate-y-0' 
             : 'opacity-0 transform translate-y-12'
         }`}>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-cream mb-12 leading-tight tracking-tight">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-cream mb-12 leading-tight tracking-tight spray-underline">
             {t('about.title')}
           </h2>
         </div>
@@ -66,7 +81,7 @@ export const CleanAbout: React.FC = () => {
           </p>
         </div>
 
-        {/* Clean decorative element */}
+        {/* Urban decorative element */}
         <div className={`mt-16 transition-all duration-1000 ease-out delay-600 ${
           isVisible 
             ? 'opacity-100 transform translate-y-0' 

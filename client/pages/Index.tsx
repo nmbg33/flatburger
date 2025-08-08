@@ -3,6 +3,7 @@ import { BouncingStickerHero } from '../components/BouncingStickerHero';
 import { IconsScrollSection } from '../components/IconsScrollSection';
 import { UpdatedAboutSection } from '../components/UpdatedAboutSection';
 import { UpdatedBurgerSection } from '../components/UpdatedBurgerSection';
+import { UrbanStickerWall } from '../components/UrbanStickerWall';
 
 export default function Index() {
   return (
@@ -10,6 +11,7 @@ export default function Index() {
       <BouncingStickerHero />
       <IconsScrollSection />
       <UpdatedAboutSection />
+      <UrbanStickerWall />
       <UpdatedBurgerSection />
     </>
   );
