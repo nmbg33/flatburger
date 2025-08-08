@@ -19,23 +19,37 @@ export const BouncingStickerHero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-flat-beige">
-      {/* Cool background design details */}
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-flat-beige urban-graffiti-bg">
+      {/* Urban background elements */}
       <div className="absolute inset-0">
-        {/* Animated gradient circles */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-gradient-to-br from-flat-blue/10 to-flat-blue/20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-gradient-to-br from-flat-blue/15 to-flat-blue/25 animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/6 w-16 h-16 rounded-full bg-gradient-to-br from-flat-blue/5 to-flat-blue/15 animate-pulse" style={{animationDelay: '2s'}}></div>
+        {/* Subtle graffiti texture overlay */}
+        <div className="absolute inset-0 grunge-overlay opacity-30"></div>
 
-        {/* Floating geometric shapes */}
-        <div className="absolute top-1/3 right-1/3 w-8 h-8 bg-flat-blue/10 rotate-45 animate-bounce" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-flat-blue/15 rotate-12 animate-bounce" style={{animationDelay: '1.5s'}}></div>
+        {/* Urban floating elements */}
+        <div className="absolute top-1/4 left-1/4 w-8 h-12 sauce-drip animate-street-float" style={{animationDelay: '0s'}}></div>
+        <div className="absolute bottom-1/3 right-1/4 w-6 h-8 sauce-drip animate-street-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/6 w-4 h-6 sauce-drip animate-street-float" style={{animationDelay: '4s'}}></div>
 
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `radial-gradient(circle at 20px 20px, #1C33C3 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}></div>
+        {/* Minimal urban doodles */}
+        <div className="absolute top-1/5 right-1/6 text-flat-blue/20 animate-street-float" style={{animationDelay: '1s'}}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="2" />
+            <path d="M12 2C12 2 15 5 15 9C15 11 13.5 12 12 12C10.5 12 9 11 9 9C9 5 12 2 12 2Z" />
+          </svg>
+        </div>
+
+        <div className="absolute bottom-1/5 left-1/5 text-flat-blue/15 animate-street-float" style={{animationDelay: '3s'}}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" />
+          </svg>
+        </div>
+
+        {/* Street arrow */}
+        <div className="absolute top-2/3 right-1/5 text-flat-blue/10 animate-street-float" style={{animationDelay: '5s'}}>
+          <svg width="32" height="16" viewBox="0 0 32 16" fill="currentColor">
+            <path d="M24 0L32 8L24 16V12H0V4H24V0Z" />
+          </svg>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -48,30 +62,27 @@ export const BouncingStickerHero: React.FC = () => {
             : 'opacity-0 translate-y-8 scale-95'
         }`}>
           <div className="relative inline-block mb-12">
-            {/* Cool floating effect behind sticker */}
-            <div className="absolute inset-0 bg-gradient-to-br from-flat-blue/20 to-flat-blue/10 rounded-full blur-xl scale-150 animate-pulse"></div>
-
-            {/* Main sticker without white background */}
-            <div className="relative animate-bounce hover:scale-110 transition-transform duration-300">
+            {/* Transparent sticker with smooth bounce */}
+            <div className="relative urban-sticker animate-smooth-bounce hover:scale-105 transition-transform duration-500">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6c2f790110dc42debce12f883ec2e2af?format=webp&width=800"
                 alt="Flat Burger Logo"
-                className="w-32 h-32 mx-auto drop-shadow-2xl"
+                className="w-40 h-40 mx-auto"
+                style={{
+                  filter: 'drop-shadow(0 8px 16px rgba(28, 51, 195, 0.2))'
+                }}
               />
             </div>
-
-            {/* Subtle rotating ring around sticker */}
-            <div className="absolute inset-0 border-2 border-flat-blue/30 rounded-full animate-spin" style={{animationDuration: '8s'}}></div>
           </div>
         </div>
 
-        {/* Tagline - Clean and centered below sticker */}
+        {/* Tagline with spray-style underline */}
         <div className={`transform transition-all duration-1500 ease-out delay-300 ${
-          isLoaded 
-            ? 'opacity-100 translate-y-0' 
+          isLoaded
+            ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-8'
         }`}>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-flat-blue mb-6 leading-tight tracking-tight" style={{fontFamily: 'Bricolage Grotesque', color: '#1C33C3'}}>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-flat-blue mb-6 leading-tight tracking-tight spray-underline" style={{fontFamily: 'Bricolage Grotesque', color: '#1C33C3'}}>
             Burger. But flatter.
           </h1>
         </div>
