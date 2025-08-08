@@ -31,7 +31,7 @@ const translations = {
     // Menu
     'menu.title': 'THE LINEUP',
     'menu.subtitle': 'Each one hits different',
-    'menu.addOns': 'EXTRAS THAT SLAP',
+    'menu.addOns': 'SIDES',
     
     // Burgers
     'burger.classic.name': 'Classic',
@@ -81,9 +81,9 @@ const translations = {
     'about.description': 'Pokrenuli smo u Beogradu sa jednim ciljem: usavršiti ravni burger. Svaku plješcu pritiskamo tanko, pečemo vruće i slagamo visoko. Svaki Flat Burger je svež napravljen od kvalitetnih sastojaka. Jednostavan koncept, ozbiljan ukus.',
     
     // Menu
-    'menu.title': 'POSTAVA',
-    'menu.subtitle': 'Svaki pogađa drugačije',
-    'menu.addOns': 'DODACI',
+    'menu.title': 'VATRA',
+    'menu.subtitle': 'Svaki udara drugačije',
+    'menu.addOns': 'PRILOZI KOJI UDARAJU',
     
     // Burgers
     'burger.classic.name': 'Classic',
