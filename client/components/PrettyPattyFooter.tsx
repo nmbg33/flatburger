@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { FlatBurgerLogo } from './FlatBurgerLogo';
+import { FlatBurgerIcon } from './FlatBurgerIcon';
+import { FlatBurgerWordmark } from './FlatBurgerWordmark';
 import { Instagram, ArrowUp } from 'lucide-react';
 
 export const PrettyPattyFooter: React.FC = () => {
@@ -23,10 +24,10 @@ export const PrettyPattyFooter: React.FC = () => {
         <div className="text-center">
           {/* Logo */}
           <div className="mb-12">
-            <FlatBurgerLogo size="lg" className="mx-auto mb-4" />
-            <h3 className="text-3xl font-black tracking-wider uppercase">
-              FLAT BURGER
-            </h3>
+            <FlatBurgerIcon size="xl" className="mx-auto mb-6" />
+            <div className="mb-4">
+              <FlatBurgerWordmark className="mx-auto max-w-xs" />
+            </div>
             <p className="text-flat-cream/70 text-lg mt-2">
               Born in Belgrade, made for the streets.
             </p>
