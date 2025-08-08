@@ -1,0 +1,174 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+
+interface BurgerItem {
+  id: string;
+  nameKey: string;
+  descriptionKey: string;
+  price: number;
+  imageUrl: string;
+}
+
+const burgers: BurgerItem[] = [
+  { 
+    id: 'classic', 
+    nameKey: 'burger.classic.name', 
+    descriptionKey: 'burger.classic.description', 
+    price: 890,
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Ffc64a20eae404dba92ec338c7723dce9?format=webp&width=800'
+  },
+  { 
+    id: 'fancy', 
+    nameKey: 'burger.fancy.name', 
+    descriptionKey: 'burger.fancy.description', 
+    price: 1290,
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fde74de31ded14bb590a0a078486b1215?format=webp&width=800'
+  },
+  { 
+    id: 'pyro', 
+    nameKey: 'burger.pyro.name', 
+    descriptionKey: 'burger.pyro.description', 
+    price: 990,
+    // Using the new Pyro image provided
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fea6215fff58340198150c9cc81975142?format=webp&width=800'
+  },
+  { 
+    id: 'baconJam', 
+    nameKey: 'burger.baconJam.name', 
+    descriptionKey: 'burger.baconJam.description', 
+    price: 1190,
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F993fe5cf66464562887c82cf5def9f35?format=webp&width=800'
+  }
+];
+
+export const UpdatedBurgerSection: React.FC = () => {
+  const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleItems(prev => new Set([...prev, index]));
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll('[data-index]');
+    elements?.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="menu" ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Title */}
+        <div className="text-center mb-16" data-index="0">
+          <div className={`transform transition-all duration-1000 ease-out ${
+            visibleItems.has(0) 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}>
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-flat-blue mb-4 leading-tight tracking-tight" style={{fontFamily: 'Bricolage Grotesque'}}>
+              {t('menu.title')}
+            </h2>
+            <p className="text-xl md:text-2xl text-flat-blue/70 font-medium" style={{fontFamily: 'Bricolage Grotesque'}}>
+              {t('menu.subtitle')}
+            </p>
+          </div>
+        </div>
+
+        {/* Burger Grid - Pretty Patty style */}
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto mb-20">
+          {burgers.map((burger, index) => (
+            <div 
+              key={burger.id}
+              data-index={index + 1}
+              className={`group transform transition-all duration-1000 ease-out ${
+                visibleItems.has(index + 1)
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-12'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
+              {/* Burger Card with hover animations */}
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-700 border border-gray-100 group-hover:rotate-1">
+                {/* Image with hover effects */}
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <img 
+                    src={burger.imageUrl}
+                    alt={t(burger.nameKey)}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {/* Subtle overlay effect on hover */}
+                  <div className="absolute inset-0 bg-flat-blue/0 group-hover:bg-flat-blue/5 transition-colors duration-700"></div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-8">
+                  {/* Name */}
+                  <h3 className="text-3xl lg:text-4xl font-black text-flat-blue mb-4 tracking-tight" style={{fontFamily: 'Bricolage Grotesque'}}>
+                    {t(burger.nameKey)}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-flat-blue/80 text-lg mb-6 leading-relaxed" style={{fontFamily: 'Bricolage Grotesque', fontWeight: '400'}}>
+                    {t(burger.descriptionKey)}
+                  </p>
+                  
+                  {/* Price and Button */}
+                  <div className="flex justify-between items-center">
+                    <span className="text-3xl font-black text-flat-blue" style={{fontFamily: 'Bricolage Grotesque'}}>
+                      {burger.price} {t('price.currency')}
+                    </span>
+                    <button className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg" style={{fontFamily: 'Bricolage Grotesque'}}>
+                      Order
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Add-ons Section */}
+        <div 
+          data-index={burgers.length + 1}
+          className={`text-center transform transition-all duration-1000 ease-out ${
+            visibleItems.has(burgers.length + 1)
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}
+        >
+          <h3 className="text-4xl md:text-5xl font-black text-flat-blue mb-8 tracking-tight" style={{fontFamily: 'Bricolage Grotesque'}}>
+            {t('menu.addOns')}
+          </h3>
+          
+          <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+            {[
+              { key: 'addon.pomfrit', price: 290 },
+              { key: 'addon.batat', price: 390 },
+              { key: 'addon.onionRings', price: 350 }
+            ].map((addon, index) => (
+              <div 
+                key={addon.key}
+                className="bg-flat-blue text-flat-beige px-8 py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg hover:shadow-xl"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <span className="font-bold text-lg tracking-wider" style={{fontFamily: 'Bricolage Grotesque'}}>
+                  {t(addon.key)} — {addon.price} {t('price.currency')}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
