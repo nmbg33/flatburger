@@ -69,16 +69,6 @@ export const BouncingStickerHero: React.FC = () => {
           </h2>
         </div>
 
-        {/* Subtitle */}
-        <div className={`transform transition-all duration-1500 ease-out delay-500 ${
-          isLoaded 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-8'
-        }`}>
-          <p className="text-xl md:text-2xl text-flat-blue/80 mb-12 font-normal" style={{fontFamily: 'Bricolage Grotesque', color: '#1C33C3'}}>
-            {t('hero.subtitle')}
-          </p>
-        </div>
 
         {/* CTA Button */}
         <div className={`transform transition-all duration-1500 ease-out delay-700 ${

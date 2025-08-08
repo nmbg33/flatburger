@@ -23,11 +23,11 @@ export const UpdatedFooter: React.FC = () => {
         <div className="text-center">
           {/* Logo Section */}
           <div className="mb-12">
-            <FlatBurgerIcon size="xl" className="mx-auto mb-6" />
+            <FlatBurgerIcon size="xl" className="mx-auto mb-6" style={{filter: 'brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(1825%) hue-rotate(318deg) brightness(100%) contrast(95%)'}} />
             <div className="mb-4">
               <FlatBurgerWordmark
                 className="mx-auto max-w-xs"
-                style={{filter: 'brightness(0) saturate(100%) invert(93%) sepia(8%) saturate(615%) hue-rotate(321deg) brightness(96%) contrast(96%)'}}
+                style={{filter: 'brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(1825%) hue-rotate(318deg) brightness(100%) contrast(95%)'}}
               />
             </div>
             <p className="text-lg font-medium" style={{fontFamily: 'Bricolage Grotesque', color: '#FEEBCB'}}>
