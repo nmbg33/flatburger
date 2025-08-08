@@ -19,6 +19,7 @@ export const UpdatedFooter: React.FC = () => {
           src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Ff81ef62140324a2a9578686b9deb5d88?format=webp&width=800"
           alt="Flat Burger Background"
           className="w-full h-auto max-w-4xl object-contain"
+          style={{filter: 'brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(1825%) hue-rotate(318deg) brightness(100%) contrast(95%)'}}
         />
       </div>
 
