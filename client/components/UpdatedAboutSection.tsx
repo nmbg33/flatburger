@@ -31,7 +31,7 @@ export const UpdatedAboutSection: React.FC = () => {
       className="min-h-screen flex items-center justify-center py-20 px-4 bg-flat-blue relative overflow-hidden"
     >
       {/* Clean background pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute opacity-10" style={{top: '90px', left: '0px', right: '0px', bottom: '0px'}}>
         <div className="absolute top-1/4 right-1/6 w-40 h-40 border-4 border-flat-beige rounded-full"></div>
         <div className="absolute bottom-1/3 left-1/6 w-24 h-24 border-4 border-flat-beige rounded-full"></div>
       </div>
