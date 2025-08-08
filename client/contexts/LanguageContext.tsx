@@ -18,19 +18,19 @@ const translations = {
     'nav.locations': 'Locations',
     
     // Homepage
-    'hero.tagline': 'FLAT HITS DIFFERENT',
-    'hero.subtitle': 'Real burgers for real people',
-    'hero.cta': 'SEE THE GOODS',
-    'hero.scrollDown': 'Keep going',
+    'hero.tagline': 'Burgers. But flatter.',
+    'hero.subtitle': 'No fluff. Just fire in a bun.',
+    'hero.cta': 'TASTE THE FIRE',
+    'hero.scrollDown': 'Keep scrolling',
     
     // About Us
-    'about.title': 'WE KEEP IT REAL',
-    'about.description': "No cap — we're not like those other spots. We smash our patties flat, stack em high, and serve nothing but heat. Started in Belgrade's streets, still got that same energy. Fresh ingredients, zero BS, maximum flavor.",
+    'about.title': 'BORN IN BELGRADE',
+    'about.description': 'We smash, we stack, we flatten — and we keep it real. No fluff, no boring combos — just pure fire in a bun. Born in Belgrade, made for the streets. Raw energy, zero bullshit.',
     
     // Menu
-    'menu.title': 'THE LINEUP',
-    'menu.subtitle': 'Every single one hits',
-    'menu.addOns': 'LEVEL UP',
+    'menu.title': 'THE FIRE',
+    'menu.subtitle': 'Each one hits different',
+    'menu.addOns': 'SIDES THAT SLAP',
     
     // Burgers
     'burger.classic.name': 'Classic',
@@ -69,19 +69,19 @@ const translations = {
     'nav.locations': 'Lokacije',
     
     // Homepage
-    'hero.tagline': 'FLAT JE DRUGAČIJI',
-    'hero.subtitle': 'Pravi burgeri za prave ljude',
-    'hero.cta': 'VIDI PONUDU',
-    'hero.scrollDown': 'Nastavi',
+    'hero.tagline': 'Burgeri. Ali ravni.',
+    'hero.subtitle': 'Bez blajve. Samo vatra u lepinj.',
+    'hero.cta': 'OKUSI VATRU',
+    'hero.scrollDown': 'Nastavi dalje',
     
     // About Us
-    'about.title': 'DRŽIMO REALNO',
-    'about.description': 'Nema zajebancije — nismo kao ostali. Spljoštime patty, naložimo visoko, serviramo samo vatru. Počeli na beogradskim ulicama, još uvek imamo tu energiju. Sveži sastojci, nula gluposti, maksimalan ukus.',
+    'about.title': 'ROĐENI U BEOGRADU',
+    'about.description': 'Mi spljoštimo, mi slagečimo, mi držimo pravo. Nema blajve, nema dosadnih kombinacija — samo čista vatra u lepinj. Rođeni u Beogradu, pravljeni za ulice. Sirova energija, nula sranja.',
     
     // Menu
-    'menu.title': 'POSTAVA',
-    'menu.subtitle': 'Svaki pojedinačno odličan',
-    'menu.addOns': 'POJAČAJ',
+    'menu.title': 'VATRA',
+    'menu.subtitle': 'Svaki udara drugačije',
+    'menu.addOns': 'PRILOZI KOJI UDARAJU',
     
     // Burgers
     'burger.classic.name': 'Classic',
