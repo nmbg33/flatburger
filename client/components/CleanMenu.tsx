@@ -10,48 +10,34 @@ interface BurgerItem {
 }
 
 const burgers: BurgerItem[] = [
-  { 
-    id: 'classic', 
-    nameKey: 'burger.classic.name', 
-    descriptionKey: 'burger.classic.description', 
+  {
+    id: 'classic',
+    nameKey: 'burger.classic.name',
+    descriptionKey: 'burger.classic.description',
     price: 890,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F9e602f8c0b5247bf861442f769eb163e?format=webp&width=800'
   },
-  { 
-    id: 'fancy', 
-    nameKey: 'burger.fancy.name', 
-    descriptionKey: 'burger.fancy.description', 
+  {
+    id: 'fancy',
+    nameKey: 'burger.fancy.name',
+    descriptionKey: 'burger.fancy.description',
     price: 1290,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F52177a65630b49e2ba78eb585e9e8817?format=webp&width=800'
   },
-  { 
-    id: 'pyro', 
-    nameKey: 'burger.pyro.name', 
-    descriptionKey: 'burger.pyro.description', 
+  {
+    id: 'pyro',
+    nameKey: 'burger.pyro.name',
+    descriptionKey: 'burger.pyro.description',
     price: 990,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fc3cec27234be4f51ab1d3d79f7aee388?format=webp&width=800'
   },
-  { 
-    id: 'baconJam', 
-    nameKey: 'burger.baconJam.name', 
-    descriptionKey: 'burger.baconJam.description', 
+  {
+    id: 'baconJam',
+    nameKey: 'burger.baconJam.name',
+    descriptionKey: 'burger.baconJam.description',
     price: 1190,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F291b0f2c508c466d927c3acf2d4dea65?format=webp&width=800'
-  },
-  { 
-    id: 'alabama', 
-    nameKey: 'burger.alabama.name', 
-    descriptionKey: 'burger.alabama.description', 
-    price: 1090,
-    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F89c8e911bf4643e7aeb962e10efa3584?format=webp&width=800'
-  },
-  { 
-    id: 'chickenFlat', 
-    nameKey: 'burger.chickenFlat.name', 
-    descriptionKey: 'burger.chickenFlat.description', 
-    price: 790,
-    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F8cc01ae9ebdd4af498af491b7e3bb5cb?format=webp&width=800'
-  },
+  }
 ];
 
 export const CleanMenu: React.FC = () => {
