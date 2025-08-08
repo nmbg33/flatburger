@@ -65,7 +65,7 @@ export const UpdatedBurgerSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="menu" ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+    <section id="menu" ref={sectionRef} className="py-20 bg-white relative overflow-hidden grunge-overlay">
       <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
         <div className="text-center mb-16" data-index="0">
@@ -110,7 +110,9 @@ export const UpdatedBurgerSection: React.FC = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-8 relative">
+                  {/* Subtle urban corner accent */}
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-flat-blue/10 rotate-45"></div>
                   {/* Name */}
                   <h3 className="text-3xl lg:text-4xl font-black text-flat-blue mb-4 tracking-tight" style={{fontFamily: 'Bricolage Grotesque'}}>
                     {t(burger.nameKey)}
@@ -126,7 +128,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                     <span className="text-3xl font-black text-flat-blue" style={{fontFamily: 'Bricolage Grotesque'}}>
                       {burger.price} {t('price.currency')}
                     </span>
-                    <button className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg" style={{fontFamily: 'Bricolage Grotesque'}}>
+                    <button className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg urban-sticker" style={{fontFamily: 'Bricolage Grotesque'}}>
                       Order
                     </button>
                   </div>
