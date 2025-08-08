@@ -5,11 +5,11 @@ export const IconsScrollSection: React.FC = () => {
   // Create array of icon elements for continuous scroll
   const iconElements = [
     { icon: <FlatBurgerIcon size="lg" /> },
-    { icon: '🔥' },
     { icon: <FlatBurgerIcon size="lg" /> },
-    { icon: '⚡' },
     { icon: <FlatBurgerIcon size="lg" /> },
-    { icon: '💯' },
+    { icon: <FlatBurgerIcon size="lg" /> },
+    { icon: <FlatBurgerIcon size="lg" /> },
+    { icon: <FlatBurgerIcon size="lg" /> },
   ];
 
   // Duplicate the array for seamless infinite scroll

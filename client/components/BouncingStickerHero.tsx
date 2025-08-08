@@ -20,11 +20,22 @@ export const BouncingStickerHero: React.FC = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-flat-beige">
-      {/* Clean background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-blue animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-flat-blue animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/6 w-16 h-16 rounded-full bg-flat-blue animate-pulse" style={{animationDelay: '2s'}}></div>
+      {/* Cool background design details */}
+      <div className="absolute inset-0">
+        {/* Animated gradient circles */}
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-gradient-to-br from-flat-blue/10 to-flat-blue/20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-gradient-to-br from-flat-blue/15 to-flat-blue/25 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/6 w-16 h-16 rounded-full bg-gradient-to-br from-flat-blue/5 to-flat-blue/15 animate-pulse" style={{animationDelay: '2s'}}></div>
+
+        {/* Floating geometric shapes */}
+        <div className="absolute top-1/3 right-1/3 w-8 h-8 bg-flat-blue/10 rotate-45 animate-bounce" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-6 h-6 bg-flat-blue/15 rotate-12 animate-bounce" style={{animationDelay: '1.5s'}}></div>
+
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `radial-gradient(circle at 20px 20px, #1C33C3 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }}></div>
       </div>
 
       {/* Main Content */}
@@ -37,14 +48,20 @@ export const BouncingStickerHero: React.FC = () => {
             : 'opacity-0 translate-y-8 scale-95'
         }`}>
           <div className="relative inline-block mb-12">
-            {/* Sticker background */}
-            <div className="bg-white rounded-full p-8 shadow-2xl border-4 border-flat-blue animate-bounce">
+            {/* Cool floating effect behind sticker */}
+            <div className="absolute inset-0 bg-gradient-to-br from-flat-blue/20 to-flat-blue/10 rounded-full blur-xl scale-150 animate-pulse"></div>
+
+            {/* Main sticker without white background */}
+            <div className="relative animate-bounce hover:scale-110 transition-transform duration-300">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6c2f790110dc42debce12f883ec2e2af?format=webp&width=800"
                 alt="Flat Burger Logo"
-                className="w-24 h-24 mx-auto"
+                className="w-32 h-32 mx-auto drop-shadow-2xl"
               />
             </div>
+
+            {/* Subtle rotating ring around sticker */}
+            <div className="absolute inset-0 border-2 border-flat-blue/30 rounded-full animate-spin" style={{animationDuration: '8s'}}></div>
           </div>
         </div>
 
