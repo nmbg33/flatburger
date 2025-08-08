@@ -19,18 +19,18 @@ const translations = {
     
     // Homepage
     'hero.tagline': 'Burgers. But flatter.',
-    'hero.subtitle': 'No fluff. Just fire in a bun.',
+    'hero.subtitle': 'Nothing fake. Just fire in a bun.',
     'hero.cta': 'TASTE THE FIRE',
-    'hero.scrollDown': 'Keep scrolling',
+    'hero.scrollDown': 'Scroll',
     
     // About Us
-    'about.title': 'BORN IN BELGRADE',
-    'about.description': 'We smash, we stack, we flatten — and we keep it real. No fluff, no boring combos — just pure fire in a bun. Born in Belgrade, made for the streets. Raw energy, zero bullshit.',
+    'about.title': 'MADE IN BELGRADE',
+    'about.description': 'Made in Belgrade. Built for the street. We smash, we stack, we flatten — and we keep it real. No fluff, no boring combos — just pure fire in a bun. Raw energy, maximum taste.',
     
     // Menu
-    'menu.title': 'THE FIRE',
+    'menu.title': 'THE LINEUP',
     'menu.subtitle': 'Each one hits different',
-    'menu.addOns': 'SIDES THAT SLAP',
+    'menu.addOns': 'SIDES',
     
     // Burgers
     'burger.classic.name': 'Classic',
