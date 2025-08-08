@@ -30,7 +30,7 @@ export const CleanHero: React.FC = () => {
       {/* Floating Sticker Element */}
       <div className="absolute top-20 right-8 md:top-24 md:right-12 z-20">
         <div className="bg-flat-blue text-flat-cream px-4 py-2 rounded-full transform rotate-12 shadow-lg animate-gentle-float">
-          <span className="text-sm font-black tracking-wider uppercase">FRESH!</span>
+          <span className="text-sm font-black tracking-wider uppercase">FIRE!</span>
         </div>
       </div>
 
