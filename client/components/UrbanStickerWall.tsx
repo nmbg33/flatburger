@@ -34,12 +34,10 @@ export const UrbanStickerWall: React.FC = () => {
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative py-20 bg-flat-beige overflow-hidden"
     >
-      {/* Graffiti background texture */}
-      <div className="absolute inset-0 urban-graffiti-bg opacity-40"></div>
       
       {/* Floating urban stickers */}
       <div className="relative z-10 container mx-auto px-4">
@@ -55,14 +53,13 @@ export const UrbanStickerWall: React.FC = () => {
                 }
                 ${sticker.rotation}
                 animate-street-float
-                urban-sticker
               `}
               style={{ 
                 transitionDelay: sticker.delay,
                 animationDelay: `${index * 0.5}s`
               }}
             >
-              <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-lg border-2 border-flat-blue/20 shadow-lg">
+              <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-lg border-2 border-flat-blue/20">
                 <span 
                   className={`${sticker.size} font-black text-flat-blue tracking-wider`}
                   style={{ fontFamily: 'Bricolage Grotesque' }}
@@ -74,10 +71,10 @@ export const UrbanStickerWall: React.FC = () => {
           ))}
         </div>
 
-        {/* Subtle sauce splatter effects */}
-        <div className="absolute top-1/4 left-1/6 w-12 h-8 sauce-drip opacity-20"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-8 h-6 sauce-drip opacity-15"></div>
-        <div className="absolute top-2/3 left-1/3 w-6 h-4 sauce-drip opacity-25"></div>
+        {/* Clean geometric accents */}
+        <div className="absolute top-1/4 left-1/6 w-3 h-3 bg-flat-blue/10 rounded-full"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-flat-blue/15 rounded-full"></div>
+        <div className="absolute top-2/3 left-1/3 w-4 h-4 bg-flat-blue/10 rotate-45"></div>
       </div>
     </section>
   );
