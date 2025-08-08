@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FlatBurgerLogo } from './FlatBurgerLogo';
+import { FlatBurgerIcon } from './FlatBurgerIcon';
+import { FlatBurgerWordmark } from './FlatBurgerWordmark';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Menu, X, Globe } from 'lucide-react';
 
@@ -36,11 +37,11 @@ export const Navigation: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <FlatBurgerLogo size="sm" />
-            <span className="font-bold text-xl text-flat-blue tracking-wider hidden sm:block">
-              FLAT BURGER
-            </span>
+          <Link to="/" className="flex items-center space-x-3">
+            <FlatBurgerIcon size="sm" />
+            <div className="hidden sm:block">
+              <FlatBurgerWordmark width={120} />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
