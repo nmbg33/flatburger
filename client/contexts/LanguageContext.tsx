@@ -35,13 +35,13 @@ const translations = {
     
     // Burgers
     'burger.classic.name': 'Classic',
-    'burger.classic.description': 'Smashed beef, aged cheddar, house pickles. The OG that started it all.',
+    'burger.classic.description': 'Smashed beef, aged cheddar, house pickles, Flat sauce that slaps',
     'burger.fancy.name': 'Fancy',
-    'burger.fancy.description': 'Double smash, truffle mayo, fresh arugula. Bougie vibes, street prices.',
+    'burger.fancy.description': 'Double smash, truffle mayo, fresh arugula — bougie but worth it',
     'burger.pyro.name': 'Pyro',
     'burger.pyro.description': 'Heat warning: jalapeños, chipotle fire. This one’s not playing games.',
     'burger.baconJam.name': 'Bacon Jam',
-    'burger.baconJam.description': 'Crispy bacon, sweet onion jam, melted cheddar. Sweet meets heat.',
+    'burger.baconJam.description': 'Crispy bacon, sweet onion jam, melted cheddar — pure vibes',
     
     // Add-ons
     'addon.pomfrit': 'Pomfrit',
