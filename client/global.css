@@ -159,6 +159,20 @@
     }
   }
 
+  .animate-infinite-scroll {
+    animation: infiniteScroll 20s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes infiniteScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
   .animate-scroll-reveal {
     opacity: 0;
     transform: translateY(60px);
