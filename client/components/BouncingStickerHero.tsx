@@ -23,15 +23,17 @@ export const BouncingStickerHero: React.FC = () => {
       {/* Simple urban design elements - positioned away from text */}
       <div className="absolute inset-0">
         {/* Urban corner accents - safe areas */}
-        <div className="absolute top-8 left-8 w-12 h-px bg-flat-blue/15"></div>
-        <div className="absolute top-8 left-8 w-px h-12 bg-flat-blue/15"></div>
+        {/* Top corner accents */}
+        <div className="absolute top-8 left-8 w-8 h-px bg-flat-blue/15"></div>
+        <div className="absolute top-8 left-8 w-px h-8 bg-flat-blue/15"></div>
 
-        <div className="absolute bottom-8 right-8 w-10 h-px bg-flat-blue/10"></div>
-        <div className="absolute bottom-8 right-8 w-px h-10 bg-flat-blue/10"></div>
+        {/* Bottom right corner - positioned higher to avoid text overlap */}
+        <div className="absolute bottom-32 right-8 w-6 h-px bg-flat-blue/10"></div>
+        <div className="absolute bottom-32 right-8 w-px h-6 bg-flat-blue/10"></div>
 
-        {/* Small accents in safe corners */}
+        {/* Small accents in safe corners - repositioned */}
         <div className="absolute top-16 right-16 w-2 h-2 bg-flat-blue/15 rounded-full animate-street-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-16 left-16 w-1 h-1 bg-flat-blue/10 rounded-full animate-street-float" style={{animationDelay: '4s'}}></div>
+        <div className="absolute bottom-32 left-32 w-1 h-1 bg-flat-blue/10 rounded-full animate-street-float" style={{animationDelay: '4s'}}></div>
       </div>
 
       {/* Main Content */}
