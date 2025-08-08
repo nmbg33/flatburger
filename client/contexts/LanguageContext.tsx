@@ -39,7 +39,7 @@ const translations = {
     'burger.fancy.name': 'Fancy',
     'burger.fancy.description': 'Double smash, truffle mayo, fresh arugula — bougie but worth it',
     'burger.pyro.name': 'Pyro',
-    'burger.pyro.description': 'Heat warning: jalapeños, chipotle fire. This one’s not playing games.',
+    'burger.pyro.description': 'Spicy AF — beef, jalapenos, chipotle that will make you sweat',
     'burger.baconJam.name': 'Bacon Jam',
     'burger.baconJam.description': 'Crispy bacon, sweet onion jam, melted cheddar — pure vibes',
     
@@ -87,11 +87,11 @@ const translations = {
     
     // Burgers
     'burger.classic.name': 'Classic',
-    'burger.classic.description': 'Spljoštena govedina, odležali čedar, domaće kiselice, Flat sos koji rešava',
+    'burger.classic.description': 'Splaškana govedina, stari čedar, domaće kiselice, Flat sos koji ubija',
     'burger.fancy.name': 'Fancy',
-    'burger.fancy.description': 'Duplo meso, tartufo majonez, sveža rukola — skupo ali vredi',
+    'burger.fancy.description': 'Dupli splask, tartufo majonez, sveža rukola — skupo al vredi',
     'burger.pyro.name': 'Pyro',
-    'burger.pyro.description': 'Ljuto do bola ��� govedina, halapeño, čipotle koji će te znojiti',
+    'burger.pyro.description': 'Ljuto ko đavo — govedina, halapeño, čipotle koji će te znojiti',
     'burger.baconJam.name': 'Bacon Jam',
     'burger.baconJam.description': 'Hrskava slanina, slatki džem od luka, topljeni čedar — čist užitak',
     
