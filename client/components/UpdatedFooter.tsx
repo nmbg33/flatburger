@@ -25,9 +25,12 @@ export const UpdatedFooter: React.FC = () => {
           <div className="mb-12">
             <FlatBurgerIcon size="xl" className="mx-auto mb-6" />
             <div className="mb-4">
-              <FlatBurgerWordmark className="mx-auto max-w-sm" />
+              <FlatBurgerWordmark
+                className="mx-auto max-w-xs"
+                style={{filter: 'brightness(0) saturate(100%) invert(93%) sepia(8%) saturate(615%) hue-rotate(321deg) brightness(96%) contrast(96%)'}}
+              />
             </div>
-            <p className="text-flat-beige/70 text-lg font-medium" style={{fontFamily: 'Bricolage Grotesque'}}>
+            <p className="text-lg font-medium" style={{fontFamily: 'Bricolage Grotesque', color: '#FEEBCB'}}>
               Made in Belgrade. Built for the street.
             </p>
           </div>
@@ -89,7 +92,7 @@ export const UpdatedFooter: React.FC = () => {
 
           {/* Copyright */}
           <div className="border-t border-flat-beige/20 pt-8">
-            <p className="text-flat-beige/60 text-sm" style={{fontFamily: 'Bricolage Grotesque'}}>
+            <p className="text-sm" style={{fontFamily: 'Bricolage Grotesque', color: '#FEEBCB'}}>
               © 2024 Flat Burger. Made in Belgrade for the streets.
             </p>
           </div>
