@@ -19,7 +19,7 @@ const translations = {
     
     // Homepage
     'hero.tagline': 'Burgers. But flatter.',
-    'hero.subtitle': 'Nothing fake. Just fire in a bun.',
+    'hero.subtitle': 'Zero BS. Pure heat between bread.',
     'hero.cta': 'TASTE THE FIRE',
     'hero.scrollDown': 'Scroll',
     
@@ -70,7 +70,7 @@ const translations = {
     
     // Homepage
     'hero.tagline': 'Burgeri. Ali ravni.',
-    'hero.subtitle': 'Bez glume. Samo vatra u lepinj.',
+    'hero.subtitle': 'Nula foliranja. Čista vatra u lepinj.',
     'hero.cta': 'OKUSI VATRU',
     'hero.scrollDown': 'Skroluj',
     
