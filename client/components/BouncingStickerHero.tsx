@@ -32,14 +32,18 @@ export const BouncingStickerHero: React.FC = () => {
         
         {/* Bouncing Sticker - Main focal point */}
         <div className={`transform transition-all duration-1500 ease-out ${
-          isLoaded 
-            ? 'opacity-100 translate-y-0 scale-100' 
+          isLoaded
+            ? 'opacity-100 translate-y-0 scale-100'
             : 'opacity-0 translate-y-8 scale-95'
         }`}>
           <div className="relative inline-block mb-12">
             {/* Sticker background */}
             <div className="bg-white rounded-full p-8 shadow-2xl border-4 border-flat-blue animate-bounce">
-              <FlatBurgerIcon size="xl" className="mx-auto" />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6c2f790110dc42debce12f883ec2e2af?format=webp&width=800"
+                alt="Flat Burger Logo"
+                className="w-24 h-24 mx-auto"
+              />
             </div>
           </div>
         </div>
@@ -51,7 +55,7 @@ export const BouncingStickerHero: React.FC = () => {
             : 'opacity-0 translate-y-8'
         }`}>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-flat-blue mb-6 leading-tight tracking-tight" style={{fontFamily: 'Bricolage Grotesque', color: '#1C33C3'}}>
-            Burgers. But flatter.
+            Burger. But flatter.
           </h1>
         </div>
 
