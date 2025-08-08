@@ -70,9 +70,9 @@ const translations = {
     
     // Homepage
     'hero.tagline': 'Burgeri. Ali ravni.',
-    'hero.subtitle': 'Bez blajve. Samo vatra u lepinj.',
+    'hero.subtitle': 'Bez glume. Samo vatra u lepinj.',
     'hero.cta': 'OKUSI VATRU',
-    'hero.scrollDown': 'Nastavi dalje',
+    'hero.scrollDown': 'Skroluj',
     
     // About Us
     'about.title': 'ROĐENI U BEOGRADU',
