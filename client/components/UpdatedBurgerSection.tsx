@@ -10,32 +10,31 @@ interface BurgerItem {
 }
 
 const burgers: BurgerItem[] = [
-  { 
-    id: 'classic', 
-    nameKey: 'burger.classic.name', 
-    descriptionKey: 'burger.classic.description', 
+  {
+    id: 'classic',
+    nameKey: 'burger.classic.name',
+    descriptionKey: 'burger.classic.description',
     price: 890,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Ffc64a20eae404dba92ec338c7723dce9?format=webp&width=800'
   },
-  { 
-    id: 'fancy', 
-    nameKey: 'burger.fancy.name', 
-    descriptionKey: 'burger.fancy.description', 
+  {
+    id: 'fancy',
+    nameKey: 'burger.fancy.name',
+    descriptionKey: 'burger.fancy.description',
     price: 1290,
-    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fde74de31ded14bb590a0a078486b1215?format=webp&width=800'
+    imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fdb1d07e06fb5426fa4c5c4363c486fec?format=webp&width=800'
   },
-  { 
-    id: 'pyro', 
-    nameKey: 'burger.pyro.name', 
-    descriptionKey: 'burger.pyro.description', 
+  {
+    id: 'pyro',
+    nameKey: 'burger.pyro.name',
+    descriptionKey: 'burger.pyro.description',
     price: 990,
-    // Using the new Pyro image provided
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fea6215fff58340198150c9cc81975142?format=webp&width=800'
   },
-  { 
-    id: 'baconJam', 
-    nameKey: 'burger.baconJam.name', 
-    descriptionKey: 'burger.baconJam.description', 
+  {
+    id: 'baconJam',
+    nameKey: 'burger.baconJam.name',
+    descriptionKey: 'burger.baconJam.description',
     price: 1190,
     imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F993fe5cf66464562887c82cf5def9f35?format=webp&width=800'
   }
