@@ -66,12 +66,12 @@ export const UpdatedBurgerSection: React.FC = () => {
 
   return (
     <section id="menu" ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
-      {/* Simple urban corner accents */}
-      <div className="absolute top-8 left-8 w-16 h-px bg-flat-blue/10"></div>
-      <div className="absolute top-8 left-8 w-px h-16 bg-flat-blue/10"></div>
+      {/* Minimal corner accents in safe areas */}
+      <div className="absolute top-8 left-8 w-8 h-px bg-flat-blue/8"></div>
+      <div className="absolute top-8 left-8 w-px h-8 bg-flat-blue/8"></div>
 
-      <div className="absolute bottom-8 right-8 w-12 h-px bg-flat-blue/10"></div>
-      <div className="absolute bottom-8 right-8 w-px h-12 bg-flat-blue/10"></div>
+      <div className="absolute bottom-8 right-8 w-6 h-px bg-flat-blue/8"></div>
+      <div className="absolute bottom-8 right-8 w-px h-6 bg-flat-blue/8"></div>
       <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
         <div className="text-center mb-16" data-index="0">
@@ -103,9 +103,7 @@ export const UpdatedBurgerSection: React.FC = () => {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Burger Card with hover animations */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-700 border border-gray-100 group-hover:rotate-1 relative">
-                {/* Subtle urban corner accent */}
-                <div className="absolute top-4 right-4 w-3 h-3 bg-flat-blue/5 rotate-45"></div>
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-700 border border-gray-100 group-hover:rotate-1">
                 {/* Image with hover effects */}
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img 

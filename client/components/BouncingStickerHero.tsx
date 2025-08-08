@@ -20,35 +20,18 @@ export const BouncingStickerHero: React.FC = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-flat-beige">
-      {/* Simple urban design elements */}
+      {/* Simple urban design elements - positioned away from text */}
       <div className="absolute inset-0">
-        {/* Urban geometric lines */}
-        <div className="absolute top-20 left-8 w-16 h-px bg-flat-blue/20"></div>
-        <div className="absolute top-20 left-8 w-px h-16 bg-flat-blue/20"></div>
+        {/* Urban corner accents - safe areas */}
+        <div className="absolute top-8 left-8 w-12 h-px bg-flat-blue/15"></div>
+        <div className="absolute top-8 left-8 w-px h-12 bg-flat-blue/15"></div>
 
-        <div className="absolute bottom-20 right-8 w-12 h-px bg-flat-blue/15"></div>
-        <div className="absolute bottom-20 right-8 w-px h-12 bg-flat-blue/15"></div>
+        <div className="absolute bottom-8 right-8 w-10 h-px bg-flat-blue/10"></div>
+        <div className="absolute bottom-8 right-8 w-px h-10 bg-flat-blue/10"></div>
 
-        {/* Street star */}
-        <div className="absolute top-1/5 right-1/6 text-flat-blue/15" style={{animationDelay: '1s'}}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="animate-street-float">
-            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" />
-          </svg>
-        </div>
-
-        {/* Minimal arrow */}
-        <div className="absolute top-2/3 right-1/5 text-flat-blue/10" style={{animationDelay: '3s'}}>
-          <svg width="20" height="10" viewBox="0 0 32 16" fill="currentColor" className="animate-street-float">
-            <path d="M24 0L32 8L24 16V12H0V4H24V0Z" />
-          </svg>
-        </div>
-
-        {/* Urban dots */}
-        <div className="absolute top-1/3 left-1/6 w-2 h-2 bg-flat-blue/20 rounded-full animate-street-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-flat-blue/15 rounded-full animate-street-float" style={{animationDelay: '4s'}}></div>
-
-        {/* Graffiti-style line */}
-        <div className="absolute top-1/2 left-4 w-8 h-px bg-gradient-to-r from-flat-blue/20 to-transparent"></div>
+        {/* Small accents in safe corners */}
+        <div className="absolute top-16 right-16 w-2 h-2 bg-flat-blue/15 rounded-full animate-street-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-16 left-16 w-1 h-1 bg-flat-blue/10 rounded-full animate-street-float" style={{animationDelay: '4s'}}></div>
       </div>
 
       {/* Main Content */}
