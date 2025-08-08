@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { PrettyPattyStyleNav } from "./components/PrettyPattyStyleNav";
-import { PrettyPattyFooter } from "./components/PrettyPattyFooter";
+import { PrettyPattyStyleFooter } from "./components/PrettyPattyStyleFooter";
 import Index from "./pages/Index";
 import { Locations } from "./pages/Locations";
 import NotFound from "./pages/NotFound";
@@ -29,7 +29,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <PrettyPattyFooter />
+          <PrettyPattyStyleFooter />
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
