@@ -30,17 +30,17 @@ const translations = {
     // Menu
     'menu.title': 'THE LINEUP',
     'menu.subtitle': 'Each one hits different',
-    'menu.addOns': 'SIDES',
+    'menu.addOns': 'EXTRAS THAT SLAP',
     
     // Burgers
     'burger.classic.name': 'Classic',
-    'burger.classic.description': 'Smashed beef, aged cheddar, house pickles, Flat sauce that slaps',
+    'burger.classic.description': 'Smashed beef, aged cheddar, house pickles. The OG that started it all.',
     'burger.fancy.name': 'Fancy',
-    'burger.fancy.description': 'Double smash, truffle mayo, fresh arugula — bougie but worth it',
+    'burger.fancy.description': 'Double smash, truffle mayo, fresh arugula. Bougie vibes, street prices.',
     'burger.pyro.name': 'Pyro',
-    'burger.pyro.description': 'Spicy AF — beef, jalapenos, chipotle that will make you sweat',
+    'burger.pyro.description': 'Heat warning: jalapeños, chipotle fire. This one’s not playing games.',
     'burger.baconJam.name': 'Bacon Jam',
-    'burger.baconJam.description': 'Crispy bacon, sweet onion jam, melted cheddar — pure vibes',
+    'burger.baconJam.description': 'Crispy bacon, sweet onion jam, melted cheddar. Sweet meets heat.',
     
     // Add-ons
     'addon.pomfrit': 'Pomfrit',
