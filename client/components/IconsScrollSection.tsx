@@ -23,7 +23,7 @@ export const IconsScrollSection: React.FC = () => {
           {duplicatedIcons.map((item, index) => (
             <div 
               key={index}
-              className="flex-shrink-0 flex items-center justify-center mx-12 text-flat-cream"
+              className="flex-shrink-0 flex items-center justify-center mx-12 text-flat-beige"
             >
               {/* Icon Only */}
               <div className="text-4xl">
