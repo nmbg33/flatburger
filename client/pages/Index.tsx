@@ -1,16 +1,16 @@
 import React from 'react';
-import { CleanHero } from '../components/CleanHero';
+import { PrettyPattyStyleHero } from '../components/PrettyPattyStyleHero';
 import { IconsScrollSection } from '../components/IconsScrollSection';
-import { CleanAbout } from '../components/CleanAbout';
-import { CleanMenu } from '../components/CleanMenu';
+import { PrettyPattyStyleAbout } from '../components/PrettyPattyStyleAbout';
+import { PrettyPattyStyleBurgers } from '../components/PrettyPattyStyleBurgers';
 
 export default function Index() {
   return (
     <>
-      <CleanHero />
+      <PrettyPattyStyleHero />
       <IconsScrollSection />
-      <CleanAbout />
-      <CleanMenu />
+      <PrettyPattyStyleAbout />
+      <PrettyPattyStyleBurgers />
     </>
   );
 }
