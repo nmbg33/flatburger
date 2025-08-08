@@ -65,7 +65,7 @@ export const PrettyPattyStyleBurgers: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+    <section id="menu" ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Title with Pretty Patty-style animation */}
