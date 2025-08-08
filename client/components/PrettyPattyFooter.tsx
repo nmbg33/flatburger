@@ -13,11 +13,10 @@ export const PrettyPattyFooter: React.FC = () => {
 
   return (
     <footer className="bg-flat-dark text-flat-cream py-20 relative overflow-hidden">
-      {/* Background Moving Text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-        <div className="text-[10vw] font-black text-flat-cream whitespace-nowrap animate-slide-right">
-          FLAT BURGER FLAT BURGER FLAT BURGER
-        </div>
+      {/* Clean background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-cream animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-flat-cream animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
