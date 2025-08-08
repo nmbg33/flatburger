@@ -7,7 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import { PrettyPattyStyleNav } from "./components/PrettyPattyStyleNav";
+import { UpdatedNavigation } from "./components/UpdatedNavigation";
 import { PrettyPattyStyleFooter } from "./components/PrettyPattyStyleFooter";
 import Index from "./pages/Index";
 import { Locations } from "./pages/Locations";
@@ -22,7 +22,7 @@ const App = () => (
       <Sonner />
       <LanguageProvider>
         <BrowserRouter>
-          <PrettyPattyStyleNav />
+          <UpdatedNavigation />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/locations" element={<Locations />} />
