@@ -173,6 +173,58 @@
     }
   }
 
+  /* Pretty Patty-style background text animations */
+  .animate-scroll-right-slow {
+    animation: scrollRightSlow 60s linear infinite;
+  }
+
+  .animate-scroll-left-slow {
+    animation: scrollLeftSlow 45s linear infinite;
+  }
+
+  .animate-scroll-right-fast {
+    animation: scrollRightFast 30s linear infinite;
+  }
+
+  @keyframes scrollRightSlow {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes scrollLeftSlow {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scrollRightFast {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Pretty Patty-style scroll reveal animations */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .animate-scroll-reveal {
     opacity: 0;
     transform: translateY(60px);
