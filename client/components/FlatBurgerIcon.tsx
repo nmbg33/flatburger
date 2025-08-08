@@ -19,7 +19,7 @@ export const FlatBurgerIcon: React.FC<FlatBurgerIconProps> = ({
 
   return (
     <img 
-      src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fc2d5b86ee6204dc793c4095ecab60235?format=webp&width=800"
+      src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F8cda230b1d45448692bf3fd9dbb45d51?format=webp&width=800"
       alt="Flat Burger Icon"
       className={`${sizeClasses[size]} object-contain ${className}`}
     />
