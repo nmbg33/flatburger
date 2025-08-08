@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, { useEffect, useRef, useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export const CleanAbout: React.FC = () => {
   const { t } = useLanguage();
@@ -13,7 +13,7 @@ export const CleanAbout: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (sectionRef.current) {
@@ -24,7 +24,7 @@ export const CleanAbout: React.FC = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       data-section="about"
       className="min-h-screen flex items-center justify-center py-20 px-4 bg-flat-blue relative"
@@ -46,45 +46,58 @@ export const CleanAbout: React.FC = () => {
       {/* Clean Floating Stickers */}
       <div className="absolute bottom-12 left-8 md:bottom-16 md:left-12 z-20">
         <div className="bg-flat-cream text-flat-blue px-3 py-2 rounded-full transform -rotate-6 animate-gentle-float">
-          <span className="text-xs font-black tracking-wider uppercase">RAW</span>
+          <span className="text-xs font-black tracking-wider uppercase">
+            RAW
+          </span>
         </div>
       </div>
 
       <div className="absolute top-20 right-8 md:top-24 md:right-12 z-20">
-        <div className="bg-flat-cream text-flat-blue px-4 py-2 rounded-lg transform rotate-12 animate-street-float" style={{animationDelay: '1s'}}>
-          <span className="text-xs font-black tracking-wider uppercase">STREET</span>
+        <div
+          className="bg-flat-cream text-flat-blue px-4 py-2 rounded-lg transform rotate-12 animate-street-float"
+          style={{ animationDelay: "1s" }}
+        >
+          <span className="text-xs font-black tracking-wider uppercase">
+            STREET
+          </span>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
         {/* Title */}
-        <div className={`transition-all duration-1000 ease-out ${
-          isVisible 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-0 transform translate-y-12'
-        }`}>
+        <div
+          className={`transition-all duration-1000 ease-out ${
+            isVisible
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-12"
+          }`}
+        >
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-cream mb-12 leading-tight tracking-tight">
-            {t('about.title')}
+            {t("about.title")}
           </h2>
         </div>
 
         {/* Description */}
-        <div className={`max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${
-          isVisible 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-0 transform translate-y-12'
-        }`}>
+        <div
+          className={`max-w-4xl mx-auto transition-all duration-1000 ease-out delay-300 ${
+            isVisible
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-12"
+          }`}
+        >
           <p className="text-xl md:text-2xl lg:text-3xl text-flat-cream/95 leading-relaxed font-medium">
-            {t('about.description')}
+            {t("about.description")}
           </p>
         </div>
 
         {/* Urban decorative element */}
-        <div className={`mt-16 transition-all duration-1000 ease-out delay-600 ${
-          isVisible 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-0 transform translate-y-12'
-        }`}>
+        <div
+          className={`mt-16 transition-all duration-1000 ease-out delay-600 ${
+            isVisible
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-12"
+          }`}
+        >
           <div className="flex justify-center items-center space-x-8">
             <div className="w-20 h-1 bg-flat-cream"></div>
             <div className="w-4 h-4 bg-flat-cream rounded-full"></div>

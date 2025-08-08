@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 export const UrbanStickerWall: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,7 +13,7 @@ export const UrbanStickerWall: React.FC = () => {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (sectionRef.current) {
@@ -25,12 +25,12 @@ export const UrbanStickerWall: React.FC = () => {
 
   // Urban sticker elements
   const urbanStickers = [
-    { text: 'FRESH', size: 'text-2xl', rotation: '-rotate-12', delay: '0ms' },
-    { text: 'HEAT', size: 'text-3xl', rotation: 'rotate-6', delay: '200ms' },
-    { text: 'REAL', size: 'text-xl', rotation: '-rotate-3', delay: '400ms' },
-    { text: 'VIBES', size: 'text-2xl', rotation: 'rotate-12', delay: '600ms' },
-    { text: 'BOLD', size: 'text-xl', rotation: '-rotate-6', delay: '800ms' },
-    { text: 'FLAT', size: 'text-2xl', rotation: 'rotate-3', delay: '1000ms' },
+    { text: "FRESH", size: "text-2xl", rotation: "-rotate-12", delay: "0ms" },
+    { text: "HEAT", size: "text-3xl", rotation: "rotate-6", delay: "200ms" },
+    { text: "REAL", size: "text-xl", rotation: "-rotate-3", delay: "400ms" },
+    { text: "VIBES", size: "text-2xl", rotation: "rotate-12", delay: "600ms" },
+    { text: "BOLD", size: "text-xl", rotation: "-rotate-6", delay: "800ms" },
+    { text: "FLAT", size: "text-2xl", rotation: "rotate-3", delay: "1000ms" },
   ];
 
   return (
@@ -38,7 +38,6 @@ export const UrbanStickerWall: React.FC = () => {
       ref={sectionRef}
       className="relative py-20 bg-flat-beige overflow-hidden"
     >
-      
       {/* Floating urban stickers */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="flex flex-wrap justify-center items-center gap-8 max-w-4xl mx-auto">
@@ -47,22 +46,23 @@ export const UrbanStickerWall: React.FC = () => {
               key={index}
               className={`
                 transform transition-all duration-1000 ease-out
-                ${isVisible 
-                  ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-8 scale-95'
+                ${
+                  isVisible
+                    ? "opacity-100 translate-y-0 scale-100"
+                    : "opacity-0 translate-y-8 scale-95"
                 }
                 ${sticker.rotation}
                 animate-street-float
               `}
-              style={{ 
+              style={{
                 transitionDelay: sticker.delay,
-                animationDelay: `${index * 0.5}s`
+                animationDelay: `${index * 0.5}s`,
               }}
             >
               <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-lg border-2 border-flat-blue/20">
-                <span 
+                <span
                   className={`${sticker.size} font-black text-flat-blue tracking-wider`}
-                  style={{ fontFamily: 'Bricolage Grotesque' }}
+                  style={{ fontFamily: "Bricolage Grotesque" }}
                 >
                   {sticker.text}
                 </span>

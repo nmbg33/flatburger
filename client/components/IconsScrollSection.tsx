@@ -1,5 +1,5 @@
-import React from 'react';
-import { FlatBurgerIcon } from './FlatBurgerIcon';
+import React from "react";
+import { FlatBurgerIcon } from "./FlatBurgerIcon";
 
 export const IconsScrollSection: React.FC = () => {
   // Create array of icon elements for continuous scroll
@@ -21,13 +21,13 @@ export const IconsScrollSection: React.FC = () => {
         {/* Infinite scrolling container */}
         <div className="flex animate-infinite-scroll">
           {duplicatedIcons.map((item, index) => (
-            <div 
+            <div
               key={index}
               className="flex-shrink-0 flex items-center justify-center mx-12 text-flat-beige"
             >
               {/* Icon Only */}
               <div className="text-4xl">
-                {typeof item.icon === 'string' ? (
+                {typeof item.icon === "string" ? (
                   <span className="text-4xl">{item.icon}</span>
                 ) : (
                   item.icon

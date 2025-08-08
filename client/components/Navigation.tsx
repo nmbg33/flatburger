@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FlatBurgerIcon } from './FlatBurgerIcon';
-import { FlatBurgerWordmark } from './FlatBurgerWordmark';
-import { useLanguage } from '../contexts/LanguageContext';
-import { Menu, X, Globe } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FlatBurgerIcon } from "./FlatBurgerIcon";
+import { FlatBurgerWordmark } from "./FlatBurgerWordmark";
+import { useLanguage } from "../contexts/LanguageContext";
+import { Menu, X, Globe } from "lucide-react";
 
 export const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,25 +15,29 @@ export const Navigation: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'sr' : 'en');
+    setLanguage(language === "en" ? "sr" : "en");
   };
 
   const navItems = [
-    { key: 'nav.aboutUs', href: '#about' },
-    { key: 'nav.menu', href: '#menu' },
-    { key: 'nav.locations', href: '/locations' },
+    { key: "nav.aboutUs", href: "#about" },
+    { key: "nav.menu", href: "#menu" },
+    { key: "nav.locations", href: "/locations" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-flat-cream/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-flat-cream/95 backdrop-blur-md shadow-lg py-2"
+          : "bg-transparent py-4"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -55,7 +59,7 @@ export const Navigation: React.FC = () => {
                 {t(item.key)}
               </a>
             ))}
-            
+
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
@@ -75,7 +79,7 @@ export const Navigation: React.FC = () => {
               <Globe size={14} />
               <span>{language.toUpperCase()}</span>
             </button>
-            
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-flat-blue p-2"

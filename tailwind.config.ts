@@ -24,10 +24,10 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
         },
         // Flat Burger Brand Colors
-        'flat-blue': '#1C33C3',
-        'flat-cream': '#FEEBCB',
-        'flat-beige': '#FEEBCB',
-        'flat-dark': '#0A1A3D',
+        "flat-blue": "#1C33C3",
+        "flat-cream": "#FEEBCB",
+        "flat-beige": "#FEEBCB",
+        "flat-dark": "#0A1A3D",
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",

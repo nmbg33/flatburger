@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, { useEffect, useRef, useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export const UpdatedAboutSection: React.FC = () => {
   const { t } = useLanguage();
@@ -13,7 +13,7 @@ export const UpdatedAboutSection: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (sectionRef.current) {
@@ -24,7 +24,7 @@ export const UpdatedAboutSection: React.FC = () => {
   }, []);
 
   return (
-    <section 
+    <section
       id="about"
       ref={sectionRef}
       data-section="about"
@@ -39,33 +39,39 @@ export const UpdatedAboutSection: React.FC = () => {
       {/* Content */}
       <div className="max-w-5xl mx-auto text-center relative z-10">
         {/* Title */}
-        <div className={`transform transition-all duration-1000 ease-out ${
-          isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-12'
-        }`}>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-beige mb-12 leading-tight tracking-tight" style={{fontFamily: 'Bricolage Grotesque'}}>
-            {t('about.title')}
+        <div
+          className={`transform transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}
+        >
+          <h2
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-beige mb-12 leading-tight tracking-tight"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
+            {t("about.title")}
           </h2>
         </div>
 
         {/* Description */}
-        <div className={`transform transition-all duration-1000 ease-out delay-300 ${
-          isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-12'
-        }`}>
-          <p className="text-xl md:text-2xl lg:text-3xl text-flat-beige/95 leading-relaxed font-medium max-w-4xl mx-auto" style={{fontFamily: 'Bricolage Grotesque', fontWeight: '400'}}>
-            {t('about.description')}
+        <div
+          className={`transform transition-all duration-1000 ease-out delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}
+        >
+          <p
+            className="text-xl md:text-2xl lg:text-3xl text-flat-beige/95 leading-relaxed font-medium max-w-4xl mx-auto"
+            style={{ fontFamily: "Bricolage Grotesque", fontWeight: "400" }}
+          >
+            {t("about.description")}
           </p>
         </div>
 
         {/* Decorative element */}
-        <div className={`mt-16 transform transition-all duration-1000 ease-out delay-600 ${
-          isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-12'
-        }`}>
+        <div
+          className={`mt-16 transform transition-all duration-1000 ease-out delay-600 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}
+        >
           <div className="flex justify-center items-center space-x-8">
             <div className="w-20 h-1 bg-flat-beige"></div>
             <div className="w-4 h-4 bg-flat-beige rounded-full"></div>
