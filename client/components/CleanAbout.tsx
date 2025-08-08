@@ -39,7 +39,7 @@ export const CleanAbout: React.FC = () => {
       {/* Floating Sticker */}
       <div className="absolute bottom-12 left-8 md:bottom-16 md:left-12 z-20">
         <div className="bg-flat-cream text-flat-blue px-3 py-2 rounded-full transform -rotate-6 shadow-lg animate-gentle-float">
-          <span className="text-xs font-black tracking-wider uppercase">STREET</span>
+          <span className="text-xs font-black tracking-wider uppercase">RAW</span>
         </div>
       </div>
 
