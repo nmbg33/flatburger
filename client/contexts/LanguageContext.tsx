@@ -77,8 +77,8 @@ const translations = {
     'hero.scrollDown': 'Skroluj',
     
     // About Us
-    'about.title': 'FLAT BURGER PRIČA',
-    'about.description': 'Pokrenuli smo u Beogradu sa jednim ciljem: usavršiti ravni burger. Svaku plješcu pritiskamo tanko, pečemo vruće i slagamo visoko. Svaki Flat Burger je svež napravljen od kvalitetnih sastojaka. Jednostavan koncept, ozbiljan ukus.',
+    'about.title': 'ROĐENI U BEOGRADU',
+    'about.description': 'Mi sploštimo, mi slagečimo, mi držimo pravo. Nema blajve, nema dosadnih kombinacija — samo čista vatra u lepinj. Rođeni u Beogradu, pravljeni za ulice. Sirova energija, nula sranja.',
     
     // Menu
     'menu.title': 'VATRA',
