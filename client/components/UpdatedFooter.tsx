@@ -12,7 +12,7 @@ export const UpdatedFooter: React.FC = () => {
   };
 
   return (
-    <footer className="bg-flat-dark text-flat-beige py-20 relative overflow-hidden">
+    <footer className="bg-flat-blue text-flat-beige py-20 relative overflow-hidden">
       {/* Clean background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-flat-beige animate-pulse"></div>
@@ -80,7 +80,7 @@ export const UpdatedFooter: React.FC = () => {
             {/* Back to Top Button */}
             <button
               onClick={scrollToTop}
-              className="bg-flat-blue text-flat-beige p-4 rounded-full hover:bg-flat-beige hover:text-flat-dark transition-all duration-300 transform hover:scale-110 shadow-lg"
+              className="bg-flat-beige text-flat-blue p-4 rounded-full hover:bg-white hover:text-flat-blue transition-all duration-300 transform hover:scale-110"
               title={t('footer.backToTop')}
             >
               <ArrowUp size={24} />
