@@ -27,6 +27,13 @@ export const CleanHero: React.FC = () => {
         <div className="absolute top-1/2 left-1/6 w-16 h-16 rounded-full bg-flat-blue animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
+      {/* Floating Sticker Element */}
+      <div className="absolute top-20 right-8 md:top-24 md:right-12 z-20">
+        <div className="bg-flat-blue text-flat-cream px-4 py-2 rounded-full transform rotate-12 shadow-lg animate-gentle-float">
+          <span className="text-sm font-black tracking-wider uppercase">FRESH!</span>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="text-center relative z-10 max-w-5xl mx-auto">
         {/* Logo */}
