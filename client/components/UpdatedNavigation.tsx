@@ -166,7 +166,6 @@ export const UpdatedNavigation: React.FC = () => {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('Hamburger clicked, current state:', isMenuOpen); // Debug log
                 setIsMenuOpen(prev => !prev);
               }}
               onTouchEnd={(e) => {
