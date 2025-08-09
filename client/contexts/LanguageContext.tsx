@@ -76,14 +76,16 @@ const translations = {
 
     // Our Story
     "story.title": "OUR STORY",
-    "story.subtitle": "From Belgrade streets to your plate. The journey of making burgers better, flatter, and more authentic.",
+    "story.subtitle":
+      "From Belgrade streets to your plate. The journey of making burgers better, flatter, and more authentic.",
     "story.backToHome": "Back to Home",
     "story.allPosts": "All Posts",
     "story.story": "Story",
     "story.news": "News",
     "story.readFullStory": "Read Full Story",
     "story.ctaTitle": "Taste Our Story",
-    "story.ctaSubtitle": "Every burger tells our story. Come experience the flavors that made us who we are.",
+    "story.ctaSubtitle":
+      "Every burger tells our story. Come experience the flavors that made us who we are.",
     "story.orderNow": "Order Now",
 
     // Order buttons
@@ -157,14 +159,16 @@ const translations = {
 
     // Our Story
     "story.title": "NAŠA PRIČA",
-    "story.subtitle": "Od beogradskih ulica do vašeg tanjira. Putovanje stvaranja boljih, ravnijih i autentičnijih burgera.",
+    "story.subtitle":
+      "Od beogradskih ulica do vašeg tanjira. Putovanje stvaranja boljih, ravnijih i autentičnijih burgera.",
     "story.backToHome": "Nazad na Početnu",
     "story.allPosts": "Sve Objave",
     "story.story": "Priča",
     "story.news": "Vesti",
     "story.readFullStory": "Pročitaj Celu Priču",
     "story.ctaTitle": "Okusi Našu Priču",
-    "story.ctaSubtitle": "Svaki burger priča našu priču. Dođi i iskusi ukuse koji su nas učinili ono što jesmo.",
+    "story.ctaSubtitle":
+      "Svaki burger priča našu priču. Dođi i iskusi ukuse koji su nas učinili ono što jesmo.",
     "story.orderNow": "Poruči Odmah",
 
     // Order buttons

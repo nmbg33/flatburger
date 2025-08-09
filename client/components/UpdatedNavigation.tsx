@@ -30,8 +30,8 @@ export const UpdatedNavigation: React.FC = () => {
     setIsMenuOpen(false);
 
     // If we're not on the home page, navigate to home first
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (location.pathname !== "/") {
+      navigate("/");
       // Wait for navigation and page load before scrolling
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -54,17 +54,21 @@ export const UpdatedNavigation: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (isMenuOpen && !target.closest('nav') && !target.closest('[role="menu"]')) {
+      if (
+        isMenuOpen &&
+        !target.closest("nav") &&
+        !target.closest('[role="menu"]')
+      ) {
         setIsMenuOpen(false);
       }
     };
 
     if (isMenuOpen) {
-      document.addEventListener('click', handleClickOutside, { passive: true });
+      document.addEventListener("click", handleClickOutside, { passive: true });
     }
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [isMenuOpen]);
 
@@ -166,7 +170,7 @@ export const UpdatedNavigation: React.FC = () => {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                setIsMenuOpen(prev => !prev);
+                setIsMenuOpen((prev) => !prev);
               }}
               onTouchEnd={(e) => {
                 e.preventDefault();
@@ -174,14 +178,18 @@ export const UpdatedNavigation: React.FC = () => {
               }}
               className={`text-flat-blue p-3 touch-manipulation rounded-lg transition-all duration-200 relative z-50 ${
                 isMenuOpen
-                  ? 'bg-flat-blue/20 text-flat-dark'
-                  : 'hover:bg-flat-blue/10 active:bg-flat-blue/20'
+                  ? "bg-flat-blue/20 text-flat-dark"
+                  : "hover:bg-flat-blue/10 active:bg-flat-blue/20"
               }`}
               aria-label="Toggle mobile menu"
               aria-expanded={isMenuOpen}
               type="button"
             >
-              {isMenuOpen ? <X size={24} strokeWidth={2.5} /> : <Menu size={24} strokeWidth={2.5} />}
+              {isMenuOpen ? (
+                <X size={24} strokeWidth={2.5} />
+              ) : (
+                <Menu size={24} strokeWidth={2.5} />
+              )}
             </button>
           </div>
         </div>

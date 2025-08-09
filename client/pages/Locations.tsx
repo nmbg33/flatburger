@@ -13,7 +13,7 @@ export const Locations: React.FC = () => {
         {/* Back Button */}
         <div className="mb-8">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="flex items-center space-x-2 text-flat-blue hover:text-flat-dark transition-colors duration-300 font-bold touch-manipulation p-3 rounded-lg active:bg-flat-blue/10"
             style={{ fontFamily: "Bricolage Grotesque" }}
           >

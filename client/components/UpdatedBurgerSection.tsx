@@ -47,7 +47,9 @@ const burgers: BurgerItem[] = [
 export const UpdatedBurgerSection: React.FC = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set([0, 1, 2, 3, 4, 5])); // Ensure all content is visible for Builder.io interface
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(
+    new Set([0, 1, 2, 3, 4, 5]),
+  ); // Ensure all content is visible for Builder.io interface
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -167,7 +169,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation inline-block text-center"
-                      style={{fontFamily: 'Bricolage Grotesque'}}
+                      style={{ fontFamily: "Bricolage Grotesque" }}
                     >
                       {t("order.wolt")}
                     </a>

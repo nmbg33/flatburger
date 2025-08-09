@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Calendar, User, Video, Image as ImageIcon } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  User,
+  Video,
+  Image as ImageIcon,
+} from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 
 interface BlogPost {
@@ -19,7 +25,8 @@ const blogPosts: BlogPost[] = [
   {
     id: "1",
     title: "Flat Burger at Los Silos Burger Festival 2025!",
-    excerpt: "Belgrade will once again become the epicenter of burger culture! Join us at the most exciting gastronomic event in the region.",
+    excerpt:
+      "Belgrade will once again become the epicenter of burger culture! Join us at the most exciting gastronomic event in the region.",
     content: `🍔 Flat Burger at Los Silos Burger Festival 2025
 
 Beograd will once again become the epicenter of burger culture! From August 29 to September 7, 2025, Flat Burger will proudly participate in the Los Silos Burger Festival, one of the most exciting gastronomic events in the region.
@@ -47,12 +54,14 @@ Don't miss the chance to enjoy top-notch burgers and an unforgettable experience
     date: "2025-08-09",
     author: "Nemanja Mladenovic",
     category: "news",
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261"
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261",
   },
   {
     id: "2",
     title: "🐔 New Addition: The Chicken Burger is Here!",
-    excerpt: "We're excited to announce that the Chicken Burger has arrived at Flat Burger! Your new favorite is here.",
+    excerpt:
+      "We're excited to announce that the Chicken Burger has arrived at Flat Burger! Your new favorite is here.",
     content: `🐔 New Addition: The Chicken Burger is Here!
 
 We're excited to announce that the Chicken Burger has arrived at Flat Burger! For all of you who love chicken as much as we do, this new addition is bound to be your new favorite.
@@ -64,12 +73,13 @@ The Chicken Flat comes with our specially crafted chicken sauce, fresh lettuce, 
 Whether you're a longtime chicken lover or just looking to try something new, the Chicken Flat is ready to become your go-to choice. Available now at all Flat Burger locations!`,
     date: "2024-12-15",
     author: "Nemanja Mladenovic",
-    category: "news"
+    category: "news",
   },
   {
     id: "3",
     title: "🎬 Behind the Scenes: 'Ipeglaj Glad' Campaign",
-    excerpt: "We're preparing something exciting! Get a behind-the-scenes look at our upcoming 'Ipeglaj Glad' campaign filming.",
+    excerpt:
+      "We're preparing something exciting! Get a behind-the-scenes look at our upcoming 'Ipeglaj Glad' campaign filming.",
     content: `🎬 Campaign Filming for "Ipeglaj Glad"
 
 We're also preparing something exciting! Stay tuned for our upcoming campaign filming for "Ipeglaj Glad". You won't want to miss the behind-the-scenes look at this special project!
@@ -83,12 +93,13 @@ We're working with local talent and using locations that represent the true spir
 Follow our social media for exclusive behind-the-scenes content, bloopers, and first looks at what promises to be our most authentic campaign yet. The official launch is coming soon!`,
     date: "2024-11-20",
     author: "Nemanja Mladenovic",
-    category: "news"
+    category: "news",
   },
   {
     id: "4",
     title: "How Flat Burger Started",
-    excerpt: "From Belgrade streets to your plate - the story of how we revolutionized the burger game.",
+    excerpt:
+      "From Belgrade streets to your plate - the story of how we revolutionized the burger game.",
     content: `It all started with a simple question: why do burgers have to be boring?
 
 Back in 2023, we were just a group of friends from Belgrade who were tired of the same old fast food experience. We had a vision - to bring real street energy to burgers, to make them flatter, better, and more authentic.
@@ -102,12 +113,13 @@ Our first location opened in Dorćol, right where the idea was born. We kept it 
 Today, every Flat Burger is still made with that same energy and passion. We're not just making food - we're creating an experience that represents Belgrade's street culture.`,
     date: "2024-08-09",
     author: "Nemanja Mladenovic",
-    category: "story"
+    category: "story",
   },
   {
     id: "5",
     title: "New Partnership with Local Suppliers",
-    excerpt: "We're expanding our commitment to Belgrade by partnering with local farmers and suppliers.",
+    excerpt:
+      "We're expanding our commitment to Belgrade by partnering with local farmers and suppliers.",
     content: `We're excited to announce new partnerships with local Belgrade suppliers that will enhance our commitment to the community.
 
 Starting this month, our beef comes exclusively from Serbian farms that meet our quality standards. Our vegetables are sourced from Vojvodina region, ensuring freshness and supporting local agriculture.
@@ -117,12 +129,13 @@ This isn't just about better ingredients (though they definitely are) - it's abo
 We're also working on seasonal specials that will highlight the best of what local suppliers have to offer throughout the year.`,
     date: "2024-03-10",
     author: "Operations Team",
-    category: "news"
+    category: "news",
   },
   {
     id: "6",
     title: "Behind the Scenes: Making Our Signature Sauce",
-    excerpt: "Ever wondered what makes our flat sauce so addictive? Here's an inside look at our secret recipe development.",
+    excerpt:
+      "Ever wondered what makes our flat sauce so addictive? Here's an inside look at our secret recipe development.",
     content: `Our signature flat sauce didn't happen overnight. It took months of experimentation to get the perfect balance of tangy, creamy, and just a little bit spicy.
 
 The base starts with premium mayonnaise, but then we add our special blend of spices, a touch of mustard for sharpness, and a secret ingredient that we source locally in Belgrade (sorry, can't reveal that one!).
@@ -135,14 +148,16 @@ Fun fact: our sauce recipe has been adjusted 47 times since we started. We're pe
     date: "2024-03-25",
     author: "Kitchen Team",
     category: "story",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-  }
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  },
 ];
 
 export const OurStory: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<"all" | "story" | "news">("all");
+  const [selectedCategory, setSelectedCategory] = useState<
+    "all" | "story" | "news"
+  >("all");
   const [visiblePosts, setVisiblePosts] = useState<Set<string>>(new Set());
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -154,32 +169,33 @@ export const OurStory: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const postId = entry.target.getAttribute('data-post-id');
+            const postId = entry.target.getAttribute("data-post-id");
             if (postId) {
-              setVisiblePosts(prev => new Set([...prev, postId]));
+              setVisiblePosts((prev) => new Set([...prev, postId]));
             }
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
-    Object.values(postRefs.current).forEach(ref => {
+    Object.values(postRefs.current).forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const filteredPosts = selectedCategory === "all" 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === selectedCategory);
+  const filteredPosts =
+    selectedCategory === "all"
+      ? blogPosts
+      : blogPosts.filter((post) => post.category === selectedCategory);
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -219,7 +235,7 @@ export const OurStory: React.FC = () => {
         {/* Back Button */}
         <div className="mb-8">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="flex items-center space-x-2 text-flat-blue hover:text-flat-dark transition-colors duration-300 font-bold touch-manipulation p-3 rounded-lg active:bg-flat-blue/10"
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
@@ -261,7 +277,9 @@ export const OurStory: React.FC = () => {
                 }`}
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
-                {category === "all" ? t("story.allPosts") : t(`story.${category}`)}
+                {category === "all"
+                  ? t("story.allPosts")
+                  : t(`story.${category}`)}
               </button>
             ))}
           </div>
@@ -272,12 +290,14 @@ export const OurStory: React.FC = () => {
           {filteredPosts.map((post, index) => (
             <article
               key={post.id}
-              ref={(el) => { postRefs.current[post.id] = el; }}
+              ref={(el) => {
+                postRefs.current[post.id] = el;
+              }}
               data-post-id={post.id}
               className={`bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform ${
                 visiblePosts.has(post.id)
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
@@ -287,9 +307,16 @@ export const OurStory: React.FC = () => {
                   {post.videoUrl ? (
                     <div className="w-full h-full flex items-center justify-center bg-flat-blue/10">
                       <div className="text-center">
-                        <Video size={48} className="text-flat-blue mx-auto mb-4" />
-                        <p className="text-flat-blue font-bold">Video Content</p>
-                        <p className="text-sm text-flat-blue/70">Click to watch</p>
+                        <Video
+                          size={48}
+                          className="text-flat-blue mx-auto mb-4"
+                        />
+                        <p className="text-flat-blue font-bold">
+                          Video Content
+                        </p>
+                        <p className="text-sm text-flat-blue/70">
+                          Click to watch
+                        </p>
                       </div>
                     </div>
                   ) : post.imageUrl ? (
@@ -303,15 +330,16 @@ export const OurStory: React.FC = () => {
                       <ImageIcon size={48} className="text-flat-blue/30" />
                     </div>
                   )}
-                  
+
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                      post.category === "story"
-                        ? "bg-flat-blue text-flat-beige"
-                        : "bg-flat-beige text-flat-blue"
-                    }`}
-                    style={{ fontFamily: "Bricolage Grotesque" }}
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                        post.category === "story"
+                          ? "bg-flat-blue text-flat-beige"
+                          : "bg-flat-beige text-flat-blue"
+                      }`}
+                      style={{ fontFamily: "Bricolage Grotesque" }}
                     >
                       {post.category}
                     </span>
@@ -357,8 +385,12 @@ export const OurStory: React.FC = () => {
                 <details className="group">
                   <summary className="cursor-pointer text-flat-blue font-bold hover:text-flat-dark transition-colors list-none">
                     <span className="flex items-center space-x-2">
-                      <span style={{ fontFamily: "Bricolage Grotesque" }}>{t("story.readFullStory")}</span>
-                      <span className="transform transition-transform group-open:rotate-180">▼</span>
+                      <span style={{ fontFamily: "Bricolage Grotesque" }}>
+                        {t("story.readFullStory")}
+                      </span>
+                      <span className="transform transition-transform group-open:rotate-180">
+                        ▼
+                      </span>
                     </span>
                   </summary>
                   <div className="mt-6 pt-6 border-t border-flat-blue/10">
@@ -366,7 +398,7 @@ export const OurStory: React.FC = () => {
                       className="text-flat-blue/80 leading-relaxed space-y-4"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      {post.content.split('\n\n').map((paragraph, index) => (
+                      {post.content.split("\n\n").map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                       ))}
                     </div>
@@ -390,10 +422,7 @@ export const OurStory: React.FC = () => {
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {filteredPosts.map((post, index) => (
-                <article
-                  key={post.id}
-                  className="w-full flex-shrink-0 px-4"
-                >
+                <article key={post.id} className="w-full flex-shrink-0 px-4">
                   <div className="bg-white rounded-3xl overflow-hidden shadow-xl">
                     {/* Media Section */}
                     {(post.imageUrl || post.videoUrl) && (
@@ -401,9 +430,16 @@ export const OurStory: React.FC = () => {
                         {post.videoUrl ? (
                           <div className="w-full h-full flex items-center justify-center bg-flat-blue/10">
                             <div className="text-center">
-                              <Video size={48} className="text-flat-blue mx-auto mb-4" />
-                              <p className="text-flat-blue font-bold">Video Content</p>
-                              <p className="text-sm text-flat-blue/70">Click to watch</p>
+                              <Video
+                                size={48}
+                                className="text-flat-blue mx-auto mb-4"
+                              />
+                              <p className="text-flat-blue font-bold">
+                                Video Content
+                              </p>
+                              <p className="text-sm text-flat-blue/70">
+                                Click to watch
+                              </p>
                             </div>
                           </div>
                         ) : post.imageUrl ? (
@@ -414,18 +450,22 @@ export const OurStory: React.FC = () => {
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center bg-flat-blue/5">
-                            <ImageIcon size={48} className="text-flat-blue/30" />
+                            <ImageIcon
+                              size={48}
+                              className="text-flat-blue/30"
+                            />
                           </div>
                         )}
 
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4">
-                          <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                            post.category === "story"
-                              ? "bg-flat-blue text-flat-beige"
-                              : "bg-flat-beige text-flat-blue"
-                          }`}
-                          style={{ fontFamily: "Bricolage Grotesque" }}
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                              post.category === "story"
+                                ? "bg-flat-blue text-flat-beige"
+                                : "bg-flat-beige text-flat-blue"
+                            }`}
+                            style={{ fontFamily: "Bricolage Grotesque" }}
                           >
                             {post.category}
                           </span>
@@ -471,8 +511,12 @@ export const OurStory: React.FC = () => {
                       <details className="group">
                         <summary className="cursor-pointer text-flat-blue font-bold hover:text-flat-dark transition-colors list-none">
                           <span className="flex items-center space-x-2">
-                            <span style={{ fontFamily: "Bricolage Grotesque" }}>{t("story.readFullStory")}</span>
-                            <span className="transform transition-transform group-open:rotate-180">▼</span>
+                            <span style={{ fontFamily: "Bricolage Grotesque" }}>
+                              {t("story.readFullStory")}
+                            </span>
+                            <span className="transform transition-transform group-open:rotate-180">
+                              ▼
+                            </span>
                           </span>
                         </summary>
                         <div className="mt-6 pt-6 border-t border-flat-blue/10">
@@ -480,9 +524,11 @@ export const OurStory: React.FC = () => {
                             className="text-flat-blue/80 leading-relaxed space-y-4 text-sm"
                             style={{ fontFamily: "Bricolage Grotesque" }}
                           >
-                            {post.content.split('\n\n').map((paragraph, index) => (
-                              <p key={index}>{paragraph}</p>
-                            ))}
+                            {post.content
+                              .split("\n\n")
+                              .map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                              ))}
                           </div>
                         </div>
                       </details>
@@ -497,11 +543,21 @@ export const OurStory: React.FC = () => {
           <div className="mt-6">
             {/* Story Counter */}
             <div className="text-center mb-4">
-              <p className="text-flat-blue font-bold text-lg" style={{ fontFamily: "Bricolage Grotesque" }}>
+              <p
+                className="text-flat-blue font-bold text-lg"
+                style={{ fontFamily: "Bricolage Grotesque" }}
+              >
                 {currentSlide + 1} / {filteredPosts.length}
               </p>
-              <p className="text-flat-blue/60 text-sm" style={{ fontFamily: "Bricolage Grotesque" }}>
-                {selectedCategory === "all" ? "All Stories" : selectedCategory === "story" ? "Our Story" : "Latest News"}
+              <p
+                className="text-flat-blue/60 text-sm"
+                style={{ fontFamily: "Bricolage Grotesque" }}
+              >
+                {selectedCategory === "all"
+                  ? "All Stories"
+                  : selectedCategory === "story"
+                    ? "Our Story"
+                    : "Latest News"}
               </p>
             </div>
 
@@ -513,8 +569,8 @@ export const OurStory: React.FC = () => {
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 touch-manipulation ${
                     currentSlide === index
-                      ? 'bg-flat-blue scale-125 shadow-lg'
-                      : 'bg-flat-blue/30 hover:bg-flat-blue/50'
+                      ? "bg-flat-blue scale-125 shadow-lg"
+                      : "bg-flat-blue/30 hover:bg-flat-blue/50"
                   }`}
                 />
               ))}
@@ -522,7 +578,10 @@ export const OurStory: React.FC = () => {
 
             {/* Swipe Instruction */}
             <div className="text-center">
-              <p className="text-flat-blue/60 text-sm" style={{ fontFamily: "Bricolage Grotesque" }}>
+              <p
+                className="text-flat-blue/60 text-sm"
+                style={{ fontFamily: "Bricolage Grotesque" }}
+              >
                 👈 Swipe left or right to explore • Tap dots to jump 👉
               </p>
             </div>
