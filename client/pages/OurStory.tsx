@@ -374,6 +374,145 @@ export const OurStory: React.FC = () => {
           ))}
         </div>
 
+        {/* Mobile Swipe Cards */}
+        <div className="lg:hidden">
+          <div
+            className="relative overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              className="flex transition-transform duration-300 ease-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {filteredPosts.map((post, index) => (
+                <article
+                  key={post.id}
+                  className="w-full flex-shrink-0 px-4"
+                >
+                  <div className="bg-white rounded-3xl overflow-hidden shadow-xl">
+                    {/* Media Section */}
+                    {(post.imageUrl || post.videoUrl) && (
+                      <div className="aspect-video bg-gray-100 relative overflow-hidden">
+                        {post.videoUrl ? (
+                          <div className="w-full h-full flex items-center justify-center bg-flat-blue/10">
+                            <div className="text-center">
+                              <Video size={48} className="text-flat-blue mx-auto mb-4" />
+                              <p className="text-flat-blue font-bold">Video Content</p>
+                              <p className="text-sm text-flat-blue/70">Click to watch</p>
+                            </div>
+                          </div>
+                        ) : post.imageUrl ? (
+                          <img
+                            src={post.imageUrl}
+                            alt={post.title}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-flat-blue/5">
+                            <ImageIcon size={48} className="text-flat-blue/30" />
+                          </div>
+                        )}
+
+                        {/* Category Badge */}
+                        <div className="absolute top-4 left-4">
+                          <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                            post.category === "story"
+                              ? "bg-flat-blue text-flat-beige"
+                              : "bg-flat-beige text-flat-blue"
+                          }`}
+                          style={{ fontFamily: "Bricolage Grotesque" }}
+                          >
+                            {post.category}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="p-6">
+                      {/* Meta Info */}
+                      <div className="flex items-center space-x-4 mb-4 text-sm text-flat-blue/60">
+                        <div className="flex items-center space-x-1">
+                          <Calendar size={16} />
+                          <span style={{ fontFamily: "Bricolage Grotesque" }}>
+                            {formatDate(post.date)}
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <User size={16} />
+                          <span style={{ fontFamily: "Bricolage Grotesque" }}>
+                            {post.author}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Title */}
+                      <h2
+                        className="text-xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
+                        style={{ fontFamily: "Bricolage Grotesque" }}
+                      >
+                        {post.title}
+                      </h2>
+
+                      {/* Excerpt */}
+                      <p
+                        className="text-flat-blue/80 text-base mb-6 leading-relaxed"
+                        style={{ fontFamily: "Bricolage Grotesque" }}
+                      >
+                        {post.excerpt}
+                      </p>
+
+                      {/* Full Content (expandable) */}
+                      <details className="group">
+                        <summary className="cursor-pointer text-flat-blue font-bold hover:text-flat-dark transition-colors list-none">
+                          <span className="flex items-center space-x-2">
+                            <span style={{ fontFamily: "Bricolage Grotesque" }}>{t("story.readFullStory")}</span>
+                            <span className="transform transition-transform group-open:rotate-180">▼</span>
+                          </span>
+                        </summary>
+                        <div className="mt-6 pt-6 border-t border-flat-blue/10">
+                          <div
+                            className="text-flat-blue/80 leading-relaxed space-y-4 text-sm"
+                            style={{ fontFamily: "Bricolage Grotesque" }}
+                          >
+                            {post.content.split('\n\n').map((paragraph, index) => (
+                              <p key={index}>{paragraph}</p>
+                            ))}
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Navigation Dots */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {filteredPosts.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? 'bg-flat-blue scale-125'
+                    : 'bg-flat-blue/30'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Swipe Instruction */}
+          <div className="text-center mt-4">
+            <p className="text-flat-blue/60 text-sm" style={{ fontFamily: "Bricolage Grotesque" }}>
+              Swipe left or right to explore more stories
+            </p>
+          </div>
+        </div>
+
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="bg-flat-blue text-flat-beige p-8 rounded-3xl max-w-2xl mx-auto">
