@@ -4,7 +4,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 export const UpdatedAboutSection: React.FC = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Start visible to ensure content shows
 
   useEffect(() => {
     const observer = new IntersectionObserver(
