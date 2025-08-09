@@ -54,13 +54,13 @@ export const UpdatedNavigation: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (isMenuOpen && !target.closest('nav')) {
+      if (isMenuOpen && !target.closest('nav') && !target.closest('[role="menu"]')) {
         setIsMenuOpen(false);
       }
     };
 
     if (isMenuOpen) {
-      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('click', handleClickOutside, { passive: true });
     }
 
     return () => {
