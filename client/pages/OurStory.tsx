@@ -246,15 +246,18 @@ export const OurStory: React.FC = () => {
 
         {/* Category Filter */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-full p-2 shadow-lg">
+          <div className="bg-white rounded-full p-1 shadow-xl border border-flat-blue/10">
             {(["all", "story", "news"] as const).map((category) => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full font-bold tracking-wider uppercase transition-all duration-300 ${
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setCurrentSlide(0); // Reset slide when category changes
+                }}
+                className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-bold tracking-wider uppercase transition-all duration-300 text-sm md:text-base ${
                   selectedCategory === category
-                    ? "bg-flat-blue text-flat-beige"
-                    : "text-flat-blue hover:bg-flat-blue/10"
+                    ? "bg-flat-blue text-flat-beige shadow-lg transform scale-105"
+                    : "text-flat-blue hover:bg-flat-blue/10 hover:text-flat-dark"
                 }`}
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
