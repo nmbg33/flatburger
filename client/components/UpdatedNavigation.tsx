@@ -50,24 +50,26 @@ export const UpdatedNavigation: React.FC = () => {
     }
   };
 
-  // Close mobile menu when clicking outside
+  // Close mobile menu when clicking outside - optimized for iOS
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    if (!isMenuOpen) return;
+
+    const handleClickOutside = (event: Event) => {
       const target = event.target as HTMLElement;
-      if (
-        isMenuOpen &&
-        !target.closest("nav") &&
-        !target.closest('[role="menu"]')
-      ) {
+      if (!target.closest("nav")) {
         setIsMenuOpen(false);
       }
     };
 
-    if (isMenuOpen) {
+    // Use a timeout to avoid immediate close on iOS
+    const timeoutId = setTimeout(() => {
+      document.addEventListener("touchstart", handleClickOutside, { passive: true });
       document.addEventListener("click", handleClickOutside, { passive: true });
-    }
+    }, 100);
 
     return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("touchstart", handleClickOutside);
       document.removeEventListener("click", handleClickOutside);
     };
   }, [isMenuOpen]);
