@@ -17,6 +17,75 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: "1",
+    title: "Flat Burger at Los Silos Burger Festival 2025!",
+    excerpt: "Belgrade will once again become the epicenter of burger culture! Join us at the most exciting gastronomic event in the region.",
+    content: `🍔 Flat Burger at Los Silos Burger Festival 2025
+
+Beograd will once again become the epicenter of burger culture! From August 29 to September 7, 2025, Flat Burger will proudly participate in the Los Silos Burger Festival, one of the most exciting gastronomic events in the region.
+
+📍 Where Can You Find Us?
+The festival will take place at the unique location of Silosi Beograd, Dunavski kej 46. This space, known for its four concrete silos shaped like a honeycomb, provides the perfect setting to enjoy top-tier burgers, craft beers, DJ performances, and various other activities.
+
+🔥 What to Expect?
+At the festival, you will have the chance to enjoy:
+
+• Specialties prepared by Flat Burger – Our most popular burgers, including Classic Flat, Pyro Flat, Fancy Flat, Bacon Jam Flat, Crispy Alabama, and Chicken Flat, will be available for tasting.
+
+• Craft beers and gin cocktails – Enjoy perfect beverages to accompany our burgers.
+
+• Live music and DJ performances – Relax and enjoy the sounds that will enhance the festival atmosphere.
+
+• Activities for kids – Keep the little ones entertained in a dedicated area.
+
+• Riverside lounge zone – Relax by the river and enjoy beautiful sunsets.
+
+📅 When Can You Visit Us?
+The festival will be open every day from August 29 to September 7, 2025. Check the official festival website or our social media for exact hours of operation.
+
+Don't miss the chance to enjoy top-notch burgers and an unforgettable experience at the Los Silos Burger Festival 2025. See you at Silos!`,
+    date: "2025-08-09",
+    author: "Nemanja Mladenovic",
+    category: "news",
+    imageUrl: "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261"
+  },
+  {
+    id: "2",
+    title: "🐔 New Addition: The Chicken Burger is Here!",
+    excerpt: "We're excited to announce that the Chicken Burger has arrived at Flat Burger! Your new favorite is here.",
+    content: `🐔 New Addition: The Chicken Burger is Here!
+
+We're excited to announce that the Chicken Burger has arrived at Flat Burger! For all of you who love chicken as much as we do, this new addition is bound to be your new favorite.
+
+Our Chicken Flat features the same attention to detail and quality that you've come to expect from us. We've applied our signature flat-pressing technique to create a perfectly crispy exterior while maintaining a juicy, tender interior.
+
+The Chicken Flat comes with our specially crafted chicken sauce, fresh lettuce, tomatoes, and all the quality ingredients that make our burgers special. It's everything you love about Flat Burger, now in chicken form.
+
+Whether you're a longtime chicken lover or just looking to try something new, the Chicken Flat is ready to become your go-to choice. Available now at all Flat Burger locations!`,
+    date: "2024-12-15",
+    author: "Nemanja Mladenovic",
+    category: "news"
+  },
+  {
+    id: "3",
+    title: "🎬 Behind the Scenes: 'Ipeglaj Glad' Campaign",
+    excerpt: "We're preparing something exciting! Get a behind-the-scenes look at our upcoming 'Ipeglaj Glad' campaign filming.",
+    content: `🎬 Campaign Filming for "Ipeglaj Glad"
+
+We're also preparing something exciting! Stay tuned for our upcoming campaign filming for "Ipeglaj Glad". You won't want to miss the behind-the-scenes look at this special project!
+
+This campaign represents everything we stand for at Flat Burger - authenticity, Belgrade street culture, and the relentless pursuit of the perfect burger experience. "Ipeglaj Glad" captures the essence of what happens when you bite into a Flat Burger - that moment when hunger meets satisfaction.
+
+The campaign will showcase real Belgrade locations, real people, and real reactions to our burgers. No scripts, no actors - just genuine moments of burger bliss throughout our beautiful city.
+
+We're working with local talent and using locations that represent the true spirit of Belgrade. From the cobblestone streets of Skadarlija to the modern energy of Savamala, every shot will tell the story of how Flat Burger has become part of Belgrade's cultural fabric.
+
+Follow our social media for exclusive behind-the-scenes content, bloopers, and first looks at what promises to be our most authentic campaign yet. The official launch is coming soon!`,
+    date: "2024-11-20",
+    author: "Nemanja Mladenovic",
+    category: "news"
+  },
+  {
+    id: "4",
     title: "How Flat Burger Started",
     excerpt: "From Belgrade streets to your plate - the story of how we revolutionized the burger game.",
     content: `It all started with a simple question: why do burgers have to be boring?
@@ -32,28 +101,10 @@ Our first location opened in Dorćol, right where the idea was born. We kept it 
 Today, every Flat Burger is still made with that same energy and passion. We're not just making food - we're creating an experience that represents Belgrade's street culture.`,
     date: "2024-08-09",
     author: "Nemanja Mladenovic",
-    category: "story",
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261"
-  },
-  {
-    id: "2", 
-    title: "Flat Burger at Los Silos Burger Festival 2025!",
-    excerpt: "Why pressing our patties flat isn't just a gimmick - it's the secret to maximum flavor.",
-    content: `There's actual science behind why we press our burgers flat, and it's not just for show.
-
-When you press a burger patty flat, you increase the surface area that comes into contact with the hot grill. This means more Maillard reaction - that beautiful browning process that creates incredible flavor compounds.
-
-Our 2x60g patties are pressed to exactly the right thickness to achieve the perfect balance: crispy edges with a juicy interior. The flat shape also means every bite has the optimal ratio of meat to toppings.
-
-But it's not just about the cooking technique. The flat profile allows all our ingredients - from the signature flat sauce to the fresh vegetables - to distribute evenly. No more bites that are all lettuce or all meat.
-
-This is why we say "Burger. But flatter." - because flatter genuinely means better.`,
-    date: "2025-08-09",
-    author: "Nemanja Mladenovic",
     category: "story"
   },
   {
-    id: "3",
+    id: "5",
     title: "New Partnership with Local Suppliers",
     excerpt: "We're expanding our commitment to Belgrade by partnering with local farmers and suppliers.",
     content: `We're excited to announce new partnerships with local Belgrade suppliers that will enhance our commitment to the community.
@@ -64,11 +115,11 @@ This isn't just about better ingredients (though they definitely are) - it's abo
 
 We're also working on seasonal specials that will highlight the best of what local suppliers have to offer throughout the year.`,
     date: "2024-03-10",
-    author: "Operations Team", 
+    author: "Operations Team",
     category: "news"
   },
   {
-    id: "4",
+    id: "6",
     title: "Behind the Scenes: Making Our Signature Sauce",
     excerpt: "Ever wondered what makes our flat sauce so addictive? Here's an inside look at our secret recipe development.",
     content: `Our signature flat sauce didn't happen overnight. It took months of experimentation to get the perfect balance of tangy, creamy, and just a little bit spicy.
