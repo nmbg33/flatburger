@@ -19,7 +19,7 @@ export const BouncingStickerHero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-flat-beige">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-flat-beige">
       {/* Simple urban design elements - positioned away from text */}
       <div className="absolute inset-0">
         {/* Urban corner accents - safe areas */}
