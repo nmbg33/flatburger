@@ -192,10 +192,14 @@ export const UpdatedNavigation: React.FC = () => {
         {/* Mobile Menu Dropdown */}
         <div
           role="menu"
-          className={`md:hidden bg-flat-beige/98 backdrop-blur-lg shadow-xl border-t border-flat-blue/10 ${
+          className={`md:hidden bg-flat-beige shadow-xl border-t border-flat-blue/10 ${
             isMenuOpen ? "block" : "hidden"
           }`}
-          style={{ zIndex: 40 }}
+          style={{
+            zIndex: 40,
+            WebkitTransform: 'translate3d(0,0,0)',
+            transform: 'translate3d(0,0,0)'
+          }}
         >
           <div className="pt-4 pb-6 px-4">
             <div className="flex flex-col space-y-3">
