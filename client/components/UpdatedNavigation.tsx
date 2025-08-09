@@ -195,13 +195,10 @@ export const UpdatedNavigation: React.FC = () => {
         {/* Mobile Menu Dropdown */}
         <div
           role="menu"
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-out bg-flat-beige/98 backdrop-blur-lg shadow-xl border-t border-flat-blue/10 ${
-            isMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0 py-0"
+          className={`md:hidden bg-flat-beige/98 backdrop-blur-lg shadow-xl border-t border-flat-blue/10 ${
+            isMenuOpen ? "block" : "hidden"
           }`}
-          style={{
-            zIndex: 40,
-            visibility: isMenuOpen ? 'visible' : 'hidden'
-          }}
+          style={{ zIndex: 40 }}
         >
           <div className="pt-4 pb-6 px-4">
             <div className="flex flex-col space-y-3">
