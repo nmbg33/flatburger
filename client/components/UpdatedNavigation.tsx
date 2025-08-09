@@ -194,7 +194,10 @@ export const UpdatedNavigation: React.FC = () => {
               </button>
               <Link
                 to="/locations"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => window.scrollTo(0, 0), 100);
+                }}
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg block"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
@@ -202,7 +205,10 @@ export const UpdatedNavigation: React.FC = () => {
               </Link>
               <Link
                 to="/our-story"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => window.scrollTo(0, 0), 100);
+                }}
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg block"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
