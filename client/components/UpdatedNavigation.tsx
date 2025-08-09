@@ -24,12 +24,35 @@ export const UpdatedNavigation: React.FC = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    // Close mobile menu first
     setIsMenuOpen(false);
+
+    // Small delay to allow menu animation to complete
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300);
   };
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMenuOpen && !target.closest('nav')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav
@@ -82,6 +105,13 @@ export const UpdatedNavigation: React.FC = () => {
             >
               {t("nav.locations")}
             </Link>
+            <Link
+              to="/our-story"
+              className="font-bold tracking-wide uppercase transition-all duration-300 text-sm text-flat-blue hover:text-flat-dark"
+              style={{ fontFamily: "Bricolage Grotesque" }}
+            >
+              Our Story
+            </Link>
 
             {/* Language Toggle */}
             <button
@@ -107,7 +137,8 @@ export const UpdatedNavigation: React.FC = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-flat-blue p-2"
+              className="text-flat-blue p-3 touch-manipulation active:bg-flat-blue/10 rounded-lg transition-colors duration-200"
+              aria-label="Toggle mobile menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -124,14 +155,14 @@ export const UpdatedNavigation: React.FC = () => {
             <div className="flex flex-col space-y-4">
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-flat-blue font-bold tracking-wide uppercase text-sm text-left hover:text-flat-dark transition-colors"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg w-full"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("nav.aboutUs")}
               </button>
               <button
                 onClick={() => scrollToSection("menu")}
-                className="text-flat-blue font-bold tracking-wide uppercase text-sm text-left hover:text-flat-dark transition-colors"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg w-full"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("nav.menu")}
@@ -139,10 +170,18 @@ export const UpdatedNavigation: React.FC = () => {
               <Link
                 to="/locations"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-flat-blue font-bold tracking-wide uppercase text-sm hover:text-flat-dark transition-colors"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg block"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("nav.locations")}
+              </Link>
+              <Link
+                to="/our-story"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg block"
+                style={{ fontFamily: "Bricolage Grotesque" }}
+              >
+                Our Story
               </Link>
             </div>
           </div>
