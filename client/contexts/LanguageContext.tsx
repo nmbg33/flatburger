@@ -18,6 +18,7 @@ const translations = {
     "nav.aboutUs": "About Us",
     "nav.menu": "Menu",
     "nav.locations": "Locations",
+    "nav.ourStory": "Our Story",
 
     // Homepage
     "hero.tagline": "Burger. But flatter.",
