@@ -12,6 +12,11 @@ export const UpdatedNavigation: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Debug hamburger menu state
+  useEffect(() => {
+    console.log('Mobile menu state changed:', isMenuOpen);
+  }, [isMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
