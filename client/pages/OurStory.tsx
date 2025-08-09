@@ -144,6 +144,9 @@ export const OurStory: React.FC = () => {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<"all" | "story" | "news">("all");
   const [visiblePosts, setVisiblePosts] = useState<Set<string>>(new Set());
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const postRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   useEffect(() => {
