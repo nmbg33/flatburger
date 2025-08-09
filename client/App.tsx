@@ -11,6 +11,7 @@ import { UpdatedNavigation } from "./components/UpdatedNavigation";
 import { UpdatedFooter } from "./components/UpdatedFooter";
 import Index from "./pages/Index";
 import { Locations } from "./pages/Locations";
+import { OurStory } from "./pages/OurStory";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/locations" element={<Locations />} />
+            <Route path="/our-story" element={<OurStory />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
