@@ -66,8 +66,11 @@ export const UpdatedFooter: React.FC = () => {
           <div className="flex justify-center items-center space-x-6 mb-8">
             {/* Social Links */}
             <a
-              href="#"
-              className="bg-flat-beige text-flat-dark p-4 rounded-full hover:bg-flat-blue hover:text-flat-beige transition-all duration-300 transform hover:scale-110 shadow-lg"
+              href="https://www.instagram.com/flatburger.rs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-flat-beige text-flat-dark p-4 rounded-full hover:bg-flat-blue hover:text-flat-beige transition-all duration-300 transform hover:scale-110 shadow-lg touch-manipulation"
+              aria-label="Follow us on Instagram"
             >
               <Instagram size={24} />
             </a>
