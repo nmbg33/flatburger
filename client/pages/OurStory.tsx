@@ -30,14 +30,14 @@ We started experimenting in a tiny kitchen, pressing beef patties until they wer
 Our first location opened in Dorćol, right where the idea was born. We kept it simple: 2x60g beef patties, real ingredients, no BS. The neighborhood embraced us immediately, and word spread fast.
 
 Today, every Flat Burger is still made with that same energy and passion. We're not just making food - we're creating an experience that represents Belgrade's street culture.`,
-    date: "2024-01-15",
-    author: "Flat Burger Team",
+    date: "2024-08-09",
+    author: "Nemanja Mladenovic",
     category: "story",
-    imageUrl: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=800&q=80"
+    imageUrl: "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261"
   },
   {
     id: "2", 
-    title: "The Science Behind the Flat",
+    title: "Flat Burger at Los Silos Burger Festival 2025!",
     excerpt: "Why pressing our patties flat isn't just a gimmick - it's the secret to maximum flavor.",
     content: `There's actual science behind why we press our burgers flat, and it's not just for show.
 
@@ -48,8 +48,8 @@ Our 2x60g patties are pressed to exactly the right thickness to achieve the perf
 But it's not just about the cooking technique. The flat profile allows all our ingredients - from the signature flat sauce to the fresh vegetables - to distribute evenly. No more bites that are all lettuce or all meat.
 
 This is why we say "Burger. But flatter." - because flatter genuinely means better.`,
-    date: "2024-02-20",
-    author: "Chef Team",
+    date: "2025-08-09",
+    author: "Nemanja Mladenovic",
     category: "story"
   },
   {
