@@ -113,6 +113,17 @@ export const UpdatedNavigation: React.FC = () => {
               Our Story
             </Link>
 
+            {/* Order Button */}
+            <a
+              href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 rounded-full font-bold transition-all duration-300 text-sm bg-flat-blue text-flat-beige hover:bg-flat-dark border-2 border-flat-blue hover:border-flat-dark"
+              style={{ fontFamily: "Bricolage Grotesque" }}
+            >
+              ORDER NOW
+            </a>
+
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
