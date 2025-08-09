@@ -184,8 +184,8 @@ export const UpdatedNavigation: React.FC = () => {
           }`}
           style={{ zIndex: 40 }}
         >
-          <div className="pt-6 pb-4 border-t border-flat-blue/20 mt-4">
-            <div className="flex flex-col space-y-4">
+          <div className="pt-4 pb-6 px-4">
+            <div className="flex flex-col space-y-3">
               <button
                 onClick={() => scrollToSection("about")}
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg w-full"
