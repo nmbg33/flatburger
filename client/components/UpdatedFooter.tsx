@@ -77,7 +77,10 @@ export const UpdatedFooter: React.FC = () => {
 
             {/* TikTok Icon */}
             <a
-              href="#"
+              href="https://www.tiktok.com/@flatburger.bg"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on TikTok"
               className="bg-flat-beige text-flat-dark p-4 rounded-full hover:bg-flat-blue hover:text-flat-beige transition-all duration-300 transform hover:scale-110 shadow-lg"
             >
               <svg
