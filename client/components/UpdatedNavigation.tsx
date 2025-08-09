@@ -233,10 +233,13 @@ export const UpdatedNavigation: React.FC = () => {
                 to="/locations"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  setTimeout(() => window.scrollTo(0, 0), 100);
+                  setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl block border border-transparent hover:border-flat-blue/20"
-                style={{ fontFamily: "Bricolage Grotesque" }}
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block"
+                style={{
+                  fontFamily: "Bricolage Grotesque",
+                  WebkitTapHighlightColor: 'transparent'
+                }}
               >
                 {t("nav.locations")}
               </Link>
@@ -244,10 +247,13 @@ export const UpdatedNavigation: React.FC = () => {
                 to="/our-story"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  setTimeout(() => window.scrollTo(0, 0), 100);
+                  setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl block border border-transparent hover:border-flat-blue/20"
-                style={{ fontFamily: "Bricolage Grotesque" }}
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block"
+                style={{
+                  fontFamily: "Bricolage Grotesque",
+                  WebkitTapHighlightColor: 'transparent'
+                }}
               >
                 {t("nav.ourStory")}
               </Link>
