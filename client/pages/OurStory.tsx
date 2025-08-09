@@ -141,6 +141,7 @@ Fun fact: our sauce recipe has been adjusted 47 times since we started. We're pe
 
 export const OurStory: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<"all" | "story" | "news">("all");
   const [visiblePosts, setVisiblePosts] = useState<Set<string>>(new Set());
   const postRefs = useRef<{ [key: string]: HTMLElement | null }>({});
