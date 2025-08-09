@@ -7,12 +7,12 @@ import { UrbanStickerWall } from "../components/UrbanStickerWall";
 
 export default function Index() {
   return (
-    <>
+    <div className="w-full">
       <BouncingStickerHero />
       <IconsScrollSection />
       <UpdatedAboutSection />
       <UrbanStickerWall />
       <UpdatedBurgerSection />
-    </>
+    </div>
   );
 }
