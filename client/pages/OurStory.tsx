@@ -545,7 +545,7 @@ export const OurStory: React.FC = () => {
               {t("story.ctaSubtitle")}
             </p>
             <a
-              href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+              href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-flat-beige text-flat-blue px-8 py-4 rounded-full font-black tracking-wider uppercase hover:bg-white transition-all duration-300 transform hover:scale-105"
