@@ -166,13 +166,23 @@ export const UpdatedNavigation: React.FC = () => {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                setIsMenuOpen(!isMenuOpen);
+                console.log('Hamburger clicked, current state:', isMenuOpen); // Debug log
+                setIsMenuOpen(prev => !prev);
               }}
-              className="text-flat-blue p-3 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-lg transition-all duration-200 relative z-50"
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+              }}
+              className={`text-flat-blue p-3 touch-manipulation rounded-lg transition-all duration-200 relative z-50 ${
+                isMenuOpen
+                  ? 'bg-flat-blue/20 text-flat-dark'
+                  : 'hover:bg-flat-blue/10 active:bg-flat-blue/20'
+              }`}
               aria-label="Toggle mobile menu"
+              aria-expanded={isMenuOpen}
               type="button"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={24} strokeWidth={2.5} /> : <Menu size={24} strokeWidth={2.5} />}
             </button>
           </div>
         </div>
