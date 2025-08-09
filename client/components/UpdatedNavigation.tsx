@@ -264,8 +264,11 @@ export const UpdatedNavigation: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase transition-all duration-300 transform hover:scale-105 text-center touch-manipulation block mt-2 shadow-lg"
-                style={{ fontFamily: "Bricolage Grotesque" }}
+                className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase text-center touch-manipulation block mt-3 shadow-lg active:opacity-80"
+                style={{
+                  fontFamily: "Bricolage Grotesque",
+                  WebkitTapHighlightColor: 'transparent'
+                }}
               >
                 {t("order.now")}
               </a>
