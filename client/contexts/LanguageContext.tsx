@@ -50,6 +50,12 @@ const translations = {
     "burger.baconJam.name": "Bacon Jam",
     "burger.baconJam.description":
       "2x60g beef patty, cheddar cheese, bacon jam, iceberg lettuce, tomato, BBQ sauce",
+    "burger.chicken.name": "Chicken Flat",
+    "burger.chicken.description":
+      "Crispy chicken breast, special chicken sauce, iceberg lettuce, tomato, red onion",
+    "burger.alabama.name": "Crispy Alabama",
+    "burger.alabama.description":
+      "2x60g beef patty, crispy fried chicken, Alabama white sauce, pickles, coleslaw",
 
     // Add-ons
     "addon.pomfrit": "Pomfrit",
