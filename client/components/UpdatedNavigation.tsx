@@ -206,7 +206,7 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 100);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg block"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl block border border-transparent hover:border-flat-blue/20"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("nav.locations")}
@@ -217,7 +217,7 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 100);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg block"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl block border border-transparent hover:border-flat-blue/20"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("nav.ourStory")}
@@ -229,7 +229,7 @@ export const UpdatedNavigation: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-flat-blue text-flat-beige py-3 px-6 rounded-full font-bold tracking-wider uppercase transition-all duration-300 transform hover:scale-105 text-center touch-manipulation block"
+                className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase transition-all duration-300 transform hover:scale-105 text-center touch-manipulation block mt-2 shadow-lg"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("order.now")}
