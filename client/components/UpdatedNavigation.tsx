@@ -204,16 +204,28 @@ export const UpdatedNavigation: React.FC = () => {
           <div className="pt-4 pb-6 px-4">
             <div className="flex flex-col space-y-3">
               <button
-                onClick={() => scrollToSection("about")}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl w-full border border-transparent hover:border-flat-blue/20"
-                style={{ fontFamily: "Bricolage Grotesque" }}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  scrollToSection("about");
+                }}
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full"
+                style={{
+                  fontFamily: "Bricolage Grotesque",
+                  WebkitTapHighlightColor: 'transparent'
+                }}
               >
                 {t("nav.aboutUs")}
               </button>
               <button
-                onClick={() => scrollToSection("menu")}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl w-full border border-transparent hover:border-flat-blue/20"
-                style={{ fontFamily: "Bricolage Grotesque" }}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  scrollToSection("menu");
+                }}
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full"
+                style={{
+                  fontFamily: "Bricolage Grotesque",
+                  WebkitTapHighlightColor: 'transparent'
+                }}
               >
                 {t("nav.menu")}
               </button>
