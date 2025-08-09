@@ -386,7 +386,7 @@ export const OurStory: React.FC = () => {
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className="flex transition-transform duration-300 ease-out"
+              className="flex transition-all duration-500 ease-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {filteredPosts.map((post, index) => (
