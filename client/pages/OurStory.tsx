@@ -191,7 +191,7 @@ export const OurStory: React.FC = () => {
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
             <ArrowLeft size={20} />
-            <span>Back to Home</span>
+            <span>{t("story.backToHome")}</span>
           </button>
         </div>
 
@@ -201,13 +201,13 @@ export const OurStory: React.FC = () => {
             className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-6 leading-tight tracking-tight"
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
-            OUR STORY
+            {t("story.title")}
           </h1>
           <p
             className="text-xl md:text-2xl text-flat-blue/80 font-medium max-w-3xl mx-auto"
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
-            From Belgrade streets to your plate. The journey of making burgers better, flatter, and more authentic.
+            {t("story.subtitle")}
           </p>
         </div>
 
@@ -225,7 +225,7 @@ export const OurStory: React.FC = () => {
                 }`}
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
-                {category === "all" ? "All Posts" : category}
+                {category === "all" ? t("story.allPosts") : t(`story.${category}`)}
               </button>
             ))}
           </div>
@@ -321,7 +321,7 @@ export const OurStory: React.FC = () => {
                 <details className="group">
                   <summary className="cursor-pointer text-flat-blue font-bold hover:text-flat-dark transition-colors list-none">
                     <span className="flex items-center space-x-2">
-                      <span style={{ fontFamily: "Bricolage Grotesque" }}>Read Full Story</span>
+                      <span style={{ fontFamily: "Bricolage Grotesque" }}>{t("story.readFullStory")}</span>
                       <span className="transform transition-transform group-open:rotate-180">▼</span>
                     </span>
                   </summary>
@@ -348,13 +348,13 @@ export const OurStory: React.FC = () => {
               className="text-3xl font-black mb-4 tracking-tight"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              Taste Our Story
+              {t("story.ctaTitle")}
             </h3>
             <p
               className="text-flat-beige/90 text-lg mb-6"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              Every burger tells our story. Come experience the flavors that made us who we are.
+              {t("story.ctaSubtitle")}
             </p>
             <a
               href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
@@ -363,7 +363,7 @@ export const OurStory: React.FC = () => {
               className="inline-block bg-flat-beige text-flat-blue px-8 py-4 rounded-full font-black tracking-wider uppercase hover:bg-white transition-all duration-300 transform hover:scale-105"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              Order Now
+              {t("story.orderNow")}
             </a>
           </div>
         </div>
