@@ -264,8 +264,8 @@ export const OurStory: React.FC = () => {
           </div>
         </div>
 
-        {/* Blog Posts Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        {/* Blog Posts Grid - Desktop */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8">
           {filteredPosts.map((post, index) => (
             <article
               key={post.id}
