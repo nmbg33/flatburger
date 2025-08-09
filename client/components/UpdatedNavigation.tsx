@@ -188,14 +188,14 @@ export const UpdatedNavigation: React.FC = () => {
             <div className="flex flex-col space-y-3">
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg w-full"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl w-full border border-transparent hover:border-flat-blue/20"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("nav.aboutUs")}
               </button>
               <button
                 onClick={() => scrollToSection("menu")}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg w-full"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left hover:text-flat-dark transition-colors py-4 px-4 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-xl w-full border border-transparent hover:border-flat-blue/20"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {t("nav.menu")}
