@@ -163,9 +163,14 @@ export const UpdatedNavigation: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-flat-blue p-3 touch-manipulation active:bg-flat-blue/10 rounded-lg transition-colors duration-200"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsMenuOpen(!isMenuOpen);
+              }}
+              className="text-flat-blue p-3 touch-manipulation active:bg-flat-blue/20 hover:bg-flat-blue/10 rounded-lg transition-all duration-200 relative z-50"
               aria-label="Toggle mobile menu"
+              type="button"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
