@@ -216,6 +216,18 @@ export const UpdatedNavigation: React.FC = () => {
               >
                 {t("nav.ourStory")}
               </Link>
+
+              {/* Mobile Order Button */}
+              <a
+                href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-flat-blue text-flat-beige py-3 px-6 rounded-full font-bold tracking-wider uppercase transition-all duration-300 transform hover:scale-105 text-center touch-manipulation block"
+                style={{ fontFamily: "Bricolage Grotesque" }}
+              >
+                {t("order.now")}
+              </a>
             </div>
           </div>
         </div>
