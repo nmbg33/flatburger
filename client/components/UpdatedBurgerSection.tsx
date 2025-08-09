@@ -169,7 +169,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                       className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation inline-block text-center"
                       style={{fontFamily: 'Bricolage Grotesque'}}
                     >
-                      Order on Wolt
+                      {t("order.wolt")}
                     </a>
                   </div>
                 </div>
