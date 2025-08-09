@@ -128,7 +128,7 @@ export const Locations: React.FC = () => {
                 {/* Order Button */}
                 <div className="pt-4">
                   <a
-                    href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+                    href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full bg-flat-blue text-flat-beige py-4 rounded-full text-xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg text-center touch-manipulation"
