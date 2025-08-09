@@ -4,7 +4,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 export const UpdatedAboutSection: React.FC = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Ensure content is visible for Builder.io interface
 
   useEffect(() => {
     const observer = new IntersectionObserver(
