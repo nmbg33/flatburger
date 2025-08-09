@@ -91,7 +91,7 @@ export const BouncingStickerHero: React.FC = () => {
           }`}
         >
           <a
-            href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+            href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-12 py-4 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
