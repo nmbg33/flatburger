@@ -1,13 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin, Clock, Phone, ArrowLeft } from "lucide-react";
 
 export const Locations: React.FC = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-flat-beige pt-24 pb-12">
       <div className="container mx-auto px-4">
+        {/* Back Button */}
+        <div className="mb-8">
+          <button
+            onClick={() => navigate('/')}
+            className="flex items-center space-x-2 text-flat-blue hover:text-flat-dark transition-colors duration-300 font-bold touch-manipulation p-3 rounded-lg active:bg-flat-blue/10"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Home</span>
+          </button>
+        </div>
         {/* Title */}
         <div className="text-center mb-16">
           <h1
@@ -114,12 +127,15 @@ export const Locations: React.FC = () => {
 
                 {/* Order Button */}
                 <div className="pt-4">
-                  <button
-                    className="w-full bg-flat-blue text-flat-beige py-4 rounded-full text-xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  <a
+                    href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-flat-blue text-flat-beige py-4 rounded-full text-xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg text-center touch-manipulation"
                     style={{ fontFamily: "Bricolage Grotesque" }}
                   >
                     {t("locations.orderNow")}
-                  </button>
+                  </a>
                 </div>
               </div>
 
