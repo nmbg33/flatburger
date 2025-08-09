@@ -163,7 +163,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                       {burger.price} {t("price.currency")}
                     </span>
                     <a
-                      href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+                      href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation inline-block text-center"
