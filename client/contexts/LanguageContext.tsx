@@ -45,10 +45,10 @@ const translations = {
       "2x60g beef patty, cheddar cheese, onion jam, iceberg lettuce, bacon, truffle mayo",
     "burger.pyro.name": "Pyro",
     "burger.pyro.description":
-      "Spicy AF — beef, jalapenos, chipotle that will make you sweat",
+      "2x60g beef patty, cheddar cheese, sriracha mayo, iceberg lettuce, caramelized onions, bacon, jalapeño peppers",
     "burger.baconJam.name": "Bacon Jam",
     "burger.baconJam.description":
-      "Crispy bacon, sweet onion jam, melted cheddar — pure vibes",
+      "2x60g beef patty, cheddar cheese, bacon jam, iceberg lettuce, tomato, BBQ sauce",
 
     // Add-ons
     "addon.pomfrit": "Pomfrit",

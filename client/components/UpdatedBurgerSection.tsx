@@ -22,7 +22,7 @@ const burgers: BurgerItem[] = [
     id: "fancy",
     nameKey: "burger.fancy.name",
     descriptionKey: "burger.fancy.description",
-    price: 1290,
+    price: 940,
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6ca917f26ecc4ce1b727caaec7cdae45?format=webp&width=800",
   },
@@ -38,7 +38,7 @@ const burgers: BurgerItem[] = [
     id: "baconJam",
     nameKey: "burger.baconJam.name",
     descriptionKey: "burger.baconJam.description",
-    price: 1190,
+    price: 980,
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F98e3e09a00c342408e142764c9afb57d?format=webp&width=800",
   },
