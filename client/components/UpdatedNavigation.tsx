@@ -131,7 +131,7 @@ export const UpdatedNavigation: React.FC = () => {
 
             {/* Order Button */}
             <a
-              href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+              href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2 rounded-full font-bold transition-all duration-300 text-sm bg-flat-blue text-flat-beige hover:bg-flat-dark border-2 border-flat-blue hover:border-flat-dark"
@@ -235,7 +235,7 @@ export const UpdatedNavigation: React.FC = () => {
 
               {/* Mobile Order Button */}
               <a
-                href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+                href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
