@@ -10,7 +10,10 @@ export default function Index() {
   return (
     <div className="w-full">
       <BouncingStickerHero />
-      <TestSection />
+      <div className="bg-red-500 text-white py-20 text-center">
+        <h2 className="text-6xl font-black">SIMPLE TEST</h2>
+        <p className="text-2xl">This should show after hero</p>
+      </div>
       <IconsScrollSection />
       <UpdatedAboutSection />
       <UrbanStickerWall />
