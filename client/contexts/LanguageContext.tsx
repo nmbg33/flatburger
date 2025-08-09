@@ -99,6 +99,7 @@ const translations = {
     "nav.aboutUs": "O Nama",
     "nav.menu": "Meni",
     "nav.locations": "Lokacije",
+    "nav.ourStory": "Naša Priča",
 
     // Homepage
     "hero.tagline": "Burger. Ali ravni.",
