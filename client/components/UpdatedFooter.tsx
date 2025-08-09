@@ -14,17 +14,7 @@ export const UpdatedFooter: React.FC = () => {
   return (
     <footer className="bg-flat-blue text-flat-beige py-20 relative overflow-hidden">
       {/* Large FLAT BURGER background text */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-10">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Ff81ef62140324a2a9578686b9deb5d88?format=webp&width=800"
-          alt="Flat Burger Background"
-          className="w-full h-auto max-w-4xl object-contain"
-          style={{
-            filter:
-              "brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(1825%) hue-rotate(318deg) brightness(100%) contrast(95%)",
-          }}
-        />
-      </div>
+      <div className="absolute inset-0 flex items-center justify-center opacity-10" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center">
@@ -38,15 +28,7 @@ export const UpdatedFooter: React.FC = () => {
                   "brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(1825%) hue-rotate(318deg) brightness(100%) contrast(95%)",
               }}
             />
-            <div className="mb-4">
-              <FlatBurgerWordmark
-                className="mx-auto max-w-xs"
-                style={{
-                  filter:
-                    "brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(1825%) hue-rotate(318deg) brightness(100%) contrast(95%)",
-                }}
-              />
-            </div>
+            <div className="mb-4" />
             <p
               className="text-lg font-medium"
               style={{ fontFamily: "Bricolage Grotesque", color: "#FEEBCB" }}
