@@ -137,6 +137,12 @@ const translations = {
     "burger.baconJam.name": "Bacon Jam",
     "burger.baconJam.description":
       "Hrskava slanina, slatki džem od luka, topljeni čedar — čist užitak",
+    "burger.chicken.name": "Chicken Flat",
+    "burger.chicken.description":
+      "Hrskava piletina, poseban chicken sos, svežа salata, paradajz, crveni luk",
+    "burger.alabama.name": "Crispy Alabama",
+    "burger.alabama.description":
+      "Dupli splask, hrskava pržena piletina, Alabama beli sos, kiselice, coleslaw",
 
     // Add-ons
     "addon.pomfrit": "Pomfrit",
