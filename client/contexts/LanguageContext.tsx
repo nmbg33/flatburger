@@ -39,10 +39,10 @@ const translations = {
     // Burgers
     "burger.classic.name": "Classic",
     "burger.classic.description":
-      "Smashed beef, aged cheddar, house pickles, Flat sauce that slaps",
+      "2x60g beef patty, cheddar cheese, flat sauce, pickles, red onion, mustard, ketchup",
     "burger.fancy.name": "Fancy",
     "burger.fancy.description":
-      "Double smash, truffle mayo, fresh arugula — bougie but worth it",
+      "2x60g beef patty, cheddar cheese, onion jam, iceberg lettuce, bacon, truffle mayo",
     "burger.pyro.name": "Pyro",
     "burger.pyro.description":
       "Spicy AF — beef, jalapenos, chipotle that will make you sweat",
