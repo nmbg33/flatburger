@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Calendar, User, Video, Image as ImageIcon } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface BlogPost {
   id: string;
