@@ -90,9 +90,11 @@ export const BouncingStickerHero: React.FC = () => {
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <button
-            onClick={scrollToNext}
-            className="px-12 py-4 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+          <a
+            href="https://wolt.com/en/srb/belgrade/restaurant/flat-burger"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-12 py-4 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
             style={{
               fontFamily: "Bricolage Grotesque",
               backgroundColor: "#1C33C3",
@@ -100,7 +102,7 @@ export const BouncingStickerHero: React.FC = () => {
             }}
           >
             {t("hero.cta")}
-          </button>
+          </a>
         </div>
       </div>
 
