@@ -179,6 +179,7 @@ export const UpdatedNavigation: React.FC = () => {
 
         {/* Mobile Menu Dropdown */}
         <div
+          role="menu"
           className={`md:hidden overflow-hidden transition-all duration-300 ease-out bg-flat-beige/98 backdrop-blur-lg shadow-xl border-t border-flat-blue/10 ${
             isMenuOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0 py-0"
           }`}
