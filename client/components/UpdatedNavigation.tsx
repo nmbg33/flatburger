@@ -110,7 +110,7 @@ export const UpdatedNavigation: React.FC = () => {
               className="font-bold tracking-wide uppercase transition-all duration-300 text-sm text-flat-blue hover:text-flat-dark"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              Our Story
+              {t("nav.ourStory")}
             </Link>
 
             {/* Order Button */}
@@ -121,7 +121,7 @@ export const UpdatedNavigation: React.FC = () => {
               className="px-6 py-2 rounded-full font-bold transition-all duration-300 text-sm bg-flat-blue text-flat-beige hover:bg-flat-dark border-2 border-flat-blue hover:border-flat-dark"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              ORDER NOW
+              {t("order.now")}
             </a>
 
             {/* Language Toggle */}
@@ -192,7 +192,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg hover:text-flat-dark transition-colors py-3 px-2 touch-manipulation active:bg-flat-blue/10 rounded-lg block"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
-                Our Story
+                {t("nav.ourStory")}
               </Link>
             </div>
           </div>
