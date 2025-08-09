@@ -18,7 +18,7 @@ export const Locations: React.FC = () => {
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
             <ArrowLeft size={20} />
-            <span>Back to Home</span>
+            <span>{t("locations.backToHome")}</span>
           </button>
         </div>
         {/* Title */}
