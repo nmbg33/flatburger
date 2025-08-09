@@ -493,26 +493,39 @@ export const OurStory: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Navigation Dots */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {filteredPosts.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === index
-                    ? 'bg-flat-blue scale-125'
-                    : 'bg-flat-blue/30'
-                }`}
-              />
-            ))}
-          </div>
+          {/* Mobile Navigation */}
+          <div className="mt-6">
+            {/* Story Counter */}
+            <div className="text-center mb-4">
+              <p className="text-flat-blue font-bold text-lg" style={{ fontFamily: "Bricolage Grotesque" }}>
+                {currentSlide + 1} / {filteredPosts.length}
+              </p>
+              <p className="text-flat-blue/60 text-sm" style={{ fontFamily: "Bricolage Grotesque" }}>
+                {selectedCategory === "all" ? "All Stories" : selectedCategory === "story" ? "Our Story" : "Latest News"}
+              </p>
+            </div>
 
-          {/* Swipe Instruction */}
-          <div className="text-center mt-4">
-            <p className="text-flat-blue/60 text-sm" style={{ fontFamily: "Bricolage Grotesque" }}>
-              Swipe left or right to explore more stories
-            </p>
+            {/* Navigation Dots */}
+            <div className="flex justify-center space-x-2 mb-4">
+              {filteredPosts.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 touch-manipulation ${
+                    currentSlide === index
+                      ? 'bg-flat-blue scale-125 shadow-lg'
+                      : 'bg-flat-blue/30 hover:bg-flat-blue/50'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Swipe Instruction */}
+            <div className="text-center">
+              <p className="text-flat-blue/60 text-sm" style={{ fontFamily: "Bricolage Grotesque" }}>
+                👈 Swipe left or right to explore • Tap dots to jump 👉
+              </p>
+            </div>
           </div>
         </div>
 
