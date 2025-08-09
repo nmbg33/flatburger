@@ -167,28 +167,21 @@ export const UpdatedNavigation: React.FC = () => {
             </button>
 
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIsMenuOpen((prev) => !prev);
-              }}
-              onTouchEnd={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-              }}
-              className={`text-flat-blue p-3 touch-manipulation rounded-lg transition-all duration-200 relative z-50 ${
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`text-flat-blue p-4 touch-manipulation rounded-lg relative z-50 transition-colors duration-150 ${
                 isMenuOpen
                   ? "bg-flat-blue/20 text-flat-dark"
-                  : "hover:bg-flat-blue/10 active:bg-flat-blue/20"
+                  : "active:bg-flat-blue/15"
               }`}
               aria-label="Toggle mobile menu"
               aria-expanded={isMenuOpen}
               type="button"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
               {isMenuOpen ? (
-                <X size={24} strokeWidth={2.5} />
+                <X size={24} strokeWidth={2} />
               ) : (
-                <Menu size={24} strokeWidth={2.5} />
+                <Menu size={24} strokeWidth={2} />
               )}
             </button>
           </div>
