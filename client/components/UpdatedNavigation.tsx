@@ -24,19 +24,19 @@ export const UpdatedNavigation: React.FC = () => {
   // Prevent body scroll when menu is open (iOS optimization)
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     }
 
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     };
   }, [isMenuOpen]);
 
@@ -82,7 +82,9 @@ export const UpdatedNavigation: React.FC = () => {
 
     // Use a timeout to avoid immediate close on iOS
     const timeoutId = setTimeout(() => {
-      document.addEventListener("touchstart", handleClickOutside, { passive: true });
+      document.addEventListener("touchstart", handleClickOutside, {
+        passive: true,
+      });
       document.addEventListener("click", handleClickOutside, { passive: true });
     }, 100);
 
@@ -197,7 +199,7 @@ export const UpdatedNavigation: React.FC = () => {
               aria-label="Toggle mobile menu"
               aria-expanded={isMenuOpen}
               type="button"
-              style={{ WebkitTapHighlightColor: 'transparent' }}
+              style={{ WebkitTapHighlightColor: "transparent" }}
             >
               {isMenuOpen ? (
                 <X size={24} strokeWidth={2} />
@@ -216,8 +218,8 @@ export const UpdatedNavigation: React.FC = () => {
           }`}
           style={{
             zIndex: 40,
-            WebkitTransform: 'translate3d(0,0,0)',
-            transform: 'translate3d(0,0,0)'
+            WebkitTransform: "translate3d(0,0,0)",
+            transform: "translate3d(0,0,0)",
           }}
         >
           <div className="pt-4 pb-6 px-4">
@@ -230,7 +232,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: 'transparent'
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.aboutUs")}
@@ -243,7 +245,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: 'transparent'
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.menu")}
@@ -257,7 +259,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: 'transparent'
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.locations")}
@@ -271,7 +273,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: 'transparent'
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.ourStory")}
@@ -286,7 +288,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase text-center touch-manipulation block mt-3 shadow-lg active:opacity-80"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: 'transparent'
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("order.now")}
