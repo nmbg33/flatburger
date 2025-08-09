@@ -114,6 +114,7 @@ export const UpdatedNavigation: React.FC = () => {
             </button>
             <Link
               to="/locations"
+              onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
               className="font-bold tracking-wide uppercase transition-all duration-300 text-sm text-flat-blue hover:text-flat-dark"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
@@ -121,6 +122,7 @@ export const UpdatedNavigation: React.FC = () => {
             </Link>
             <Link
               to="/our-story"
+              onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
               className="font-bold tracking-wide uppercase transition-all duration-300 text-sm text-flat-blue hover:text-flat-dark"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
