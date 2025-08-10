@@ -155,13 +155,26 @@ const translations = {
     // Add-ons
     "addon.pomfrit": "Pomfrit",
     "addon.batat": "Batat",
-    "addon.onionRings": "Kolutići luka",
+    "addon.onionRings": "Onion Rings",
 
     // Locations
-    "locations.title": "DOĐI KOD NAS",
-    "locations.orderNow": "UZMI ODMAH",
-    "locations.dorcol": "Dorćol",
-    "locations.vracar": "Vračar",
+    "locations.title": "Lokacije",
+    "locations.name": "Flat Burger Dorćol",
+    "locations.locationAddress": "Dobračina 4, Beograd",
+    "locations.hours": "Radno Vreme",
+    "locations.weekdays": "Radni dani: 12:00–23:00",
+    "locations.weekends": "Vikendi: 15:00–23:00 (ili dok ne ostanemo bez)",
+
+    // Contact
+    "contact.title": "Kontakt",
+    "contact.email": "Email",
+    "contact.phone": "Telefon",
+    "contact.emailAddress": "flatburgerbg@gmail.com",
+    "contact.phoneNumber": "066 809 6326",
+
+    // Buttons/CTAs
+    "cta.orderNow": "Poruči Odmah",
+    "cta.findUs": "Pronađi Nas",
 
     // Our Story
     "story.title": "NAŠA PRIČA",
