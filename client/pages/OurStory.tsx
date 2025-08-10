@@ -383,7 +383,7 @@ export const OurStory: React.FC = () => {
                   ) : post.imageUrl ? (
                     <img
                       src={post.imageUrl}
-                      alt={post.title}
+                      alt={post.title[language]}
                       className="w-full h-full object-cover"
                     />
                   ) : (
