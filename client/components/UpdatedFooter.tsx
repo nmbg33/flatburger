@@ -109,7 +109,7 @@ export const UpdatedFooter: React.FC = () => {
               className="text-sm"
               style={{ fontFamily: "Bricolage Grotesque", color: "#FEEBCB" }}
             >
-              © 2024 Flat Burger. Made in Belgrade for the streets.
+              {t("footer.copyright")}
             </p>
           </div>
         </div>
