@@ -11,11 +11,11 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 interface BlogPost {
   id: string;
-  title: string;
-  excerpt: string;
-  content: string;
+  title: { en: string; sr: string };
+  excerpt: { en: string; sr: string };
+  content: { en: string; sr: string };
   date: string;
-  author: string;
+  author: { en: string; sr: string };
   category: "story" | "news";
   imageUrl?: string;
   videoUrl?: string;
