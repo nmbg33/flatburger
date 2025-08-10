@@ -193,6 +193,10 @@ const translations = {
     "story.ctaSubtitle":
       "Svaki burger priča našu priču. Dođi i iskusi ukuse koji su nas učinili ono što jesmo.",
     "story.orderNow": "Poruči Odmah",
+    "story.allStoriesText": "Sve Priče",
+    "story.ourStoryText": "Naša Priča",
+    "story.latestNewsText": "Najnovije Vesti",
+    "story.swipeInstruction": "👈 Prevuci levo ili desno za istraživanje • Klikni tačke za skok 👉",
 
     // Order buttons
     "order.wolt": "Poruči na Wolt",
