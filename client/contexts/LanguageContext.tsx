@@ -101,6 +101,8 @@ const translations = {
     "story.ourStoryText": "Our Story",
     "story.latestNewsText": "Latest News",
     "story.swipeInstruction": "👈 Swipe left or right to explore • Tap dots to jump 👉",
+    "story.videoContent": "Video Content",
+    "story.clickToWatch": "Click to watch",
 
     // Order buttons
     "order.wolt": "Order on Wolt",
