@@ -29,7 +29,7 @@ const blogPosts: BlogPost[] = [
       "Beograd će ponovo postati epicentar burger kulture! Pridružite nam se na najuzbudljivijem gastronomskom događaju u regionu.",
     content: `🍔 Flat Burger na Los Silos Burger Festival 2025
 
-Beograd će ponovo postati epicentar burger kulture! Od 29. avgusta do 7. septembra 2025. godine, Flat Burger će ponosno u��estvovati na Los Silos Burger Festival-u, jednom od najuzbudljivijih gastronomskih događaja u regionu.
+Beograd će ponovo postati epicentar burger kulture! Od 29. avgusta do 7. septembra 2025. godine, Flat Burger će ponosno učestvovati na Los Silos Burger Festival-u, jednom od najuzbudljivijih gastronomskih događaja u regionu.
 
 📍 Gde možete da nas nađete?
 Festival će se održati na jedinstvenoj lokaciji Silosi Beograd, Dunavski kej 46. Ovaj prostor, poznat po svoja četiri betonska silosa u obliku saća, pruža savršeno okruženje za uživanje u vrhunskim burgerima, kraft pivima, DJ nastupima i raznim drugim aktivnostima.
@@ -535,10 +535,10 @@ export const OurStory: React.FC = () => {
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
                 {selectedCategory === "all"
-                  ? "All Stories"
+                  ? t("story.allStoriesText")
                   : selectedCategory === "story"
-                    ? "Our Story"
-                    : "Latest News"}
+                    ? t("story.ourStoryText")
+                    : t("story.latestNewsText")}
               </p>
             </div>
 
