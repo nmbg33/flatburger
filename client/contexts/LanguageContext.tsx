@@ -23,8 +23,7 @@ const translations = {
     // Homepage
     "hero.tagline": "Burger. But flatter.",
     "hero.taglineSecond": "Made in Belgrade streets.",
-    "hero.subtitle": "Nothing fake. Just fire in a bun.",
-    "hero.cta": "TASTE THE FIRE",
+    "hero.cta": "Order Now",
     "hero.scrollDown": "Scroll",
 
     // About Us
