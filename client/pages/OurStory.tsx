@@ -252,7 +252,8 @@ export const OurStory: React.FC = () => {
       : blogPosts.filter((post) => post.category === selectedCategory);
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("sr-RS", {
+    const locale = language === "en" ? "en-US" : "sr-RS";
+    return new Date(dateString).toLocaleDateString(locale, {
       year: "numeric",
       month: "long",
       day: "numeric",
