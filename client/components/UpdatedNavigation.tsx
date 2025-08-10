@@ -174,7 +174,7 @@ export const UpdatedNavigation: React.FC = () => {
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
               <Globe size={16} />
-              <span>{language.toUpperCase()}</span>
+              <span>SRB/ENG</span>
             </button>
           </div>
 
@@ -186,7 +186,7 @@ export const UpdatedNavigation: React.FC = () => {
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
               <Globe size={14} />
-              <span>{language.toUpperCase()}</span>
+              <span>SRB/ENG</span>
             </button>
 
             <button
