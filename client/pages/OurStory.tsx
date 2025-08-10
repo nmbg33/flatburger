@@ -214,7 +214,7 @@ Danas se svaki Flat Burger i dalje pravi sa istom energijom i strašću. Ne samo
 
 export const OurStory: React.FC = () => {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<
     "all" | "story" | "news"
   >("all");
