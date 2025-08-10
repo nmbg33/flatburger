@@ -108,17 +108,17 @@ export const Locations: React.FC = () => {
                       className="font-bold text-flat-blue mb-1"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      Phone
+                      {t("contact.phone")}
                     </h4>
                     <p
                       className="text-flat-blue/80"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
                       <a
-                        href="tel:+38111234567"
+                        href="tel:+38166809632"
                         className="hover:text-flat-blue transition-colors"
                       >
-                        +381 11 123 4567
+                        {t("contact.phoneNumber")}
                       </a>
                     </p>
                   </div>
