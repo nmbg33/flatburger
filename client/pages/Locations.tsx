@@ -84,15 +84,15 @@ export const Locations: React.FC = () => {
                       className="font-bold text-flat-blue mb-1"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      Working Hours
+                      {t("locations.hours")}
                     </h4>
                     <p
                       className="text-flat-blue/80"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      Monday - Sunday
+                      {t("locations.weekdays")}
                       <br />
-                      10:00 - 23:00
+                      {t("locations.weekends")}
                     </p>
                   </div>
                 </div>
