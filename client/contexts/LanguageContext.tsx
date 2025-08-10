@@ -32,23 +32,20 @@ const translations = {
       "Flat Burger isn't your average burger joint. We smash, we sear, we keep it real. No fluff—just bold flavor and clean design. Born in Belgrade, built for the streets. Come see what flat really means.",
 
     // Menu
-    "menu.title": "THE LINEUP",
-    "menu.subtitle": "Each one hits different",
-    "menu.addOns": "SIDES",
+    "menu.title": "MENU",
+    "menu.subtitle": "Burgers",
+    "menu.addOns": "Add-ons",
+    "menu.seeMenu": "See Menu",
 
     // Burgers
     "burger.classic.name": "Classic",
-    "burger.classic.description":
-      "2x60g beef patty, cheddar cheese, flat sauce, pickles, red onion, mustard, ketchup",
+    "burger.classic.description": "Beef, cheddar, pickles, Flat sauce",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description":
-      "2x60g beef patty, cheddar cheese, onion jam, iceberg lettuce, bacon, truffle mayo",
+    "burger.fancy.description": "Double beef patty, truffle mayo, arugula, cheddar",
     "burger.pyro.name": "Pyro",
-    "burger.pyro.description":
-      "2x60g beef patty, cheddar cheese, sriracha mayo, iceberg lettuce, caramelized onions, bacon, jalapeño peppers",
+    "burger.pyro.description": "Spicy beef, jalapeños, chipotle sauce",
     "burger.baconJam.name": "Bacon Jam",
-    "burger.baconJam.description":
-      "2x60g beef patty, cheddar cheese, bacon jam, iceberg lettuce, tomato, BBQ sauce",
+    "burger.baconJam.description": "Crispy bacon, onion jam, cheddar",
     "burger.chicken.name": "Chicken Flat",
     "burger.chicken.description":
       "Crispy chicken breast, special chicken sauce, iceberg lettuce, tomato, red onion",
