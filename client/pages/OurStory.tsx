@@ -24,10 +24,40 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: "1",
-    title: "Flat Burger na Los Silos Burger Festival 2025!",
-    excerpt:
-      "Beograd će ponovo postati epicentar burger kulture! Pridružite nam se na najuzbudljivijem gastronomskom događaju u regionu.",
-    content: `🍔 Flat Burger na Los Silos Burger Festival 2025
+    title: {
+      en: "Flat Burger at Los Silos Burger Festival 2025!",
+      sr: "Flat Burger na Los Silos Burger Festival 2025!"
+    },
+    excerpt: {
+      en: "Belgrade will once again become the epicenter of burger culture! Join us at the most exciting gastronomic event in the region.",
+      sr: "Beograd će ponovo postati epicentar burger kulture! Pridružite nam se na najuzbudljivijem gastronomskom događaju u regionu."
+    },
+    content: {
+      en: `🍔 Flat Burger at Los Silos Burger Festival 2025
+
+Belgrade will once again become the epicenter of burger culture! From August 29 to September 7, 2025, Flat Burger will proudly participate in the Los Silos Burger Festival, one of the most exciting gastronomic events in the region.
+
+📍 Where Can You Find Us?
+The festival will take place at the unique location of Silosi Beograd, Dunavski kej 46. This space, known for its four concrete silos shaped like a honeycomb, provides the perfect setting to enjoy top-tier burgers, craft beers, DJ performances, and various other activities.
+
+🔥 What to Expect?
+At the festival, you will have the chance to enjoy:
+
+• Specialties prepared by Flat Burger – Our most popular burgers, including Classic Flat, Pyro Flat, Fancy Flat, Bacon Jam Flat, Crispy Alabama, and Chicken Flat, will be available for tasting.
+
+• Craft beers and gin cocktails – Enjoy perfect beverages to accompany our burgers.
+
+• Live music and DJ performances – Relax and enjoy the sounds that will enhance the festival atmosphere.
+
+• Activities for kids – Keep the little ones entertained in a dedicated area.
+
+• Riverside lounge zone – Relax by the river and enjoy beautiful sunsets.
+
+📅 When Can You Visit Us?
+The festival will be open every day from August 29 to September 7, 2025. Check the official festival website or our social media for exact hours of operation.
+
+Don't miss the chance to enjoy top-notch burgers and an unforgettable experience at the Los Silos Burger Festival 2025. See you at Silos!`,
+      sr: `🍔 Flat Burger na Los Silos Burger Festival 2025
 
 Beograd će ponovo postati epicentar burger kulture! Od 29. avgusta do 7. septembra 2025. godine, Flat Burger će ponosno učestvovati na Los Silos Burger Festival-u, jednom od najuzbudljivijih gastronomskih događaja u regionu.
 
@@ -50,19 +80,38 @@ Na festivalu ćete imati priliku da uživate u:
 📅 Kada možete da nas posetite?
 Festival će biti otvoren svaki dan od 29. avgusta do 7. septembra 2025. godine. Proverite zvanični sajt festivala ili naše društvene mreže za tačno radno vreme.
 
-Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu na Los Silos Burger Festival 2025. Vidimo se na Silosima!`,
+Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu na Los Silos Burger Festival 2025. Vidimo se na Silosima!`
+    },
     date: "2025-08-09",
-    author: "Nemanja Mladenović",
+    author: {
+      en: "Nemanja Mladenovic",
+      sr: "Nemanja Mladenović"
+    },
     category: "news",
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261",
   },
   {
     id: "2",
-    title: "🐔 Novi Dodatak: Chicken Burger je Stigao!",
-    excerpt:
-      "Sa uzbuđenjem objavljujemo da je Chicken Burger stigao u Flat Burger! Vaš novi omiljeni je ovde.",
-    content: `🐔 Novi Dodatak: Chicken Burger je Stigao!
+    title: {
+      en: "🐔 New Addition: The Chicken Burger is Here!",
+      sr: "🐔 Novi Dodatak: Chicken Burger je Stigao!"
+    },
+    excerpt: {
+      en: "We're excited to announce that the Chicken Burger has arrived at Flat Burger! Your new favorite is here.",
+      sr: "Sa uzbuđenjem objavljujemo da je Chicken Burger stigao u Flat Burger! Vaš novi omiljeni je ovde."
+    },
+    content: {
+      en: `🐔 New Addition: The Chicken Burger is Here!
+
+We're excited to announce that the Chicken Burger has arrived at Flat Burger! For all of you who love chicken as much as we do, this new addition is bound to be your new favorite.
+
+Our Chicken Flat features the same attention to detail and quality that you've come to expect from us. We've applied our signature flat-pressing technique to create a perfectly crispy exterior while maintaining a juicy, tender interior.
+
+The Chicken Flat comes with our specially crafted chicken sauce, fresh lettuce, tomatoes, and all the quality ingredients that make our burgers special. It's everything you love about Flat Burger, now in chicken form.
+
+Whether you're a longtime chicken lover or just looking to try something new, the Chicken Flat is ready to become your go-to choice. Available now at all Flat Burger locations!`,
+      sr: `🐔 Novi Dodatak: Chicken Burger je Stigao!
 
 Sa uzbuđenjem objavljujemo da je Chicken Burger stigao u Flat Burger! Za sve vas koji volite piletinu koliko i mi, ovaj novi dodatak sigurno će postati vaš novi omiljeni.
 
@@ -70,17 +119,38 @@ Naš Chicken Flat ima istu pažnju prema detaljima i kvalitetu koju očekujete o
 
 Chicken Flat dolazi sa našim posebno napravljenim chicken sossom, svežom salatom, paradajzom i svim kvalitetnim sastojcima koji naše burgere čine posebnim. To je sve što volite kod Flat Burger-a, sada u chicken varijanti.
 
-Bilo da ste dugogodišnji ljubitelj piletine ili samo želite da probate nešto novo, Chicken Flat je spreman da postane vaš glavni izbor. Dostupan je odmah u svim Flat Burger lokacijama!`,
+Bilo da ste dugogodišnji ljubitelj piletine ili samo želite da probate nešto novo, Chicken Flat je spreman da postane vaš glavni izbor. Dostupan je odmah u svim Flat Burger lokacijama!`
+    },
     date: "2024-12-15",
-    author: "Nemanja Mladenović",
+    author: {
+      en: "Nemanja Mladenovic",
+      sr: "Nemanja Mladenović"
+    },
     category: "news",
   },
   {
     id: "3",
-    title: "🎬 Iza Kulisa: 'Ipeglaj Glad' Kampanja",
-    excerpt:
-      "Pripremamo nešto uzbudljivo! Pogledajte iza kulisa našeg nadolazećeg snimanja 'Ipeglaj Glad' kampanje.",
-    content: `🎬 Snimanje Kampanje "Ipeglaj Glad"
+    title: {
+      en: "🎬 Behind the Scenes: 'Ipeglaj Glad' Campaign",
+      sr: "🎬 Iza Kulisa: 'Ipeglaj Glad' Kampanja"
+    },
+    excerpt: {
+      en: "We're preparing something exciting! Get a behind-the-scenes look at our upcoming 'Ipeglaj Glad' campaign filming.",
+      sr: "Pripremamo nešto uzbudljivo! Pogledajte iza kulisa našeg nadolazećeg snimanja 'Ipeglaj Glad' kampanje."
+    },
+    content: {
+      en: `🎬 Campaign Filming for "Ipeglaj Glad"
+
+We're also preparing something exciting! Stay tuned for our upcoming campaign filming for "Ipeglaj Glad". You won't want to miss the behind-the-scenes look at this special project!
+
+This campaign represents everything we stand for at Flat Burger - authenticity, Belgrade street culture, and the relentless pursuit of the perfect burger experience. "Ipeglaj Glad" captures the essence of what happens when you bite into a Flat Burger - that moment when hunger meets satisfaction.
+
+The campaign will showcase real Belgrade locations, real people, and real reactions to our burgers. No scripts, no actors - just genuine moments of burger bliss throughout our beautiful city.
+
+We're working with local talent and using locations that represent the true spirit of Belgrade. From the cobblestone streets of Skadarlija to the modern energy of Savamala, every shot will tell the story of how Flat Burger has become part of Belgrade's cultural fabric.
+
+Follow our social media for exclusive behind-the-scenes content, bloopers, and first looks at what promises to be our most authentic campaign yet. The official launch is coming soon!`,
+      sr: `🎬 Snimanje Kampanje "Ipeglaj Glad"
 
 Takođe pripremamo nešto uzbudljivo! Ostanite u toku za naše nadolazeće snimanje kampanje "Ipeglaj Glad". Nećete želeti da propustite pogled iza kulisa ovog posebnog projekta!
 
@@ -90,17 +160,38 @@ Kampanja će prikazati prave beogradske lokacije, prave ljude i prave reakcije n
 
 Radimo sa lokalnim talentima i koristimo lokacije koje predstavljaju pravi duh Beograda. Od kaldrmisanih ulica Skadarlije do moderne energije Savamale, svaki kadar će ispričati priču o tome kako je Flat Burger postao deo beogradskog kulturnog tkiva.
 
-Pratite naše društvene mreže za ekskluzivan sadržaj iza kulisa, blupere i prve poglede na ono što obećava da bude naša najautentičnija kampanja do sada. Zvanično lansiranje uskoro!`,
+Pratite naše društvene mreže za ekskluzivan sadržaj iza kulisa, blupere i prve poglede na ono što obećava da bude naša najautentičnija kampanja do sada. Zvanično lansiranje uskoro!`
+    },
     date: "2024-11-20",
-    author: "Nemanja Mladenović",
+    author: {
+      en: "Nemanja Mladenovic",
+      sr: "Nemanja Mladenović"
+    },
     category: "news",
   },
   {
     id: "4",
-    title: "Kako je Počeo Flat Burger",
-    excerpt:
-      "Od beogradskih ulica do vašeg tanjira - priča o tome kako smo revolucionirali burger igru.",
-    content: `Sve je počelo jednostavnim pitanjem: zašto burgeri moraju da budu dosadni?
+    title: {
+      en: "How Flat Burger Started",
+      sr: "Kako je Počeo Flat Burger"
+    },
+    excerpt: {
+      en: "From Belgrade streets to your plate - the story of how we revolutionized the burger game.",
+      sr: "Od beogradskih ulica do vašeg tanjira - priča o tome kako smo revolucionirali burger igru."
+    },
+    content: {
+      en: `It all started with a simple question: why do burgers have to be boring?
+
+Back in 2023, we were just a group of friends from Belgrade who were tired of the same old fast food experience. We had a vision - to bring real street energy to burgers, to make them flatter, better, and more authentic.
+
+The idea came during a late night in Dorćol. We were sitting around, talking about how Belgrade has this incredible food culture, but somehow burgers always felt like an afterthought. That's when it hit us - what if we made burgers the Belgrade way? Flat, pressed, and packed with attitude.
+
+We started experimenting in a tiny kitchen, pressing beef patties until they were perfectly flat, creating our signature sauce, and testing it on anyone who would try it. The response was immediate - people couldn't get enough.
+
+Our first location opened in Dorćol, right where the idea was born. We kept it simple: 2x60g beef patties, real ingredients, no BS. The neighborhood embraced us immediately, and word spread fast.
+
+Today, every Flat Burger is still made with that same energy and passion. We're not just making food - we're creating an experience that represents Belgrade's street culture.`,
+      sr: `Sve je počelo jednostavnim pitanjem: zašto burgeri moraju da budu dosadni?
 
 2023. godine, bili smo samo grupa prijatelja iz Beograda koji su se umorili od istog onog fast food iskustva. Imali smo viziju - da donesemo pravu uličnu energiju u burgere, da ih učinimo ravnijim, boljim i autentičnijim.
 
@@ -110,26 +201,14 @@ Počeli smo da eksperimentišemo u maloj kuhinji, presujući govedine pljeskavic
 
 Naša prva lokacija otvorena je u Dorćolu, tačno tamo gde je ideja rođena. Držali smo se jednostavno: 2x60g govedine pljeskavice, pravi sastojci, bez BS-a. Komšiluk nas je odmah prihvatio, i vest se brzo proširila.
 
-Danas se svaki Flat Burger i dalje pravi sa istom energijom i strašću. Ne samo da pravimo hranu - stvaramo iskustvo koje predstavlja beogradsku uličnu kulturu.`,
+Danas se svaki Flat Burger i dalje pravi sa istom energijom i strašću. Ne samo da pravimo hranu - stvaramo iskustvo koje predstavlja beogradsku uličnu kulturu.`
+    },
     date: "2024-08-09",
-    author: "Nemanja Mladenović",
+    author: {
+      en: "Nemanja Mladenovic",
+      sr: "Nemanja Mladenović"
+    },
     category: "story",
-  },
-  {
-    id: "5",
-    title: "Novo Partnerstvo sa Lokalnim Dobavljačima",
-    excerpt:
-      "Proširujemo našu posvećenost Beogradu kroz partnerstvo sa lokalnim poljoprivrednicima i dobavljačima.",
-    content: `Sa uzbuđenjem objavljujemo nova partnerstva sa lokalnim beogradskim dobavljačima koja će poboljšati našu posvećenost zajednici.
-
-Počevši od ovog meseca, naša govedina dolazi isključivo sa srpskih farmi koje ispunjavaju naše standarde kvaliteta. Naše povrće se nabavlja iz vojvođanskog regiona, obezbeđujući svežinu i podržavajući lokalnu poljoprivredu.
-
-Ovo nije samo o boljim sastojcima (mada oni definitivno jesu) - ovo je o izgradnji mreže koja podržava naš grad i region. Kada jedete Flat Burger, podržavate beogradski prehrambeni ekosistem.
-
-Takođe radimo na sezonskim specijalitetima koji će tokom godine istaći najbolje što lokalni dobavljači imaju da ponude.`,
-    date: "2024-03-10",
-    author: "Operacioni Tim",
-    category: "news",
   },
 ];
 
