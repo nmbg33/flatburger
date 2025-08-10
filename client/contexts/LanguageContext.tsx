@@ -41,7 +41,8 @@ const translations = {
     "burger.classic.name": "Classic",
     "burger.classic.description": "Beef, cheddar, pickles, Flat sauce",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description": "Double beef patty, truffle mayo, arugula, cheddar",
+    "burger.fancy.description":
+      "Double beef patty, truffle mayo, arugula, cheddar",
     "burger.pyro.name": "Pyro",
     "burger.pyro.description": "Spicy beef, jalapeños, chipotle sauce",
     "burger.baconJam.name": "Bacon Jam",
@@ -100,7 +101,8 @@ const translations = {
     "story.allStoriesText": "All Stories",
     "story.ourStoryText": "Our Story",
     "story.latestNewsText": "Latest News",
-    "story.swipeInstruction": "👈 Swipe left or right to explore • Tap dots to jump 👉",
+    "story.swipeInstruction":
+      "👈 Swipe left or right to explore • Tap dots to jump 👉",
     "story.videoContent": "Video Content",
     "story.clickToWatch": "Click to watch",
 
@@ -146,7 +148,8 @@ const translations = {
     "burger.classic.name": "Classic",
     "burger.classic.description": "Govedina, čedar, kiselice, Flat sos",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description": "Dupla govedina, tartufo majonez, rukola, čedar",
+    "burger.fancy.description":
+      "Dupla govedina, tartufo majonez, rukola, čedar",
     "burger.pyro.name": "Pyro",
     "burger.pyro.description": "Ljuta govedina, halapeño, čipotle sos",
     "burger.baconJam.name": "Bacon Jam",
@@ -198,7 +201,8 @@ const translations = {
     "story.allStoriesText": "Sve Priče",
     "story.ourStoryText": "Naša Priča",
     "story.latestNewsText": "Najnovije Vesti",
-    "story.swipeInstruction": "👈 Prevuci levo ili desno za istraživanje • Klikni tačke za skok 👉",
+    "story.swipeInstruction":
+      "👈 Prevuci levo ili desno za istraživanje • Klikni tačke za skok 👉",
     "story.videoContent": "Video Sadržaj",
     "story.clickToWatch": "Klikni da gledaš",
 

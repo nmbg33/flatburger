@@ -26,11 +26,11 @@ const blogPosts: BlogPost[] = [
     id: "1",
     title: {
       en: "Flat Burger at Los Silos Burger Festival 2025!",
-      sr: "Flat Burger na Los Silos Burger Festival 2025!"
+      sr: "Flat Burger na Los Silos Burger Festival 2025!",
     },
     excerpt: {
       en: "Belgrade will once again become the epicenter of burger culture! Join us at the most exciting gastronomic event in the region.",
-      sr: "Beograd će ponovo postati epicentar burger kulture! Pridružite nam se na najuzbudljivijem gastronomskom događaju u regionu."
+      sr: "Beograd će ponovo postati epicentar burger kulture! Pridružite nam se na najuzbudljivijem gastronomskom događaju u regionu.",
     },
     content: {
       en: `🍔 Flat Burger at Los Silos Burger Festival 2025
@@ -80,12 +80,12 @@ Na festivalu ćete imati priliku da uživate u:
 📅 Kada možete da nas posetite?
 Festival će biti otvoren svaki dan od 29. avgusta do 7. septembra 2025. godine. Proverite zvanični sajt festivala ili naše društvene mreže za tačno radno vreme.
 
-Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu na Los Silos Burger Festival 2025. Vidimo se na Silosima!`
+Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu na Los Silos Burger Festival 2025. Vidimo se na Silosima!`,
     },
     date: "2025-08-09",
     author: {
       en: "Nemanja Mladenovic",
-      sr: "Nemanja Mladenović"
+      sr: "Nemanja Mladenović",
     },
     category: "news",
     imageUrl:
@@ -95,11 +95,11 @@ Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu 
     id: "2",
     title: {
       en: "🐔 New Addition: The Chicken Burger is Here!",
-      sr: "🐔 Novi Dodatak: Chicken Burger je Stigao!"
+      sr: "🐔 Novi Dodatak: Chicken Burger je Stigao!",
     },
     excerpt: {
       en: "We're excited to announce that the Chicken Burger has arrived at Flat Burger! Your new favorite is here.",
-      sr: "Sa uzbuđenjem objavljujemo da je Chicken Burger stigao u Flat Burger! Vaš novi omiljeni je ovde."
+      sr: "Sa uzbuđenjem objavljujemo da je Chicken Burger stigao u Flat Burger! Vaš novi omiljeni je ovde.",
     },
     content: {
       en: `🐔 New Addition: The Chicken Burger is Here!
@@ -119,12 +119,12 @@ Naš Chicken Flat ima istu pažnju prema detaljima i kvalitetu koju očekujete o
 
 Chicken Flat dolazi sa našim posebno napravljenim chicken sossom, svežom salatom, paradajzom i svim kvalitetnim sastojcima koji naše burgere čine posebnim. To je sve što volite kod Flat Burger-a, sada u chicken varijanti.
 
-Bilo da ste dugogodišnji ljubitelj piletine ili samo želite da probate nešto novo, Chicken Flat je spreman da postane vaš glavni izbor. Dostupan je odmah u svim Flat Burger lokacijama!`
+Bilo da ste dugogodišnji ljubitelj piletine ili samo želite da probate nešto novo, Chicken Flat je spreman da postane vaš glavni izbor. Dostupan je odmah u svim Flat Burger lokacijama!`,
     },
     date: "2024-12-15",
     author: {
       en: "Nemanja Mladenovic",
-      sr: "Nemanja Mladenović"
+      sr: "Nemanja Mladenović",
     },
     category: "news",
   },
@@ -132,11 +132,11 @@ Bilo da ste dugogodišnji ljubitelj piletine ili samo želite da probate nešto 
     id: "3",
     title: {
       en: "🎬 Behind the Scenes: 'Ipeglaj Glad' Campaign",
-      sr: "🎬 Iza Kulisa: 'Ipeglaj Glad' Kampanja"
+      sr: "🎬 Iza Kulisa: 'Ipeglaj Glad' Kampanja",
     },
     excerpt: {
       en: "We're preparing something exciting! Get a behind-the-scenes look at our upcoming 'Ipeglaj Glad' campaign filming.",
-      sr: "Pripremamo nešto uzbudljivo! Pogledajte iza kulisa našeg nadolazećeg snimanja 'Ipeglaj Glad' kampanje."
+      sr: "Pripremamo nešto uzbudljivo! Pogledajte iza kulisa našeg nadolazećeg snimanja 'Ipeglaj Glad' kampanje.",
     },
     content: {
       en: `🎬 Campaign Filming for "Ipeglaj Glad"
@@ -160,12 +160,12 @@ Kampanja će prikazati prave beogradske lokacije, prave ljude i prave reakcije n
 
 Radimo sa lokalnim talentima i koristimo lokacije koje predstavljaju pravi duh Beograda. Od kaldrmisanih ulica Skadarlije do moderne energije Savamale, svaki kadar će ispričati priču o tome kako je Flat Burger postao deo beogradskog kulturnog tkiva.
 
-Pratite naše društvene mreže za ekskluzivan sadržaj iza kulisa, blupere i prve poglede na ono što obećava da bude naša najautentičnija kampanja do sada. Zvanično lansiranje uskoro!`
+Pratite naše društvene mreže za ekskluzivan sadržaj iza kulisa, blupere i prve poglede na ono što obećava da bude naša najautentičnija kampanja do sada. Zvanično lansiranje uskoro!`,
     },
     date: "2024-11-20",
     author: {
       en: "Nemanja Mladenovic",
-      sr: "Nemanja Mladenović"
+      sr: "Nemanja Mladenović",
     },
     category: "news",
   },
@@ -173,11 +173,11 @@ Pratite naše društvene mreže za ekskluzivan sadržaj iza kulisa, blupere i pr
     id: "4",
     title: {
       en: "How Flat Burger Started",
-      sr: "Kako je Počeo Flat Burger"
+      sr: "Kako je Počeo Flat Burger",
     },
     excerpt: {
       en: "From Belgrade streets to your plate - the story of how we revolutionized the burger game.",
-      sr: "Od beogradskih ulica do vašeg tanjira - priča o tome kako smo revolucionirali burger igru."
+      sr: "Od beogradskih ulica do vašeg tanjira - priča o tome kako smo revolucionirali burger igru.",
     },
     content: {
       en: `It all started with a simple question: why do burgers have to be boring?
@@ -201,12 +201,12 @@ Počeli smo da eksperimentišemo u maloj kuhinji, presujući govedine pljeskavic
 
 Naša prva lokacija otvorena je u Dorćolu, tačno tamo gde je ideja rođena. Držali smo se jednostavno: 2x60g govedine pljeskavice, pravi sastojci, bez BS-a. Komšiluk nas je odmah prihvatio, i vest se brzo proširila.
 
-Danas se svaki Flat Burger i dalje pravi sa istom energijom i strašću. Ne samo da pravimo hranu - stvaramo iskustvo koje predstavlja beogradsku uličnu kulturu.`
+Danas se svaki Flat Burger i dalje pravi sa istom energijom i strašću. Ne samo da pravimo hranu - stvaramo iskustvo koje predstavlja beogradsku uličnu kulturu.`,
     },
     date: "2024-08-09",
     author: {
       en: "Nemanja Mladenovic",
-      sr: "Nemanja Mladenović"
+      sr: "Nemanja Mladenović",
     },
     category: "story",
   },
@@ -459,9 +459,11 @@ export const OurStory: React.FC = () => {
                       className="text-flat-blue/80 leading-relaxed space-y-4"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      {post.content[language].split("\n\n").map((paragraph, index) => (
-                        <p key={index}>{paragraph}</p>
-                      ))}
+                      {post.content[language]
+                        .split("\n\n")
+                        .map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
                     </div>
                   </div>
                 </details>

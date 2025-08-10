@@ -126,7 +126,9 @@ export const Locations: React.FC = () => {
 
                 {/* Email */}
                 <div className="flex items-start space-x-4">
-                  <span className="text-flat-blue mt-1 flex-shrink-0 text-xl">@</span>
+                  <span className="text-flat-blue mt-1 flex-shrink-0 text-xl">
+                    @
+                  </span>
                   <div>
                     <h4
                       className="font-bold text-flat-blue mb-1"
