@@ -585,7 +585,7 @@ export const OurStory: React.FC = () => {
                             className="text-flat-blue/80 leading-relaxed space-y-4 text-sm"
                             style={{ fontFamily: "Bricolage Grotesque" }}
                           >
-                            {post.content
+                            {post.content[language]
                               .split("\n\n")
                               .map((paragraph, index) => (
                                 <p key={index}>{paragraph}</p>
