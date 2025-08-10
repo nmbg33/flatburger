@@ -27,9 +27,9 @@ const translations = {
     "hero.scrollDown": "Scroll",
 
     // About Us
-    "about.title": "MADE IN BELGRADE",
+    "about.title": "FLAT BURGER",
     "about.description":
-      "Made in Belgrade. Built for the street. We smash, we stack, we flatten — and we keep it real. No fluff, no boring combos — just pure fire in a bun. Raw energy, maximum taste.",
+      "Flat Burger isn't your average burger joint. We smash, we sear, we keep it real. No fluff—just bold flavor and clean design. Born in Belgrade, built for the streets. Come see what flat really means.",
 
     // Menu
     "menu.title": "THE LINEUP",
