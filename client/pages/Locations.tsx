@@ -45,7 +45,7 @@ export const Locations: React.FC = () => {
               className="text-4xl font-black text-flat-blue mb-8 tracking-tight text-center"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              Flat Burger Dorćol
+              {t("locations.name")}
             </h3>
 
             <div className="grid md:grid-cols-2 gap-8">
