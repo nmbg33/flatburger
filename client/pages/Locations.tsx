@@ -124,6 +124,30 @@ export const Locations: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Email */}
+                <div className="flex items-start space-x-4">
+                  <span className="text-flat-blue mt-1 flex-shrink-0 text-xl">@</span>
+                  <div>
+                    <h4
+                      className="font-bold text-flat-blue mb-1"
+                      style={{ fontFamily: "Bricolage Grotesque" }}
+                    >
+                      {t("contact.email")}
+                    </h4>
+                    <p
+                      className="text-flat-blue/80"
+                      style={{ fontFamily: "Bricolage Grotesque" }}
+                    >
+                      <a
+                        href="mailto:flatburgerbg@gmail.com"
+                        className="hover:text-flat-blue transition-colors"
+                      >
+                        {t("contact.emailAddress")}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
                 {/* Order Button */}
                 <div className="pt-4">
                   <a
