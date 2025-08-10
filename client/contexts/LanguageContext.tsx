@@ -97,6 +97,10 @@ const translations = {
     "story.ctaSubtitle":
       "Every burger tells our story. Come experience the flavors that made us who we are.",
     "story.orderNow": "Order Now",
+    "story.allStoriesText": "All Stories",
+    "story.ourStoryText": "Our Story",
+    "story.latestNewsText": "Latest News",
+    "story.swipeInstruction": "👈 Swipe left or right to explore • Tap dots to jump 👉",
 
     // Order buttons
     "order.wolt": "Order on Wolt",
