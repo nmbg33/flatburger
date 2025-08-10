@@ -547,7 +547,7 @@ export const OurStory: React.FC = () => {
                         <div className="flex items-center space-x-1">
                           <User size={16} />
                           <span style={{ fontFamily: "Bricolage Grotesque" }}>
-                            {post.author}
+                            {post.author[language]}
                           </span>
                         </div>
                       </div>
@@ -557,7 +557,7 @@ export const OurStory: React.FC = () => {
                         className="text-xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
                         style={{ fontFamily: "Bricolage Grotesque" }}
                       >
-                        {post.title}
+                        {post.title[language]}
                       </h2>
 
                       {/* Excerpt */}
@@ -565,7 +565,7 @@ export const OurStory: React.FC = () => {
                         className="text-flat-blue/80 text-base mb-6 leading-relaxed"
                         style={{ fontFamily: "Bricolage Grotesque" }}
                       >
-                        {post.excerpt}
+                        {post.excerpt[language]}
                       </p>
 
                       {/* Full Content (expandable) */}
