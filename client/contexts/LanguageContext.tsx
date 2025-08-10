@@ -59,16 +59,30 @@ const translations = {
     "addon.onionRings": "Onion Rings",
 
     // Locations
-    "locations.title": "PULL UP",
-    "locations.orderNow": "GET IT NOW",
-    "locations.dorcol": "Dorćol",
-    "locations.vracar": "Vračar",
+    "locations.title": "Locations",
+    "locations.name": "Flat Burger Dorćol",
+    "locations.locationAddress": "Dobračina 4, Belgrade",
+    "locations.hours": "Hours",
+    "locations.weekdays": "Weekdays: 12:00–23:00",
+    "locations.weekends": "Weekends: 15:00–23:00 (or until sold out)",
+
+    // Contact
+    "contact.title": "Contact",
+    "contact.email": "Email",
+    "contact.phone": "Phone",
+    "contact.emailAddress": "flatburgerbg@gmail.com",
+    "contact.phoneNumber": "066 809 6326",
+
+    // Buttons/CTAs
+    "cta.orderNow": "Order Now",
+    "cta.findUs": "Find Us",
 
     // Footer
     "footer.backToTop": "Back to Top",
     "footer.contact": "Contact",
     "footer.terms": "Terms",
     "footer.careers": "Careers",
+    "footer.copyright": "Flat Burger — © All rights reserved.",
 
     // Our Story
     "story.title": "OUR STORY",
