@@ -199,6 +199,8 @@ const translations = {
     "story.ourStoryText": "Naša Priča",
     "story.latestNewsText": "Najnovije Vesti",
     "story.swipeInstruction": "👈 Prevuci levo ili desno za istraživanje • Klikni tačke za skok 👉",
+    "story.videoContent": "Video Sadržaj",
+    "story.clickToWatch": "Klikni da gledaš",
 
     // Order buttons
     "order.wolt": "Poruči na Wolt",
