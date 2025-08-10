@@ -131,23 +131,20 @@ const translations = {
       "Flat Burger nije običan burger restoran. Mi gnječimo, pečemo, držimo se stvari. Bez gluposti—samo hrabar ukus i čist dizajn. Rođeni u Beogradu, napravljeni za ulice. Dođi da vidiš šta ravno stvarno znači.",
 
     // Menu
-    "menu.title": "VATRA",
-    "menu.subtitle": "Svaki udara drugačije",
-    "menu.addOns": "PRILOZI KOJI UDARAJU",
+    "menu.title": "MENI",
+    "menu.subtitle": "Burgeri",
+    "menu.addOns": "Dodaci",
+    "menu.seeMenu": "Pogledaj Meni",
 
     // Burgers
     "burger.classic.name": "Classic",
-    "burger.classic.description":
-      "Splaškana govedina, stari čedar, domaće kiselice, Flat sos koji ubija",
+    "burger.classic.description": "Govedina, čedar, kiselice, Flat sos",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description":
-      "Dupli splask, tartufo majonez, sveža rukola — skupo al vredi",
+    "burger.fancy.description": "Dupla govedina, tartufo majonez, rukola, čedar",
     "burger.pyro.name": "Pyro",
-    "burger.pyro.description":
-      "Ljuto ko đavo — govedina, halapeño, čipotle koji će te znojiti",
+    "burger.pyro.description": "Ljuta govedina, halapeño, čipotle sos",
     "burger.baconJam.name": "Bacon Jam",
-    "burger.baconJam.description":
-      "Hrskava slanina, slatki džem od luka, topljeni čedar — čist užitak",
+    "burger.baconJam.description": "Hrskava slanina, džem od luka, čedar",
     "burger.chicken.name": "Chicken Flat",
     "burger.chicken.description":
       "Hrskava piletina, poseban chicken sos, svežа salata, paradajz, crveni luk",
