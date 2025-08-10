@@ -62,14 +62,13 @@ export const Locations: React.FC = () => {
                       className="font-bold text-flat-blue mb-1"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      Address
+                      {t("locations.address")}
                     </h4>
                     <p
                       className="text-flat-blue/80 text-lg"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      Dobračina 4<br />
-                      Belgrade, Serbia
+                      {t("locations.locationAddress")}
                     </p>
                   </div>
                 </div>
