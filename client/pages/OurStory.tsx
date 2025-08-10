@@ -293,10 +293,10 @@ export const OurStory: React.FC = () => {
                           className="text-flat-blue mx-auto mb-4"
                         />
                         <p className="text-flat-blue font-bold">
-                          Video Content
+                          {t("story.videoContent")}
                         </p>
                         <p className="text-sm text-flat-blue/70">
-                          Click to watch
+                          {t("story.clickToWatch")}
                         </p>
                       </div>
                     </div>
