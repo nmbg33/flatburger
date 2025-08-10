@@ -133,7 +133,7 @@ export const Locations: React.FC = () => {
                     className="block w-full bg-flat-blue text-flat-beige py-4 rounded-full text-xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg text-center touch-manipulation"
                     style={{ fontFamily: "Bricolage Grotesque" }}
                   >
-                    {t("locations.orderNow")}
+                    {t("order.now")}
                   </a>
                 </div>
               </div>
