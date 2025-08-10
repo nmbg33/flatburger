@@ -120,16 +120,15 @@ const translations = {
     "nav.ourStory": "Naša Priča",
 
     // Homepage
-    "hero.tagline": "Burger. Ali ravni.",
-    "hero.taglineSecond": "Pravljeno na beogradskim ulicama.",
-    "hero.subtitle": "Bez blajve. Samo vatra u lepinj.",
-    "hero.cta": "OKUSI VATRU",
+    "hero.tagline": "Burger. Ali ravniji.",
+    "hero.taglineSecond": "Napravljen na beogradskim ulicama.",
+    "hero.cta": "Poruči Odmah",
     "hero.scrollDown": "Skroluj",
 
     // About Us
-    "about.title": "ROĐENI U BEOGRADU",
+    "about.title": "FLAT BURGER",
     "about.description":
-      "Mi sploštimo, mi slagečimo, mi držimo pravo. Nema blajve, nema dosadnih kombinacija — samo čista vatra u lepinj. Rođeni u Beogradu, pravljeni za ulice. Sirova energija, nula sranja.",
+      "Flat Burger nije običan burger restoran. Mi gnječimo, pečemo, držimo se stvari. Bez gluposti—samo hrabar ukus i čist dizajn. Rođeni u Beogradu, napravljeni za ulice. Dođi da vidiš šta ravno stvarno znači.",
 
     // Menu
     "menu.title": "VATRA",
