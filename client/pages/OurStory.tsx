@@ -563,7 +563,7 @@ export const OurStory: React.FC = () => {
                 className="text-flat-blue/60 text-sm"
                 style={{ fontFamily: "Bricolage Grotesque" }}
               >
-                👈 Swipe left or right to explore • Tap dots to jump 👉
+                {t("story.swipeInstruction")}
               </p>
             </div>
           </div>
