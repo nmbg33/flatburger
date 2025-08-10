@@ -206,6 +206,7 @@ const translations = {
     "footer.contact": "Kontakt",
     "footer.terms": "Uslovi",
     "footer.careers": "Karijera",
+    "footer.copyright": "Flat Burger — © Sva prava zadržana.",
 
     // General
     "price.currency": "RSD",
