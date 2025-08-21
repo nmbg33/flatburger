@@ -292,4 +292,38 @@
   }
 
   /* Clean urban accents only */
+
+  /* Slider utilities */
+  .slider-container {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .slider-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider-item {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  /* Smooth drag cursor */
+  .cursor-grab {
+    cursor: grab;
+  }
+
+  .cursor-grab:active {
+    cursor: grabbing;
+  }
+
+  /* Prevent text selection during drag */
+  .prevent-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
