@@ -226,7 +226,22 @@ const translations = {
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>(() => {
+    // Try to get language from localStorage, fallback to "en"
+    if (typeof window !== "undefined") {
+      const savedLanguage = localStorage.getItem("flat-burger-language") as Language;
+      return savedLanguage && (savedLanguage === "en" || savedLanguage === "sr") ? savedLanguage : "en";
+    }
+    return "en";
+  });
+
+  // Save language to localStorage whenever it changes
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("flat-burger-language", lang);
+    }
+  };
 
   const t = (key: string): string => {
     return (
