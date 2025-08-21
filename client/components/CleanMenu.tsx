@@ -86,7 +86,8 @@ export const CleanMenu: React.FC = () => {
     <section
       ref={sectionRef}
       data-section="menu"
-      className="py-24 bg-flat-cream relative"
+      className="py-24 bg-flat-beige relative"
+      style={{ fontFamily: "Bricolage Grotesque" }}
     >
       <div className="container mx-auto px-4">
         {/* Title */}
@@ -97,16 +98,18 @@ export const CleanMenu: React.FC = () => {
               : "opacity-0 transform translate-y-12"
           }`}
         >
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
+              style={{ fontFamily: "Bricolage Grotesque" }}>
             {t("menu.title")}
           </h2>
-          <p className="text-xl md:text-2xl text-flat-dark/70 font-medium">
+          <p className="text-xl md:text-2xl text-flat-blue/70 font-medium"
+             style={{ fontFamily: "Bricolage Grotesque" }}>
             {t("menu.subtitle")}
           </p>
         </div>
 
         {/* Burger Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
           {burgers.map((burger, index) => (
             <div
               key={burger.id}
@@ -118,35 +121,40 @@ export const CleanMenu: React.FC = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Burger Card */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500">
                 {/* Burger Photo */}
                 <div className="aspect-square overflow-hidden">
                   <img
                     src={burger.imageUrl}
                     alt={t(burger.nameKey)}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
                   />
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-6 md:p-8">
                   {/* Burger Name */}
-                  <h3 className="text-2xl lg:text-3xl font-black text-flat-blue mb-3 tracking-tight">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue mb-3 tracking-tight"
+                      style={{ fontFamily: "Bricolage Grotesque" }}>
                     {t(burger.nameKey)}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-flat-dark/80 text-lg mb-6 leading-relaxed">
+                  <p className="text-flat-blue/80 text-sm md:text-base lg:text-lg mb-6 leading-relaxed"
+                     style={{ fontFamily: "Bricolage Grotesque" }}>
                     {t(burger.descriptionKey)}
                   </p>
 
                   {/* Price and Button */}
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl lg:text-3xl font-black text-flat-blue">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <span className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue"
+                          style={{ fontFamily: "Bricolage Grotesque" }}>
                       {burger.price} {t("price.currency")}
                     </span>
-                    <button className="bg-flat-blue text-flat-cream px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105">
-                      Add
+                    <button className="w-full sm:w-auto bg-flat-blue text-flat-beige px-4 md:px-6 py-2 md:py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
+                            style={{ fontFamily: "Bricolage Grotesque" }}>
+                      {t("cta.orderNow")}
                     </button>
                   </div>
                 </div>
