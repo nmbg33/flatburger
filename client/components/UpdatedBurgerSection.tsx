@@ -152,11 +152,14 @@ export const UpdatedBurgerSection: React.FC = () => {
   // Auto-scroll to current slide
   useEffect(() => {
     if (sliderRef.current) {
-      const cardWidth = 360; // card width + gap
-      sliderRef.current.scrollTo({
-        left: currentSlide * cardWidth,
-        behavior: "smooth",
-      });
+      const cardElement = sliderRef.current.querySelector('.slider-item') as HTMLElement;
+      if (cardElement) {
+        const cardWidth = cardElement.offsetWidth + 24; // card width + gap
+        sliderRef.current.scrollTo({
+          left: currentSlide * cardWidth,
+          behavior: "smooth",
+        });
+      }
     }
   }, [currentSlide]);
 
