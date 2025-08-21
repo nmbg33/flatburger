@@ -315,17 +315,17 @@ export const UpdatedBurgerSection: React.FC = () => {
           </div>
 
           {/* Slide Indicators */}
-          <div className="flex justify-center mt-8 gap-2">
+          <div className="flex justify-center mt-6 gap-2">
             {burgers.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   currentSlide === index
-                    ? "bg-flat-blue scale-125"
+                    ? "bg-flat-blue scale-125 shadow-md"
                     : "bg-flat-blue/30 hover:bg-flat-blue/60"
                 }`}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`Go to burger ${index + 1}`}
               />
             ))}
           </div>
