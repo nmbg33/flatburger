@@ -58,7 +58,7 @@ const translations = {
 
     // Locations
     "locations.title": "Locations",
-    "locations.name": "Flat Burger Dorćol",
+    "locations.name": "Flat Burger 1",
     "locations.locationAddress": "Dobračina 4, Belgrade",
     "locations.hours": "Hours",
     "locations.weekdays": "Weekdays: 12:00–23:00",
