@@ -299,6 +299,7 @@
     scroll-behavior: smooth;
     overflow-x: auto;
     overflow-y: hidden;
+    scroll-padding: 0 24px;
   }
 
   .slider-container::-webkit-scrollbar {
@@ -308,6 +309,20 @@
   .slider-item {
     scroll-snap-align: center;
     scroll-snap-stop: always;
+  }
+
+  /* Ensure consistent card heights */
+  .burger-card {
+    height: 580px;
+  }
+
+  @media (min-width: 768px) {
+    .burger-card {
+      height: 620px;
+    }
+    .slider-container {
+      scroll-padding: 0 48px;
+    }
   }
 
   /* Smooth drag cursor */
