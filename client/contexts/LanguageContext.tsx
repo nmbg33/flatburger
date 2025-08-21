@@ -143,20 +143,17 @@ const translations = {
 
     // Burgers
     "burger.classic.name": "Classic",
-    "burger.classic.description": "Govedina, čedar, kiselice, Flat sos",
+    "burger.classic.description": "2x60g junećeg mesa, čedar sir, Flat sos, kiseli krastavac, crveni luk, senf, kečap",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description":
-      "Dupla govedina, tartufo majonez, rukola, čedar",
+    "burger.fancy.description": "2x60g junećeg mesa, čedar sir, džem od luka, iceberg, pančeta, tartuf mayo",
     "burger.pyro.name": "Pyro",
-    "burger.pyro.description": "Ljuta govedina, halapeño, čipotle sos",
-    "burger.baconJam.name": "Bacon Jam",
-    "burger.baconJam.description": "Hrskava slanina, džem od luka, čedar",
+    "burger.pyro.description": "2x60g junećeg mesa, čedar sir, Sriracha mayo, iceberg, karamelizovani luk, pančeta, jalapeño papričice",
+    "burger.baconJam.name": "Bacon Jam Flat",
+    "burger.baconJam.description": "2x60g junećeg mesa, čedar sir, džem od slanine, iceberg, paradajz, BBQ sos",
     "burger.chicken.name": "Chicken Flat",
-    "burger.chicken.description":
-      "Hrskava piletina, poseban chicken sos, svežа salata, paradajz, crveni luk",
+    "burger.chicken.description": "Pileće meso, Sriracha-honey mayo, iceberg, čedar sir, gouda sir, garlic-parmezan mayo, grilovani luk",
     "burger.alabama.name": "Crispy Alabama",
-    "burger.alabama.description":
-      "Dupli splask, hrskava pržena piletina, Alabama beli sos, kiselice, coleslaw",
+    "burger.alabama.description": "2x60g junećeg mesa, Emmentaler sir, bacon mayo, hrskavi luk, pohovani kiseli krastavičići, domaći beli BBQ sos (Alabama)",
 
     // Add-ons
     "addon.pomfrit": "Pomfrit",
