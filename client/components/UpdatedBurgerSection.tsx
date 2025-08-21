@@ -139,23 +139,24 @@ export const UpdatedBurgerSection: React.FC = () => {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Burger Card with hover animations */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-700 border border-gray-100 group-hover:rotate-1">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 border border-gray-100">
                 {/* Image with hover effects */}
-                <div className="aspect-[4/3] overflow-hidden relative">
+                <div className="aspect-square overflow-hidden relative">
                   <img
                     src={burger.imageUrl}
                     alt={t(burger.nameKey)}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
                   />
                   {/* Subtle overlay effect on hover */}
                   <div className="absolute inset-0 bg-flat-blue/0 group-hover:bg-flat-blue/5 transition-colors duration-700"></div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-6 lg:p-8">
                   {/* Name */}
                   <h3
-                    className="text-3xl lg:text-4xl font-black text-flat-blue mb-4 tracking-tight"
+                    className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue mb-3 tracking-tight"
                     style={{ fontFamily: "Bricolage Grotesque" }}
                   >
                     {t(burger.nameKey)}
@@ -163,7 +164,7 @@ export const UpdatedBurgerSection: React.FC = () => {
 
                   {/* Description */}
                   <p
-                    className="text-flat-blue/80 text-lg mb-6 leading-relaxed"
+                    className="text-flat-blue/80 text-sm md:text-base lg:text-lg mb-4 lg:mb-6 leading-relaxed"
                     style={{
                       fontFamily: "Bricolage Grotesque",
                       fontWeight: "400",
@@ -173,21 +174,21 @@ export const UpdatedBurgerSection: React.FC = () => {
                   </p>
 
                   {/* Price and Button */}
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                     <span
-                      className="text-3xl font-black text-flat-blue"
+                      className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
                       {burger.price} {t("price.currency")}
                     </span>
                     <a
-                      href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
+                      href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation inline-block text-center"
+                      className="w-full sm:w-auto bg-flat-blue text-flat-beige px-4 md:px-6 py-2 md:py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation text-center text-sm md:text-base"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      {t("order.wolt")}
+                      {t("cta.orderNow")}
                     </a>
                   </div>
                 </div>
