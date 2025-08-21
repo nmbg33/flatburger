@@ -213,7 +213,7 @@ export const UpdatedBurgerSection: React.FC = () => {
             {t("menu.addOns")}
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl mx-auto mb-12">
             {[
               { key: "addon.pomfrit", price: 290 },
               { key: "addon.batat", price: 390 },
@@ -221,17 +221,30 @@ export const UpdatedBurgerSection: React.FC = () => {
             ].map((addon, index) => (
               <div
                 key={addon.key}
-                className="bg-flat-blue text-flat-beige px-8 py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-flat-blue text-flat-beige px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg hover:shadow-xl"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <span
-                  className="font-bold text-lg tracking-wider"
+                  className="font-bold text-base md:text-lg tracking-wider"
                   style={{ fontFamily: "Bricolage Grotesque" }}
                 >
                   {t(addon.key)} — {addon.price} {t("price.currency")}
                 </span>
               </div>
             ))}
+          </div>
+
+          {/* Menu CTA */}
+          <div className="mt-16">
+            <a
+              href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-flat-blue text-flat-beige px-8 md:px-12 py-4 md:py-6 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-xl"
+              style={{ fontFamily: "Bricolage Grotesque" }}
+            >
+              {t("menu.seeMenu")}
+            </a>
           </div>
         </div>
       </div>
