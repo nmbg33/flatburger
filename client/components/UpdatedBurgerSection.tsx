@@ -330,9 +330,8 @@ export const UpdatedBurgerSection: React.FC = () => {
 
         {/* Add-ons Section */}
         <div
-          data-index={burgers.length + 1}
           className={`text-center transform transition-all duration-1000 ease-out ${
-            visibleItems.has(burgers.length + 1)
+            isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-12"
           }`}
@@ -352,7 +351,7 @@ export const UpdatedBurgerSection: React.FC = () => {
             ].map((addon, index) => (
               <div
                 key={addon.key}
-                className="bg-flat-blue text-flat-beige px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-flat-blue text-flat-beige px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <span
@@ -371,7 +370,7 @@ export const UpdatedBurgerSection: React.FC = () => {
               href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-flat-blue text-flat-beige px-8 md:px-12 py-4 md:py-6 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-xl"
+              className="inline-block bg-flat-blue text-flat-beige px-8 md:px-12 py-4 md:py-6 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
               {t("menu.seeMenu")}
