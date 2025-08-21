@@ -165,7 +165,8 @@ export const UpdatedBurgerSection: React.FC = () => {
     <section
       id="menu"
       ref={sectionRef}
-      className="py-20 bg-white relative overflow-hidden"
+      className="py-20 bg-flat-beige relative overflow-hidden"
+      style={{ fontFamily: "Bricolage Grotesque" }}
     >
       {/* Minimal corner accents in safe areas */}
       <div className="absolute top-8 left-8 w-8 h-px bg-flat-blue/8"></div>
