@@ -174,10 +174,10 @@ export const UpdatedBurgerSection: React.FC = () => {
       <div className="absolute bottom-8 right-8 w-px h-6 bg-flat-blue/8"></div>
       <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
-        <div className="text-center mb-16" data-index="0">
+        <div className="text-center mb-16">
           <div
             className={`transform transition-all duration-1000 ease-out ${
-              visibleItems.has(0)
+              isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-12"
             }`}
@@ -197,76 +197,135 @@ export const UpdatedBurgerSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Burger Grid - Pretty Patty style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto mb-20">
-          {burgers.map((burger, index) => (
-            <div
-              key={burger.id}
-              data-index={index + 1}
-              className={`group transform transition-all duration-1000 ease-out ${
-                visibleItems.has(index + 1)
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-12"
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              {/* Burger Card with hover animations */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 border border-gray-100">
-                {/* Image with hover effects */}
-                <div className="aspect-square overflow-hidden relative">
-                  <img
-                    src={burger.imageUrl}
-                    alt={t(burger.nameKey)}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  {/* Subtle overlay effect on hover */}
-                  <div className="absolute inset-0 bg-flat-blue/0 group-hover:bg-flat-blue/5 transition-colors duration-700"></div>
-                </div>
+        {/* Horizontal Slider */}
+        <div className="relative mb-20" onKeyDown={handleKeyDown} tabIndex={0}>
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            disabled={currentSlide === 0}
+            aria-label="Previous burger"
+            className={`absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-flat-blue text-flat-beige p-3 md:p-4 rounded-full transition-all duration-300 ${
+              currentSlide === 0
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-flat-dark hover:scale-110"
+            }`}
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
+            <ChevronLeft size={24} />
+          </button>
 
-                {/* Content */}
-                <div className="p-6 lg:p-8">
-                  {/* Name */}
-                  <h3
-                    className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue mb-3 tracking-tight"
-                    style={{ fontFamily: "Bricolage Grotesque" }}
-                  >
-                    {t(burger.nameKey)}
-                  </h3>
+          <button
+            onClick={nextSlide}
+            disabled={currentSlide === burgers.length - 1}
+            aria-label="Next burger"
+            className={`absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-flat-blue text-flat-beige p-3 md:p-4 rounded-full transition-all duration-300 ${
+              currentSlide === burgers.length - 1
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-flat-dark hover:scale-110"
+            }`}
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
+            <ChevronRight size={24} />
+          </button>
 
-                  {/* Description */}
-                  <p
-                    className="text-flat-blue/80 text-sm md:text-base lg:text-lg mb-4 lg:mb-6 leading-relaxed"
-                    style={{
-                      fontFamily: "Bricolage Grotesque",
-                      fontWeight: "400",
-                    }}
-                  >
-                    {t(burger.descriptionKey)}
-                  </p>
+          {/* Slider Container */}
+          <div
+            ref={sliderRef}
+            className="flex overflow-x-auto overflow-y-hidden gap-6 px-8 md:px-16 py-4 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing"
+            style={{
+              scrollSnapType: "x mandatory",
+              scrollBehavior: "smooth",
+            }}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {burgers.map((burger, index) => (
+              <div
+                key={burger.id}
+                className={`flex-shrink-0 w-80 md:w-96 snap-center transition-all duration-700 ${
+                  isVisible
+                    ? "opacity-100 transform translate-y-0"
+                    : "opacity-0 transform translate-y-12"
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                {/* Burger Card */}
+                <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 h-full">
+                  {/* Image */}
+                  <div className="aspect-square overflow-hidden relative">
+                    <img
+                      src={burger.imageUrl}
+                      alt={t(burger.nameKey)}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading={index < 3 ? "eager" : "lazy"}
+                    />
+                  </div>
 
-                  {/* Price and Button */}
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                    <span
-                      className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue"
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Name */}
+                    <h3
+                      className="text-2xl md:text-3xl font-black text-flat-blue mb-3 tracking-tight"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      {burger.price} {t("price.currency")}
-                    </span>
-                    <a
-                      href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto bg-flat-blue text-flat-beige px-4 md:px-6 py-2 md:py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation text-center text-sm md:text-base"
-                      style={{ fontFamily: "Bricolage Grotesque" }}
+                      {t(burger.nameKey)}
+                    </h3>
+
+                    {/* Description */}
+                    <p
+                      className="text-flat-blue/80 text-base leading-relaxed mb-6"
+                      style={{
+                        fontFamily: "Bricolage Grotesque",
+                        fontWeight: "400",
+                      }}
                     >
-                      {t("cta.orderNow")}
-                    </a>
+                      {t(burger.descriptionKey)}
+                    </p>
+
+                    {/* Price and Button */}
+                    <div className="flex flex-col gap-4">
+                      <span
+                        className="text-2xl md:text-3xl font-black text-flat-blue"
+                        style={{ fontFamily: "Bricolage Grotesque" }}
+                      >
+                        {burger.price} {t("price.currency")}
+                      </span>
+                      <a
+                        href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation text-center"
+                        style={{ fontFamily: "Bricolage Grotesque" }}
+                      >
+                        {t("cta.orderNow")}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Slide Indicators */}
+          <div className="flex justify-center mt-8 gap-2">
+            {burgers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? "bg-flat-blue scale-125"
+                    : "bg-flat-blue/30 hover:bg-flat-blue/60"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Add-ons Section */}
