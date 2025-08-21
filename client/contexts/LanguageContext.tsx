@@ -162,7 +162,7 @@ const translations = {
 
     // Locations
     "locations.title": "Lokacije",
-    "locations.name": "Flat Burger Dorćol",
+    "locations.name": "Flat Burger 1",
     "locations.locationAddress": "Dobračina 4, Beograd",
     "locations.hours": "Radno Vreme",
     "locations.weekdays": "Radni dani: 12:00–23:00",
