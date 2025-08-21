@@ -126,7 +126,7 @@ export const UpdatedBurgerSection: React.FC = () => {
         </div>
 
         {/* Burger Grid - Pretty Patty style */}
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto mb-20">
           {burgers.map((burger, index) => (
             <div
               key={burger.id}
