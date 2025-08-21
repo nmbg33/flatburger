@@ -206,28 +206,28 @@ export const UpdatedBurgerSection: React.FC = () => {
             onClick={prevSlide}
             disabled={currentSlide === 0}
             aria-label="Previous burger"
-            className={`absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-flat-blue text-flat-beige p-3 md:p-4 rounded-full transition-all duration-300 ${
+            className={`absolute left-1 md:left-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg ${
               currentSlide === 0
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-flat-dark hover:scale-110"
+                ? "opacity-30 cursor-not-allowed"
+                : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
 
           <button
             onClick={nextSlide}
             disabled={currentSlide === burgers.length - 1}
             aria-label="Next burger"
-            className={`absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-flat-blue text-flat-beige p-3 md:p-4 rounded-full transition-all duration-300 ${
+            className={`absolute right-1 md:right-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg ${
               currentSlide === burgers.length - 1
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-flat-dark hover:scale-110"
+                ? "opacity-30 cursor-not-allowed"
+                : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </button>
 
           {/* Slider Container */}
