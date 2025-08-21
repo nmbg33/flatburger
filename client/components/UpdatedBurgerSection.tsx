@@ -64,9 +64,12 @@ const burgers: BurgerItem[] = [
 export const UpdatedBurgerSection: React.FC = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(
-    new Set([0, 1, 2, 3, 4, 5]),
-  ); // Ensure all content is visible for Builder.io interface
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
