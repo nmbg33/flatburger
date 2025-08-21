@@ -19,14 +19,6 @@ const burgers: BurgerItem[] = [
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F9a69f3c9bc3f45d19c138cd92513bc9a?format=webp&width=800",
   },
   {
-    id: "fancy",
-    nameKey: "burger.fancy.name",
-    descriptionKey: "burger.fancy.description",
-    price: 940,
-    imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6ca917f26ecc4ce1b727caaec7cdae45?format=webp&width=800",
-  },
-  {
     id: "pyro",
     nameKey: "burger.pyro.name",
     descriptionKey: "burger.pyro.description",
@@ -38,9 +30,33 @@ const burgers: BurgerItem[] = [
     id: "baconJam",
     nameKey: "burger.baconJam.name",
     descriptionKey: "burger.baconJam.description",
-    price: 980,
+    price: 1190,
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F98e3e09a00c342408e142764c9afb57d?format=webp&width=800",
+  },
+  {
+    id: "fancy",
+    nameKey: "burger.fancy.name",
+    descriptionKey: "burger.fancy.description",
+    price: 1290,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6ca917f26ecc4ce1b727caaec7cdae45?format=webp&width=800",
+  },
+  {
+    id: "chicken",
+    nameKey: "burger.chicken.name",
+    descriptionKey: "burger.chicken.description",
+    price: 990,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261?format=webp&width=800",
+  },
+  {
+    id: "alabama",
+    nameKey: "burger.alabama.name",
+    descriptionKey: "burger.alabama.description",
+    price: 1090,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F291b0f2c508c466d927c3acf2d4dea65?format=webp&width=800",
   },
 ];
 
