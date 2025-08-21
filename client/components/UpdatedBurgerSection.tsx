@@ -107,18 +107,22 @@ export const UpdatedBurgerSection: React.FC = () => {
     setIsDragging(true);
     setStartX(e.pageX - sliderRef.current.offsetLeft);
     setScrollLeft(sliderRef.current.scrollLeft);
+    sliderRef.current.style.scrollBehavior = "auto";
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !sliderRef.current) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
+    const walk = (x - startX) * 1.5;
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    if (sliderRef.current) {
+      sliderRef.current.style.scrollBehavior = "smooth";
+    }
   };
 
   // Touch handlers for mobile
@@ -127,17 +131,21 @@ export const UpdatedBurgerSection: React.FC = () => {
     setIsDragging(true);
     setStartX(e.touches[0].pageX - sliderRef.current.offsetLeft);
     setScrollLeft(sliderRef.current.scrollLeft);
+    sliderRef.current.style.scrollBehavior = "auto";
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging || !sliderRef.current) return;
     const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
+    const walk = (x - startX) * 1.2;
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
   const handleTouchEnd = () => {
     setIsDragging(false);
+    if (sliderRef.current) {
+      sliderRef.current.style.scrollBehavior = "smooth";
+    }
   };
 
   // Keyboard navigation
