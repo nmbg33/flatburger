@@ -98,12 +98,16 @@ export const CleanMenu: React.FC = () => {
               : "opacity-0 transform translate-y-12"
           }`}
         >
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
-              style={{ fontFamily: "Bricolage Grotesque" }}>
+          <h2
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
             {t("menu.title")}
           </h2>
-          <p className="text-xl md:text-2xl text-flat-blue/70 font-medium"
-             style={{ fontFamily: "Bricolage Grotesque" }}>
+          <p
+            className="text-xl md:text-2xl text-flat-blue/70 font-medium"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
             {t("menu.subtitle")}
           </p>
         </div>
@@ -135,25 +139,33 @@ export const CleanMenu: React.FC = () => {
                 {/* Content */}
                 <div className="p-6 md:p-8">
                   {/* Burger Name */}
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue mb-3 tracking-tight"
-                      style={{ fontFamily: "Bricolage Grotesque" }}>
+                  <h3
+                    className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue mb-3 tracking-tight"
+                    style={{ fontFamily: "Bricolage Grotesque" }}
+                  >
                     {t(burger.nameKey)}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-flat-blue/80 text-sm md:text-base lg:text-lg mb-6 leading-relaxed"
-                     style={{ fontFamily: "Bricolage Grotesque" }}>
+                  <p
+                    className="text-flat-blue/80 text-sm md:text-base lg:text-lg mb-6 leading-relaxed"
+                    style={{ fontFamily: "Bricolage Grotesque" }}
+                  >
                     {t(burger.descriptionKey)}
                   </p>
 
                   {/* Price and Button */}
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                    <span className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue"
-                          style={{ fontFamily: "Bricolage Grotesque" }}>
+                    <span
+                      className="text-xl md:text-2xl lg:text-3xl font-black text-flat-blue"
+                      style={{ fontFamily: "Bricolage Grotesque" }}
+                    >
                       {burger.price} {t("price.currency")}
                     </span>
-                    <button className="w-full sm:w-auto bg-flat-blue text-flat-beige px-4 md:px-6 py-2 md:py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
-                            style={{ fontFamily: "Bricolage Grotesque" }}>
+                    <button
+                      className="w-full sm:w-auto bg-flat-blue text-flat-beige px-4 md:px-6 py-2 md:py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
+                      style={{ fontFamily: "Bricolage Grotesque" }}
+                    >
                       {t("cta.orderNow")}
                     </button>
                   </div>
@@ -171,8 +183,10 @@ export const CleanMenu: React.FC = () => {
               : "opacity-0 transform translate-y-12"
           }`}
         >
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-flat-blue mb-8 tracking-tight"
-              style={{ fontFamily: "Bricolage Grotesque" }}>
+          <h3
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-flat-blue mb-8 tracking-tight"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
             {t("menu.addOns")}
           </h3>
 
@@ -186,8 +200,10 @@ export const CleanMenu: React.FC = () => {
                 key={addon.key}
                 className="bg-flat-blue text-flat-beige px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105"
               >
-                <span className="font-bold text-base md:text-lg tracking-wider"
-                      style={{ fontFamily: "Bricolage Grotesque" }}>
+                <span
+                  className="font-bold text-base md:text-lg tracking-wider"
+                  style={{ fontFamily: "Bricolage Grotesque" }}
+                >
                   {t(addon.key)} — {addon.price} {t("price.currency")}
                 </span>
               </div>

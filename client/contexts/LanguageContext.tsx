@@ -39,17 +39,23 @@ const translations = {
 
     // Burgers
     "burger.classic.name": "Classic",
-    "burger.classic.description": "2x60g beef patties, cheddar cheese, Flat sauce, pickles, red onion, mustard, ketchup",
+    "burger.classic.description":
+      "2x60g beef patties, cheddar cheese, Flat sauce, pickles, red onion, mustard, ketchup",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description": "2x60g beef patties, cheddar cheese, onion jam, iceberg lettuce, pancetta, truffle mayo",
+    "burger.fancy.description":
+      "2x60g beef patties, cheddar cheese, onion jam, iceberg lettuce, pancetta, truffle mayo",
     "burger.pyro.name": "Pyro",
-    "burger.pyro.description": "2x60g beef patties, cheddar cheese, Sriracha mayo, iceberg lettuce, caramelized onion, pancetta, jalapeños",
+    "burger.pyro.description":
+      "2x60g beef patties, cheddar cheese, Sriracha mayo, iceberg lettuce, caramelized onion, pancetta, jalapeños",
     "burger.baconJam.name": "Bacon Jam Flat",
-    "burger.baconJam.description": "2x60g beef patties, cheddar cheese, bacon jam, iceberg lettuce, tomato, BBQ sauce",
+    "burger.baconJam.description":
+      "2x60g beef patties, cheddar cheese, bacon jam, iceberg lettuce, tomato, BBQ sauce",
     "burger.chicken.name": "Chicken Flat",
-    "burger.chicken.description": "Grilled chicken, Sriracha-honey mayo, iceberg lettuce, cheddar cheese, gouda cheese, garlic-parmesan mayo, grilled onion",
+    "burger.chicken.description":
+      "Grilled chicken, Sriracha-honey mayo, iceberg lettuce, cheddar cheese, gouda cheese, garlic-parmesan mayo, grilled onion",
     "burger.alabama.name": "Crispy Alabama",
-    "burger.alabama.description": "2x60g beef patties, Emmentaler cheese, bacon mayo, crispy onion, fried pickles, homemade white Alabama BBQ sauce",
+    "burger.alabama.description":
+      "2x60g beef patties, Emmentaler cheese, bacon mayo, crispy onion, fried pickles, homemade white Alabama BBQ sauce",
 
     // Add-ons
     "addon.pomfrit": "Pomfrit",
@@ -143,17 +149,23 @@ const translations = {
 
     // Burgers
     "burger.classic.name": "Classic",
-    "burger.classic.description": "2x60g junećeg mesa, čedar sir, Flat sos, kiseli krastavac, crveni luk, senf, kečap",
+    "burger.classic.description":
+      "2x60g junećeg mesa, čedar sir, Flat sos, kiseli krastavac, crveni luk, senf, kečap",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description": "2x60g junećeg mesa, čedar sir, džem od luka, iceberg, pančeta, tartuf mayo",
+    "burger.fancy.description":
+      "2x60g junećeg mesa, čedar sir, džem od luka, iceberg, pančeta, tartuf mayo",
     "burger.pyro.name": "Pyro",
-    "burger.pyro.description": "2x60g junećeg mesa, čedar sir, Sriracha mayo, iceberg, karamelizovani luk, pančeta, jalapeño papričice",
+    "burger.pyro.description":
+      "2x60g junećeg mesa, čedar sir, Sriracha mayo, iceberg, karamelizovani luk, pančeta, jalapeño papričice",
     "burger.baconJam.name": "Bacon Jam Flat",
-    "burger.baconJam.description": "2x60g junećeg mesa, čedar sir, džem od slanine, iceberg, paradajz, BBQ sos",
+    "burger.baconJam.description":
+      "2x60g junećeg mesa, čedar sir, džem od slanine, iceberg, paradajz, BBQ sos",
     "burger.chicken.name": "Chicken Flat",
-    "burger.chicken.description": "Pileće meso, Sriracha-honey mayo, iceberg, čedar sir, gouda sir, garlic-parmezan mayo, grilovani luk",
+    "burger.chicken.description":
+      "Pileće meso, Sriracha-honey mayo, iceberg, čedar sir, gouda sir, garlic-parmezan mayo, grilovani luk",
     "burger.alabama.name": "Crispy Alabama",
-    "burger.alabama.description": "2x60g junećeg mesa, Emmentaler sir, bacon mayo, hrskavi luk, pohovani kiseli krastavičići, domaći beli BBQ sos (Alabama)",
+    "burger.alabama.description":
+      "2x60g junećeg mesa, Emmentaler sir, bacon mayo, hrskavi luk, pohovani kiseli krastavičići, domaći beli BBQ sos (Alabama)",
 
     // Add-ons
     "addon.pomfrit": "Pomfrit",
@@ -229,8 +241,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   const [language, setLanguage] = useState<Language>(() => {
     // Try to get language from localStorage, fallback to "en"
     if (typeof window !== "undefined") {
-      const savedLanguage = localStorage.getItem("flat-burger-language") as Language;
-      return savedLanguage && (savedLanguage === "en" || savedLanguage === "sr") ? savedLanguage : "en";
+      const savedLanguage = localStorage.getItem(
+        "flat-burger-language",
+      ) as Language;
+      return savedLanguage && (savedLanguage === "en" || savedLanguage === "sr")
+        ? savedLanguage
+        : "en";
     }
     return "en";
   });
@@ -250,7 +266,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <LanguageContext.Provider
+      value={{ language, setLanguage: handleSetLanguage, t }}
+    >
       {children}
     </LanguageContext.Provider>
   );

@@ -342,9 +342,7 @@ export const UpdatedBurgerSection: React.FC = () => {
         {/* Add-ons Section */}
         <div
           className={`text-center transform transition-all duration-1000 ease-out ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-12"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
           <h3
