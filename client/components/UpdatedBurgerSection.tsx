@@ -253,7 +253,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Burger Card with Fixed Height */}
-                <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 h-[580px] md:h-[620px] flex flex-col">
+                <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 burger-card flex flex-col">
                   {/* Image Container - Fixed Height */}
                   <div className="h-64 md:h-72 overflow-hidden relative flex-shrink-0">
                     <img
