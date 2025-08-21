@@ -231,11 +231,7 @@ export const UpdatedBurgerSection: React.FC = () => {
           {/* Slider Container */}
           <div
             ref={sliderRef}
-            className="flex overflow-x-auto overflow-y-hidden gap-6 px-8 md:px-16 py-4 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing"
-            style={{
-              scrollSnapType: "x mandatory",
-              scrollBehavior: "smooth",
-            }}
+            className="flex gap-6 px-8 md:px-16 py-4 slider-container scrollbar-hide cursor-grab prevent-select"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
