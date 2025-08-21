@@ -39,20 +39,17 @@ const translations = {
 
     // Burgers
     "burger.classic.name": "Classic",
-    "burger.classic.description": "Beef, cheddar, pickles, Flat sauce",
+    "burger.classic.description": "2x60g beef patties, cheddar cheese, Flat sauce, pickles, red onion, mustard, ketchup",
     "burger.fancy.name": "Fancy",
-    "burger.fancy.description":
-      "Double beef patty, truffle mayo, arugula, cheddar",
+    "burger.fancy.description": "2x60g beef patties, cheddar cheese, onion jam, iceberg lettuce, pancetta, truffle mayo",
     "burger.pyro.name": "Pyro",
-    "burger.pyro.description": "Spicy beef, jalapeños, chipotle sauce",
-    "burger.baconJam.name": "Bacon Jam",
-    "burger.baconJam.description": "Crispy bacon, onion jam, cheddar",
+    "burger.pyro.description": "2x60g beef patties, cheddar cheese, Sriracha mayo, iceberg lettuce, caramelized onion, pancetta, jalapeños",
+    "burger.baconJam.name": "Bacon Jam Flat",
+    "burger.baconJam.description": "2x60g beef patties, cheddar cheese, bacon jam, iceberg lettuce, tomato, BBQ sauce",
     "burger.chicken.name": "Chicken Flat",
-    "burger.chicken.description":
-      "Crispy chicken breast, special chicken sauce, iceberg lettuce, tomato, red onion",
+    "burger.chicken.description": "Grilled chicken, Sriracha-honey mayo, iceberg lettuce, cheddar cheese, gouda cheese, garlic-parmesan mayo, grilled onion",
     "burger.alabama.name": "Crispy Alabama",
-    "burger.alabama.description":
-      "2x60g beef patty, crispy fried chicken, Alabama white sauce, pickles, coleslaw",
+    "burger.alabama.description": "2x60g beef patties, Emmentaler cheese, bacon mayo, crispy onion, fried pickles, homemade white Alabama BBQ sauce",
 
     // Add-ons
     "addon.pomfrit": "Pomfrit",
