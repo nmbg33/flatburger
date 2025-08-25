@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 import { MapPin, Clock, Phone, ArrowLeft } from "lucide-react";
-import { InteractiveMap } from "../components/InteractiveMap";
+import { SimpleMap } from "../components/SimpleMap";
 
 export const Locations: React.FC = () => {
   const { t } = useLanguage();
@@ -166,8 +166,8 @@ export const Locations: React.FC = () => {
               </div>
 
               {/* Interactive Map Section */}
-              <div className="h-80">
-                <InteractiveMap />
+              <div>
+                <SimpleMap />
               </div>
             </div>
           </div>
