@@ -19,7 +19,7 @@ export const IconsScrollSection: React.FC = () => {
     <section className="py-16 bg-flat-blue overflow-hidden">
       <div className="relative">
         {/* Infinite scrolling container */}
-        <div className="flex animate-infinite-scroll">
+        <div className="flex animate-infinite-scroll" style={{ willChange: "transform" }}>
           {duplicatedIcons.map((item, index) => (
             <div
               key={index}
