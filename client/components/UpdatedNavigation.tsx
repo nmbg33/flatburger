@@ -264,10 +264,11 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   scrollToSection("about");
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full smooth-transition"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
+                  willChange: "background-color"
                 }}
               >
                 {t("nav.aboutUs")}
@@ -277,10 +278,11 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   scrollToSection("menu");
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full smooth-transition"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
+                  willChange: "background-color"
                 }}
               >
                 {t("nav.menu")}
@@ -291,10 +293,11 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block smooth-transition"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
+                  willChange: "background-color"
                 }}
               >
                 {t("nav.locations")}
@@ -305,10 +308,11 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block"
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block smooth-transition"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
+                  willChange: "background-color"
                 }}
               >
                 {t("nav.ourStory")}
@@ -320,10 +324,11 @@ export const UpdatedNavigation: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase text-center touch-manipulation block mt-3 shadow-lg active:opacity-80"
+                className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase text-center touch-manipulation block mt-3 shadow-lg active:opacity-80 smooth-transition"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
+                  willChange: "opacity, transform"
                 }}
               >
                 {t("order.now")}
