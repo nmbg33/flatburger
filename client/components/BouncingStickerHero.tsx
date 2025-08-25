@@ -46,15 +46,16 @@ export const BouncingStickerHero: React.FC = () => {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         {/* Clean Bouncing Sticker - Main focal point */}
         <div
-          className={`transform transition-all duration-1500 ease-out ${
+          className={`transform transition-all duration-1500 ease-out smooth-transform ${
             isLoaded
               ? "opacity-100 translate-y-0 scale-100"
               : "opacity-0 translate-y-8 scale-95"
           }`}
+          style={{ willChange: "opacity, transform" }}
         >
           <div className="relative inline-block mb-12">
             {/* Clean transparent sticker with smooth bounce */}
-            <div className="relative animate-smooth-bounce hover:scale-105 transition-transform duration-500">
+            <div className="relative animate-smooth-bounce hover:scale-105 transition-transform duration-500 smooth-transform" style={{ willChange: "transform" }}>
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6c2f790110dc42debce12f883ec2e2af?format=webp&width=800"
                 alt="Flat Burger Logo"
@@ -66,9 +67,10 @@ export const BouncingStickerHero: React.FC = () => {
 
         {/* Main tagline */}
         <div
-          className={`transform transition-all duration-1500 ease-out delay-300 ${
+          className={`transform transition-all duration-1500 ease-out delay-300 smooth-transform ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
+          style={{ willChange: "opacity, transform" }}
         >
           <h1
             className="text-4xl md:text-6xl lg:text-7xl font-black text-flat-blue mb-2 leading-tight tracking-tight"
@@ -86,15 +88,17 @@ export const BouncingStickerHero: React.FC = () => {
 
         {/* CTA Button */}
         <div
-          className={`transform transition-all duration-1500 ease-out delay-700 ${
+          className={`transform transition-all duration-1500 ease-out delay-700 smooth-transform ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
+          style={{ willChange: "opacity, transform" }}
         >
           <a
             href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11?srsltid=AfmBOop99ec-lBKnlyj1yDoIojJHB9b4a9IxwRhF7eKxQLCmfo_Gb0Ui"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-12 py-4 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            className="inline-block px-12 py-4 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl smooth-transition"
+            style={{ willChange: "transform, box-shadow" }}
             style={{
               fontFamily: "Bricolage Grotesque",
               backgroundColor: "#1C33C3",
@@ -108,9 +112,10 @@ export const BouncingStickerHero: React.FC = () => {
 
       {/* Scroll indicator */}
       <div
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1500 ease-out delay-1000 ${
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1500 ease-out delay-1000 smooth-transform ${
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
+        style={{ willChange: "opacity, transform" }}
       >
         <button
           onClick={scrollToNext}
@@ -123,8 +128,8 @@ export const BouncingStickerHero: React.FC = () => {
             {t("hero.scrollDown")}
           </div>
           <div
-            className="w-px h-16 mx-auto group-hover:h-20 transition-all duration-300"
-            style={{ backgroundColor: "#1C33C3" }}
+            className="w-px h-16 mx-auto group-hover:h-20 transition-all duration-300 smooth-transition"
+            style={{ backgroundColor: "#1C33C3", willChange: "height" }}
           ></div>
         </button>
       </div>
