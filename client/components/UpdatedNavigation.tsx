@@ -24,19 +24,41 @@ export const UpdatedNavigation: React.FC = () => {
   // Prevent body scroll when menu is open (iOS optimization)
   useEffect(() => {
     if (isMenuOpen) {
+      // Store current scroll position
+      const scrollY = window.scrollY;
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
       document.body.style.width = "100%";
+      document.body.style.height = "100%";
+
+      // Prevent iOS bounce scroll
+      document.body.style.touchAction = "none";
+      document.body.style.webkitOverflowScrolling = "touch";
     } else {
+      // Restore scroll position
+      const scrollY = document.body.style.top;
       document.body.style.overflow = "";
       document.body.style.position = "";
+      document.body.style.top = "";
       document.body.style.width = "";
+      document.body.style.height = "";
+      document.body.style.touchAction = "";
+      document.body.style.webkitOverflowScrolling = "";
+
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     }
 
     return () => {
       document.body.style.overflow = "";
       document.body.style.position = "";
+      document.body.style.top = "";
       document.body.style.width = "";
+      document.body.style.height = "";
+      document.body.style.touchAction = "";
+      document.body.style.webkitOverflowScrolling = "";
     };
   }, [isMenuOpen]);
 
@@ -80,18 +102,26 @@ export const UpdatedNavigation: React.FC = () => {
       }
     };
 
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
     // Use a timeout to avoid immediate close on iOS
     const timeoutId = setTimeout(() => {
       document.addEventListener("touchstart", handleClickOutside, {
         passive: true,
       });
       document.addEventListener("click", handleClickOutside, { passive: true });
+      document.addEventListener("keydown", handleEscapeKey, { passive: true });
     }, 100);
 
     return () => {
       clearTimeout(timeoutId);
       document.removeEventListener("touchstart", handleClickOutside);
       document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", handleEscapeKey);
     };
   }, [isMenuOpen]);
 
@@ -191,7 +221,7 @@ export const UpdatedNavigation: React.FC = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`text-flat-blue p-4 touch-manipulation rounded-lg relative z-50 transition-colors duration-150 ${
+              className={`text-flat-blue p-4 touch-manipulation rounded-lg relative z-50 transition-colors duration-150 smooth-transition ${
                 isMenuOpen
                   ? "bg-flat-blue/20 text-flat-dark"
                   : "active:bg-flat-blue/15"
@@ -199,7 +229,10 @@ export const UpdatedNavigation: React.FC = () => {
               aria-label="Toggle mobile menu"
               aria-expanded={isMenuOpen}
               type="button"
-              style={{ WebkitTapHighlightColor: "transparent" }}
+              style={{
+                WebkitTapHighlightColor: "transparent",
+                willChange: "background-color, color"
+              }}
             >
               {isMenuOpen ? (
                 <X size={24} strokeWidth={2} />
@@ -213,13 +246,15 @@ export const UpdatedNavigation: React.FC = () => {
         {/* Mobile Menu Dropdown */}
         <div
           role="menu"
-          className={`md:hidden bg-flat-beige shadow-xl border-t border-flat-blue/10 ${
-            isMenuOpen ? "block" : "hidden"
+          className={`md:hidden bg-flat-beige shadow-xl border-t border-flat-blue/10 transition-all duration-300 ${
+            isMenuOpen ? "block opacity-100 translate-y-0" : "hidden opacity-0 -translate-y-4"
           }`}
           style={{
             zIndex: 40,
             WebkitTransform: "translate3d(0,0,0)",
             transform: "translate3d(0,0,0)",
+            willChange: "opacity, transform",
+            touchAction: "manipulation"
           }}
         >
           <div className="pt-4 pb-6 px-4">
