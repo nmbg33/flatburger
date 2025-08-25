@@ -70,6 +70,8 @@ export const UpdatedBurgerSection: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [startY, setStartY] = useState(0);
+  const [isVerticalScroll, setIsVerticalScroll] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -104,47 +106,80 @@ export const UpdatedBurgerSection: React.FC = () => {
   // Mouse drag handlers
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!sliderRef.current) return;
+    e.preventDefault();
     setIsDragging(true);
     setStartX(e.pageX - sliderRef.current.offsetLeft);
     setScrollLeft(sliderRef.current.scrollLeft);
     sliderRef.current.style.scrollBehavior = "auto";
+    document.body.style.userSelect = "none";
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !sliderRef.current) return;
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const walk = (x - startX) * 1.2;
     sliderRef.current.scrollLeft = scrollLeft - walk;
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    document.body.style.userSelect = "";
     if (sliderRef.current) {
       sliderRef.current.style.scrollBehavior = "smooth";
+      // Snap to nearest card
+      const cardWidth = window.innerWidth < 768 ? 320 : 368;
+      const scrollPosition = sliderRef.current.scrollLeft;
+      const nearestCard = Math.round(scrollPosition / cardWidth);
+      setCurrentSlide(Math.max(0, Math.min(nearestCard, burgers.length - 1)));
     }
   };
 
   // Touch handlers for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!sliderRef.current) return;
+    const touch = e.touches[0];
     setIsDragging(true);
-    setStartX(e.touches[0].pageX - sliderRef.current.offsetLeft);
+    setIsVerticalScroll(false);
+    setStartX(touch.pageX - sliderRef.current.offsetLeft);
+    setStartY(touch.pageY);
     setScrollLeft(sliderRef.current.scrollLeft);
     sliderRef.current.style.scrollBehavior = "auto";
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging || !sliderRef.current) return;
-    const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 1.2;
-    sliderRef.current.scrollLeft = scrollLeft - walk;
+
+    const touch = e.touches[0];
+    const deltaX = Math.abs(touch.pageX - startX);
+    const deltaY = Math.abs(touch.pageY - startY);
+
+    // Determine if this is vertical or horizontal scrolling
+    if (!isVerticalScroll && deltaY > deltaX && deltaY > 10) {
+      setIsVerticalScroll(true);
+      setIsDragging(false);
+      return;
+    }
+
+    // If it's horizontal scrolling, prevent default and handle the drag
+    if (!isVerticalScroll && deltaX > 5) {
+      e.preventDefault();
+      const x = touch.pageX - sliderRef.current.offsetLeft;
+      const walk = (x - startX) * 1.1;
+      sliderRef.current.scrollLeft = scrollLeft - walk;
+    }
   };
 
   const handleTouchEnd = () => {
     setIsDragging(false);
-    if (sliderRef.current) {
+    setIsVerticalScroll(false);
+    if (sliderRef.current && !isVerticalScroll) {
       sliderRef.current.style.scrollBehavior = "smooth";
+      // Snap to nearest card
+      const cardWidth = window.innerWidth < 768 ? 320 : 368;
+      const scrollPosition = sliderRef.current.scrollLeft;
+      const nearestCard = Math.round(scrollPosition / cardWidth);
+      setCurrentSlide(Math.max(0, Math.min(nearestCard, burgers.length - 1)));
     }
   };
 
@@ -159,15 +194,17 @@ export const UpdatedBurgerSection: React.FC = () => {
 
   // Auto-scroll to current slide
   useEffect(() => {
-    if (sliderRef.current) {
+    if (sliderRef.current && !isDragging) {
       const isMobile = window.innerWidth < 768;
-      const cardWidth = isMobile ? 288 + 20 : 320 + 24; // card width + gap
+      const cardWidth = isMobile ? 320 : 368; // Updated to match actual card + gap width
+      const targetScroll = currentSlide * cardWidth;
+
       sliderRef.current.scrollTo({
-        left: currentSlide * cardWidth,
+        left: targetScroll,
         behavior: "smooth",
       });
     }
-  }, [currentSlide]);
+  }, [currentSlide, isDragging]);
 
   return (
     <section
@@ -249,6 +286,11 @@ export const UpdatedBurgerSection: React.FC = () => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            style={{
+              WebkitOverflowScrolling: "touch",
+              overscrollBehaviorX: "contain",
+              touchAction: "pan-x pan-y"
+            }}
           >
             {burgers.map((burger, index) => (
               <div
