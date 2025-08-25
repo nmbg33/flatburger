@@ -325,7 +325,7 @@ export const UpdatedNavigation: React.FC = () => {
         <div
           role="menu"
           className={`mobile-menu md:hidden fixed top-0 left-0 h-full w-80 bg-flat-beige shadow-2xl transform transition-transform duration-300 ease-out z-50 ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            isMenuOpen ? "translate-x-0 menu-bounce" : "-translate-x-full"
           }`}
           style={{
             willChange: "transform",
@@ -355,7 +355,7 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   scrollToSection("about");
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-xl text-left py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl w-full smooth-transition transform hover:translate-x-2"
+                className="menu-item text-flat-blue font-bold tracking-wide uppercase text-xl text-left py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl w-full smooth-transition transform hover:translate-x-2 touch-feedback"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
@@ -370,7 +370,7 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   scrollToSection("menu");
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-xl text-left py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl w-full smooth-transition transform hover:translate-x-2"
+                className="menu-item text-flat-blue font-bold tracking-wide uppercase text-xl text-left py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl w-full smooth-transition transform hover:translate-x-2 touch-feedback"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
@@ -386,7 +386,7 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-xl py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl block smooth-transition transform hover:translate-x-2"
+                className="menu-item text-flat-blue font-bold tracking-wide uppercase text-xl py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl block smooth-transition transform hover:translate-x-2 touch-feedback"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
@@ -402,7 +402,7 @@ export const UpdatedNavigation: React.FC = () => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-xl py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl block smooth-transition transform hover:translate-x-2"
+                className="menu-item text-flat-blue font-bold tracking-wide uppercase text-xl py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl block smooth-transition transform hover:translate-x-2 touch-feedback"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
