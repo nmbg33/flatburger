@@ -223,12 +223,13 @@ export const UpdatedBurgerSection: React.FC = () => {
         {/* Title */}
         <div className="text-center mb-16">
           <div
-            className={`transform transition-all duration-1000 ease-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-12"
-            }`}
-          >
+          className={`transform transition-all duration-1000 ease-out smooth-transform ${
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-12"
+          }`}
+          style={{ willChange: "opacity, transform" }}
+        >
             <h2
               className="text-6xl md:text-8xl lg:text-9xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
               style={{ fontFamily: "Bricolage Grotesque" }}
@@ -251,11 +252,12 @@ export const UpdatedBurgerSection: React.FC = () => {
             onClick={prevSlide}
             disabled={currentSlide === 0}
             aria-label="Previous burger"
-            className={`absolute left-1 md:left-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg ${
+            className={`absolute left-1 md:left-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg smooth-transition ${
               currentSlide === 0
                 ? "opacity-30 cursor-not-allowed"
                 : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
+            style={{ willChange: "transform, opacity, background-color" }}
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
             <ChevronLeft size={20} />
@@ -265,11 +267,12 @@ export const UpdatedBurgerSection: React.FC = () => {
             onClick={nextSlide}
             disabled={currentSlide === burgers.length - 1}
             aria-label="Next burger"
-            className={`absolute right-1 md:right-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg ${
+            className={`absolute right-1 md:right-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg smooth-transition ${
               currentSlide === burgers.length - 1
                 ? "opacity-30 cursor-not-allowed"
                 : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
+            style={{ willChange: "transform, opacity, background-color" }}
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
             <ChevronRight size={20} />
@@ -295,22 +298,27 @@ export const UpdatedBurgerSection: React.FC = () => {
             {burgers.map((burger, index) => (
               <div
                 key={burger.id}
-                className={`flex-shrink-0 w-72 md:w-80 slider-item transition-all duration-700 ${
+                className={`flex-shrink-0 w-72 md:w-80 slider-item transition-all duration-700 smooth-transform ${
                   isVisible
                     ? "opacity-100 transform translate-y-0"
                     : "opacity-0 transform translate-y-12"
                 }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                style={{
+                  transitionDelay: `${index * 150}ms`,
+                  willChange: "opacity, transform",
+                  transform: "translate3d(0, 0, 0)"
+                }}
               >
                 {/* Burger Card with Fixed Height */}
-                <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 burger-card flex flex-col">
+                <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 burger-card flex flex-col smooth-transform" style={{ willChange: "transform" }}>
                   {/* Image Container - Fixed Height */}
                   <div className="h-64 md:h-72 overflow-hidden relative flex-shrink-0">
                     <img
                       src={burger.imageUrl}
                       alt={t(burger.nameKey)}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 smooth-transform"
                       loading={index < 3 ? "eager" : "lazy"}
+                      style={{ willChange: "transform" }}
                     />
                   </div>
 
@@ -352,7 +360,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                         href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full bg-flat-blue text-flat-beige px-4 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation text-center text-sm md:text-base"
+                        className="w-full bg-flat-blue text-flat-beige px-4 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation text-center text-sm md:text-base smooth-transition"
                         style={{ fontFamily: "Bricolage Grotesque" }}
                       >
                         {t("cta.orderNow")}
@@ -370,11 +378,12 @@ export const UpdatedBurgerSection: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 smooth-transition ${
                   currentSlide === index
                     ? "bg-flat-blue scale-125 shadow-md"
                     : "bg-flat-blue/30 hover:bg-flat-blue/60"
                 }`}
+                style={{ willChange: "transform, background-color" }}
                 aria-label={`Go to burger ${index + 1}`}
               />
             ))}
@@ -383,9 +392,10 @@ export const UpdatedBurgerSection: React.FC = () => {
 
         {/* Add-ons Section */}
         <div
-          className={`text-center transform transition-all duration-1000 ease-out ${
+          className={`text-center transform transition-all duration-1000 ease-out smooth-transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
+          style={{ willChange: "opacity, transform" }}
         >
           <h3
             className="text-4xl md:text-5xl font-black text-flat-blue mb-8 tracking-tight"
@@ -402,8 +412,11 @@ export const UpdatedBurgerSection: React.FC = () => {
             ].map((addon, index) => (
               <div
                 key={addon.key}
-                className="bg-flat-blue text-flat-beige px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="bg-flat-blue text-flat-beige px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105 smooth-transition"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  willChange: "transform, background-color"
+                }}
               >
                 <span
                   className="font-bold text-base md:text-lg tracking-wider"
@@ -421,7 +434,7 @@ export const UpdatedBurgerSection: React.FC = () => {
               href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-flat-blue text-flat-beige px-8 md:px-12 py-4 md:py-6 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
+              className="inline-block bg-flat-blue text-flat-beige px-8 md:px-12 py-4 md:py-6 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 smooth-transition"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
               {t("menu.seeMenu")}
