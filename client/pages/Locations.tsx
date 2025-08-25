@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 import { MapPin, Clock, Phone, ArrowLeft } from "lucide-react";
+import { InteractiveMap } from "../components/InteractiveMap";
 
 export const Locations: React.FC = () => {
   const { t } = useLanguage();
@@ -164,27 +165,9 @@ export const Locations: React.FC = () => {
                 </div>
               </div>
 
-              {/* Map Section */}
-              <div className="bg-gray-100 rounded-2xl h-80 flex items-center justify-center">
-                <div className="text-center text-flat-blue">
-                  <MapPin size={48} className="mx-auto mb-4" />
-                  <p className="text-lg font-bold mb-2">Interactive Map</p>
-                  <p
-                    className="text-sm text-flat-blue/70 mb-4"
-                    style={{ fontFamily: "Bricolage Grotesque" }}
-                  >
-                    Click to open in Google Maps
-                  </p>
-                  <a
-                    href="https://maps.google.com/?q=Dobračina 4, Belgrade, Serbia"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-bold text-sm uppercase hover:bg-flat-dark transition-colors duration-300"
-                    style={{ fontFamily: "Bricolage Grotesque" }}
-                  >
-                    Open Map
-                  </a>
-                </div>
+              {/* Interactive Map Section */}
+              <div className="h-80">
+                <InteractiveMap />
               </div>
             </div>
           </div>
