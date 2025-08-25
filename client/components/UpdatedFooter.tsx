@@ -34,7 +34,7 @@ export const UpdatedFooter: React.FC = () => {
               className="text-lg font-medium"
               style={{ fontFamily: "Bricolage Grotesque", color: "#FEEBCB" }}
             >
-              Made in Belgrade. Built for the street.
+              {t("tagline.madeInBelgrade")}
             </p>
           </div>
 
