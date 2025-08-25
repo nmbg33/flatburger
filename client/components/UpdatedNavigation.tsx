@@ -8,6 +8,9 @@ import { Menu, X, Globe } from "lucide-react";
 export const UpdatedNavigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [swipeStartX, setSwipeStartX] = useState(0);
+  const [swipeCurrentX, setSwipeCurrentX] = useState(0);
+  const [isSwipeActive, setIsSwipeActive] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
@@ -91,13 +94,85 @@ export const UpdatedNavigation: React.FC = () => {
     }
   };
 
-  // Close mobile menu when clicking outside - optimized for iOS
+  // Swipe gesture handlers
+  const handleSwipeStart = (clientX: number) => {
+    if (clientX < 20) { // Only start swipe from left edge
+      setSwipeStartX(clientX);
+      setSwipeCurrentX(clientX);
+      setIsSwipeActive(true);
+    }
+  };
+
+  const handleSwipeMove = (clientX: number) => {
+    if (isSwipeActive) {
+      setSwipeCurrentX(clientX);
+      const swipeDistance = clientX - swipeStartX;
+      if (swipeDistance > 80 && !isMenuOpen) {
+        setIsMenuOpen(true);
+        setIsSwipeActive(false);
+      } else if (swipeDistance < -80 && isMenuOpen) {
+        setIsMenuOpen(false);
+        setIsSwipeActive(false);
+      }
+    }
+  };
+
+  const handleSwipeEnd = () => {
+    setIsSwipeActive(false);
+  };
+
+  // Global swipe event listeners
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      handleSwipeStart(e.touches[0].clientX);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      handleSwipeMove(e.touches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+      handleSwipeEnd();
+    };
+
+    const handleMouseDown = (e: MouseEvent) => {
+      handleSwipeStart(e.clientX);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (e.buttons === 1) { // Only if mouse is pressed
+        handleSwipeMove(e.clientX);
+      }
+    };
+
+    const handleMouseUp = () => {
+      handleSwipeEnd();
+    };
+
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: true });
+    document.addEventListener('touchend', handleTouchEnd, { passive: true });
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener('touchend', handleTouchEnd);
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isSwipeActive, swipeStartX, isMenuOpen]);
+
+  // Close mobile menu when clicking outside or escape key
   useEffect(() => {
     if (!isMenuOpen) return;
 
     const handleClickOutside = (event: Event) => {
       const target = event.target as HTMLElement;
-      if (!target.closest("nav")) {
+      if (!target.closest('.mobile-menu') && !target.closest('button[aria-label="Toggle mobile menu"]')) {
         setIsMenuOpen(false);
       }
     };
@@ -208,115 +283,150 @@ export const UpdatedNavigation: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile Menu */}
-          <div className="md:hidden flex items-center space-x-3">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center space-x-1 bg-flat-blue text-flat-beige px-3 py-2 rounded-full text-xs font-bold"
-              style={{ fontFamily: "Bricolage Grotesque" }}
-            >
-              <Globe size={14} />
-              <span>SRB/ENG</span>
-            </button>
-
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`text-flat-blue p-4 touch-manipulation rounded-lg relative z-50 transition-colors duration-150 smooth-transition ${
+              className={`text-flat-blue p-4 touch-manipulation rounded-lg relative z-50 transition-all duration-200 smooth-transition ${
                 isMenuOpen
-                  ? "bg-flat-blue/20 text-flat-dark"
-                  : "active:bg-flat-blue/15"
+                  ? "bg-flat-blue/20 text-flat-dark scale-95"
+                  : "active:bg-flat-blue/15 hover:scale-105"
               }`}
               aria-label="Toggle mobile menu"
               aria-expanded={isMenuOpen}
               type="button"
               style={{
                 WebkitTapHighlightColor: "transparent",
-                willChange: "background-color, color"
+                willChange: "background-color, color, transform"
               }}
             >
               {isMenuOpen ? (
-                <X size={24} strokeWidth={2} />
+                <X size={24} strokeWidth={2} className="transition-transform duration-200" />
               ) : (
-                <Menu size={24} strokeWidth={2} />
+                <Menu size={24} strokeWidth={2} className="transition-transform duration-200" />
               )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div
+            className="md:hidden fixed inset-0 z-40 transition-opacity duration-300 ease-out"
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              opacity: isMenuOpen ? 1 : 0,
+            }}
+            onClick={() => setIsMenuOpen(false)}
+          />
+        )}
+
+        {/* Mobile Swipe Menu */}
         <div
           role="menu"
-          className={`md:hidden bg-flat-beige shadow-xl border-t border-flat-blue/10 transition-all duration-300 ${
-            isMenuOpen ? "block opacity-100 translate-y-0" : "hidden opacity-0 -translate-y-4"
+          className={`mobile-menu md:hidden fixed top-0 left-0 h-full w-80 bg-flat-beige shadow-2xl transform transition-transform duration-300 ease-out z-50 ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           style={{
-            zIndex: 40,
-            WebkitTransform: "translate3d(0,0,0)",
-            transform: "translate3d(0,0,0)",
-            willChange: "opacity, transform",
+            willChange: "transform",
             touchAction: "manipulation"
           }}
         >
-          <div className="pt-4 pb-6 px-4">
-            <div className="flex flex-col space-y-3">
+          {/* Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-flat-blue/10">
+            <div className="flex items-center space-x-3">
+              <FlatBurgerIcon size="sm" className="w-8 h-8" />
+              <FlatBurgerWordmark width={80} />
+            </div>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-flat-blue p-2 rounded-lg hover:bg-flat-blue/10 transition-colors duration-200"
+              aria-label="Close menu"
+            >
+              <X size={24} strokeWidth={2} />
+            </button>
+          </div>
+
+          {/* Menu Content */}
+          <div className="flex flex-col h-full pt-8 pb-6 px-6">
+            <div className="flex flex-col space-y-2 flex-grow">
               <button
                 onClick={() => {
                   setIsMenuOpen(false);
                   scrollToSection("about");
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full smooth-transition"
+                className="text-flat-blue font-bold tracking-wide uppercase text-xl text-left py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl w-full smooth-transition transform hover:translate-x-2"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
-                  willChange: "background-color"
+                  willChange: "background-color, transform"
                 }}
               >
                 {t("nav.aboutUs")}
               </button>
+
               <button
                 onClick={() => {
                   setIsMenuOpen(false);
                   scrollToSection("menu");
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl w-full smooth-transition"
+                className="text-flat-blue font-bold tracking-wide uppercase text-xl text-left py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl w-full smooth-transition transform hover:translate-x-2"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
-                  willChange: "background-color"
+                  willChange: "background-color, transform"
                 }}
               >
                 {t("nav.menu")}
               </button>
+
               <Link
                 to="/locations"
                 onClick={() => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block smooth-transition"
+                className="text-flat-blue font-bold tracking-wide uppercase text-xl py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl block smooth-transition transform hover:translate-x-2"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
-                  willChange: "background-color"
+                  willChange: "background-color, transform"
                 }}
               >
                 {t("nav.locations")}
               </Link>
+
               <Link
                 to="/our-story"
                 onClick={() => {
                   setIsMenuOpen(false);
                   setTimeout(() => window.scrollTo(0, 0), 50);
                 }}
-                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 touch-manipulation active:bg-flat-blue/20 rounded-xl block smooth-transition"
+                className="text-flat-blue font-bold tracking-wide uppercase text-xl py-6 px-4 touch-manipulation hover:bg-flat-blue/10 active:bg-flat-blue/20 rounded-xl block smooth-transition transform hover:translate-x-2"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
-                  willChange: "background-color"
+                  willChange: "background-color, transform"
                 }}
               >
                 {t("nav.ourStory")}
               </Link>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="border-t border-flat-blue/10 pt-6 mt-auto">
+              {/* Language Toggle */}
+              <button
+                onClick={() => {
+                  toggleLanguage();
+                  setIsMenuOpen(false);
+                }}
+                className="flex items-center justify-center space-x-2 w-full mb-4 px-4 py-3 rounded-xl font-bold transition-all duration-300 text-lg bg-flat-blue/10 text-flat-blue hover:bg-flat-blue hover:text-flat-beige smooth-transition"
+                style={{ fontFamily: "Bricolage Grotesque" }}
+              >
+                <Globe size={20} />
+                <span>SRB/ENG</span>
+              </button>
 
               {/* Mobile Order Button */}
               <a
@@ -324,11 +434,11 @@ export const UpdatedNavigation: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase text-center touch-manipulation block mt-3 shadow-lg active:opacity-80 smooth-transition"
+                className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase text-center touch-manipulation block w-full shadow-lg hover:bg-flat-dark active:scale-95 smooth-transition transform"
                 style={{
                   fontFamily: "Bricolage Grotesque",
                   WebkitTapHighlightColor: "transparent",
-                  willChange: "opacity, transform"
+                  willChange: "background-color, transform"
                 }}
               >
                 {t("order.now")}
