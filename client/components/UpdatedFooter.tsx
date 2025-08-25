@@ -41,22 +41,22 @@ export const UpdatedFooter: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <a
               href="#"
-              className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105"
-              style={{ fontFamily: "Bricolage Grotesque" }}
+              className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105 smooth-transition"
+              style={{ fontFamily: "Bricolage Grotesque", willChange: "transform, color" }}
             >
               {t("footer.contact")}
             </a>
             <a
               href="#"
-              className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105"
-              style={{ fontFamily: "Bricolage Grotesque" }}
+              className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105 smooth-transition"
+              style={{ fontFamily: "Bricolage Grotesque", willChange: "transform, color" }}
             >
               {t("footer.terms")}
             </a>
             <a
               href="#"
-              className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105"
-              style={{ fontFamily: "Bricolage Grotesque" }}
+              className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105 smooth-transition"
+              style={{ fontFamily: "Bricolage Grotesque", willChange: "transform, color" }}
             >
               {t("footer.careers")}
             </a>
@@ -69,7 +69,8 @@ export const UpdatedFooter: React.FC = () => {
               href="https://www.instagram.com/flatburger.bg/?hl=en"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-flat-beige text-flat-dark p-4 rounded-full hover:bg-flat-blue hover:text-flat-beige transition-all duration-300 transform hover:scale-110 shadow-lg touch-manipulation"
+              className="bg-flat-beige text-flat-dark p-4 rounded-full hover:bg-flat-blue hover:text-flat-beige transition-all duration-300 transform hover:scale-110 shadow-lg touch-manipulation smooth-transition"
+              style={{ willChange: "transform, background-color, color" }}
               aria-label="Follow us on Instagram"
             >
               <Instagram size={24} />
@@ -81,7 +82,8 @@ export const UpdatedFooter: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on TikTok"
-              className="bg-flat-beige text-flat-dark p-4 rounded-full hover:bg-flat-blue hover:text-flat-beige transition-all duration-300 transform hover:scale-110 shadow-lg"
+              className="bg-flat-beige text-flat-dark p-4 rounded-full hover:bg-flat-blue hover:text-flat-beige transition-all duration-300 transform hover:scale-110 shadow-lg smooth-transition"
+              style={{ willChange: "transform, background-color, color" }}
             >
               <svg
                 width="24"
@@ -96,8 +98,9 @@ export const UpdatedFooter: React.FC = () => {
             {/* Back to Top Button */}
             <button
               onClick={scrollToTop}
-              className="bg-flat-beige text-flat-blue p-4 rounded-full hover:bg-white hover:text-flat-blue transition-all duration-300 transform hover:scale-110"
+              className="bg-flat-beige text-flat-blue p-4 rounded-full hover:bg-white hover:text-flat-blue transition-all duration-300 transform hover:scale-110 smooth-transition"
               title={t("footer.backToTop")}
+              style={{ willChange: "transform, background-color" }}
             >
               <ArrowUp size={24} />
             </button>
