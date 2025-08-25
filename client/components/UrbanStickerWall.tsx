@@ -44,7 +44,7 @@ export const UrbanStickerWall: React.FC = () => {
             <div
               key={index}
               className={`
-                transform transition-all duration-1000 ease-out
+                transform transition-all duration-1000 ease-out smooth-transform
                 ${
                   isVisible
                     ? "opacity-100 translate-y-0 scale-100"
@@ -56,6 +56,7 @@ export const UrbanStickerWall: React.FC = () => {
               style={{
                 transitionDelay: sticker.delay,
                 animationDelay: `${index * 0.5}s`,
+                willChange: "opacity, transform"
               }}
             >
               <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-lg border-2 border-flat-blue/20">
