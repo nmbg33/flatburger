@@ -359,8 +359,7 @@
   .animate-scroll-right-slow,
   .animate-scroll-left-slow,
   .animate-scroll-right-fast,
-  .animate-smooth-bounce,
-  .mobile-menu {
+  .animate-smooth-bounce {
     will-change: transform;
     transform: translate3d(0, 0, 0);
   }
@@ -376,89 +375,9 @@
     will-change: transform;
   }
 
-  /* Mobile swipe menu animations */
-  .mobile-menu {
+  /* Simple mobile menu styles */
+  .mobile-menu-dropdown {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .mobile-menu .menu-item {
-    transform: translateX(-20px);
-    opacity: 0;
-    animation: slideInLeft 0.3s ease-out forwards;
-  }
-
-  .mobile-menu .menu-item:nth-child(1) { animation-delay: 0.1s; }
-  .mobile-menu .menu-item:nth-child(2) { animation-delay: 0.15s; }
-  .mobile-menu .menu-item:nth-child(3) { animation-delay: 0.2s; }
-  .mobile-menu .menu-item:nth-child(4) { animation-delay: 0.25s; }
-
-  @keyframes slideInLeft {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  /* Enhanced touch feedback */
-  .touch-feedback {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .touch-feedback::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(28, 51, 195, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
-  }
-
-  .touch-feedback:active::before {
-    width: 100px;
-    height: 100px;
-  }
-
-  /* Swipe indicator */
-  .swipe-indicator {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    width: 4px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, rgba(28, 51, 195, 0.6), transparent);
-    transform: translateY(-50%);
-    border-radius: 0 4px 4px 0;
-    opacity: 0;
-    animation: swipePulse 2s ease-in-out infinite;
-    z-index: 30;
-  }
-
-  @keyframes swipePulse {
-    0%, 100% { opacity: 0; transform: translateY(-50%) translateX(-4px); }
-    50% { opacity: 1; transform: translateY(-50%) translateX(0); }
-  }
-
-  /* Menu bounce effect */
-  .menu-bounce {
-    animation: menuBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  @keyframes menuBounce {
-    0% {
-      transform: translateX(-100%) scale(0.95);
-    }
-    60% {
-      transform: translateX(10px) scale(1.02);
-    }
-    100% {
-      transform: translateX(0) scale(1);
-    }
   }
 }
