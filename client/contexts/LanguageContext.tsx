@@ -149,7 +149,7 @@ const translations = {
     // About Us
     "about.title": "FLAT BURGER",
     "about.description":
-      "Flat Burger nije običan burger restoran. Mi gnječimo, pečemo, držimo se stvari. Bez gluposti—samo hrabar ukus i čist dizajn. Rođeni u Beogradu, napravljeni za ulice. Dođi da vidiš šta ravno stvarno znači.",
+      "Flat Burger nije samo još jedan burger restoran. Mi stvaramo, eksperimentišemo, držimo se autentičnosti. Bez foliranja—samo smeli ukusi i čist pristup. Rođeni u Beogradu, napravljeni za naše ulice. Dođi i vidi šta znači biti stvarno ravan.",
 
     // Menu
     "menu.title": "MENI",
