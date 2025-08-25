@@ -33,7 +33,7 @@ export const Locations: React.FC = () => {
             className="text-xl md:text-2xl text-flat-blue/70 font-medium"
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
-            Made in Belgrade. Built for the street.
+            {t("tagline.madeInBelgrade")}
           </p>
         </div>
 
@@ -197,14 +197,13 @@ export const Locations: React.FC = () => {
               className="text-2xl font-black mb-4 tracking-tight"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              Visit Us Today
+              {t("tagline.visitUsToday")}
             </h3>
             <p
               className="text-flat-beige/90 text-lg"
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
-              Experience authentic Belgrade street food culture. Fresh burgers
-              made daily with local ingredients and street attitude.
+              {t("tagline.visitDescription")}
             </p>
           </div>
         </div>
