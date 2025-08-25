@@ -447,6 +447,11 @@ export const UpdatedNavigation: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Swipe Indicator - only show when menu is closed and on mobile */}
+      {!isMenuOpen && (
+        <div className="md:hidden swipe-indicator" />
+      )}
     </nav>
   );
 };
