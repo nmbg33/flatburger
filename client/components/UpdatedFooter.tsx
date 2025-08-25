@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 import { FlatBurgerIcon } from "./FlatBurgerIcon";
 import { FlatBurgerWordmark } from "./FlatBurgerWordmark";
@@ -38,28 +39,23 @@ export const UpdatedFooter: React.FC = () => {
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <a
-              href="#"
+          <div className="flex flex-wrap justify-center gap-12 mb-12">
+            <Link
+              to="/our-story"
+              onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
               className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105 smooth-transition"
               style={{ fontFamily: "Bricolage Grotesque", willChange: "transform, color" }}
             >
-              {t("footer.contact")}
-            </a>
-            <a
-              href="#"
+              {t("nav.ourStory")}
+            </Link>
+            <Link
+              to="/locations"
+              onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
               className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105 smooth-transition"
               style={{ fontFamily: "Bricolage Grotesque", willChange: "transform, color" }}
             >
-              {t("footer.terms")}
-            </a>
-            <a
-              href="#"
-              className="text-flat-beige/80 hover:text-flat-beige transition-all duration-300 text-lg font-bold tracking-wider uppercase transform hover:scale-105 smooth-transition"
-              style={{ fontFamily: "Bricolage Grotesque", willChange: "transform, color" }}
-            >
-              {t("footer.careers")}
-            </a>
+              {t("nav.locations")}
+            </Link>
           </div>
 
           {/* Social and Actions */}
