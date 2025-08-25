@@ -130,11 +130,11 @@
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translate3d(0, 30px, 0);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
@@ -145,10 +145,10 @@
   @keyframes float {
     0%,
     100% {
-      transform: translateY(0px);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translate3d(0, -10px, 0);
     }
   }
 
@@ -160,13 +160,13 @@
   @keyframes streetFloat {
     0%,
     100% {
-      transform: translateY(0px) rotate(0deg);
+      transform: translate3d(0, 0, 0) rotate(0deg);
     }
     33% {
-      transform: translateY(-8px) rotate(1deg);
+      transform: translate3d(0, -8px, 0) rotate(1deg);
     }
     66% {
-      transform: translateY(-4px) rotate(-1deg);
+      transform: translate3d(0, -4px, 0) rotate(-1deg);
     }
   }
 
@@ -178,10 +178,10 @@
   @keyframes gentleFloat {
     0%,
     100% {
-      transform: translateY(0px);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-8px);
+      transform: translate3d(0, -8px, 0);
     }
   }
 
@@ -192,10 +192,10 @@
 
   @keyframes infiniteScroll {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(-33.333%);
+      transform: translate3d(-33.333%, 0, 0);
     }
   }
 
@@ -214,63 +214,64 @@
 
   @keyframes scrollRightSlow {
     0% {
-      transform: translateX(-100%);
+      transform: translate3d(-100%, 0, 0);
     }
     100% {
-      transform: translateX(100%);
+      transform: translate3d(100%, 0, 0);
     }
   }
 
   @keyframes scrollLeftSlow {
     0% {
-      transform: translateX(100%);
+      transform: translate3d(100%, 0, 0);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translate3d(-100%, 0, 0);
     }
   }
 
   @keyframes scrollRightFast {
     0% {
-      transform: translateX(-100%);
+      transform: translate3d(-100%, 0, 0);
     }
     100% {
-      transform: translateX(100%);
+      transform: translate3d(100%, 0, 0);
     }
   }
 
   /* Pretty Patty-style scroll reveal animations */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate3d(0, 60px, 0);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
   }
 
   .scroll-reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 
   .animate-scroll-reveal {
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate3d(0, 60px, 0);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
   }
 
   .animate-scroll-reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 
   /* Smooth hover effects */
   .hover-lift {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
   }
 
   .hover-lift:hover {
-    transform: translateY(-4px);
+    transform: translate3d(0, -4px, 0);
     box-shadow:
       0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -284,10 +285,10 @@
   @keyframes smoothBounce {
     0%,
     100% {
-      transform: translateY(0px);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-12px);
+      transform: translate3d(0, -12px, 0);
     }
   }
 
@@ -300,6 +301,8 @@
     overflow-x: auto;
     overflow-y: hidden;
     scroll-padding: 0 24px;
+    will-change: scroll-position;
+    transform: translate3d(0, 0, 0);
   }
 
   .slider-container::-webkit-scrollbar {
@@ -309,6 +312,8 @@
   .slider-item {
     scroll-snap-align: center;
     scroll-snap-stop: always;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
 
   /* Ensure consistent card heights */
@@ -328,6 +333,7 @@
   /* Smooth drag cursor */
   .cursor-grab {
     cursor: grab;
+    will-change: transform;
   }
 
   .cursor-grab:active {
@@ -340,5 +346,32 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Performance optimizations */
+  .animate-fade-in-up,
+  .animate-float,
+  .animate-street-float,
+  .animate-gentle-float,
+  .animate-infinite-scroll,
+  .animate-scroll-right-slow,
+  .animate-scroll-left-slow,
+  .animate-scroll-right-fast,
+  .animate-smooth-bounce {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Smooth transitions */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+  }
+
+  .smooth-transform {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 }
