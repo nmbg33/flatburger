@@ -26,6 +26,11 @@ const translations = {
     "hero.cta": "Order Now",
     "hero.scrollDown": "Scroll",
 
+    // Common taglines
+    "tagline.madeInBelgrade": "Made in Belgrade. Built for the street.",
+    "tagline.visitUsToday": "Visit Us Today",
+    "tagline.visitDescription": "Experience authentic Belgrade street food culture. Fresh burgers made daily with local ingredients and street attitude.",
+
     // About Us
     "about.title": "FLAT BURGER",
     "about.description":
@@ -132,9 +137,14 @@ const translations = {
 
     // Homepage
     "hero.tagline": "Burger. Ali ravniji.",
-    "hero.taglineSecond": "Napravljen na beogradskim ulicama.",
+    "hero.taglineSecond": "Pravi ukus beogradskih ulica.",
     "hero.cta": "Poruči Odmah",
     "hero.scrollDown": "Skroluj",
+
+    // Common taglines
+    "tagline.madeInBelgrade": "Rađen u Beogradu. Stvoren za ulicu.",
+    "tagline.visitUsToday": "Posetite Nas Danas",
+    "tagline.visitDescription": "Doživite autentičnu kulturu beogradske ulične hrane. Sveži burgeri spravljani dnevno sa lokalnim sastojcima i uličnim stavom.",
 
     // About Us
     "about.title": "FLAT BURGER",
