@@ -43,9 +43,10 @@ export const UpdatedAboutSection: React.FC = () => {
       <div className="max-w-5xl mx-auto text-center relative z-10">
         {/* Title */}
         <div
-          className={`transform transition-all duration-1000 ease-out ${
+          className={`transform transition-all duration-1000 ease-out smooth-transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
+          style={{ willChange: "opacity, transform" }}
         >
           <h2
             className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-beige mb-12 leading-tight tracking-tight"
@@ -57,9 +58,10 @@ export const UpdatedAboutSection: React.FC = () => {
 
         {/* Description */}
         <div
-          className={`transform transition-all duration-1000 ease-out delay-300 ${
+          className={`transform transition-all duration-1000 ease-out delay-300 smooth-transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
+          style={{ willChange: "opacity, transform" }}
         >
           <p
             className="text-xl md:text-2xl lg:text-3xl text-flat-beige/95 leading-relaxed font-medium max-w-4xl mx-auto"
@@ -71,9 +73,10 @@ export const UpdatedAboutSection: React.FC = () => {
 
         {/* Decorative element */}
         <div
-          className={`mt-16 transform transition-all duration-1000 ease-out delay-600 ${
+          className={`mt-16 transform transition-all duration-1000 ease-out delay-600 smooth-transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
+          style={{ willChange: "opacity, transform" }}
         >
           <div className="flex justify-center items-center space-x-8">
             <div className="w-20 h-1 bg-flat-beige"></div>
