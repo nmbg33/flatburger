@@ -72,6 +72,7 @@ export const UpdatedBurgerSection: React.FC = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [startY, setStartY] = useState(0);
   const [isVerticalScroll, setIsVerticalScroll] = useState(false);
+  const [slidePositions, setSlidePositions] = useState<number[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,17 +91,29 @@ export const UpdatedBurgerSection: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Compute precise x positions of each slide (accounting for gap/padding)
+  const computeSlidePositions = () => {
+    if (!sliderRef.current) return [] as number[];
+    const container = sliderRef.current;
+    const children = Array.from(container.children) as HTMLElement[];
+    const paddingLeft = parseFloat(getComputedStyle(container).paddingLeft || "0");
+    return children.map((el) => Math.max(0, Math.round(el.offsetLeft - paddingLeft)));
+  };
+
+  useEffect(() => {
+    const update = () => setSlidePositions(computeSlidePositions());
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   // Slider navigation functions
   const nextSlide = () => {
-    if (currentSlide < burgers.length - 1) {
-      setCurrentSlide(currentSlide + 1);
-    }
+    setCurrentSlide((s) => Math.min(s + 1, burgers.length - 1));
   };
 
   const prevSlide = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
-    }
+    setCurrentSlide((s) => Math.max(s - 1, 0));
   };
 
   // Mouse drag handlers
@@ -127,11 +140,19 @@ export const UpdatedBurgerSection: React.FC = () => {
     document.body.style.userSelect = "";
     if (sliderRef.current) {
       sliderRef.current.style.scrollBehavior = "smooth";
-      // Snap to nearest card
-      const cardWidth = window.innerWidth < 768 ? 320 : 368;
       const scrollPosition = sliderRef.current.scrollLeft;
-      const nearestCard = Math.round(scrollPosition / cardWidth);
-      setCurrentSlide(Math.max(0, Math.min(nearestCard, burgers.length - 1)));
+      if (slidePositions.length) {
+        let nearestIdx = 0;
+        let minDist = Infinity;
+        slidePositions.forEach((pos, i) => {
+          const d = Math.abs(pos - scrollPosition);
+          if (d < minDist) {
+            minDist = d;
+            nearestIdx = i;
+          }
+        });
+        setCurrentSlide(nearestIdx);
+      }
     }
   };
 
@@ -175,11 +196,19 @@ export const UpdatedBurgerSection: React.FC = () => {
     setIsVerticalScroll(false);
     if (sliderRef.current && !isVerticalScroll) {
       sliderRef.current.style.scrollBehavior = "smooth";
-      // Snap to nearest card
-      const cardWidth = window.innerWidth < 768 ? 320 : 368;
       const scrollPosition = sliderRef.current.scrollLeft;
-      const nearestCard = Math.round(scrollPosition / cardWidth);
-      setCurrentSlide(Math.max(0, Math.min(nearestCard, burgers.length - 1)));
+      if (slidePositions.length) {
+        let nearestIdx = 0;
+        let minDist = Infinity;
+        slidePositions.forEach((pos, i) => {
+          const d = Math.abs(pos - scrollPosition);
+          if (d < minDist) {
+            minDist = d;
+            nearestIdx = i;
+          }
+        });
+        setCurrentSlide(nearestIdx);
+      }
     }
   };
 
@@ -192,19 +221,13 @@ export const UpdatedBurgerSection: React.FC = () => {
     }
   };
 
-  // Auto-scroll to current slide
+  // Auto-scroll to current slide using measured positions
   useEffect(() => {
-    if (sliderRef.current && !isDragging) {
-      const isMobile = window.innerWidth < 768;
-      const cardWidth = isMobile ? 320 : 368; // Updated to match actual card + gap width
-      const targetScroll = currentSlide * cardWidth;
-
-      sliderRef.current.scrollTo({
-        left: targetScroll,
-        behavior: "smooth",
-      });
+    if (sliderRef.current && !isDragging && slidePositions.length) {
+      const targetScroll = slidePositions[Math.max(0, Math.min(currentSlide, slidePositions.length - 1))];
+      sliderRef.current.scrollTo({ left: targetScroll, behavior: "smooth" });
     }
-  }, [currentSlide, isDragging]);
+  }, [currentSlide, isDragging, slidePositions]);
 
   return (
     <section
@@ -378,12 +401,11 @@ export const UpdatedBurgerSection: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 smooth-transition ${
+                className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   currentSlide === index
                     ? "bg-flat-blue scale-125 shadow-md"
                     : "bg-flat-blue/30 hover:bg-flat-blue/60"
                 }`}
-                style={{ willChange: "transform, background-color" }}
                 aria-label={`Go to burger ${index + 1}`}
               />
             ))}
