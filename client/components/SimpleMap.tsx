@@ -9,9 +9,9 @@ export const SimpleMap: React.FC = () => {
   // Flat Burger location coordinates
   const location = {
     name: "Flat Burger 1",
-    address: "Dobračina 4, Beograd",
-    lat: 44.8186,
-    lng: 20.4589,
+    address: "Dečanska 4, Beograd",
+    lat: 44.8147795,
+    lng: 20.4626539,
     phone: "066 809 6326"
   };
 
