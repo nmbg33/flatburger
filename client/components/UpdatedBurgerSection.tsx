@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SimpleMap } from "./SimpleMap";
 
 interface BurgerItem {
   id: string;
