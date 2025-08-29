@@ -56,19 +56,6 @@ export const SimpleMap: React.FC = () => {
             title="Flat Burger Location Map"
           />
 
-          {/* Custom Marker Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="relative">
-              <div className="bg-flat-blue text-flat-beige p-3 rounded-full shadow-lg animate-bounce">
-                <MapPin size={24} />
-              </div>
-              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-white px-3 py-1 rounded-lg shadow-lg border border-flat-blue/20">
-                <p className="text-flat-blue font-bold text-sm whitespace-nowrap" style={{ fontFamily: "Bricolage Grotesque" }}>
-                  Flat Burger
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* Quick Actions Overlay */}
           <div className="absolute bottom-4 right-4 flex flex-col gap-2">
