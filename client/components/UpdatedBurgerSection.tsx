@@ -464,6 +464,11 @@ export const UpdatedBurgerSection: React.FC = () => {
             </a>
           </div>
         </div>
+
+        {/* Location Map on Menu Page */}
+        <div className="mt-24">
+          <SimpleMap />
+        </div>
       </div>
     </section>
   );
