@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { SimpleMap } from "./SimpleMap";
 
 interface BurgerItem {
   id: string;
@@ -97,8 +96,15 @@ export const UpdatedBurgerSection: React.FC = () => {
     if (!sliderRef.current) return [] as number[];
     const container = sliderRef.current;
     const children = Array.from(container.children) as HTMLElement[];
-    const paddingLeft = parseFloat(getComputedStyle(container).paddingLeft || "0");
-    return children.map((el) => Math.max(0, Math.round(el.offsetLeft - paddingLeft)));
+    const styles = getComputedStyle(container);
+    const paddingLeft = parseFloat(styles.paddingLeft || "0");
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    return children.map((el) => {
+      const left = el.offsetLeft - paddingLeft;
+      const centered = left - (container.clientWidth - el.clientWidth) / 2;
+      return Math.max(0, Math.min(Math.round(centered), Math.max(0, Math.round(maxScroll))));
+    });
   };
 
   useEffect(() => {
@@ -463,11 +469,6 @@ export const UpdatedBurgerSection: React.FC = () => {
               {t("menu.seeMenu")}
             </a>
           </div>
-        </div>
-
-        {/* Location Map on Menu Page */}
-        <div className="mt-24">
-          <SimpleMap />
         </div>
       </div>
     </section>
