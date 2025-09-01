@@ -113,7 +113,8 @@ Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu 
       sr: "Journal.rs",
     },
     category: "news",
-    sourceUrl: "https://www.journal.rs/lifestyle/gastro/flat-burger-street-food-beograd/",
+    sourceUrl:
+      "https://www.journal.rs/lifestyle/gastro/flat-burger-street-food-beograd/",
   },
 
   {
@@ -502,7 +503,9 @@ export const OurStory: React.FC = () => {
                       className="inline-block bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
                       style={{ fontFamily: "Bricolage Grotesque" }}
                     >
-                      {language === "en" ? "Read on Journal.rs" : "Pročitaj na Journal.rs"}
+                      {language === "en"
+                        ? "Read on Journal.rs"
+                        : "Pročitaj na Journal.rs"}
                     </a>
                   </div>
                 )}
@@ -644,7 +647,9 @@ export const OurStory: React.FC = () => {
                             className="inline-block bg-flat-blue text-flat-beige px-5 py-2 rounded-full font-black tracking-wider uppercase text-sm hover:bg-flat-dark transition-all duration-300"
                             style={{ fontFamily: "Bricolage Grotesque" }}
                           >
-                            {language === "en" ? "Read on Journal.rs" : "Pročitaj na Journal.rs"}
+                            {language === "en"
+                              ? "Read on Journal.rs"
+                              : "Pročitaj na Journal.rs"}
                           </a>
                         </div>
                       )}

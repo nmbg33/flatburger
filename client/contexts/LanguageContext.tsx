@@ -290,9 +290,7 @@ export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (context) return context;
   const fallbackT = (key: string): string => {
-    return (
-      translations["en"][key as keyof (typeof translations)["en"]] || key
-    );
+    return translations["en"][key as keyof (typeof translations)["en"]] || key;
   };
   return {
     language: "en" as Language,
