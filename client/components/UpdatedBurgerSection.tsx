@@ -328,7 +328,7 @@ export const UpdatedBurgerSection: React.FC = () => {
             {burgers.map((burger, index) => (
               <div
                 key={burger.id}
-                className={`flex-shrink-0 snap-center slider-item transition-all duration-700 smooth-transform w-[calc(100vw-2rem)] sm:w-[calc(100vw-4rem)] md:w-80 ${
+                className={`flex-shrink-0 snap-center slider-item transition-all duration-700 smooth-transform w-[calc(100vw-2rem)] md:w-80 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
