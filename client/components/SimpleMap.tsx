@@ -12,19 +12,25 @@ export const SimpleMap: React.FC = () => {
     address: "Dečanska 4, Beograd",
     lat: 44.8147795,
     lng: 20.4626539,
-    phone: "066 809 6326"
+    phone: "066 809 6326",
   };
 
   const openInGoogleMaps = () => {
-    window.open(`https://www.google.com/maps/search/?api=1&query=${location.lat},${location.lng}`, '_blank');
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${location.lat},${location.lng}`,
+      "_blank",
+    );
   };
 
   const openDirections = () => {
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`, '_blank');
+    window.open(
+      `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`,
+      "_blank",
+    );
   };
 
   const callPhone = () => {
-    window.open(`tel:${location.phone.replace(/\s/g, '')}`, '_self');
+    window.open(`tel:${location.phone.replace(/\s/g, "")}`, "_self");
   };
 
   return (
@@ -56,31 +62,43 @@ export const SimpleMap: React.FC = () => {
             title="Flat Burger Location Map"
           />
 
-
           {/* Quick Actions Overlay */}
           <div className="absolute bottom-4 right-4 flex flex-col gap-2">
             <button
               onClick={openDirections}
               className="bg-flat-blue text-flat-beige p-3 rounded-full shadow-lg hover:bg-flat-dark transition-all duration-300 group pointer-events-auto"
-              title={language === 'en' ? 'Get Directions' : 'Dobij Pravce'}
+              title={language === "en" ? "Get Directions" : "Dobij Pravce"}
             >
-              <Navigation size={20} className="group-hover:scale-110 transition-transform" />
+              <Navigation
+                size={20}
+                className="group-hover:scale-110 transition-transform"
+              />
             </button>
-            
+
             <button
               onClick={callPhone}
               className="bg-flat-blue text-flat-beige p-3 rounded-full shadow-lg hover:bg-flat-dark transition-all duration-300 group pointer-events-auto"
-              title={language === 'en' ? 'Call Us' : 'Pozovi Nas'}
+              title={language === "en" ? "Call Us" : "Pozovi Nas"}
             >
-              <Phone size={20} className="group-hover:scale-110 transition-transform" />
+              <Phone
+                size={20}
+                className="group-hover:scale-110 transition-transform"
+              />
             </button>
 
             <button
               onClick={openInGoogleMaps}
               className="bg-flat-blue text-flat-beige p-3 rounded-full shadow-lg hover:bg-flat-dark transition-all duration-300 group pointer-events-auto"
-              title={language === 'en' ? 'Open in Google Maps' : 'Otvori u Google Maps'}
+              title={
+                language === "en"
+                  ? "Open in Google Maps"
+                  : "Otvori u Google Maps"
+              }
             >
-              <ExternalLink size={20} className="group-hover:scale-110 transition-transform" />
+              <ExternalLink
+                size={20}
+                className="group-hover:scale-110 transition-transform"
+              />
             </button>
           </div>
 
@@ -88,12 +106,15 @@ export const SimpleMap: React.FC = () => {
           {!isMapLoaded && (
             <div className="absolute inset-0 flex items-center justify-center bg-flat-beige/50">
               <div className="text-center">
-                <MapPin size={48} className="text-flat-blue mx-auto mb-4 animate-pulse" />
+                <MapPin
+                  size={48}
+                  className="text-flat-blue mx-auto mb-4 animate-pulse"
+                />
                 <p
                   className="text-flat-blue font-bold"
                   style={{ fontFamily: "Bricolage Grotesque" }}
                 >
-                  {language === 'en' ? 'Loading map...' : 'Učitava mapu...'}
+                  {language === "en" ? "Loading map..." : "Učitava mapu..."}
                 </p>
               </div>
             </div>
@@ -117,7 +138,7 @@ export const SimpleMap: React.FC = () => {
             >
               {location.address}
             </p>
-            
+
             <div className="flex items-center space-x-3 mb-4">
               <Phone size={20} className="text-flat-blue" />
               <p
@@ -128,7 +149,10 @@ export const SimpleMap: React.FC = () => {
               </p>
             </div>
 
-            <div className="text-sm text-flat-blue/80" style={{ fontFamily: "Bricolage Grotesque" }}>
+            <div
+              className="text-sm text-flat-blue/80"
+              style={{ fontFamily: "Bricolage Grotesque" }}
+            >
               <div className="mb-1">{t("locations.weekdays")}</div>
               <div>{t("locations.weekends")}</div>
             </div>
@@ -141,9 +165,11 @@ export const SimpleMap: React.FC = () => {
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
               <Navigation size={18} />
-              <span>{language === 'en' ? 'Get Directions' : 'Dobij Pravce'}</span>
+              <span>
+                {language === "en" ? "Get Directions" : "Dobij Pravce"}
+              </span>
             </button>
-            
+
             <a
               href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
               target="_blank"
@@ -160,7 +186,7 @@ export const SimpleMap: React.FC = () => {
               style={{ fontFamily: "Bricolage Grotesque" }}
             >
               <Phone size={18} />
-              <span>{language === 'en' ? 'Call Us' : 'Pozovi Nas'}</span>
+              <span>{language === "en" ? "Call Us" : "Pozovi Nas"}</span>
             </button>
           </div>
         </div>

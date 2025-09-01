@@ -103,7 +103,10 @@ export const UpdatedBurgerSection: React.FC = () => {
     // Dynamic side padding only on mobile so first/last can be centered
     if (isMobile) {
       const sample = children[0] as HTMLElement;
-      const neededPad = Math.max(0, (container.clientWidth - sample.clientWidth) / 2);
+      const neededPad = Math.max(
+        0,
+        (container.clientWidth - sample.clientWidth) / 2,
+      );
       container.style.paddingLeft = `${neededPad}px`;
       container.style.paddingRight = `${neededPad}px`;
     } else {
@@ -113,7 +116,10 @@ export const UpdatedBurgerSection: React.FC = () => {
 
     const styles = getComputedStyle(container);
     const paddingLeft = parseFloat(styles.paddingLeft || "0");
-    const maxScroll = Math.max(0, container.scrollWidth - container.clientWidth);
+    const maxScroll = Math.max(
+      0,
+      container.scrollWidth - container.clientWidth,
+    );
 
     return children.map((el) => {
       const left = el.offsetLeft - paddingLeft;
@@ -246,7 +252,10 @@ export const UpdatedBurgerSection: React.FC = () => {
   // Auto-scroll to current slide using measured positions
   useEffect(() => {
     if (sliderRef.current && !isDragging && slidePositions.length) {
-      const targetScroll = slidePositions[Math.max(0, Math.min(currentSlide, slidePositions.length - 1))];
+      const targetScroll =
+        slidePositions[
+          Math.max(0, Math.min(currentSlide, slidePositions.length - 1))
+        ];
       sliderRef.current.scrollTo({ left: targetScroll, behavior: "smooth" });
     }
   }, [currentSlide, isDragging, slidePositions]);
@@ -268,13 +277,13 @@ export const UpdatedBurgerSection: React.FC = () => {
         {/* Title */}
         <div className="text-center mb-16">
           <div
-          className={`transform transition-all duration-1000 ease-out smooth-transform ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-12"
-          }`}
-          style={{ willChange: "opacity, transform" }}
-        >
+            className={`transform transition-all duration-1000 ease-out smooth-transform ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12"
+            }`}
+            style={{ willChange: "opacity, transform" }}
+          >
             <h2
               className="text-6xl md:text-8xl lg:text-9xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
               style={{ fontFamily: "Bricolage Grotesque" }}
@@ -302,7 +311,10 @@ export const UpdatedBurgerSection: React.FC = () => {
                 ? "opacity-30 cursor-not-allowed"
                 : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
-            style={{ willChange: "transform, opacity, background-color", fontFamily: "Bricolage Grotesque" }}
+            style={{
+              willChange: "transform, opacity, background-color",
+              fontFamily: "Bricolage Grotesque",
+            }}
           >
             <ChevronLeft size={20} />
           </button>
@@ -316,7 +328,10 @@ export const UpdatedBurgerSection: React.FC = () => {
                 ? "opacity-30 cursor-not-allowed"
                 : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
-            style={{ willChange: "transform, opacity, background-color", fontFamily: "Bricolage Grotesque" }}
+            style={{
+              willChange: "transform, opacity, background-color",
+              fontFamily: "Bricolage Grotesque",
+            }}
           >
             <ChevronRight size={20} />
           </button>
@@ -335,7 +350,7 @@ export const UpdatedBurgerSection: React.FC = () => {
             style={{
               WebkitOverflowScrolling: "touch",
               overscrollBehaviorX: "contain",
-              touchAction: "pan-x"
+              touchAction: "pan-x",
             }}
           >
             {burgers.map((burger, index) => (
@@ -349,67 +364,72 @@ export const UpdatedBurgerSection: React.FC = () => {
                 style={{
                   transitionDelay: `${index * 150}ms`,
                   willChange: "opacity, transform",
-                  transform: "translate3d(0, 0, 0)"
+                  transform: "translate3d(0, 0, 0)",
                 }}
               >
                 {/* Burger Card with Fixed Height */}
-                <div className="px-4 md:px-0"><div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 burger-card flex flex-col smooth-transform" style={{ willChange: "transform" }}>
-                  {/* Image Container - Fixed Height */}
-                  <div className="h-64 md:h-72 overflow-hidden relative flex-shrink-0">
-                    <img
-                      src={burger.imageUrl}
-                      alt={t(burger.nameKey)}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 smooth-transform"
-                      loading={index < 3 ? "eager" : "lazy"}
-                      style={{ willChange: "transform" }}
-                    />
-                  </div>
-
-                  {/* Content Container - Flex Grow */}
-                  <div className="p-5 md:p-6 flex flex-col flex-grow">
-                    {/* Name - Fixed Height */}
-                    <h3
-                      className="text-xl md:text-2xl font-black text-flat-blue mb-3 tracking-tight leading-tight h-12 md:h-14 flex items-start"
-                      style={{ fontFamily: "Bricolage Grotesque" }}
-                    >
-                      {t(burger.nameKey)}
-                    </h3>
-
-                    {/* Description - Fixed Height */}
-                    <p
-                      className="text-flat-blue/80 text-sm md:text-base leading-relaxed mb-4 flex-grow"
-                      style={{
-                        fontFamily: "Bricolage Grotesque",
-                        fontWeight: "400",
-                        minHeight: "120px",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 6,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                      }}
-                    >
-                      {t(burger.descriptionKey)}
-                    </p>
-
-                    {/* Price and Button - Fixed Position at Bottom */}
-                    <div className="flex flex-col gap-3 mt-auto">
-                      <span
-                        className="text-xl md:text-2xl font-black text-flat-blue"
-                        style={{ fontFamily: "Bricolage Grotesque" }}
-                      >
-                        {burger.price} {t("price.currency")}
-                      </span>
-                      <a
-                        href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full bg-flat-blue text-flat-beige px-4 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation text-center text-sm md:text-base smooth-transition"
-                        style={{ fontFamily: "Bricolage Grotesque" }}
-                      >
-                        {t("cta.orderNow")}
-                      </a>
+                <div className="px-4 md:px-0">
+                  <div
+                    className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 burger-card flex flex-col smooth-transform"
+                    style={{ willChange: "transform" }}
+                  >
+                    {/* Image Container - Fixed Height */}
+                    <div className="h-64 md:h-72 overflow-hidden relative flex-shrink-0">
+                      <img
+                        src={burger.imageUrl}
+                        alt={t(burger.nameKey)}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 smooth-transform"
+                        loading={index < 3 ? "eager" : "lazy"}
+                        style={{ willChange: "transform" }}
+                      />
                     </div>
-                </div></div>
+
+                    {/* Content Container - Flex Grow */}
+                    <div className="p-5 md:p-6 flex flex-col flex-grow">
+                      {/* Name - Fixed Height */}
+                      <h3
+                        className="text-xl md:text-2xl font-black text-flat-blue mb-3 tracking-tight leading-tight h-12 md:h-14 flex items-start"
+                        style={{ fontFamily: "Bricolage Grotesque" }}
+                      >
+                        {t(burger.nameKey)}
+                      </h3>
+
+                      {/* Description - Fixed Height */}
+                      <p
+                        className="text-flat-blue/80 text-sm md:text-base leading-relaxed mb-4 flex-grow"
+                        style={{
+                          fontFamily: "Bricolage Grotesque",
+                          fontWeight: "400",
+                          minHeight: "120px",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 6,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {t(burger.descriptionKey)}
+                      </p>
+
+                      {/* Price and Button - Fixed Position at Bottom */}
+                      <div className="flex flex-col gap-3 mt-auto">
+                        <span
+                          className="text-xl md:text-2xl font-black text-flat-blue"
+                          style={{ fontFamily: "Bricolage Grotesque" }}
+                        >
+                          {burger.price} {t("price.currency")}
+                        </span>
+                        <a
+                          href="https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full bg-flat-blue text-flat-beige px-4 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 touch-manipulation text-center text-sm md:text-base smooth-transition"
+                          style={{ fontFamily: "Bricolage Grotesque" }}
+                        >
+                          {t("cta.orderNow")}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -475,7 +495,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                 className="bg-flat-blue text-flat-beige px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105 smooth-transition"
                 style={{
                   animationDelay: `${index * 100}ms`,
-                  willChange: "transform, background-color"
+                  willChange: "transform, background-color",
                 }}
               >
                 <span
