@@ -98,12 +98,17 @@ export const UpdatedBurgerSection: React.FC = () => {
     const children = Array.from(container.children) as HTMLElement[];
     const styles = getComputedStyle(container);
     const paddingLeft = parseFloat(styles.paddingLeft || "0");
-    const maxScroll = container.scrollWidth - container.clientWidth;
+    const maxScroll = Math.max(0, container.scrollWidth - container.clientWidth);
+    const isMobile = window.innerWidth < 768;
 
     return children.map((el) => {
       const left = el.offsetLeft - paddingLeft;
+      if (isMobile) {
+        // Align slides to start on mobile to avoid peeking
+        return Math.max(0, Math.min(Math.round(left), Math.round(maxScroll)));
+      }
       const centered = left - (container.clientWidth - el.clientWidth) / 2;
-      return Math.max(0, Math.min(Math.round(centered), Math.max(0, Math.round(maxScroll))));
+      return Math.max(0, Math.min(Math.round(centered), Math.round(maxScroll)));
     });
   };
 
@@ -311,7 +316,7 @@ export const UpdatedBurgerSection: React.FC = () => {
           {/* Slider Container */}
           <div
             ref={sliderRef}
-            className="flex gap-0 md:gap-6 px-4 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select overflow-x-auto snap-x snap-mandatory"
+            className="flex gap-0 md:gap-6 -mx-4 md:mx-0 px-0 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select overflow-x-auto snap-x snap-mandatory"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -328,7 +333,7 @@ export const UpdatedBurgerSection: React.FC = () => {
             {burgers.map((burger, index) => (
               <div
                 key={burger.id}
-                className={`flex-shrink-0 snap-center slider-item transition-all duration-700 smooth-transform w-[calc(100vw-2rem)] md:w-80 ${
+                className={`flex-shrink-0 snap-start slider-item transition-all duration-700 smooth-transform w-screen md:w-80 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
