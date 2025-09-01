@@ -70,7 +70,7 @@ const translations = {
     // Locations
     "locations.title": "Locations",
     "locations.name": "Flat Burger 1",
-    "locations.locationAddress": "Dobračina 4, Belgrade",
+    "locations.locationAddress": "Dečanska 4, Belgrade",
     "locations.hours": "Hours",
     "locations.weekdays": "Weekdays: 12:00–23:00",
     "locations.weekends": "Weekends: 15:00–23:00 (or until sold out)",
@@ -185,7 +185,7 @@ const translations = {
     // Locations
     "locations.title": "Lokacije",
     "locations.name": "Flat Burger 1",
-    "locations.locationAddress": "Dobračina 4, Beograd",
+    "locations.locationAddress": "Dečanska 4, Beograd",
     "locations.hours": "Radno Vreme",
     "locations.weekdays": "Radni dani: 12:00–23:00",
     "locations.weekends": "Vikendi: 15:00–23:00 (ili dok ne ostanemo bez)",
