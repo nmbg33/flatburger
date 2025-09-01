@@ -19,6 +19,8 @@ interface BlogPost {
   category: "story" | "news";
   imageUrl?: string;
   videoUrl?: string;
+  sourceUrl?: string;
+  gallery?: string[];
 }
 
 const blogPosts: BlogPost[] = [
@@ -77,7 +79,7 @@ Na festivalu ćete imati priliku da uživate u:
 
 • Lounge zona pored reke – Opustite se pored reke i uživajte u prelepim zalascima sunca.
 
-��� Kada možete da nas posetite?
+📅 Kada možete da nas posetite?
 Festival će biti otvoren svaki dan od 29. avgusta do 7. septembra 2025. godine. Proverite zvanični sajt festivala ili naše društvene mreže za tačno radno vreme.
 
 Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu na Los Silos Burger Festival 2025. Vidimo se na Silosima!`,
@@ -102,8 +104,8 @@ Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu 
       sr: "Journal.rs je objavio tekst o Flat Burgeru uz galeriju i video klipove. Pročitaj i pogledaj na Journal.rs.",
     },
     content: {
-      en: `External feature: Journal.rs published an article about Flat Burger with photos and videos. See the full post and media on their site:\n\nhttps://www.journal.rs/lifestyle/gastro/flat-burger-street-food-beograd/`,
-      sr: `Eksterni tekst: Journal.rs je objavio članak o Flat Burgeru sa fotografijama i video klipovima. Ceo tekst i medije pogledaj na njihovom sajtu:\n\nhttps://www.journal.rs/lifestyle/gastro/flat-burger-street-food-beograd/`,
+      en: `External feature: Journal.rs published an article about Flat Burger with photos and videos. See the full post and media on their site:`,
+      sr: `Eksterni tekst: Journal.rs je objavio članak o Flat Burgeru sa fotografijama i video klipovima. Ceo tekst i medije pogledaj na njihovom sajtu:`,
     },
     date: "2024-08-17",
     author: {
@@ -111,6 +113,7 @@ Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu 
       sr: "Journal.rs",
     },
     category: "news",
+    sourceUrl: "https://www.journal.rs/lifestyle/gastro/flat-burger-street-food-beograd/",
   },
 
   {
@@ -489,6 +492,20 @@ export const OurStory: React.FC = () => {
                     </div>
                   </div>
                 </details>
+
+                {post.sourceUrl && (
+                  <div className="mt-6">
+                    <a
+                      href={post.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-flat-blue text-flat-beige px-6 py-3 rounded-full font-black tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
+                      style={{ fontFamily: "Bricolage Grotesque" }}
+                    >
+                      {language === "en" ? "Read on Journal.rs" : "Pročitaj na Journal.rs"}
+                    </a>
+                  </div>
+                )}
               </div>
             </article>
           ))}
@@ -617,6 +634,20 @@ export const OurStory: React.FC = () => {
                           </div>
                         </div>
                       </details>
+
+                      {post.sourceUrl && (
+                        <div className="mt-4">
+                          <a
+                            href={post.sourceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block bg-flat-blue text-flat-beige px-5 py-2 rounded-full font-black tracking-wider uppercase text-sm hover:bg-flat-dark transition-all duration-300"
+                            style={{ fontFamily: "Bricolage Grotesque" }}
+                          >
+                            {language === "en" ? "Read on Journal.rs" : "Pročitaj na Journal.rs"}
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </article>
