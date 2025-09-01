@@ -50,7 +50,7 @@ export const SimpleMap: React.FC = () => {
         <div className="w-full h-96 bg-flat-beige/20 relative overflow-hidden">
           {/* OpenStreetMap Embed */}
           <iframe
-            src={`https://www.openstreetmap.org/export/embed.html?bbox=${(location.lng - 0.003).toFixed(4)}%2C${(location.lat - 0.003).toFixed(4)}%2C${(location.lng + 0.003).toFixed(4)}%2C${(location.lat + 0.003).toFixed(4)}&layer=mapnik&marker=${location.lat}%2C${location.lng}`}
+            src={`https://www.openstreetmap.org/export/embed.html?bbox=${(location.lng - 0.0018).toFixed(4)}%2C${(location.lat - 0.0018).toFixed(4)}%2C${(location.lng + 0.0018).toFixed(4)}%2C${(location.lat + 0.0018).toFixed(4)}&layer=mapnik&marker=${location.lat}%2C${location.lng}`}
             className="w-full h-full border-0"
             onLoad={() => setIsMapLoaded(true)}
             title="Flat Burger Location Map"
