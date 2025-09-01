@@ -98,11 +98,18 @@ export const UpdatedBurgerSection: React.FC = () => {
     const children = Array.from(container.children) as HTMLElement[];
     if (!children.length) return [] as number[];
 
-    // Dynamic side padding so first/last can be centered
-    const sample = children[0] as HTMLElement;
-    const neededPad = Math.max(0, (container.clientWidth - sample.clientWidth) / 2);
-    container.style.paddingLeft = `${neededPad}px`;
-    container.style.paddingRight = `${neededPad}px`;
+    const isMobile = window.innerWidth < 768;
+
+    // Dynamic side padding only on mobile so first/last can be centered
+    if (isMobile) {
+      const sample = children[0] as HTMLElement;
+      const neededPad = Math.max(0, (container.clientWidth - sample.clientWidth) / 2);
+      container.style.paddingLeft = `${neededPad}px`;
+      container.style.paddingRight = `${neededPad}px`;
+    } else {
+      container.style.paddingLeft = "0px";
+      container.style.paddingRight = "0px";
+    }
 
     const styles = getComputedStyle(container);
     const paddingLeft = parseFloat(styles.paddingLeft || "0");
