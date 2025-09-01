@@ -92,6 +92,29 @@ Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu 
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261",
   },
   {
+    id: "journal-flat-burger",
+    title: {
+      en: "Journal.rs: Flat Burger – Belgrade Street Food",
+      sr: "Journal.rs: Flat Burger – beogradski street food",
+    },
+    excerpt: {
+      en: "Journal.rs covered Flat Burger with a full feature, gallery, and clips. Read and watch on Journal.rs.",
+      sr: "Journal.rs je objavio tekst o Flat Burgeru uz galeriju i video klipove. Pročitaj i pogledaj na Journal.rs.",
+    },
+    content: {
+      en: `External feature: Journal.rs published an article about Flat Burger with photos and videos. See the full post and media on their site:\n\nhttps://www.journal.rs/lifestyle/gastro/flat-burger-street-food-beograd/`,
+      sr: `Eksterni tekst: Journal.rs je objavio članak o Flat Burgeru sa fotografijama i video klipovima. Ceo tekst i medije pogledaj na njihovom sajtu:\n\nhttps://www.journal.rs/lifestyle/gastro/flat-burger-street-food-beograd/`,
+    },
+    date: "2024-08-17",
+    author: {
+      en: "Journal.rs",
+      sr: "Journal.rs",
+    },
+    category: "news",
+    imageUrl: "https://www.journal.rs/wp-content/uploads/2024/08/flat-burger-cover.jpg",
+  },
+
+  {
     id: "2",
     title: {
       en: "🐔 New Addition: The Chicken Burger is Here!",
