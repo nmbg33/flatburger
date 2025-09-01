@@ -287,13 +287,12 @@ export const UpdatedBurgerSection: React.FC = () => {
             onClick={prevSlide}
             disabled={currentSlide === 0}
             aria-label="Previous burger"
-            className={`absolute left-1 md:left-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg smooth-transition ${
+            className={`hidden md:flex absolute left-1 md:left-2 top-1/2 -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg smooth-transition ${
               currentSlide === 0
                 ? "opacity-30 cursor-not-allowed"
                 : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
-            style={{ willChange: "transform, opacity, background-color" }}
-            style={{ fontFamily: "Bricolage Grotesque" }}
+            style={{ willChange: "transform, opacity, background-color", fontFamily: "Bricolage Grotesque" }}
           >
             <ChevronLeft size={20} />
           </button>
@@ -302,13 +301,12 @@ export const UpdatedBurgerSection: React.FC = () => {
             onClick={nextSlide}
             disabled={currentSlide === burgers.length - 1}
             aria-label="Next burger"
-            className={`absolute right-1 md:right-2 top-1/2 transform -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg smooth-transition ${
+            className={`hidden md:flex absolute right-1 md:right-2 top-1/2 -translate-y-1/2 z-20 bg-flat-blue text-flat-beige p-2 md:p-3 rounded-full transition-all duration-300 shadow-lg smooth-transition ${
               currentSlide === burgers.length - 1
                 ? "opacity-30 cursor-not-allowed"
                 : "hover:bg-flat-dark hover:scale-110 opacity-90 hover:opacity-100"
             }`}
-            style={{ willChange: "transform, opacity, background-color" }}
-            style={{ fontFamily: "Bricolage Grotesque" }}
+            style={{ willChange: "transform, opacity, background-color", fontFamily: "Bricolage Grotesque" }}
           >
             <ChevronRight size={20} />
           </button>
@@ -316,7 +314,7 @@ export const UpdatedBurgerSection: React.FC = () => {
           {/* Slider Container */}
           <div
             ref={sliderRef}
-            className="flex gap-0 md:gap-6 -mx-4 md:mx-0 px-0 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select overflow-x-auto snap-x snap-mandatory"
+            className="flex gap-0 md:gap-6 px-4 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select overflow-x-auto snap-x snap-mandatory"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -333,7 +331,7 @@ export const UpdatedBurgerSection: React.FC = () => {
             {burgers.map((burger, index) => (
               <div
                 key={burger.id}
-                className={`flex-shrink-0 snap-start slider-item transition-all duration-700 smooth-transform w-screen md:w-80 ${
+                className={`flex-shrink-0 snap-start slider-item transition-all duration-700 smooth-transform w-[92vw] md:w-80 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
