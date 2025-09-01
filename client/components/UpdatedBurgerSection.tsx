@@ -314,7 +314,7 @@ export const UpdatedBurgerSection: React.FC = () => {
           {/* Slider Container */}
           <div
             ref={sliderRef}
-            className="flex gap-0 md:gap-6 px-4 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select overflow-x-auto snap-x snap-mandatory"
+            className="flex gap-0 md:gap-6 -mx-4 md:mx-0 px-0 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select overflow-x-auto snap-x snap-mandatory"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -325,13 +325,13 @@ export const UpdatedBurgerSection: React.FC = () => {
             style={{
               WebkitOverflowScrolling: "touch",
               overscrollBehaviorX: "contain",
-              touchAction: "pan-x pan-y"
+              touchAction: "pan-x"
             }}
           >
             {burgers.map((burger, index) => (
               <div
                 key={burger.id}
-                className={`flex-shrink-0 snap-start slider-item transition-all duration-700 smooth-transform w-[92vw] md:w-80 ${
+                className={`flex-shrink-0 snap-start slider-item transition-all duration-700 smooth-transform w-screen md:w-80 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
@@ -343,7 +343,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                 }}
               >
                 {/* Burger Card with Fixed Height */}
-                <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 burger-card flex flex-col smooth-transform" style={{ willChange: "transform" }}>
+                <div className="px-4 md:px-0"><div className="bg-white rounded-3xl overflow-hidden border border-gray-100 group hover:-translate-y-2 transition-all duration-500 burger-card flex flex-col smooth-transform" style={{ willChange: "transform" }}>
                   {/* Image Container - Fixed Height */}
                   <div className="h-64 md:h-72 overflow-hidden relative flex-shrink-0">
                     <img
@@ -399,7 +399,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                         {t("cta.orderNow")}
                       </a>
                     </div>
-                  </div>
+                </div></div>
                 </div>
               </div>
             ))}
@@ -419,6 +419,24 @@ export const UpdatedBurgerSection: React.FC = () => {
                 aria-label={`Go to burger ${index + 1}`}
               />
             ))}
+          </div>
+
+          {/* Mobile Prev/Next Buttons */}
+          <div className="mt-4 flex items-center justify-between md:hidden max-w-xs mx-auto px-2">
+            <button
+              onClick={prevSlide}
+              className="flex items-center gap-2 bg-flat-blue text-flat-beige px-4 py-2 rounded-full font-bold text-sm active:scale-95 transition"
+              aria-label="Previous"
+            >
+              <ChevronLeft size={16} /> Prev
+            </button>
+            <button
+              onClick={nextSlide}
+              className="flex items-center gap-2 bg-flat-blue text-flat-beige px-4 py-2 rounded-full font-bold text-sm active:scale-95 transition"
+              aria-label="Next"
+            >
+              Next <ChevronRight size={16} />
+            </button>
           </div>
         </div>
 
