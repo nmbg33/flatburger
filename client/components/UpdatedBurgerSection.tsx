@@ -311,7 +311,7 @@ export const UpdatedBurgerSection: React.FC = () => {
           {/* Slider Container */}
           <div
             ref={sliderRef}
-            className="flex gap-5 md:gap-6 px-6 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select"
+            className="flex gap-0 md:gap-6 px-4 md:px-12 py-4 slider-container scrollbar-hide cursor-grab prevent-select overflow-x-auto snap-x snap-mandatory"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -328,10 +328,10 @@ export const UpdatedBurgerSection: React.FC = () => {
             {burgers.map((burger, index) => (
               <div
                 key={burger.id}
-                className={`flex-shrink-0 w-72 md:w-80 slider-item transition-all duration-700 smooth-transform ${
+                className={`flex-shrink-0 snap-center slider-item transition-all duration-700 smooth-transform w-[calc(100vw-2rem)] sm:w-[calc(100vw-4rem)] md:w-80 ${
                   isVisible
-                    ? "opacity-100 transform translate-y-0"
-                    : "opacity-0 transform translate-y-12"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
                 }`}
                 style={{
                   transitionDelay: `${index * 150}ms`,
