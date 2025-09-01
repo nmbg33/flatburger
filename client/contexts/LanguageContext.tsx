@@ -288,8 +288,15 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
+  if (context) return context;
+  const fallbackT = (key: string): string => {
+    return (
+      translations["en"][key as keyof (typeof translations)["en"]] || key
+    );
+  };
+  return {
+    language: "en" as Language,
+    setLanguage: () => {},
+    t: fallbackT,
+  } as LanguageContextType;
 };
