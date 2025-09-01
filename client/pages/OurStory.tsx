@@ -77,7 +77,7 @@ Na festivalu ćete imati priliku da uživate u:
 
 • Lounge zona pored reke – Opustite se pored reke i uživajte u prelepim zalascima sunca.
 
-📅 Kada možete da nas posetite?
+��� Kada možete da nas posetite?
 Festival će biti otvoren svaki dan od 29. avgusta do 7. septembra 2025. godine. Proverite zvanični sajt festivala ili naše društvene mreže za tačno radno vreme.
 
 Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu na Los Silos Burger Festival 2025. Vidimo se na Silosima!`,
@@ -111,7 +111,6 @@ Ne propustite priliku da uživate u vrhunskim burgerima i nezaboravnom iskustvu 
       sr: "Journal.rs",
     },
     category: "news",
-    imageUrl: "https://www.journal.rs/wp-content/uploads/2024/08/flat-burger-cover.jpg",
   },
 
   {
