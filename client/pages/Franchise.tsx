@@ -66,6 +66,36 @@ export const Franchise: React.FC = () => {
   const pathForLocale = language === "sr" ? "/fransiza" : "/franchise";
   useFranchiseSEO(pathForLocale);
 
+  // FAQ JSON-LD schema
+  useEffect(() => {
+    const faqEntities = [
+      { q: t("franchise.faq.q1"), a: t("franchise.faq.a1") },
+      { q: t("franchise.faq.q2"), a: t("franchise.faq.a2") },
+      { q: t("franchise.faq.q3"), a: t("franchise.faq.a3") },
+      { q: t("franchise.faq.q4"), a: t("franchise.faq.a4") },
+      { q: t("franchise.faq.q5"), a: t("franchise.faq.a5") },
+    ].map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    }));
+
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqEntities,
+    };
+
+    let script = document.getElementById("faq-schema") as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "faq-schema";
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    script.text = JSON.stringify(data);
+  }, [language, t]);
+
   // Keep route in sync with language for this page
   useEffect(() => {
     const onFranchise = location.pathname === "/franchise" || location.pathname === "/fransiza";
