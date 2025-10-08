@@ -1,51 +1,23 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { Resend } from "resend";
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { Resend } from 'resend';
 
+// Use the Resend API key linked to nemanja3975439@gmail.com
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== "POST")
-    return res.status(405).json({ error: "Method not allowed" });
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const data =
-      typeof req.body === "string" ? JSON.parse(req.body) : req.body || {};
-    const {
-      fullName,
-      email,
-      phone,
-      cityCountry,
-      locationDetails,
-      experience,
-      budget,
-      timeline,
-      referral,
-      message,
-      consent,
-      locale = "en",
-    } = data;
+    const data = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+    const { fullName, email, phone, cityCountry, locationDetails, experience, budget, timeline, referral, message, consent, locale = 'en' } = data;
 
-    const budgetNum = Number(budget);
-    if (
-      !fullName ||
-      !email ||
-      !phone ||
-      !cityCountry ||
-      !locationDetails ||
-      !experience ||
-      !timeline ||
-      !consent
-    ) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
-    if (!Number.isFinite(budgetNum) || budgetNum < 0) {
-      return res.status(400).json({ error: "Invalid budget" });
+    if (!fullName || !email || !phone || !cityCountry || !locationDetails || !experience || !budget || !timeline || !consent) {
+      return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    const subject =
-      locale === "sr"
-        ? `Nova prijava za franšizu — ${fullName}`
-        : `New Franchise Application — ${fullName}`;
+    const subject = locale === 'sr'
+      ? `Nova prijava za franšizu — ${fullName}`
+      : `New Franchise Application — ${fullName}`;
 
     const textBody = `
 Name: ${fullName}
@@ -56,21 +28,22 @@ Proposed Location: ${locationDetails}
 Experience: ${experience}
 Budget (EUR): ${budget}
 Timeline: ${timeline}
-Heard about us: ${referral || "-"}
-Message: ${message || "-"}
-Consent: ${consent ? "Yes" : "No"}
+Heard about us: ${referral || '-'}
+Message:
+${message || '-'}
+Consent: ${consent ? 'Yes' : 'No'}
     `.trim();
 
     await resend.emails.send({
-      from: "Flat Burger <no-reply@your-domain.com>",
-      to: "flatburgerbg@gmail.com",
+      from: 'Flat Burger <onboarding@resend.dev>', // this uses your Resend account under nemanja3975439@gmail.com
+      to: 'flatburgerbg@gmail.com',
       subject,
-      text: textBody,
+      text: textBody
     });
 
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: "Internal error" });
+    return res.status(500).json({ error: 'Internal error' });
   }
 }
