@@ -63,7 +63,6 @@ export const UpdatedNavigation: React.FC = () => {
     }
   };
 
-
   // Close mobile menu when escape key is pressed
   useEffect(() => {
     const handleEscapeKey = (event: KeyboardEvent) => {
@@ -215,7 +214,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 rounded-xl hover:bg-flat-blue/10 active:bg-flat-blue/20 transition-colors duration-200"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: "transparent"
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.aboutUs")}
@@ -229,7 +228,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg text-left py-4 px-4 rounded-xl hover:bg-flat-blue/10 active:bg-flat-blue/20 transition-colors duration-200"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: "transparent"
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.menu")}
@@ -244,7 +243,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 rounded-xl hover:bg-flat-blue/10 active:bg-flat-blue/20 transition-colors duration-200 block"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: "transparent"
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.locations")}
@@ -259,7 +258,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 rounded-xl hover:bg-flat-blue/10 active:bg-flat-blue/20 transition-colors duration-200 block"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: "transparent"
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.ourStory")}
@@ -274,7 +273,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 rounded-xl hover:bg-flat-blue/10 active:bg-flat-blue/20 transition-colors duration-200 block"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: "transparent"
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("nav.franchise")}
@@ -289,7 +288,7 @@ export const UpdatedNavigation: React.FC = () => {
                 className="bg-flat-blue text-flat-beige py-4 px-6 rounded-xl font-bold tracking-wider uppercase text-center block mt-4 shadow-lg hover:bg-flat-dark transition-colors duration-200"
                 style={{
                   fontFamily: "Bricolage Grotesque",
-                  WebkitTapHighlightColor: "transparent"
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 {t("order.now")}
@@ -298,7 +297,6 @@ export const UpdatedNavigation: React.FC = () => {
           </div>
         </div>
       </div>
-
     </nav>
   );
 };

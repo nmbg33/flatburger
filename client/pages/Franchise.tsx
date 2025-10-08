@@ -29,8 +29,14 @@ const useFranchiseSEO = (pathForLocale: string) => {
 
     document.title = title;
 
-    const ensureMeta = (attr: "name" | "property", key: string, value: string) => {
-      let el = document.querySelector(`meta[${attr}='${key}']`) as HTMLMetaElement | null;
+    const ensureMeta = (
+      attr: "name" | "property",
+      key: string,
+      value: string,
+    ) => {
+      let el = document.querySelector(
+        `meta[${attr}='${key}']`,
+      ) as HTMLMetaElement | null;
       if (!el) {
         el = document.createElement("meta");
         el.setAttribute(attr, key);
@@ -46,7 +52,9 @@ const useFranchiseSEO = (pathForLocale: string) => {
     // Use favicon as brand OG image available in repo
     ensureMeta("property", "og:image", `${window.location.origin}/favicon.ico`);
 
-    let link = document.querySelector("link[rel='canonical']") as HTMLLinkElement | null;
+    let link = document.querySelector(
+      "link[rel='canonical']",
+    ) as HTMLLinkElement | null;
     if (!link) {
       link = document.createElement("link");
       link.setAttribute("rel", "canonical");
@@ -86,7 +94,9 @@ export const Franchise: React.FC = () => {
       mainEntity: faqEntities,
     };
 
-    let script = document.getElementById("faq-schema") as HTMLScriptElement | null;
+    let script = document.getElementById(
+      "faq-schema",
+    ) as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement("script");
       script.id = "faq-schema";
@@ -98,7 +108,8 @@ export const Franchise: React.FC = () => {
 
   // Keep route in sync with language for this page
   useEffect(() => {
-    const onFranchise = location.pathname === "/franchise" || location.pathname === "/fransiza";
+    const onFranchise =
+      location.pathname === "/franchise" || location.pathname === "/fransiza";
     if (!onFranchise) return;
     const shouldBe = pathForLocale;
     if (location.pathname !== shouldBe) {
@@ -133,10 +144,14 @@ export const Franchise: React.FC = () => {
     if (!form.fullName.trim()) e.fullName = t("franchise.errors.fullName");
     if (!emailRegex.test(form.email)) e.email = t("franchise.errors.email");
     if (phoneDigits.length < 6) e.phone = t("franchise.errors.phone");
-    if (!form.cityCountry.trim()) e.cityCountry = t("franchise.errors.cityCountry");
-    if (!form.locationDetails.trim()) e.locationDetails = t("franchise.errors.locationDetails");
-    if (!form.experience.trim()) e.experience = t("franchise.errors.experience");
-    if (!Number.isFinite(numBudget) || numBudget < 0) e.budget = t("franchise.errors.budget");
+    if (!form.cityCountry.trim())
+      e.cityCountry = t("franchise.errors.cityCountry");
+    if (!form.locationDetails.trim())
+      e.locationDetails = t("franchise.errors.locationDetails");
+    if (!form.experience.trim())
+      e.experience = t("franchise.errors.experience");
+    if (!Number.isFinite(numBudget) || numBudget < 0)
+      e.budget = t("franchise.errors.budget");
     if (!form.timeline) e.timeline = t("franchise.errors.timeline");
     if (!form.consent) e.consent = t("franchise.errors.consent");
 
@@ -164,7 +179,8 @@ export const Franchise: React.FC = () => {
       // Optional: tracking event non-blocking
       try {
         // @ts-ignore
-        if (window.gtag) window.gtag("event", "franchise_application_submitted");
+        if (window.gtag)
+          window.gtag("event", "franchise_application_submitted");
       } catch {}
       setForm({
         fullName: "",
@@ -186,15 +202,16 @@ export const Franchise: React.FC = () => {
     }
   };
 
-  const faq = useMemo(() => (
-    [
+  const faq = useMemo(
+    () => [
       { q: t("franchise.faq.q1"), a: t("franchise.faq.a1") },
       { q: t("franchise.faq.q2"), a: t("franchise.faq.a2") },
       { q: t("franchise.faq.q3"), a: t("franchise.faq.a3") },
       { q: t("franchise.faq.q4"), a: t("franchise.faq.a4") },
       { q: t("franchise.faq.q5"), a: t("franchise.faq.a5") },
-    ]
-  ), [language, t]);
+    ],
+    [language, t],
+  );
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -218,7 +235,10 @@ export const Franchise: React.FC = () => {
             {t("franchise.hero.subtitle")}
           </p>
           <div className="mt-8">
-            <Button onClick={scrollToForm} className="bg-flat-blue text-flat-beige hover:bg-flat-dark px-8 py-6 text-lg rounded-full font-black tracking-wider uppercase">
+            <Button
+              onClick={scrollToForm}
+              className="bg-flat-blue text-flat-beige hover:bg-flat-dark px-8 py-6 text-lg rounded-full font-black tracking-wider uppercase"
+            >
               {t("franchise.hero.cta")}
             </Button>
           </div>
@@ -228,14 +248,39 @@ export const Franchise: React.FC = () => {
         <section className="mb-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: t("franchise.cards.support.title"), desc: t("franchise.cards.support.desc") },
-              { title: t("franchise.cards.brand.title"), desc: t("franchise.cards.brand.desc") },
-              { title: t("franchise.cards.quality.title"), desc: t("franchise.cards.quality.desc") },
-              { title: t("franchise.cards.scaling.title"), desc: t("franchise.cards.scaling.desc") },
+              {
+                title: t("franchise.cards.support.title"),
+                desc: t("franchise.cards.support.desc"),
+              },
+              {
+                title: t("franchise.cards.brand.title"),
+                desc: t("franchise.cards.brand.desc"),
+              },
+              {
+                title: t("franchise.cards.quality.title"),
+                desc: t("franchise.cards.quality.desc"),
+              },
+              {
+                title: t("franchise.cards.scaling.title"),
+                desc: t("franchise.cards.scaling.desc"),
+              },
             ].map((c, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
-                <h3 className="text-2xl font-black text-flat-blue mb-2" style={{ fontFamily: "Bricolage Grotesque" }}>{c.title}</h3>
-                <p className="text-flat-blue/80" style={{ fontFamily: "Bricolage Grotesque" }}>{c.desc}</p>
+              <div
+                key={idx}
+                className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-shadow"
+              >
+                <h3
+                  className="text-2xl font-black text-flat-blue mb-2"
+                  style={{ fontFamily: "Bricolage Grotesque" }}
+                >
+                  {c.title}
+                </h3>
+                <p
+                  className="text-flat-blue/80"
+                  style={{ fontFamily: "Bricolage Grotesque" }}
+                >
+                  {c.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -244,84 +289,203 @@ export const Franchise: React.FC = () => {
         {/* Requirements strip */}
         <section className="mb-14">
           <div className="bg-flat-blue text-flat-beige rounded-3xl p-6 text-center">
-            <p className="text-lg md:text-xl font-medium" style={{ fontFamily: "Bricolage Grotesque" }}>{t("franchise.requirements")}</p>
+            <p
+              className="text-lg md:text-xl font-medium"
+              style={{ fontFamily: "Bricolage Grotesque" }}
+            >
+              {t("franchise.requirements")}
+            </p>
           </div>
         </section>
 
         {/* Form */}
         <section ref={formRef} id="franchise-form" className="mb-16">
           <div className="max-w-5xl mx-auto bg-white rounded-3xl p-8 md:p-10 shadow-xl">
-            <form onSubmit={onSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form
+              onSubmit={onSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
               <div className="col-span-1">
                 <Label htmlFor="fullName">{t("franchise.form.fullName")}</Label>
-                <Input id="fullName" value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} placeholder={t("franchise.form.fullName")} aria-invalid={!!errors.fullName} />
-                {errors.fullName && <p className="text-red-600 text-sm mt-1">{errors.fullName}</p>}
+                <Input
+                  id="fullName"
+                  value={form.fullName}
+                  onChange={(e) =>
+                    setForm({ ...form, fullName: e.target.value })
+                  }
+                  placeholder={t("franchise.form.fullName")}
+                  aria-invalid={!!errors.fullName}
+                />
+                {errors.fullName && (
+                  <p className="text-red-600 text-sm mt-1">{errors.fullName}</p>
+                )}
               </div>
 
               <div className="col-span-1">
                 <Label htmlFor="email">{t("franchise.form.email")}</Label>
-                <Input id="email" type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="name@example.com" aria-invalid={!!errors.email} />
-                {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+                <Input
+                  id="email"
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="name@example.com"
+                  aria-invalid={!!errors.email}
+                />
+                {errors.email && (
+                  <p className="text-red-600 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
 
               <div className="col-span-1">
                 <Label htmlFor="phone">{t("franchise.form.phone")}</Label>
-                <Input id="phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+381..." aria-invalid={!!errors.phone} />
-                {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
+                <Input
+                  id="phone"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  placeholder="+381..."
+                  aria-invalid={!!errors.phone}
+                />
+                {errors.phone && (
+                  <p className="text-red-600 text-sm mt-1">{errors.phone}</p>
+                )}
               </div>
 
               <div className="col-span-1">
-                <Label htmlFor="cityCountry">{t("franchise.form.cityCountry")}</Label>
-                <Input id="cityCountry" value={form.cityCountry} onChange={(e) => setForm({ ...form, cityCountry: e.target.value })} placeholder={t("franchise.form.cityCountry")} aria-invalid={!!errors.cityCountry} />
-                {errors.cityCountry && <p className="text-red-600 text-sm mt-1">{errors.cityCountry}</p>}
+                <Label htmlFor="cityCountry">
+                  {t("franchise.form.cityCountry")}
+                </Label>
+                <Input
+                  id="cityCountry"
+                  value={form.cityCountry}
+                  onChange={(e) =>
+                    setForm({ ...form, cityCountry: e.target.value })
+                  }
+                  placeholder={t("franchise.form.cityCountry")}
+                  aria-invalid={!!errors.cityCountry}
+                />
+                {errors.cityCountry && (
+                  <p className="text-red-600 text-sm mt-1">
+                    {errors.cityCountry}
+                  </p>
+                )}
               </div>
 
               <div className="col-span-1 md:col-span-2">
-                <Label htmlFor="locationDetails">{t("franchise.form.locationDetails")}</Label>
-                <Textarea id="locationDetails" value={form.locationDetails} onChange={(e) => setForm({ ...form, locationDetails: e.target.value })} placeholder={t("franchise.form.locationDetails")} aria-invalid={!!errors.locationDetails} />
-                {errors.locationDetails && <p className="text-red-600 text-sm mt-1">{errors.locationDetails}</p>}
+                <Label htmlFor="locationDetails">
+                  {t("franchise.form.locationDetails")}
+                </Label>
+                <Textarea
+                  id="locationDetails"
+                  value={form.locationDetails}
+                  onChange={(e) =>
+                    setForm({ ...form, locationDetails: e.target.value })
+                  }
+                  placeholder={t("franchise.form.locationDetails")}
+                  aria-invalid={!!errors.locationDetails}
+                />
+                {errors.locationDetails && (
+                  <p className="text-red-600 text-sm mt-1">
+                    {errors.locationDetails}
+                  </p>
+                )}
               </div>
 
               <div className="col-span-1 md:col-span-2">
-                <Label htmlFor="experience">{t("franchise.form.experience")}</Label>
-                <Textarea id="experience" value={form.experience} onChange={(e) => setForm({ ...form, experience: e.target.value })} placeholder={t("franchise.form.experience")} aria-invalid={!!errors.experience} />
-                {errors.experience && <p className="text-red-600 text-sm mt-1">{errors.experience}</p>}
+                <Label htmlFor="experience">
+                  {t("franchise.form.experience")}
+                </Label>
+                <Textarea
+                  id="experience"
+                  value={form.experience}
+                  onChange={(e) =>
+                    setForm({ ...form, experience: e.target.value })
+                  }
+                  placeholder={t("franchise.form.experience")}
+                  aria-invalid={!!errors.experience}
+                />
+                {errors.experience && (
+                  <p className="text-red-600 text-sm mt-1">
+                    {errors.experience}
+                  </p>
+                )}
               </div>
 
               <div className="col-span-1">
                 <Label htmlFor="budget">{t("franchise.form.budget")}</Label>
-                <Input id="budget" type="number" min="0" step="0.01" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} placeholder="0" aria-invalid={!!errors.budget} />
-                {errors.budget && <p className="text-red-600 text-sm mt-1">{errors.budget}</p>}
+                <Input
+                  id="budget"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value={form.budget}
+                  onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                  placeholder="0"
+                  aria-invalid={!!errors.budget}
+                />
+                {errors.budget && (
+                  <p className="text-red-600 text-sm mt-1">{errors.budget}</p>
+                )}
               </div>
 
               <div className="col-span-1">
                 <Label htmlFor="timeline">{t("franchise.form.timeline")}</Label>
-                <Select value={form.timeline} onValueChange={(v) => setForm({ ...form, timeline: v })}>
+                <Select
+                  value={form.timeline}
+                  onValueChange={(v) => setForm({ ...form, timeline: v })}
+                >
                   <SelectTrigger id="timeline" aria-invalid={!!errors.timeline}>
                     <SelectValue placeholder={t("franchise.form.timeline")} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="0-3">{t("franchise.form.timeline.0_3")}</SelectItem>
-                    <SelectItem value="3-6">{t("franchise.form.timeline.3_6")}</SelectItem>
-                    <SelectItem value="6-12">{t("franchise.form.timeline.6_12")}</SelectItem>
-                    <SelectItem value=">12">{t("franchise.form.timeline.12_plus")}</SelectItem>
+                    <SelectItem value="0-3">
+                      {t("franchise.form.timeline.0_3")}
+                    </SelectItem>
+                    <SelectItem value="3-6">
+                      {t("franchise.form.timeline.3_6")}
+                    </SelectItem>
+                    <SelectItem value="6-12">
+                      {t("franchise.form.timeline.6_12")}
+                    </SelectItem>
+                    <SelectItem value=">12">
+                      {t("franchise.form.timeline.12_plus")}
+                    </SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.timeline && <p className="text-red-600 text-sm mt-1">{errors.timeline}</p>}
+                {errors.timeline && (
+                  <p className="text-red-600 text-sm mt-1">{errors.timeline}</p>
+                )}
               </div>
 
               <div className="col-span-1 md:col-span-2">
                 <Label htmlFor="referral">{t("franchise.form.referral")}</Label>
-                <Input id="referral" value={form.referral} onChange={(e) => setForm({ ...form, referral: e.target.value })} />
+                <Input
+                  id="referral"
+                  value={form.referral}
+                  onChange={(e) =>
+                    setForm({ ...form, referral: e.target.value })
+                  }
+                />
               </div>
 
               <div className="col-span-1 md:col-span-2">
                 <Label htmlFor="message">{t("franchise.form.message")}</Label>
-                <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+                <Textarea
+                  id="message"
+                  value={form.message}
+                  onChange={(e) =>
+                    setForm({ ...form, message: e.target.value })
+                  }
+                />
               </div>
 
               <div className="col-span-1 md:col-span-2 flex items-center space-x-3">
-                <Checkbox id="consent" checked={form.consent} onCheckedChange={(v) => setForm({ ...form, consent: Boolean(v) })} />
+                <Checkbox
+                  id="consent"
+                  checked={form.consent}
+                  onCheckedChange={(v) =>
+                    setForm({ ...form, consent: Boolean(v) })
+                  }
+                />
                 <Label htmlFor="consent">{t("franchise.form.consent")}</Label>
               </div>
               {errors.consent && (
@@ -331,15 +495,25 @@ export const Franchise: React.FC = () => {
               )}
 
               <div className="col-span-1 md:col-span-2 flex items-center space-x-4">
-                <Button type="submit" disabled={submitting} className="bg-flat-blue text-flat-beige hover:bg-flat-dark px-8 py-6 text-lg rounded-full font-black tracking-wider uppercase">
-                  {submitting ? (language === "sr" ? "Slanje..." : "Submitting...") : t("franchise.form.submit")}
+                <Button
+                  type="submit"
+                  disabled={submitting}
+                  className="bg-flat-blue text-flat-beige hover:bg-flat-dark px-8 py-6 text-lg rounded-full font-black tracking-wider uppercase"
+                >
+                  {submitting
+                    ? language === "sr"
+                      ? "Slanje..."
+                      : "Submitting..."
+                    : t("franchise.form.submit")}
                 </Button>
               </div>
 
               {status === "success" && (
                 <div className="col-span-1 md:col-span-2">
                   <Alert className="border-green-500/50">
-                    <AlertDescription>{t("franchise.success")}</AlertDescription>
+                    <AlertDescription>
+                      {t("franchise.success")}
+                    </AlertDescription>
                   </Alert>
                 </div>
               )}
@@ -356,14 +530,26 @@ export const Franchise: React.FC = () => {
 
         {/* FAQ */}
         <section className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-flat-blue mb-6 text-center" style={{ fontFamily: "Bricolage Grotesque" }}>FAQ</h2>
+          <h2
+            className="text-3xl md:text-4xl font-black text-flat-blue mb-6 text-center"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+          >
+            FAQ
+          </h2>
           <Accordion type="single" collapsible>
             {faq.map((item, i) => (
               <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger aria-expanded={false} className="text-left text-flat-blue font-bold" style={{ fontFamily: "Bricolage Grotesque" }}>
+                <AccordionTrigger
+                  aria-expanded={false}
+                  className="text-left text-flat-blue font-bold"
+                  style={{ fontFamily: "Bricolage Grotesque" }}
+                >
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-flat-blue/80" style={{ fontFamily: "Bricolage Grotesque" }}>
+                <AccordionContent
+                  className="text-flat-blue/80"
+                  style={{ fontFamily: "Bricolage Grotesque" }}
+                >
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
