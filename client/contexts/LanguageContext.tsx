@@ -128,6 +128,77 @@ const translations = {
 
     // General
     "price.currency": "RSD",
+
+    // Franchise
+    "nav.franchise": "Franchise",
+
+    "franchise.hero.title": "Flat Burger Franchise",
+    "franchise.hero.subtitle": "Apply to learn the requirements to open a Flat Burger franchise in your city.",
+    "franchise.hero.cta": "Apply for Franchise",
+
+    "franchise.cards.support.title": "Support",
+    "franchise.cards.support.desc": "Operational playbooks, training, and supply-chain guidance.",
+    // Brand & Marketing
+    "franchise.cards.brand.title": "Brand & Marketing",
+    "franchise.cards.brand.desc": "Full branding, standards, and campaigns.",
+    // Quality & Standards
+    "franchise.cards.quality.title": "Quality & Standards",
+    "franchise.cards.quality.desc": "Clear processes for product and service.",
+    // Scaling
+    "franchise.cards.scaling.title": "Scaling",
+    "franchise.cards.scaling.desc": "Growth model and cost control.",
+
+    // Requirements strip
+    "franchise.requirements": "Basic requirements: initial investment, high-footfall location, commitment to operational standards.",
+
+    // Form labels
+    "franchise.form.fullName": "Full Name",
+    "franchise.form.email": "Email",
+    "franchise.form.phone": "Phone",
+    "franchise.form.cityCountry": "City & Country",
+    "franchise.form.locationDetails": "Proposed Location Details",
+    "franchise.form.experience": "Relevant Experience",
+    "franchise.form.budget": "Investment Budget (EUR)",
+    "franchise.form.timeline": "Target Opening Timeline",
+    "franchise.form.timeline.0_3": "0–3 months",
+    "franchise.form.timeline.3_6": "3–6 months",
+    "franchise.form.timeline.6_12": "6–12 months",
+    "franchise.form.timeline.12_plus": "12+ months",
+    "franchise.form.referral": "How did you hear about us? (optional)",
+    "franchise.form.message": "Message",
+    "franchise.form.consent": "I agree to data processing",
+    "franchise.form.submit": "Submit Application",
+
+    // Form feedback
+    "franchise.success": "Success! Our team will get back to you shortly.",
+    "franchise.error": "Something went wrong. Please try again.",
+
+    // Validation messages
+    "franchise.errors.fullName": "Please enter your full name.",
+    "franchise.errors.email": "Please enter a valid email address.",
+    "franchise.errors.phone": "Please enter a valid phone number.",
+    "franchise.errors.cityCountry": "Please enter your city and country.",
+    "franchise.errors.locationDetails": "Please describe your proposed location.",
+    "franchise.errors.experience": "Please enter your relevant experience.",
+    "franchise.errors.budget": "Budget must be a number greater than or equal to 0.",
+    "franchise.errors.timeline": "Please select a target opening timeline.",
+    "franchise.errors.consent": "You must agree to data processing to continue.",
+
+    // FAQ
+    "franchise.faq.q1": "What is the initial investment?",
+    "franchise.faq.a1": "Depends on location and size; we’ll share ranges after your application.",
+    "franchise.faq.q2": "Do you provide training?",
+    "franchise.faq.a2": "Yes, for owner and key roles.",
+    "franchise.faq.q3": "Who handles sourcing?",
+    "franchise.faq.a3": "Standardized supply; details after NDA.",
+    "franchise.faq.q4": "How long does it take to open?",
+    "franchise.faq.a4": "Typically 3–6 months after approval, depending on buildout.",
+    "franchise.faq.q5": "Is there territory exclusivity?",
+    "franchise.faq.a5": "We consider exclusivity based on market potential and performance.",
+
+    // SEO
+    "seo.franchise.title": "Flat Burger Franchise | Become a Partner",
+    "seo.franchise.meta": "Apply for a Flat Burger franchise: support, standards, brand, and operating model.",
   },
   sr: {
     // Navigation
@@ -244,6 +315,77 @@ const translations = {
 
     // General
     "price.currency": "RSD",
+
+    // Franchise
+    "nav.franchise": "Franšiza",
+
+    "franchise.hero.title": "Flat Burger franšiza",
+    "franchise.hero.subtitle": "Prijavi se i saznaj sve uslove za otvaranje Flat Burger franšize u tvom gradu.",
+    "franchise.hero.cta": "Prijava za franšizu",
+
+    "franchise.cards.support.title": "Podrška",
+    "franchise.cards.support.desc": "Dobijaš operativne priručnike, trening i supply-chain smernice.",
+    // Brand & Marketing
+    "franchise.cards.brand.title": "Brend & marketing",
+    "franchise.cards.brand.desc": "Kompletan branding, standardi i kampanje.",
+    // Quality & Standards
+    "franchise.cards.quality.title": "Kvalitet & standardi",
+    "franchise.cards.quality.desc": "Jasni procesi za proizvodnju i uslugu.",
+    // Scaling
+    "franchise.cards.scaling.title": "Skaliranje",
+    "franchise.cards.scaling.desc": "Model za rast i kontrolu troškova.",
+
+    // Requirements strip
+    "franchise.requirements": "Osnovni uslovi: početni kapital, lokacija s pešačkim prometom, posvećenost operativnom standardu.",
+
+    // Form labels
+    "franchise.form.fullName": "Ime i prezime",
+    "franchise.form.email": "Email",
+    "franchise.form.phone": "Telefon",
+    "franchise.form.cityCountry": "Grad i država",
+    "franchise.form.locationDetails": "Opis lokacije",
+    "franchise.form.experience": "Iskustvo",
+    "franchise.form.budget": "Budžet (EUR)",
+    "franchise.form.timeline": "Planirani datum otvaranja",
+    "franchise.form.timeline.0_3": "0–3 meseca",
+    "franchise.form.timeline.3_6": "3–6 meseci",
+    "franchise.form.timeline.6_12": "6–12 meseci",
+    "franchise.form.timeline.12_plus": "12+ meseci",
+    "franchise.form.referral": "Kako si čuo/la za nas? (opciono)",
+    "franchise.form.message": "Poruka",
+    "franchise.form.consent": "Slažem se sa obradom podataka",
+    "franchise.form.submit": "Pošalji prijavu",
+
+    // Form feedback
+    "franchise.success": "Uspešno! Naš tim će ti se javiti u najkraćem roku.",
+    "franchise.error": "Došlo je do greške. Pokušaj ponovo.",
+
+    // Validation messages
+    "franchise.errors.fullName": "Unesite ime i prezime.",
+    "franchise.errors.email": "Unesite ispravan email.",
+    "franchise.errors.phone": "Unesite ispravan broj telefona.",
+    "franchise.errors.cityCountry": "Unesite grad i državu.",
+    "franchise.errors.locationDetails": "Unesite opis lokacije.",
+    "franchise.errors.experience": "Unesite relevantno iskustvo.",
+    "franchise.errors.budget": "Budžet mora biti broj veći ili jednak 0.",
+    "franchise.errors.timeline": "Izaberi planirani datum otvaranja.",
+    "franchise.errors.consent": "Morate se složiti sa obradom podataka.",
+
+    // FAQ
+    "franchise.faq.q1": "Kolika je početna investicija?",
+    "franchise.faq.a1": "Zavisi od lokacije i veličine; podelićemo ti okvirne cifre nakon prijave.",
+    "franchise.faq.q2": "Da li obezbeđujete obuku?",
+    "franchise.faq.a2": "Da, za vlasnika i ključne uloge.",
+    "franchise.faq.q3": "Ko nabavlja sirovine?",
+    "franchise.faq.a3": "Radimo standardizovano snabdevanje; detalji nakon NDA.",
+    "franchise.faq.q4": "Koliko traje otvaranje?",
+    "franchise.faq.a4": "Najčešće 3–6 meseci nakon odobrenja, u zavisnosti od uređenja prostora.",
+    "franchise.faq.q5": "Da li postoji teritorijalna ekskluziva?",
+    "franchise.faq.a5": "Razmatramo ekskluzivu na osnovu potencijala tržišta i performansi.",
+
+    // SEO
+    "seo.franchise.title": "Flat Burger franšiza | Postani partner",
+    "seo.franchise.meta": "Prijavi se za Flat Burger franšizu: podrška, standardi, brend i operativni model.",
   },
 };
 
