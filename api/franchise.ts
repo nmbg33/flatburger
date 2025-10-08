@@ -25,6 +25,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       locale = "en",
     } = data;
 
+    const budgetNum = Number(budget);
     if (
       !fullName ||
       !email ||
@@ -32,11 +33,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       !cityCountry ||
       !locationDetails ||
       !experience ||
-      !budget ||
       !timeline ||
       !consent
     ) {
       return res.status(400).json({ error: "Missing required fields" });
+    }
+    if (!Number.isFinite(budgetNum) || budgetNum < 0) {
+      return res.status(400).json({ error: "Invalid budget" });
     }
 
     const subject =
