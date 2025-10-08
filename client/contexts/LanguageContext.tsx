@@ -170,7 +170,7 @@ const translations = {
     "franchise.form.submit": "Submit Application",
 
     // Form feedback
-    "franchise.success": "Success! Our team will get back to you shortly.",
+    "franchise.success": "Success! Our team will contact you soon.",
     "franchise.error": "Something went wrong. Please try again.",
 
     // Validation messages
@@ -357,7 +357,7 @@ const translations = {
     "franchise.form.submit": "Pošalji prijavu",
 
     // Form feedback
-    "franchise.success": "Uspešno! Naš tim će ti se javiti u najkraćem roku.",
+    "franchise.success": "Uspešno! Naš tim će vam se uskoro javiti.",
     "franchise.error": "Došlo je do greške. Pokušaj ponovo.",
 
     // Validation messages

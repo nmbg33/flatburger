@@ -206,7 +206,7 @@ export const Franchise: React.FC = () => {
         {/* Hero */}
         <section className="text-center mb-14">
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
+            className="mt-1.5 text-5xl md:text-7xl lg:text-8xl font-black text-flat-blue mb-4 leading-tight tracking-tight"
             style={{ fontFamily: "Bricolage Grotesque" }}
           >
             {t("franchise.hero.title")}
