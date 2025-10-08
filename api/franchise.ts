@@ -62,7 +62,7 @@ Consent: ${consent ? "Yes" : "No"}
 
     await resend.emails.send({
       from: "Flat Burger <onboarding@resend.dev>", // this uses your Resend account under nemanja3975439@gmail.com
-      to: "flatburgerbg@gmail.com",
+      to: "nemanja3975439@gmail.com",
       subject,
       text: textBody,
     });
