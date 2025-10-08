@@ -136,6 +136,14 @@ export const UpdatedNavigation: React.FC = () => {
             >
               {t("nav.ourStory")}
             </Link>
+            <Link
+              to={language === "sr" ? "/fransiza" : "/franchise"}
+              onClick={() => setTimeout(() => window.scrollTo(0, 0), 100)}
+              className="font-bold tracking-wide uppercase transition-all duration-300 text-sm text-flat-blue hover:text-flat-dark"
+              style={{ fontFamily: "Bricolage Grotesque" }}
+            >
+              {t("nav.franchise")}
+            </Link>
 
             {/* Order Button */}
             <a
@@ -255,6 +263,21 @@ export const UpdatedNavigation: React.FC = () => {
                 }}
               >
                 {t("nav.ourStory")}
+              </Link>
+
+              <Link
+                to={language === "sr" ? "/fransiza" : "/franchise"}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => window.scrollTo(0, 0), 50);
+                }}
+                className="text-flat-blue font-bold tracking-wide uppercase text-lg py-4 px-4 rounded-xl hover:bg-flat-blue/10 active:bg-flat-blue/20 transition-colors duration-200 block"
+                style={{
+                  fontFamily: "Bricolage Grotesque",
+                  WebkitTapHighlightColor: "transparent"
+                }}
+              >
+                {t("nav.franchise")}
               </Link>
 
               {/* Mobile Order Button */}
