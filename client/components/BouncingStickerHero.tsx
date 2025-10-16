@@ -55,7 +55,10 @@ export const BouncingStickerHero: React.FC = () => {
         >
           <div className="relative inline-block mb-12">
             {/* Clean transparent sticker with smooth bounce */}
-            <div className="relative animate-smooth-bounce hover:scale-105 transition-transform duration-500 smooth-transform" style={{ willChange: "transform" }}>
+            <div
+              className="relative animate-smooth-bounce hover:scale-105 transition-transform duration-500 smooth-transform"
+              style={{ willChange: "transform" }}
+            >
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6c2f790110dc42debce12f883ec2e2af?format=webp&width=800"
                 alt="Flat Burger Logo"
