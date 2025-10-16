@@ -98,8 +98,8 @@ export const BouncingStickerHero: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-12 py-4 rounded-full text-xl md:text-2xl font-black tracking-wider uppercase hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl smooth-transition"
-            style={{ willChange: "transform, box-shadow" }}
             style={{
+              willChange: "transform, box-shadow",
               fontFamily: "Bricolage Grotesque",
               backgroundColor: "#1C33C3",
               color: "#FEEBCB",

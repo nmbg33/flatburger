@@ -72,7 +72,6 @@ const translations = {
     "locations.title": "Locations",
     "locations.name": "Flat Burger 1",
     "locations.locationAddress": "Dečanska 4, Belgrade",
-    "locations.hours": "Hours",
     "locations.weekdays": "Weekdays: 12:00–23:00",
     "locations.weekends": "Weekends: 15:00–23:00 (or until sold out)",
 
@@ -232,7 +231,7 @@ const translations = {
     // About Us
     "about.title": "FLAT BURGER",
     "about.description":
-      "Flat Burger nije samo još jedan burger restoran. Mi stvaramo, eksperimentišemo, držimo se autentičnosti. Bez foliranja—samo smeli ukusi i čist pristup. Rođeni u Beogradu, napravljeni za naše ulice. Dođi i vidi šta znači biti stvarno ravan.",
+      "Flat Burger nije samo još jedan burger restoran. Mi stvaramo, eksperimentišemo, držimo se autentičnosti. Bez foliranja��samo smeli ukusi i čist pristup. Rođeni u Beogradu, napravljeni za naše ulice. Dođi i vidi šta znači biti stvarno ravan.",
 
     // Menu
     "menu.title": "MENI",
