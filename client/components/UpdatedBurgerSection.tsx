@@ -27,7 +27,8 @@ const burgers: BurgerItem[] = [
     nameKey: "burger.classic.name",
     descriptionKey: "burger.classic.description",
     price: 890,
-    imageUrl: "/burgers/classic.png",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F9a69f3c9bc3f45d19c138cd92513bc9a?format=webp&width=800",
     orderUrl:
       "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/classic-flat-itemid-301d8e18a7c9e1686a307b96",
   },
@@ -36,7 +37,8 @@ const burgers: BurgerItem[] = [
     nameKey: "burger.pyro.name",
     descriptionKey: "burger.pyro.description",
     price: 990,
-    imageUrl: "/burgers/pyro.png",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F81bcb01b6c9745d295052a1bc1a2d873?format=webp&width=800",
     orderUrl:
       "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/pyro-flat-itemid-e4deb8f82ea1080f2cc65cb5",
   },
@@ -45,7 +47,8 @@ const burgers: BurgerItem[] = [
     nameKey: "burger.baconJam.name",
     descriptionKey: "burger.baconJam.description",
     price: 1190,
-    imageUrl: "/burgers/bacon-jam.png",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F98e3e09a00c342408e142764c9afb57d?format=webp&width=800",
     orderUrl:
       "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/bacon-jam-flat-itemid-419b2975ceef76828e957fbb",
   },
@@ -54,7 +57,8 @@ const burgers: BurgerItem[] = [
     nameKey: "burger.fancy.name",
     descriptionKey: "burger.fancy.description",
     price: 1290,
-    imageUrl: "/burgers/fancy.png",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6ca917f26ecc4ce1b727caaec7cdae45?format=webp&width=800",
     orderUrl:
       "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/fancy-flat-itemid-fbfc69d70a7d75e2384d6517",
   },
@@ -63,7 +67,8 @@ const burgers: BurgerItem[] = [
     nameKey: "burger.chicken.name",
     descriptionKey: "burger.chicken.description",
     price: 990,
-    imageUrl: "/burgers/chicken.png",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261?format=webp&width=800",
     orderUrl:
       "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/chicken-flat-itemid-a72ed94f2b82ed62ca897fdb",
   },
@@ -72,7 +77,8 @@ const burgers: BurgerItem[] = [
     nameKey: "burger.alabama.name",
     descriptionKey: "burger.alabama.description",
     price: 1090,
-    imageUrl: "/burgers/alabama.png",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F291b0f2c508c466d927c3acf2d4dea65?format=webp&width=800",
     orderUrl:
       "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/crispy-alabama-itemid-7d1b172c3277f34a3a5b6dc7",
   },
@@ -80,7 +86,11 @@ const burgers: BurgerItem[] = [
 
 if (import.meta.env.DEV) {
   burgers.forEach((burger) => {
-    if (!burger.imageUrl || !burger.imageUrl.startsWith("/")) {
+    if (
+      !burger.imageUrl ||
+      (!burger.imageUrl.startsWith("/") &&
+        !burger.imageUrl.startsWith("http"))
+    ) {
       console.warn(
         `[menu] Missing or invalid imageUrl for "${burger.id}":`,
         burger.imageUrl,
