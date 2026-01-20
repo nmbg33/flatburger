@@ -311,7 +311,6 @@ const translations = {
     // Locations page
     "locations.backToHome": "Nazad na Početnu",
     "locations.address": "Adresa",
-    "locations.hours": "Radno Vreme",
     "locations.phone": "Telefon",
     "locations.orderButton": "PORUČI ODMAH",
 
