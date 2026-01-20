@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -22,12 +22,66 @@ interface AddonItem {
 const WOLT_URL = "https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11";
 
 const burgers: BurgerItem[] = [
-  { id: "classic", nameKey: "burger.classic.name", descriptionKey: "burger.classic.description", price: 890, imageUrl: "/burgers/classic.png", orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/classic-flat-itemid-301d8e18a7c9e1686a307b96" },
-  { id: "fancy", nameKey: "burger.fancy.name", descriptionKey: "burger.fancy.description", price: 1290, imageUrl: "/burgers/fancy.png", orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/fancy-flat-itemid-fbfc69d70a7d75e2384d6517" },
-  { id: "pyro", nameKey: "burger.pyro.name", descriptionKey: "burger.pyro.description", price: 990, imageUrl: "/burgers/pyro.png", orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/pyro-flat-itemid-e4deb8f82ea1080f2cc65cb5" },
-  { id: "baconJam", nameKey: "burger.baconJam.name", descriptionKey: "burger.baconJam.description", price: 1190, imageUrl: "/burgers/bacon-jam.png", orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/bacon-jam-flat-itemid-419b2975ceef76828e957fbb" },
-  { id: "chicken", nameKey: "burger.chicken.name", descriptionKey: "burger.chicken.description", price: 990, imageUrl: "/burgers/chicken.png", orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/chicken-flat-itemid-a72ed94f2b82ed62ca897fdb" },
-  { id: "alabama", nameKey: "burger.alabama.name", descriptionKey: "burger.alabama.description", price: 1090, imageUrl: "/burgers/alabama.png", orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/crispy-alabama-itemid-7d1b172c3277f34a3a5b6dc7" },
+  {
+    id: "classic",
+    nameKey: "burger.classic.name",
+    descriptionKey: "burger.classic.description",
+    price: 890,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F9a69f3c9bc3f45d19c138cd92513bc9a?format=webp&width=800",
+    orderUrl:
+      "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/classic-flat-itemid-301d8e18a7c9e1686a307b96",
+  },
+  {
+    id: "pyro",
+    nameKey: "burger.pyro.name",
+    descriptionKey: "burger.pyro.description",
+    price: 990,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F81bcb01b6c9745d295052a1bc1a2d873?format=webp&width=800",
+    orderUrl:
+      "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/pyro-flat-itemid-e4deb8f82ea1080f2cc65cb5",
+  },
+  {
+    id: "baconJam",
+    nameKey: "burger.baconJam.name",
+    descriptionKey: "burger.baconJam.description",
+    price: 1190,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F98e3e09a00c342408e142764c9afb57d?format=webp&width=800",
+    orderUrl:
+      "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/bacon-jam-flat-itemid-419b2975ceef76828e957fbb",
+  },
+  {
+    id: "fancy",
+    nameKey: "burger.fancy.name",
+    descriptionKey: "burger.fancy.description",
+    price: 1290,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F6ca917f26ecc4ce1b727caaec7cdae45?format=webp&width=800",
+    orderUrl:
+      "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/fancy-flat-itemid-fbfc69d70a7d75e2384d6517",
+  },
+  {
+    id: "chicken",
+    nameKey: "burger.chicken.name",
+    descriptionKey: "burger.chicken.description",
+    price: 990,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F60065f0b142349638ce5191622432261?format=webp&width=800",
+    orderUrl:
+      "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/chicken-flat-itemid-a72ed94f2b82ed62ca897fdb",
+  },
+  {
+    id: "alabama",
+    nameKey: "burger.alabama.name",
+    descriptionKey: "burger.alabama.description",
+    price: 1090,
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F291b0f2c508c466d927c3acf2d4dea65?format=webp&width=800",
+    orderUrl:
+      "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/crispy-alabama-itemid-7d1b172c3277f34a3a5b6dc7",
+  },
 ];
 
 const addons: AddonItem[] = [
@@ -39,68 +93,47 @@ const addons: AddonItem[] = [
 const BurgerCard: React.FC<{
   burger: BurgerItem;
   index: number;
-  isActive: boolean;
-  hoveredIndex: number | null;
-  onHover: (index: number | null) => void;
   t: (key: string) => string;
-}> = ({ burger, index, isActive, hoveredIndex, onHover, t }) => {
+}> = ({ burger, index, t }) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, margin: "-10%" });
-  const isHovered = hoveredIndex === index;
-  const isAnyHovered = hoveredIndex !== null;
-  
-  // Magnetic effect
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 150, damping: 20 });
-  const springY = useSpring(y, { stiffness: 150, damping: 20 });
+  const shouldReduceMotion = useReducedMotion();
+  const easing: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) * 0.05);
-    y.set((e.clientY - centerY) * 0.05);
-  };
+  const entryInitial = { opacity: 0, y: shouldReduceMotion ? 0 : 10 };
+  const entryAnimate = isInView ? { opacity: 1, y: 0 } : entryInitial;
 
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    onHover(null);
-  };
+  const cardVariants = shouldReduceMotion
+    ? { rest: { y: 0, scale: 1 }, hover: { y: 0, scale: 1 }, tap: { scale: 1 } }
+    : { rest: { y: 0, scale: 1 }, hover: { y: -4, scale: 1.015 }, tap: { scale: 0.99 } };
+
+  const shadowVariants = shouldReduceMotion
+    ? { rest: { boxShadow: "0 10px 40px -15px rgba(0, 0, 0, 0.1)" }, hover: { boxShadow: "0 10px 40px -15px rgba(0, 0, 0, 0.1)" } }
+    : { rest: { boxShadow: "0 10px 40px -15px rgba(0, 0, 0, 0.1)" }, hover: { boxShadow: "0 18px 50px -25px rgba(28, 51, 195, 0.22)" } };
 
   return (
     <motion.div
       ref={cardRef}
       className="flex-shrink-0 w-[80vw] sm:w-[320px] md:w-[340px] snap-center"
-      style={{ x: springX, y: springY }}
-      initial={{ opacity: 0, y: 100, scale: 0.9 }}
-      animate={isInView ? { 
-        opacity: isAnyHovered && !isHovered ? 0.5 : 1, 
-        y: 0, 
-        scale: 1,
-        filter: isAnyHovered && !isHovered ? 'grayscale(0.3)' : 'grayscale(0)',
-      } : { opacity: 0, y: 100, scale: 0.9 }}
-      transition={{ duration: 0.8, delay: index * 0.08, ease: [0.16, 1, 0.3, 1], opacity: { duration: 0.3 }, filter: { duration: 0.3 } }}
-      onMouseEnter={() => onHover(index)}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      initial={entryInitial}
+      animate={entryAnimate}
+      transition={{ duration: 0.6, delay: index * 0.06, ease: easing }}
     >
       <motion.div
         className="bg-white rounded-2xl overflow-hidden cursor-pointer relative mx-2"
         style={{ minHeight: "480px" }}
-        animate={{ y: isHovered ? -12 : 0, scale: isHovered ? 1.02 : 1 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        variants={cardVariants}
+        initial="rest"
+        animate="rest"
+        whileHover="hover"
+        whileTap="tap"
+        transition={{ duration: 0.22, ease: easing }}
       >
         {/* Shadow */}
         <motion.div
           className="absolute inset-0 rounded-2xl pointer-events-none -z-10"
-          animate={{ 
-            boxShadow: isHovered 
-              ? "0 40px 80px -20px rgba(28, 51, 195, 0.25)" 
-              : "0 10px 40px -15px rgba(0, 0, 0, 0.1)" 
-          }}
-          transition={{ duration: 0.4 }}
+          variants={shadowVariants}
+          transition={{ duration: 0.22, ease: easing }}
         />
 
         {/* Image */}
@@ -118,8 +151,7 @@ const BurgerCard: React.FC<{
           <motion.h3
             className="text-xl md:text-2xl font-black text-flat-blue mb-3 tracking-tight"
             style={{ fontFamily: "Bricolage Grotesque" }}
-            animate={{ x: isHovered ? 5 : 0 }}
-            transition={{ duration: 0.3 }}
+            animate={shouldReduceMotion ? { x: 0 } : { x: 0 }}
           >
             {t(burger.nameKey)}
           </motion.h3>
@@ -129,10 +161,7 @@ const BurgerCard: React.FC<{
           </p>
 
           <div className="mt-auto space-y-3">
-            <motion.div
-              animate={{ opacity: isHovered ? 0 : 1, y: isHovered ? -5 : 0 }}
-              transition={{ duration: 0.2 }}
-            >
+            <motion.div>
               <span className="text-xl font-black text-flat-blue" style={{ fontFamily: "Bricolage Grotesque" }}>
                 {burger.price} {t("price.currency")}
               </span>
@@ -144,8 +173,8 @@ const BurgerCard: React.FC<{
               rel="noopener noreferrer"
               className="block w-full bg-flat-blue text-flat-beige py-3 rounded-full font-bold tracking-wider uppercase text-center text-sm relative overflow-hidden group"
               style={{ fontFamily: "Bricolage Grotesque" }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={shouldReduceMotion ? undefined : { scale: 1.015 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.99 }}
               onClick={(e) => e.stopPropagation()}
             >
               <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
@@ -160,15 +189,13 @@ const BurgerCard: React.FC<{
 
 export const UpdatedBurgerSection: React.FC = () => {
   const { t } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
+  const easing: [number, number, number, number] = [0.22, 1, 0.36, 1];
   const sectionRef = useRef<HTMLElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const isTitleInView = useInView(titleRef, { once: true, margin: "-20%" });
-
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
   const scrollToSlide = (index: number) => {
     if (sliderRef.current) {
@@ -198,21 +225,32 @@ export const UpdatedBurgerSection: React.FC = () => {
       </div>
 
       {/* Floating elements */}
-      <motion.div className="absolute inset-0 pointer-events-none" style={{ y: bgY }}>
-        <motion.div className="absolute top-[10%] right-[8%] w-24 h-24 border border-flat-blue/[0.06] rounded-full" animate={{ rotate: 360 }} transition={{ duration: 30, ease: "linear", repeat: Infinity }} />
-        <motion.div className="absolute bottom-[15%] left-[5%] w-16 h-16 border border-flat-blue/[0.05] rotate-45" animate={{ rotate: [45, 135, 45] }} transition={{ duration: 15, ease: "easeInOut", repeat: Infinity }} />
-      </motion.div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[10%] right-[8%] w-24 h-24 border border-flat-blue/[0.06] rounded-full" />
+        <div className="absolute bottom-[15%] left-[5%] w-16 h-16 border border-flat-blue/[0.05] rotate-45" />
+      </div>
 
       {/* Corner markers */}
-      <motion.div className="absolute top-8 left-8" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-        <motion.div className="w-12 h-px bg-flat-blue/15" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} viewport={{ once: true }} style={{ originX: 0 }} />
-        <motion.div className="w-px h-12 bg-flat-blue/15" initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} viewport={{ once: true }} style={{ originY: 0 }} />
+      <motion.div
+        className="absolute top-8 left-8"
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 6 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: easing }}
+        viewport={{ once: true }}
+      >
+        <div className="w-12 h-px bg-flat-blue/15" />
+        <div className="w-px h-12 bg-flat-blue/15" />
       </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Title */}
         <motion.div ref={titleRef} className="mb-16 md:mb-20">
-          <motion.div className="flex items-center gap-4 mb-6" initial={{ opacity: 0, x: -20 }} animate={isTitleInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+          <motion.div
+            className="flex items-center gap-4 mb-6"
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+            animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: easing }}
+          >
             <div className="w-10 h-px bg-flat-blue/30" />
             <span className="text-flat-blue/40 text-[10px] font-bold tracking-[0.4em] uppercase">Menu</span>
           </motion.div>
@@ -221,9 +259,9 @@ export const UpdatedBurgerSection: React.FC = () => {
             <motion.h2
               className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-black text-flat-blue leading-[0.85] tracking-tighter"
               style={{ fontFamily: "Bricolage Grotesque" }}
-              initial={{ y: "100%" }}
-              animate={isTitleInView ? { y: 0 } : {}}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
+              animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, ease: easing }}
             >
               {title}
             </motion.h2>
@@ -232,9 +270,9 @@ export const UpdatedBurgerSection: React.FC = () => {
           <motion.p
             className="mt-4 text-flat-blue/50 text-sm md:text-base tracking-wide max-w-md"
             style={{ fontFamily: "Bricolage Grotesque" }}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
             animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.1, ease: easing }}
           >
             {t("menu.subtitle")}
           </motion.p>
@@ -247,8 +285,8 @@ export const UpdatedBurgerSection: React.FC = () => {
             onClick={() => { const n = Math.max(0, currentSlide - 1); setCurrentSlide(n); scrollToSlide(n); }}
             disabled={currentSlide === 0}
             className={`hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full border-2 border-flat-blue/20 bg-flat-beige ${currentSlide === 0 ? 'opacity-30' : 'opacity-100'}`}
-            whileHover={currentSlide !== 0 ? { scale: 1.1, borderColor: "rgba(28, 51, 195, 0.5)" } : {}}
-            whileTap={currentSlide !== 0 ? { scale: 0.95 } : {}}
+            whileHover={!shouldReduceMotion && currentSlide !== 0 ? { scale: 1.03, borderColor: "rgba(28, 51, 195, 0.5)" } : {}}
+            whileTap={!shouldReduceMotion && currentSlide !== 0 ? { scale: 0.98 } : {}}
           >
             <ChevronLeft className="text-flat-blue" size={20} />
           </motion.button>
@@ -257,8 +295,8 @@ export const UpdatedBurgerSection: React.FC = () => {
             onClick={() => { const n = Math.min(burgers.length - 1, currentSlide + 1); setCurrentSlide(n); scrollToSlide(n); }}
             disabled={currentSlide === burgers.length - 1}
             className={`hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full border-2 border-flat-blue/20 bg-flat-beige ${currentSlide === burgers.length - 1 ? 'opacity-30' : 'opacity-100'}`}
-            whileHover={currentSlide !== burgers.length - 1 ? { scale: 1.1, borderColor: "rgba(28, 51, 195, 0.5)" } : {}}
-            whileTap={currentSlide !== burgers.length - 1 ? { scale: 0.95 } : {}}
+            whileHover={!shouldReduceMotion && currentSlide !== burgers.length - 1 ? { scale: 1.03, borderColor: "rgba(28, 51, 195, 0.5)" } : {}}
+            whileTap={!shouldReduceMotion && currentSlide !== burgers.length - 1 ? { scale: 0.98 } : {}}
           >
             <ChevronRight className="text-flat-blue" size={20} />
           </motion.button>
@@ -275,9 +313,6 @@ export const UpdatedBurgerSection: React.FC = () => {
                 key={burger.id}
                 burger={burger}
                 index={index}
-                isActive={currentSlide === index}
-                hoveredIndex={hoveredIndex}
-                onHover={setHoveredIndex}
                 t={t}
               />
             ))}
@@ -290,7 +325,7 @@ export const UpdatedBurgerSection: React.FC = () => {
                 key={index}
                 onClick={() => { setCurrentSlide(index); scrollToSlide(index); }}
                 className="p-1"
-                whileHover={{ scale: 1.3 }}
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
               >
                 <motion.div
                   className="w-2 h-2 rounded-full"
@@ -306,14 +341,20 @@ export const UpdatedBurgerSection: React.FC = () => {
         </div>
 
         {/* Add-ons */}
-        <motion.div className="text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-20%" }}>
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ duration: 0.6, ease: easing }}
+        >
           <motion.h3
             className="text-3xl md:text-4xl font-black text-flat-blue mb-8 tracking-tight"
             style={{ fontFamily: "Bricolage Grotesque" }}
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: easing }}
           >
             {t("menu.addOns")}
           </motion.h3>
@@ -326,12 +367,12 @@ export const UpdatedBurgerSection: React.FC = () => {
                 href={addon.orderUrl ?? WOLT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ scale: 1.05, borderColor: "#1C33C3", backgroundColor: "#1C33C3", color: "#FEEBCB" }}
-                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: easing }}
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.02, y: -2, borderColor: "#1C33C3", backgroundColor: "#1C33C3", color: "#FEEBCB" }}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.99 }}
               >
                 <span className="font-bold text-sm tracking-wider" style={{ fontFamily: "Bricolage Grotesque" }}>
                   {t(addon.key)} — {addon.price} {t("price.currency")}
@@ -347,12 +388,12 @@ export const UpdatedBurgerSection: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-4 bg-flat-blue text-flat-beige px-10 md:px-14 py-4 md:py-5 rounded-full font-bold tracking-wider uppercase text-sm md:text-base relative overflow-hidden group"
             style={{ fontFamily: "Bricolage Grotesque" }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: easing }}
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.02, y: -2 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.99 }}
           >
             <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-600" />
             <span className="relative z-10">{t("menu.seeMenu")}</span>
