@@ -7,7 +7,17 @@ interface BurgerItem {
   descriptionKey: string;
   price: number;
   imageUrl: string;
+  orderUrl?: string;
 }
+
+interface AddonItem {
+  id: string;
+  key: string;
+  price: number;
+  orderUrl?: string;
+}
+
+const WOLT_URL = "https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11";
 
 const burgers: BurgerItem[] = [
   {
@@ -17,6 +27,7 @@ const burgers: BurgerItem[] = [
     price: 890,
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Ffc64a20eae404dba92ec338c7723dce9?format=webp&width=800",
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/classic-flat-itemid-301d8e18a7c9e1686a307b96",
   },
   {
     id: "fancy",
@@ -25,6 +36,7 @@ const burgers: BurgerItem[] = [
     price: 1290,
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fde74de31ded14bb590a0a078486b1215?format=webp&width=800",
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/fancy-flat-itemid-fbfc69d70a7d75e2384d6517",
   },
   {
     id: "pyro",
@@ -33,6 +45,7 @@ const burgers: BurgerItem[] = [
     price: 990,
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2Fdb1d07e06fb5426fa4c5c4363c486fec?format=webp&width=800",
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/pyro-flat-itemid-e4deb8f82ea1080f2cc65cb5",
   },
   {
     id: "baconJam",
@@ -41,7 +54,14 @@ const burgers: BurgerItem[] = [
     price: 1190,
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets%2Fa819516bbe9e41ec81132ec0652faf4d%2F993fe5cf66464562887c82cf5def9f35?format=webp&width=800",
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/bacon-jam-flat-itemid-419b2975ceef76828e957fbb",
   },
+];
+
+const addons: AddonItem[] = [
+  { id: "pomfrit", key: "addon.pomfrit", price: 290, orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/pomfrit-classic-200g-itemid-c7a12bd313ebc3c6a887de14" },
+  { id: "batat", key: "addon.batat", price: 390, orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/batat-200g-itemid-5b798290a80278f72427b085" },
+  { id: "onionRings", key: "addon.onionRings", price: 350, orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/onion-rings-8-komada-itemid-5902c9d7a51f168f460e102e" },
 ];
 
 export const PrettyPattyStyleBurgers: React.FC = () => {
@@ -136,9 +156,14 @@ export const PrettyPattyStyleBurgers: React.FC = () => {
                     <span className="text-3xl font-black text-flat-blue">
                       {burger.price} {t("price.currency")}
                     </span>
-                    <button className="bg-flat-blue text-flat-cream px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <a
+                      className="bg-flat-blue text-flat-cream px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      href={burger.orderUrl ?? WOLT_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Order
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -160,20 +185,19 @@ export const PrettyPattyStyleBurgers: React.FC = () => {
           </h3>
 
           <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-            {[
-              { key: "addon.pomfrit", price: 290 },
-              { key: "addon.batat", price: 390 },
-              { key: "addon.onionRings", price: 350 },
-            ].map((addon, index) => (
-              <div
-                key={addon.key}
+            {addons.map((addon, index) => (
+              <a
+                key={addon.id}
                 className="bg-flat-blue text-flat-cream px-8 py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg"
                 style={{ animationDelay: `${index * 100}ms` }}
+                href={addon.orderUrl ?? WOLT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span className="font-bold text-lg tracking-wider">
                   {t(addon.key)} — {addon.price} {t("price.currency")}
                 </span>
-              </div>
+              </a>
             ))}
           </div>
         </div>

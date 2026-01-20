@@ -6,7 +6,17 @@ interface BurgerItem {
   nameKey: string;
   descriptionKey: string;
   price: number;
+  orderUrl?: string;
 }
+
+interface AddonItem {
+  id: string;
+  key: string;
+  price: number;
+  orderUrl?: string;
+}
+
+const WOLT_URL = "https://wolt.com/sr/srb/belgrade/restaurant/flat-burger11";
 
 const burgers: BurgerItem[] = [
   {
@@ -14,37 +24,49 @@ const burgers: BurgerItem[] = [
     nameKey: "burger.classic.name",
     descriptionKey: "burger.classic.description",
     price: 890,
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/classic-flat-itemid-301d8e18a7c9e1686a307b96",
   },
   {
     id: "fancy",
     nameKey: "burger.fancy.name",
     descriptionKey: "burger.fancy.description",
     price: 1290,
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/fancy-flat-itemid-fbfc69d70a7d75e2384d6517",
   },
   {
     id: "pyro",
     nameKey: "burger.pyro.name",
     descriptionKey: "burger.pyro.description",
     price: 990,
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/pyro-flat-itemid-e4deb8f82ea1080f2cc65cb5",
   },
   {
     id: "baconJam",
     nameKey: "burger.baconJam.name",
     descriptionKey: "burger.baconJam.description",
     price: 1190,
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/bacon-jam-flat-itemid-419b2975ceef76828e957fbb",
   },
   {
     id: "alabama",
     nameKey: "burger.alabama.name",
     descriptionKey: "burger.alabama.description",
     price: 1090,
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/crispy-alabama-itemid-7d1b172c3277f34a3a5b6dc7",
   },
   {
     id: "chickenFlat",
     nameKey: "burger.chickenFlat.name",
     descriptionKey: "burger.chickenFlat.description",
     price: 790,
+    orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/chicken-flat-itemid-a72ed94f2b82ed62ca897fdb",
   },
+];
+
+const addons: AddonItem[] = [
+  { id: "sweetPotato", key: "addon.sweetPotato", price: 390, orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/batat-200g-itemid-5b798290a80278f72427b085" },
+  { id: "fries", key: "addon.fries", price: 290, orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/pomfrit-classic-200g-itemid-c7a12bd313ebc3c6a887de14" },
+  { id: "onionRings", key: "addon.onionRings", price: 350, orderUrl: "https://order.site/flat-burger/sr/srb/belgrade/restaurant/flat-burger-sf/onion-rings-8-komada-itemid-5902c9d7a51f168f460e102e" },
 ];
 
 export const PrettyPattyMenu: React.FC = () => {
@@ -133,9 +155,14 @@ export const PrettyPattyMenu: React.FC = () => {
                     <span className="text-3xl font-black text-flat-blue">
                       {burger.price} {t("price.currency")}
                     </span>
-                    <button className="bg-flat-blue text-flat-cream px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105">
+                    <a
+                      className="bg-flat-blue text-flat-cream px-6 py-3 rounded-full font-bold tracking-wider uppercase hover:bg-flat-dark transition-all duration-300 transform hover:scale-105"
+                      href={burger.orderUrl ?? WOLT_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Add
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -156,20 +183,19 @@ export const PrettyPattyMenu: React.FC = () => {
           </h3>
 
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {[
-              { key: "addon.sweetPotato", price: 390 },
-              { key: "addon.fries", price: 290 },
-              { key: "addon.onionRings", price: 350 },
-            ].map((addon, index) => (
-              <div
-                key={addon.key}
+            {addons.map((addon, index) => (
+              <a
+                key={addon.id}
                 className="bg-flat-blue text-flat-cream px-8 py-4 rounded-full hover:bg-flat-dark transition-all duration-300 cursor-pointer transform hover:scale-105"
                 style={{ animationDelay: `${index * 100}ms` }}
+                href={addon.orderUrl ?? WOLT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span className="font-bold text-lg tracking-wider">
                   {t(addon.key)} - {addon.price} {t("price.currency")}
                 </span>
-              </div>
+              </a>
             ))}
           </div>
         </div>
