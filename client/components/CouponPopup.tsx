@@ -15,6 +15,9 @@ interface CustomerData {
   usedAt: string | null;
 }
 
+const canUseDOM =
+  typeof window !== "undefined" && typeof document !== "undefined";
+
 const CONFIG = {
   showDelay: 3000,
   scrollTrigger: 40,
@@ -35,6 +38,7 @@ const generateCouponCode = (): string => {
 
 // Check if popup was already shown
 const hasSeenPopup = (): boolean => {
+  if (!canUseDOM) return false;
   const seen = localStorage.getItem(CONFIG.cookieName);
   if (seen !== "true") return false;
 
@@ -49,6 +53,7 @@ const hasSeenPopup = (): boolean => {
 
 // Mark popup as seen
 const markPopupAsSeen = (): void => {
+  if (!canUseDOM) return;
   localStorage.setItem(CONFIG.cookieName, "true");
   const expiry = new Date();
   expiry.setDate(expiry.getDate() + CONFIG.cookieExpiry);
@@ -57,6 +62,7 @@ const markPopupAsSeen = (): void => {
 
 // Save to localStorage as fallback
 const saveToLocalStorage = (customerData: CustomerData): void => {
+  if (!canUseDOM) return;
   const customers = JSON.parse(
     localStorage.getItem("flat_burger_customers") || "[]"
   );
@@ -78,12 +84,14 @@ export const CouponPopup: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const showPopup = useCallback(() => {
+    if (!canUseDOM) return;
     if (hasSeenPopup()) return;
     setIsVisible(true);
     document.body.style.overflow = "hidden";
   }, []);
 
   const closePopup = useCallback(() => {
+    if (!canUseDOM) return;
     setIsVisible(false);
     document.body.style.overflow = "";
     markPopupAsSeen();
@@ -91,6 +99,7 @@ export const CouponPopup: React.FC = () => {
 
   // Initialize triggers
   useEffect(() => {
+    if (!canUseDOM) return;
     if (hasSeenPopup()) return;
 
     // Time trigger
