@@ -25,17 +25,6 @@ const CONFIG = {
   cookieExpiry: 30,
 };
 
-// Generate unique coupon code
-const generateCouponCode = (): string => {
-  const prefix = "FB";
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "";
-  for (let i = 0; i < 6; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return `${prefix}-${code}`;
-};
-
 // Check if popup was already shown
 const hasSeenPopup = (): boolean => {
   if (!canUseDOM) return false;
@@ -77,11 +66,11 @@ const saveToLocalStorage = (customerData: CustomerData): void => {
 export const CouponPopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [couponCode, setCouponCode] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const showPopup = useCallback(() => {
     if (!canUseDOM) return;
@@ -163,54 +152,66 @@ export const CouponPopup: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
+  // Handle form submission - sends email with coupon
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-
-    const newCouponCode = generateCouponCode();
-    const customerData: CustomerData = {
-      email: email.trim(),
-      phone: phone.replace(/\s/g, ""),
-      couponCode: newCouponCode,
-      timestamp: new Date().toISOString(),
-      used: false,
-      usedAt: null,
-    };
+    setSubmitError(null);
 
     try {
-      // Try to save to Supabase first
+      // Call API to send email with coupon
+      const response = await fetch("/api/send-coupon", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email.trim(),
+          phone: phone.replace(/\s/g, ""),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Greška pri slanju email-a");
+      }
+
+      // Save to Supabase for admin panel
+      const customerData: CustomerData = {
+        email: data.email,
+        phone: data.phone,
+        couponCode: data.couponCode,
+        timestamp: data.timestamp,
+        used: false,
+        usedAt: null,
+      };
+
       if (isSupabaseConfigured) {
         const savedToSupabase = await saveCouponToSupabase(
           customerData.email,
           customerData.phone,
-          newCouponCode
+          customerData.couponCode
         );
-
         if (savedToSupabase) {
           console.log("🍔 Kupon sačuvan u Supabase:", savedToSupabase);
         } else {
-          // Fallback to localStorage if Supabase fails
-          console.warn("Supabase save failed, using localStorage fallback");
           saveToLocalStorage(customerData);
         }
       } else {
-        // No Supabase configured, use localStorage
         saveToLocalStorage(customerData);
-        console.log("🍔 Kupon sačuvan u localStorage:", customerData);
       }
 
-      setCouponCode(newCouponCode);
+      console.log("📧 Email poslat sa kuponom:", data.couponCode);
       setShowSuccess(true);
     } catch (err) {
-      console.error("Error saving coupon:", err);
-      // Fallback to localStorage on any error
-      saveToLocalStorage(customerData);
-      setCouponCode(newCouponCode);
-      setShowSuccess(true);
+      console.error("Error sending coupon email:", err);
+      setSubmitError(
+        err instanceof Error ? err.message : "Greška pri slanju. Pokušajte ponovo."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -249,9 +250,13 @@ export const CouponPopup: React.FC = () => {
           50% { transform: scale(1.1); }
           100% { transform: scale(1); }
         }
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
         }
         .popup-container {
           animation: slideUp 0.4s ease-out;
@@ -259,8 +264,16 @@ export const CouponPopup: React.FC = () => {
         .success-icon {
           animation: pop 0.5s ease-out;
         }
-        .coupon-bounce {
-          animation: bounce 2s ease-in-out infinite;
+        .spinner {
+          width: 40px;
+          height: 40px;
+          border: 4px solid rgba(28, 51, 195, 0.2);
+          border-top: 4px solid #1C33C3;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+        .pulse {
+          animation: pulse 2s ease-in-out infinite;
         }
       `}</style>
 
@@ -281,6 +294,15 @@ export const CouponPopup: React.FC = () => {
           <X className="w-6 h-6 text-flat-blue" />
         </button>
 
+        {/* Loading Overlay */}
+        {isSubmitting && (
+          <div className="absolute inset-0 bg-flat-beige/95 rounded-3xl flex flex-col items-center justify-center z-10">
+            <div className="spinner mb-4"></div>
+            <p className="text-flat-blue font-bold text-lg">Šalje se email...</p>
+            <p className="text-flat-dark/60 text-sm mt-2">Molimo sačekajte</p>
+          </div>
+        )}
+
         {!showSuccess ? (
           /* Form Screen */
           <div>
@@ -296,7 +318,7 @@ export const CouponPopup: React.FC = () => {
                 Ostvari 20% popusta!
               </h2>
               <p className="text-flat-dark/70 text-sm">
-                Prijavi se i dobij ekskluzivni kupon za Flat Burger
+                Prijavi se i dobij ekskluzivni kupon na email
               </p>
             </div>
 
@@ -350,63 +372,68 @@ export const CouponPopup: React.FC = () => {
                 )}
               </div>
 
+              {/* Error message */}
+              {submitError && (
+                <div className="bg-red-50 border-l-4 border-red-500 p-3 rounded">
+                  <p className="text-red-700 text-sm">{submitError}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full py-4 px-6 bg-flat-blue text-flat-beige rounded-full font-bold uppercase tracking-wider text-sm hover:bg-flat-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 style={{ fontFamily: '"Bricolage Grotesque", sans-serif' }}
               >
-                {isSubmitting ? "Učitavanje..." : "Dobij kupon za 20% popust!"}
+                {isSubmitting ? "Šalje se..." : "Dobij kupon na email!"}
               </button>
 
               <p className="text-center text-flat-dark/50 text-xs mt-4">
-                Vaši podaci su sigurni. Koristimo ih samo za slanje ponuda.
+                Kupon kod ce ti stici na email. Proveri i spam folder.
               </p>
             </form>
           </div>
         ) : (
-          /* Success Screen */
+          /* Success Screen - Email Sent */
           <div className="text-center">
-            <div className="success-icon text-6xl mb-4">🎉</div>
+            <div className="success-icon text-6xl mb-4">📧</div>
             <h2
               className="text-2xl sm:text-3xl font-bold text-green-600 uppercase tracking-wide mb-4"
               style={{ fontFamily: '"Bricolage Grotesque", sans-serif' }}
             >
-              Uspešno!
+              Email Poslat!
             </h2>
 
-            {/* Coupon Box */}
+            {/* Email Sent Message */}
             <div
-              className="coupon-bounce bg-gradient-to-br from-flat-beige to-white border-4 border-dashed border-flat-blue rounded-2xl p-6 my-6"
-              style={{ boxShadow: "0 8px 32px rgba(28, 51, 195, 0.15)" }}
+              className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-2xl p-6 my-6"
+              style={{ boxShadow: "0 8px 32px rgba(34, 197, 94, 0.15)" }}
             >
-              <p className="text-flat-dark/60 text-xs uppercase tracking-widest mb-2">
-                Tvoj kupon kod
+              <p className="text-green-800 text-lg font-medium mb-2">
+                Proveri svoj email inbox!
               </p>
-              <p
-                className="text-3xl sm:text-4xl font-bold text-flat-blue tracking-widest"
-                style={{ fontFamily: "monospace" }}
-              >
-                {couponCode}
+              <p className="text-green-700/80 text-sm">
+                Poslali smo ti kupon kod za <strong>20% popust</strong> na adresu koju si uneo/la.
               </p>
             </div>
 
             {/* Instructions */}
             <div className="text-left bg-flat-blue/5 rounded-xl p-4 mb-4">
-              <p className="font-bold text-flat-dark text-sm mb-2">
-                📍 Kako da iskoristiš:
+              <p className="font-bold text-flat-dark text-sm mb-3">
+                📬 Sledeći koraci:
               </p>
-              <ol className="text-flat-dark/70 text-sm space-y-1 list-decimal list-inside">
-                <li>Dođi u Flat Burger (Dečanska 4, Beograd)</li>
-                <li>Pokaži ovaj kod osobi na kasi</li>
-                <li>Uživaj u 20% popustu! 🍔</li>
+              <ol className="text-flat-dark/70 text-sm space-y-2 list-decimal list-inside">
+                <li>Otvori svoj email (proveri i spam folder)</li>
+                <li>Pronađi email od Flat Burger</li>
+                <li>Zapiši ili screenshot-uj kupon kod</li>
+                <li>Dođi u lokal i pokaži kod na kasi</li>
               </ol>
             </div>
 
             {/* Warning */}
             <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-3 mb-6">
               <p className="text-amber-800 text-xs">
-                ⏰ Kupon važi samo jednom i ističe za 30 dana!
+                ⏰ Email stiže za par sekundi. Ako ne vidiš email za 5 minuta, proveri spam folder.
               </p>
             </div>
 
