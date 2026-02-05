@@ -190,18 +190,25 @@ export const CouponPopup: React.FC = () => {
         usedAt: null,
       };
 
+      console.log("🔍 isSupabaseConfigured:", isSupabaseConfigured);
+      console.log("🔍 Customer data to save:", customerData);
+
       if (isSupabaseConfigured) {
+        console.log("📡 Calling saveCouponToSupabase...");
         const savedToSupabase = await saveCouponToSupabase(
           customerData.email,
           customerData.phone,
           customerData.couponCode
         );
+        console.log("📡 saveCouponToSupabase result:", savedToSupabase);
         if (savedToSupabase) {
-          console.log("🍔 Kupon sačuvan u Supabase:", savedToSupabase);
+          console.log("✅ Kupon sačuvan u Supabase:", savedToSupabase);
         } else {
+          console.warn("⚠️ Supabase save failed, falling back to localStorage");
           saveToLocalStorage(customerData);
         }
       } else {
+        console.warn("⚠️ Supabase not configured, using localStorage");
         saveToLocalStorage(customerData);
       }
 

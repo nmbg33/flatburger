@@ -34,9 +34,19 @@ export async function saveCouponToSupabase(
   phone: string,
   couponCode: string
 ): Promise<CouponRecord | null> {
-  if (!supabase) return null;
+  console.log("🔍 saveCouponToSupabase called with:", { email, phone, couponCode });
+  console.log("🔍 Supabase client exists:", !!supabase);
+  console.log("🔍 Supabase URL:", supabaseUrl ? "SET" : "NOT SET");
+  console.log("🔍 Supabase Anon Key:", supabaseAnonKey ? "SET" : "NOT SET");
+
+  if (!supabase) {
+    console.error("❌ Supabase client is null - check env variables");
+    return null;
+  }
 
   try {
+    console.log("📝 Attempting INSERT into coupons table...");
+
     const { data, error } = await supabase
       .from("coupons")
       .insert([
@@ -51,13 +61,19 @@ export async function saveCouponToSupabase(
       .single();
 
     if (error) {
-      console.error("Supabase insert error:", error);
+      console.error("❌ Supabase INSERT error:", {
+        message: error.message,
+        code: error.code,
+        details: error.details,
+        hint: error.hint,
+      });
       return null;
     }
 
+    console.log("✅ Successfully inserted into Supabase:", data);
     return data as CouponRecord;
   } catch (err) {
-    console.error("Error saving coupon to Supabase:", err);
+    console.error("❌ Exception in saveCouponToSupabase:", err);
     return null;
   }
 }
