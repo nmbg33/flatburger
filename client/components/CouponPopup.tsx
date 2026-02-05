@@ -1,19 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { X } from "lucide-react";
 import { FlatBurgerIcon } from "./FlatBurgerIcon";
-import {
-  isSupabaseConfigured,
-  saveCouponToSupabase,
-} from "../lib/supabase";
-
-interface CustomerData {
-  email: string;
-  phone: string;
-  couponCode: string;
-  timestamp: string;
-  used: boolean;
-  usedAt: string | null;
-}
 
 const canUseDOM =
   typeof window !== "undefined" && typeof document !== "undefined";
@@ -49,19 +36,6 @@ const markPopupAsSeen = (): void => {
   localStorage.setItem(CONFIG.cookieName + "_expiry", expiry.toISOString());
 };
 
-// Save to localStorage as fallback
-const saveToLocalStorage = (customerData: CustomerData): void => {
-  if (!canUseDOM) return;
-  const customers = JSON.parse(
-    localStorage.getItem("flat_burger_customers") || "[]"
-  );
-  customers.push(customerData);
-  localStorage.setItem("flat_burger_customers", JSON.stringify(customers));
-  localStorage.setItem(
-    `coupon_${customerData.couponCode}`,
-    JSON.stringify(customerData)
-  );
-};
 
 export const CouponPopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -180,39 +154,13 @@ export const CouponPopup: React.FC = () => {
         throw new Error(data.error || "Greška pri slanju email-a");
       }
 
-      // Save to Supabase for admin panel
-      const customerData: CustomerData = {
-        email: data.email,
-        phone: data.phone,
+      // API handles everything (email + Supabase)
+      console.log("✅ API response:", {
         couponCode: data.couponCode,
-        timestamp: data.timestamp,
-        used: false,
-        usedAt: null,
-      };
+        emailSent: data.emailSent,
+        supabaseSaved: data.supabaseSaved,
+      });
 
-      console.log("🔍 isSupabaseConfigured:", isSupabaseConfigured);
-      console.log("🔍 Customer data to save:", customerData);
-
-      if (isSupabaseConfigured) {
-        console.log("📡 Calling saveCouponToSupabase...");
-        const savedToSupabase = await saveCouponToSupabase(
-          customerData.email,
-          customerData.phone,
-          customerData.couponCode
-        );
-        console.log("📡 saveCouponToSupabase result:", savedToSupabase);
-        if (savedToSupabase) {
-          console.log("✅ Kupon sačuvan u Supabase:", savedToSupabase);
-        } else {
-          console.warn("⚠️ Supabase save failed, falling back to localStorage");
-          saveToLocalStorage(customerData);
-        }
-      } else {
-        console.warn("⚠️ Supabase not configured, using localStorage");
-        saveToLocalStorage(customerData);
-      }
-
-      console.log("📧 Email poslat sa kuponom:", data.couponCode);
       setShowSuccess(true);
     } catch (err) {
       console.error("Error sending coupon email:", err);
