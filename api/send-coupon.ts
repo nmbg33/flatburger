@@ -22,6 +22,30 @@ function generateCouponCode(): string {
   return `${prefix}-${code}`;
 }
 
+// Check if coupon code already exists
+async function isCodeUnique(code: string): Promise<boolean> {
+  const { data } = await supabaseAdmin
+    .from("coupons")
+    .select("id")
+    .eq("coupon_code", code)
+    .single();
+  return !data;
+}
+
+// Generate unique coupon code with retry
+async function generateUniqueCouponCode(maxRetries = 10): Promise<string> {
+  for (let i = 0; i < maxRetries; i++) {
+    const code = generateCouponCode();
+    if (await isCodeUnique(code)) {
+      return code;
+    }
+    console.log(`⚠️ Code ${code} already exists, retrying...`);
+  }
+  // Fallback: add timestamp suffix for guaranteed uniqueness
+  const timestamp = Date.now().toString(36).toUpperCase();
+  return `FB-${timestamp}`;
+}
+
 // ===========================================
 // MAIN API HANDLER
 // ===========================================
@@ -60,7 +84,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // ===========================================
     // 2. GENERATE UNIQUE COUPON CODE
     // ===========================================
-    const couponCode = generateCouponCode();
+    const couponCode = await generateUniqueCouponCode();
 
     console.log("🎟️ Generated coupon:", couponCode);
 

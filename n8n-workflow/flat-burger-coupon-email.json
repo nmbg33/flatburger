@@ -1,0 +1,109 @@
+{
+  "name": "Flat Burger - Kupon Email",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Svaki Minut",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "coupons",
+        "returnAll": false,
+        "limit": 10,
+        "filterType": "string",
+        "filterString": "email_sent=eq.false"
+      },
+      "id": "get-unsent",
+      "name": "Uzmi Neposlate Kupone",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "=🍔 Tvoj Flat Burger kupon - 20% POPUST!",
+        "emailType": "html",
+        "message": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f5f5f5; padding: 20px;\">\n  <div style=\"background: linear-gradient(135deg, #1C33C3 0%, #0A1A3D 100%); color: white; padding: 40px 30px; text-align: center; border-radius: 16px 16px 0 0;\">\n    <div style=\"font-size: 60px; margin-bottom: 15px;\">🍔</div>\n    <h1 style=\"margin: 0; font-size: 28px;\">ČESTITAMO!</h1>\n    <p style=\"margin: 10px 0 0 0; opacity: 0.9;\">Dobio/la si ekskluzivni kupon za 20% popust</p>\n  </div>\n  \n  <div style=\"padding: 40px 30px; background: white;\">\n    <div style=\"background: linear-gradient(135deg, #FEEBCB 0%, #FED7AA 100%); border: 3px dashed #1C33C3; border-radius: 12px; padding: 30px; text-align: center; margin: 20px 0;\">\n      <div style=\"font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;\">Tvoj kupon kod</div>\n      <div style=\"font-size: 42px; font-weight: bold; color: #1C33C3; font-family: 'Courier New', monospace; letter-spacing: 4px; margin: 10px 0;\">{{ $json.coupon_code }}</div>\n    </div>\n    \n    <div style=\"background: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;\">\n      <h3 style=\"color: #1C33C3; margin-top: 0; font-size: 18px;\">📍 Kako da iskoristiš kupon:</h3>\n      <ol style=\"margin: 15px 0; padding-left: 20px; line-height: 1.8;\">\n        <li><strong>Dođi u Flat Burger lokal</strong><br><span style=\"color: #666;\">Dečanska 4, Stari Grad, Beograd</span></li>\n        <li><strong>Pokaži ovaj kod osobi na kasi</strong><br><span style=\"color: #666;\">Kod: {{ $json.coupon_code }}</span></li>\n        <li><strong>Uživaj u 20% popustu</strong><br><span style=\"color: #666;\">Važi na celu porudžbinu! 🎉</span></li>\n      </ol>\n    </div>\n    \n    <div style=\"background: #FFF3CD; border-left: 4px solid #F39C12; padding: 15px; border-radius: 6px; margin: 20px 0; font-size: 14px; color: #856404;\">\n      ⏰ <strong>Važno:</strong> Kupon se može iskoristiti samo jednom i važi 30 dana od danas.\n    </div>\n    \n    <p style=\"text-align: center; color: #666; margin-top: 30px;\">\n      Vidimo se u Flat Burgeru! 🍔<br>\n      <strong>Dečanska 4, Beograd</strong>\n    </p>\n  </div>\n  \n  <div style=\"background: #0A1A3D; color: white; padding: 30px; text-align: center; font-size: 14px; border-radius: 0 0 16px 16px;\">\n    <p style=\"margin: 0;\">\n      Flat Burger - Najbolji burgeri u gradu!<br>\n      <a href=\"https://flatburger.vercel.app\" style=\"color: #FEEBCB; text-decoration: none;\">flatburger.vercel.app</a>\n    </p>\n  </div>\n</div>"
+      },
+      "id": "send-email",
+      "name": "Pošalji Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "coupons",
+        "filterType": "string",
+        "filterString": "coupon_code=eq.{{ $('Uzmi Neposlate Kupone').item.json.coupon_code }}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "email_sent",
+              "fieldValue": "true"
+            }
+          ]
+        }
+      },
+      "id": "mark-sent",
+      "name": "Označi kao Poslato",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Svaki Minut": {
+      "main": [
+        [
+          {
+            "node": "Uzmi Neposlate Kupone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Uzmi Neposlate Kupone": {
+      "main": [
+        [
+          {
+            "node": "Pošalji Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pošalji Email": {
+      "main": [
+        [
+          {
+            "node": "Označi kao Poslato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
