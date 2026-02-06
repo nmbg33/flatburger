@@ -173,3 +173,25 @@ export async function getCouponStats(): Promise<CouponStats> {
     return { today: 0, active: 0, used: 0 };
   }
 }
+
+// Get all coupons for admin view
+export async function getAllCoupons(): Promise<CouponRecord[]> {
+  if (!supabase) return [];
+
+  try {
+    const { data, error } = await supabase
+      .from("coupons")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Error fetching all coupons:", error);
+      return [];
+    }
+
+    return data as CouponRecord[];
+  } catch (err) {
+    console.error("Error getting all coupons:", err);
+    return [];
+  }
+}

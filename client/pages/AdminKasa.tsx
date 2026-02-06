@@ -5,6 +5,7 @@ import {
   getCouponFromSupabase,
   markCouponAsUsed,
   getCouponStats,
+  getAllCoupons,
   CouponRecord,
 } from "../lib/supabase";
 
@@ -72,7 +73,10 @@ const getLocalStorageStats = (): Stats => {
   };
 };
 
+type ViewMode = "check" | "list";
+
 export const AdminKasa: React.FC = () => {
+  const [viewMode, setViewMode] = useState<ViewMode>("check");
   const [inputCode, setInputCode] = useState("");
   const [resultType, setResultType] = useState<ResultType>(null);
   const [resultData, setResultData] = useState<CustomerData | null>(null);
@@ -80,6 +84,8 @@ export const AdminKasa: React.FC = () => {
   const [stats, setStats] = useState<Stats>({ today: 0, active: 0, used: 0 });
   const [isLoading, setIsLoading] = useState(false);
   const [usingSupabase, setUsingSupabase] = useState(false);
+  const [allCoupons, setAllCoupons] = useState<CouponRecord[]>([]);
+  const [listLoading, setListLoading] = useState(false);
 
   // Load statistics
   const loadStats = useCallback(async () => {
@@ -93,11 +99,32 @@ export const AdminKasa: React.FC = () => {
     }
   }, []);
 
+  // Load all coupons for list view
+  const loadAllCoupons = useCallback(async () => {
+    if (!isSupabaseConfigured) return;
+    setListLoading(true);
+    try {
+      const coupons = await getAllCoupons();
+      setAllCoupons(coupons);
+    } catch (err) {
+      console.error("Error loading coupons:", err);
+    } finally {
+      setListLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     loadStats();
     const interval = setInterval(loadStats, 30000);
     return () => clearInterval(interval);
   }, [loadStats]);
+
+  // Load coupons when switching to list view
+  useEffect(() => {
+    if (viewMode === "list") {
+      loadAllCoupons();
+    }
+  }, [viewMode, loadAllCoupons]);
 
   // Check coupon
   const checkCoupon = async () => {
@@ -314,7 +341,112 @@ export const AdminKasa: React.FC = () => {
       `}</style>
 
       <div className="bg-flat-beige rounded-3xl p-8 sm:p-12 max-w-xl w-full shadow-2xl">
-        {!resultType ? (
+        {/* Tab Navigation */}
+        <div className="flex gap-2 mb-6">
+          <button
+            onClick={() => { setViewMode("check"); resetForm(); }}
+            className={`flex-1 py-3 px-4 rounded-xl font-bold uppercase tracking-wider transition-all ${
+              viewMode === "check"
+                ? "bg-flat-blue text-flat-beige"
+                : "bg-flat-blue/10 text-flat-blue hover:bg-flat-blue/20"
+            }`}
+          >
+            ✅ Provera
+          </button>
+          <button
+            onClick={() => setViewMode("list")}
+            className={`flex-1 py-3 px-4 rounded-xl font-bold uppercase tracking-wider transition-all ${
+              viewMode === "list"
+                ? "bg-flat-blue text-flat-beige"
+                : "bg-flat-blue/10 text-flat-blue hover:bg-flat-blue/20"
+            }`}
+          >
+            📋 Lista ({allCoupons.length})
+          </button>
+        </div>
+
+        {/* List View */}
+        {viewMode === "list" && (
+          <div>
+            <div className="text-center mb-4">
+              <h1
+                className="text-flat-blue text-2xl font-bold uppercase tracking-wide"
+                style={{ fontFamily: '"Bricolage Grotesque", sans-serif' }}
+              >
+                Svi Kuponi
+              </h1>
+              <p className="text-flat-dark/60 text-sm">Email adrese i brojevi telefona</p>
+            </div>
+
+            {listLoading ? (
+              <div className="text-center py-8">
+                <div className="loading-spinner w-8 h-8 border-4 border-flat-blue border-t-transparent rounded-full mx-auto" />
+                <p className="mt-2 text-flat-dark/60">Učitavanje...</p>
+              </div>
+            ) : allCoupons.length === 0 ? (
+              <div className="text-center py-8 text-flat-dark/60">
+                Nema kupona u bazi.
+              </div>
+            ) : (
+              <div className="max-h-96 overflow-y-auto space-y-3">
+                {allCoupons.map((coupon) => (
+                  <div
+                    key={coupon.id}
+                    className={`p-4 rounded-xl border-2 ${
+                      coupon.used
+                        ? "bg-gray-100 border-gray-200"
+                        : "bg-white border-flat-blue/20"
+                    }`}
+                  >
+                    <div className="flex justify-between items-start">
+                      <div className="flex-1">
+                        <p className="font-mono font-bold text-flat-blue">
+                          {coupon.coupon_code}
+                        </p>
+                        <p className="text-sm text-flat-dark/80">📧 {coupon.email}</p>
+                        <p className="text-sm text-flat-dark/80">📱 {coupon.phone}</p>
+                        <p className="text-xs text-flat-dark/50 mt-1">
+                          {new Date(coupon.created_at).toLocaleDateString("sr-RS", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        {coupon.used ? (
+                          <span className="inline-block px-2 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-lg">
+                            ISKORIŠĆEN
+                          </span>
+                        ) : (
+                          <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-lg">
+                            AKTIVAN
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Export hint */}
+            {allCoupons.length > 0 && (
+              <div className="mt-4 p-3 bg-flat-blue/5 rounded-xl text-center">
+                <p className="text-xs text-flat-dark/60">
+                  Ukupno: <strong>{allCoupons.length}</strong> kupona |
+                  Aktivnih: <strong>{allCoupons.filter(c => !c.used).length}</strong> |
+                  Iskorišćenih: <strong>{allCoupons.filter(c => c.used).length}</strong>
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Check View */}
+        {viewMode === "check" && !resultType && (
           /* Main Screen */
           <div>
             <div className="text-center">
@@ -398,8 +530,10 @@ export const AdminKasa: React.FC = () => {
               </div>
             </div>
           </div>
-        ) : (
-          /* Result Screen */
+        )}
+
+        {/* Result Screen */}
+        {viewMode === "check" && resultType && (
           <div className="result-slide">
             {resultType === "valid" && (
               <div
