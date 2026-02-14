@@ -7,6 +7,8 @@ import { LocationsSection } from "./components/LocationsSection";
 import { FooterReveal } from "./components/FooterReveal";
 import { CtaSection } from "./components/CtaSection";
 import { StorySection } from "./components/StorySection";
+import { OrderMarquee } from "./components/OrderMarquee";
+import { GallerySection } from "./components/GallerySection";
 
 export default function Home() {
   return (
@@ -18,7 +20,9 @@ export default function Home() {
         <BentoMenu />
         <Statement />
         <StorySection />
+        <GallerySection />
         <LocationsSection />
+        <OrderMarquee />
         <CtaSection />
         <FooterReveal />
       </main>

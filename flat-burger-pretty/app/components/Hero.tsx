@@ -93,6 +93,30 @@ export const Hero: React.FC = () => {
         </motion.div>
       </motion.div>
 
+      {/* Double Marquee Section - Pretty Patty style */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <TextMarquee
+          text="REAL BURGERS FOR REAL PEOPLE"
+          direction="left"
+          speed={25}
+          size="lg"
+          separator="•"
+          className="bg-cream border-t-4 border-b-0 border-border"
+          textClassName="text-ink"
+          noBorder
+        />
+        <TextMarquee
+          text="STARI GRAD • BEOGRAD • FLAT BURGER"
+          direction="right"
+          speed={30}
+          size="md"
+          separator="✦"
+          className="bg-cream/80 border-b-4 border-border"
+          textClassName="text-ink/60"
+          noBorder
+        />
+      </div>
+
       <motion.div
         className="absolute right-[8%] top-[25%] h-24 w-24 rounded-full border-4 border-border bg-cream flex items-center justify-center text-[10px] font-black uppercase tracking-[0.2em]"
         style={{ x, y }}
